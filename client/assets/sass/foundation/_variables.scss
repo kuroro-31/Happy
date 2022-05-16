@@ -1,0 +1,101 @@
+:root {
+  --primary: 63, 95, 252; // #045AFC
+  --light-primary: #f2f5ff;
+  --logo: #045afc;
+  // --primary: #4070E9;
+  // --color: #1f2137;
+  --color: #1c1e21;
+  --sub-color: #9f9f9f;
+  // --bg: #F5F5F7;
+  --bg: #f8f8f8;
+  --bg-secondary: #fff;
+  --red: #fe4164;
+  // --gold2: #b76e79;
+  --color-secondary: #233a43;
+  --fff: #fff;
+  --f8: #f8f8f8;
+  --aaa: #aaa;
+  --adb: #adbad2;
+  --b2b: #b2bed5;
+  --ccc: #ccc;
+  --ddd: #ddd;
+  --eee: #eee;
+  --fcfcfc: #fcfcfc;
+  --fefefe: #fefefe;
+  --gold: #e7ca8e;
+  --gold2: #af7b52;
+  --black: #232324;
+  --black02: #292526;
+  --black03: #2b2c30;
+  --gray01: #ededf3;
+  --gray02: #7c7c7e;
+  --293: #293c64;
+  --thick-gray: #b9b9c3;
+  --gray: #d8d6de;
+  --strong: #050505;
+  .bg-primary {
+    // background: #3678d7;
+    // background: #526ffc;
+    background: rgb(69, 200, 171);
+    background: linear-gradient(
+      138deg,
+      rgba(69, 200, 171, 1) 0%,
+      rgba(51, 153, 228, 1) 100%
+    );
+    // background-image: linear-gradient(to right bottom, #f47595, #e86f95, #dc6a95, #d06594, #c36093, #b95a93, #af5494, #a44f94, #984897, #8a429b, #793e9e, #643ba2);
+  }
+  .bg-secondary {
+    background: #f0f2f6;
+    &:hover {
+      background: #ebebeb;
+    }
+  }
+  .bg-danger {
+    background: #ff4f81;
+    // background-image: linear-gradient(to right bottom, #f47595, #e86f95, #dc6a95, #d06594, #c36093, #b95a93, #af5494, #a44f94, #984897, #8a429b, #793e9e, #643ba2);
+  }
+  .primary-color {
+    color: var(--primary);
+    svg g path,
+    svg g circle,
+    svg g ellipse,
+    svg path {
+      stroke: var(--primary);
+    }
+  }
+}
+
+.dark-mode {
+  --logo: #fff;
+  --color: #bbbcc1;
+  // --color-primary: #41b38a;
+  // --color-secondary: #fdf9f3;
+
+  // --bg: #2A2A2E;
+  // --bg-secondary: ;
+
+  --bg: #161719;
+  --bg-secondary: #1f2126;
+  --bg-third: #292a2d;
+  --border-color: #0d2538;
+}
+
+$color: #293c64;
+
+$color-primary: #af7b52;
+$sub-primary: #233a43;
+$black: #000000;
+$beige: #e6d8b3;
+$wine-red: #ec5252;
+$white: white;
+
+$white: #fff;
+$black: #1c1c1c;
+$gold: #ecb756;
+$blue: #3367d6;
+$thin-blue: #00b9f1;
+$green: #2ecc71;
+$orange: #ff6c5f;
+$yellow: #f69818;
+$purple: #8e43e7;
+$red: #ff4f81;
