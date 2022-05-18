@@ -11,9 +11,7 @@ Route::get('/', 'App\Http\Controllers\Articles\IndexController');
 |--------------------------------------------------------------------------
 | Articles Routes
 |--------------------------------------------------------------------------
-|
-| 投稿のCRUD、いいね
-|
+| 投稿
 */
 Route::prefix('articles')->name('articles.')->group(function () {
     Route::post('/', 'App\Http\Controllers\Articles\StoreController')->name('store');
@@ -30,9 +28,7 @@ Route::prefix('articles')->name('articles.')->group(function () {
 |--------------------------------------------------------------------------
 | User Routes
 |--------------------------------------------------------------------------
-|
-| ユーザーのプロフィール、いいね、フォロー
-|
+| ユーザー
 */
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'App\Http\Controllers\User\ShowController')->name('show');
