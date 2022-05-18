@@ -3,19 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+
+Auth::routes();
+Route::get('/', 'App\Http\Controllers\Articles\IndexController');
+
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Articles Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| 投稿のCRUD、いいね
 |
 */
-Auth::routes();
-
-Route::get('/', 'App\Http\Controllers\Articles\IndexController');
 Route::prefix('articles')->name('articles.')->group(function () {
     Route::post('/', 'App\Http\Controllers\Articles\StoreController')->name('store');
     Route::get('/create', 'App\Http\Controllers\Articles\CreateController')->name('create');
@@ -25,4 +24,21 @@ Route::prefix('articles')->name('articles.')->group(function () {
     Route::get('/{article}/edit', 'App\Http\Controllers\Articles\EditController')->name('edit');
     Route::put('/{article}/like', 'App\Http\Controllers\Articles\LikeController')->name('like')->middleware('auth');
     Route::delete('/{article}/like', 'App\Http\Controllers\Articles\UnlikeController')->name('unlike')->middleware('auth');
+});
+
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+|
+| ユーザーのプロフィール、いいね、フォロー
+|
+*/
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', 'App\Http\Controllers\User\ShowController')->name('show');
+    Route::get('/{name}/likes', 'App\Http\Controllers\User\LikesController')->name('likes');
+    Route::get('/{name}/followings', 'App\Http\Controllers\User\FollowingsController')->name('followings');
+    Route::get('/{name}/followers', 'App\Http\Controllers\User\FollowersController')->name('followers');
+    Route::put('/{name}/follow', 'App\Http\Controllers\User\FollowController')->name('follow')->middleware('auth');
+    Route::delete('/{name}/follow', 'App\Http\Controllers\User\UnfollowController')->name('unfollow')->middleware('auth');
 });
