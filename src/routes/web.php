@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Articles\IndexController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,4 +12,4 @@ use App\Http\Controllers\Articles\IndexController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', IndexController::class);
+Route::get('/', [App\Http\Controllers\Articles\IndexController::class]);
