@@ -24,19 +24,16 @@ init:
 	php artisan storage:link
 	chmod -R 777 storage bootstrap/cache
 	@make fresh
-app:
-	bash
 migrate:
 	php artisan migrate
 fresh:
 	php artisan migrate:fresh --seed
+refresh:
+	php artisan migrate:refresh --seed
 seed:
 	php artisan db:seed
 dacapo:
 	php artisan dacapo
-rollback-test:
-	php artisan migrate:fresh
-	php artisan migrate:refresh
 tinker:
 	php artisan tinker
 test:
@@ -48,6 +45,7 @@ optimize-clear:
 cache:
 	composer dump-autoload -o
 	@make optimize
+	@make optimize-clear
 	php artisan event:cache
 	php artisan view:cache
 	@make cache-clear
