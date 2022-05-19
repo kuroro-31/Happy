@@ -7,13 +7,16 @@ use App\Models\Article;
 
 class ShowController extends Controller
 {
-    /**
-     * トップページ
-     */
-    public function __invoke()
+    public function __construct()
     {
-        $articles = Article::all()->sortByDesc('created_at');
+        $this->authorizeResource(Article::class, 'article');
+    }
 
-        return view('articles.index', compact('articles'));
+    /**
+     * 記事の詳細
+     */
+    public function __invoke(Article $article)
+    {
+        return view('articles.show', ['article' => $article]);
     }
 }

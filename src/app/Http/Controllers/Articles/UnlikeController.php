@@ -4,16 +4,26 @@ namespace App\Http\Controllers\Articles;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Http\Requests\ArticleRequest;
+use Illuminate\Http\Request;
 
 class UnlikeController extends Controller
 {
-    /**
-     * トップページ
-     */
-    public function __invoke()
+    public function __construct()
     {
-        $articles = Article::all()->sortByDesc('created_at');
+        $this->authorizeResource(Article::class, 'article');
+    }
 
-        return view('articles.index', compact('articles'));
+    /**
+     * 記事へのいいね解除
+     */
+    public function __invoke(Request $request, Article $article)
+    {
+        $article->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countLikes' => $article->count_likes,
+        ];
     }
 }

@@ -8,12 +8,22 @@ use App\Models\Article;
 class EditController extends Controller
 {
     /**
-     * トップページ
+     * 記事の編集
      */
-    public function __invoke()
+    public function __invoke(Article $article)
     {
-        $articles = Article::all()->sortByDesc('created_at');
+        $tagNames = $article->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
 
-        return view('articles.index', compact('articles'));
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('articles.edit', [
+            'article' => $article,
+            'tagNames' => $tagNames,
+            'allTagNames' => $allTagNames,
+        ]);
     }
 }

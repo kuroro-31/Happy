@@ -7,13 +7,17 @@ use App\Models\Article;
 
 class DestroyController extends Controller
 {
-    /**
-     * トップページ
-     */
-    public function __invoke()
+    public function __construct()
     {
-        $articles = Article::all()->sortByDesc('created_at');
+        $this->authorizeResource(Article::class, 'article');
+    }
 
-        return view('articles.index', compact('articles'));
+    /**
+     * 記事の削除
+     */
+    public function __invoke(Article $article)
+    {
+        $article->delete();
+        return redirect()->route('articles.index');
     }
 }
