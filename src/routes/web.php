@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes();
-Route::get('/', 'App\Http\Controllers\Articles\IndexController');
+Route::get('/', 'App\Http\Controllers\Articles\IndexController')->name('top');
 
 /*
 |--------------------------------------------------------------------------

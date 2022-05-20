@@ -17,7 +17,11 @@ class ShowController extends Controller
     public function __invoke(string $name)
     {
         $user = User::where('name', $name)->first()
-            ->load(['articles.user', 'articles.likes', 'articles.tags']);
+            ->load([
+                'articles.user',
+                // 'articles.likes',
+                // 'articles.tags'
+            ]);
 
         $articles = $user->articles->sortByDesc('created_at');
 

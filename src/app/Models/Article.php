@@ -14,12 +14,12 @@ class Article extends Model
     ];
     public function user(): BelongsTo
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     // public function likes(): BelongsToMany
     // {
-    //     return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+    //     return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
     // }
 
     // public function isLikedBy(?User $user): bool
