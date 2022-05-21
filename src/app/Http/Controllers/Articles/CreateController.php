@@ -8,19 +8,12 @@ use App\Models\Article;
 class CreateController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * 記事の作成
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
-    public function __invoke()
+    public function __invoke(Article $article)
     {
+        $this->authorize('create', $article);
         // $allTagNames = Tag::all()->map(function ($tag) {
         //     return ['text' => $tag->name];
         // });

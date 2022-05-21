@@ -10,19 +10,13 @@ use Illuminate\Http\Request;
 class UnlikeController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * 記事へのいいね解除
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
     public function __invoke(Request $request, Article $article)
     {
+        $this->authorize('update', $article);
+
         $article->likes()->detach($request->user()->id);
 
         return [

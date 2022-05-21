@@ -9,19 +9,13 @@ use App\Http\Requests\ArticleRequest;
 class StoreController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * 投稿の保存
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
     public function __invoke(ArticleRequest $request, Article $article)
     {
+        $this->authorize('create', $article);
+
         $article->fill($request->all());
         $article->user_id = $request->user()->id;
         $article->save();

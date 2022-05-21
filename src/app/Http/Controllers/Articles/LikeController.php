@@ -9,19 +9,13 @@ use Illuminate\Http\Request;
 class LikeController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * 記事へのいいね
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
     public function __invoke(Request $request, Article $article)
     {
+        $this->authorize('update', $article);
+
         $article->likes()->detach($request->user()->id);
         $article->likes()->attach($request->user()->id);
 

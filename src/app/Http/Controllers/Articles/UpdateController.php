@@ -9,19 +9,13 @@ use App\Http\Requests\ArticleRequest;
 class UpdateController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * 記事の更新
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
     public function __invoke(ArticleRequest $request, Article $article)
     {
+        $this->authorize('update', $article);
+
         $article->fill($request->all())->save();
 
         // $article->tags()->detach();

@@ -9,19 +9,13 @@ use App\Http\Requests\ArticleRequest;
 class IndexController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * トップページ
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
-    public function __invoke()
+    public function __invoke(Article $article)
     {
+        $this->authorize('viewAny', $article);
+
         $articles = Article::all()->sortByDesc('created_at')
         // ->load(['user', 'likes', 'tags'])
         ;

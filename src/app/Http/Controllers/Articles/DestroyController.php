@@ -8,19 +8,13 @@ use App\Models\Article;
 class DestroyController extends Controller
 {
     /**
-     * ポリシー
-     * src/app/Policies/ArticlePolicy.php
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
-
-    /**
      * 記事の削除
+     * ポリシー(src/app/Policies/ArticlePolicy.php)
      */
     public function __invoke(Article $article)
     {
+        $this->authorize('delete', $article);
+
         $article->delete();
         return redirect()->route('articles.index');
     }
