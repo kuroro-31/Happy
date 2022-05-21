@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Articles;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Tag;
 
 class CreateController extends Controller
 {
@@ -14,13 +15,12 @@ class CreateController extends Controller
     public function __invoke(Article $article)
     {
         $this->authorize('create', $article);
-        // $allTagNames = Tag::all()->map(function ($tag) {
-        //     return ['text' => $tag->name];
-        // });
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
 
-        // return view('articles.create', [
-        //     'allTagNames' => $allTagNames,
-        // ]);
-        return view('articles.create');
+        return view('articles.create', [
+            'allTagNames' => $allTagNames,
+        ]);
     }
 }

@@ -2,3 +2,4 @@
 .vscode
 .env
 memo.txt
+src/public/mix-manifest.json

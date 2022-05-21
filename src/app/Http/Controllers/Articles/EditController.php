@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Articles;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
@@ -16,22 +17,22 @@ class EditController extends Controller
     {
         $this->authorize('update', $article);
 
-        // if ($request->user()->cannot('article-policy', $article)) {
-        //     abort(403);
-        // }
+        if ($request->user()->cannot('article-policy', $article)) {
+            abort(403);
+        }
 
-        // $tagNames = $article->tags->map(function ($tag) {
-        //     return ['text' => $tag->name];
-        // });
+        $tagNames = $article->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
 
-        // $allTagNames = Tag::all()->map(function ($tag) {
-        //     return ['text' => $tag->name];
-        // });
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
 
         return view('articles.edit', [
             'article' => $article,
-            // 'tagNames' => $tagNames,
-            // 'allTagNames' => $allTagNames,
+            'tagNames' => $tagNames,
+            'allTagNames' => $allTagNames,
         ]);
     }
 }

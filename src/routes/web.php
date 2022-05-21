@@ -26,6 +26,10 @@ Route::prefix('articles')->name('articles.')->group(function () {
     Route::get('/{article}', 'App\Http\Controllers\Articles\ShowController')->name('show');
 });
 
+// タグ
+Route::get('/tags/{name}', 'App\Http\Controllers\TagController')->name('tags.show');
+
+
 /*
 |--------------------------------------------------------------------------
 | User Routes

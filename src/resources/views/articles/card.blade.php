@@ -84,7 +84,7 @@
       </article-like>
     </div>
   </div>
-  {{-- @foreach($article->tags as $tag)
+  @foreach($article->tags as $tag)
     @if($loop->first)
       <div class="card-body pt-0 pb-4 pl-3">
         <div class="card-text line-height">
@@ -96,5 +96,5 @@
         </div>
       </div>
     @endif
-  @endforeach --}}
+  @endforeach
 </div>
