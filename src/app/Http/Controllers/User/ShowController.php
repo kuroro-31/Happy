@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
 
 class ShowController extends Controller
@@ -19,8 +18,8 @@ class ShowController extends Controller
         $user = User::where('name', $name)->first()
             ->load([
                 'articles.user',
-                // 'articles.likes',
-                // 'articles.tags'
+                'articles.likes',
+                'articles.tags'
             ]);
 
         $articles = $user->articles->sortByDesc('created_at');
