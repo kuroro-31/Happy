@@ -12,18 +12,18 @@ class EditController extends Controller
      */
     public function __invoke(Article $article)
     {
-        $tagNames = $article->tags->map(function ($tag) {
-            return ['text' => $tag->name];
-        });
+        // $tagNames = $article->tags->map(function ($tag) {
+        //     return ['text' => $tag->name];
+        // });
 
-        $allTagNames = Tag::all()->map(function ($tag) {
-            return ['text' => $tag->name];
-        });
+        // $allTagNames = Tag::all()->map(function ($tag) {
+        //     return ['text' => $tag->name];
+        // });
 
         return view('articles.edit', [
             'article' => $article,
-            'tagNames' => $tagNames,
-            'allTagNames' => $allTagNames,
+            // 'tagNames' => $tagNames,
+            // 'allTagNames' => $allTagNames,
         ]);
     }
 }

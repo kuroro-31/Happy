@@ -27,6 +27,6 @@ class StoreController extends Controller
             // $article->tags()->attach($tag);
         // });
 
-        return redirect()->route('top');
+        return redirect()->route('articles.index');
     }
 }
