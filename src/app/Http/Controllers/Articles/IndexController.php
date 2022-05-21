@@ -8,6 +8,14 @@ use App\Http\Requests\ArticleRequest;
 
 class IndexController extends Controller
 {
+    /**
+     * ポリシー
+     * src/app/Policies/ArticlePolicy.php
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article');
+    }
 
     /**
      * トップページ

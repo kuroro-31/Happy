@@ -8,6 +8,15 @@ use App\Models\Article;
 class EditController extends Controller
 {
     /**
+     * ポリシー
+     * src/app/Policies/ArticlePolicy.php
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article');
+    }
+    
+    /**
      * 記事の編集
      */
     public function __invoke(Article $article)

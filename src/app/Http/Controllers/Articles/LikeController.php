@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
+    /**
+     * ポリシー
+     * src/app/Policies/ArticlePolicy.php
+     */
     public function __construct()
     {
         $this->authorizeResource(Article::class, 'article');
