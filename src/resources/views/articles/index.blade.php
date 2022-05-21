@@ -3,7 +3,7 @@
 @section('title', '記事一覧')
 
 @section('content')
-  @include('components.nav')
+  @include('atoms.nav')
   <div class="container">
     @foreach($articles as $article)
       @include('articles.card')

@@ -15,7 +15,7 @@
               <i class="fab fa-google mr-1"></i>Googleでログイン
             </a> --}}
 
-            @include('error_card_list')
+            @include('atoms.error_card_list')
 
             <div class="card-text">
               <form method="POST" action="{{ route('login') }}">

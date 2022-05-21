@@ -2,7 +2,7 @@
 
 @section('title', '記事更新')
 
-@include('components.nav')
+@include('atoms.nav')
 
 @section('content')
   <div class="container">
@@ -10,7 +10,7 @@
       <div class="col-12">
         <div class="card mt-3">
           <div class="card-body pt-0">
-            @include('error_card_list')
+            @include('atoms.error_card_list')
             <div class="card-text">
               {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
               <form method="POST" action="{{ route('articles.update', ['article' => $article->id]) }}">

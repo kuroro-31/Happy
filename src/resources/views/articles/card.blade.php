@@ -13,6 +13,7 @@
       </div>
     </div>
 
+  {{-- ログインユーザー & 投稿者 --}}
   @if( Auth::id() === $article->user_id )
     <!-- dropdown -->
       <div class="ml-auto card-text">
@@ -44,7 +45,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
+            <form method="POST" action="{{ route('articles.destroy', ['article' => $article->id]) }}">
               @csrf
               @method('DELETE')
               <div class="modal-body">
