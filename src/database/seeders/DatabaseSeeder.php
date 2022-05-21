@@ -16,10 +16,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(100)->create();
-        // \App\Models\Article::factory(100)->create();
 
         $faker = Faker::create('en_US');
-        for($i = 0; $i < 100; $i++){
+        for($i = 1; $i < 100; $i++){
             \App\Models\Article::create([
                 'title' => $faker->text,
                 'body' => $faker->sentence,
