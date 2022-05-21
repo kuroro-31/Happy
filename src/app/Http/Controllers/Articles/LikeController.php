@@ -14,8 +14,6 @@ class LikeController extends Controller
      */
     public function __invoke(Request $request, Article $article)
     {
-        $this->authorize('update', $article);
-
         $article->likes()->detach($request->user()->id);
         $article->likes()->attach($request->user()->id);
 
