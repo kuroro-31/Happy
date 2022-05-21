@@ -14,7 +14,6 @@ Auth::routes();
 */
 Route::get('/', 'App\Http\Controllers\Articles\IndexController')->name('articles.index');
 Route::prefix('articles')->name('articles.')->group(function () {
-    Route::get('/{article}', 'App\Http\Controllers\Articles\ShowController')->name('show');
     Route::middleware('auth')->group(function () {
         Route::post('/', 'App\Http\Controllers\Articles\StoreController')->name('store');
         Route::get('/create', 'App\Http\Controllers\Articles\CreateController')->name('create');
@@ -24,6 +23,7 @@ Route::prefix('articles')->name('articles.')->group(function () {
         Route::put('/{article}/like', 'App\Http\Controllers\Articles\LikeController')->name('like');
         Route::delete('/{article}/like', 'App\Http\Controllers\Articles\UnlikeController')->name('unlike');
     });
+    Route::get('/{article}', 'App\Http\Controllers\Articles\ShowController')->name('show');
 });
 
 /*
@@ -33,12 +33,12 @@ Route::prefix('articles')->name('articles.')->group(function () {
 | ユーザー
 */
 Route::prefix('users')->name('users.')->group(function () {
-    Route::get('/{name}', 'App\Http\Controllers\User\ShowController')->name('show');
-    Route::get('/{name}/likes', 'App\Http\Controllers\User\LikesController')->name('likes');
-    Route::get('/{name}/followings', 'App\Http\Controllers\User\FollowingsController')->name('followings');
-    Route::get('/{name}/followers', 'App\Http\Controllers\User\FollowersController')->name('followers');
     Route::middleware('auth')->group(function () {
         Route::put('/{name}/follow', 'App\Http\Controllers\User\FollowController')->name('follow');
         Route::delete('/{name}/follow', 'App\Http\Controllers\User\UnfollowController')->name('unfollow');
     });
+    Route::get('/{name}', 'App\Http\Controllers\User\ShowController')->name('show');
+    Route::get('/{name}/likes', 'App\Http\Controllers\User\LikesController')->name('likes');
+    Route::get('/{name}/followings', 'App\Http\Controllers\User\FollowingsController')->name('followings');
+    Route::get('/{name}/followers', 'App\Http\Controllers\User\FollowersController')->name('followers');
 });
