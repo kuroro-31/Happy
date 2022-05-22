@@ -1,3 +1,64 @@
+<script>
+export default {
+props: {
+    initialIsFollowedBy: {
+    type: Boolean,
+    default: false,
+    },
+    authorized: {
+    type: Boolean,
+    default: false,
+    },
+    endpoint: {
+    type: String,
+    },
+},
+data() {
+    return {
+    isFollowedBy: this.initialIsFollowedBy,
+    }
+},
+computed: {
+    buttonColor() {
+    return this.isFollowedBy
+        ? 'bg-primary text-white'
+        : 'bg-white'
+    },
+    buttonIcon() {
+    return this.isFollowedBy
+        ? 'fas fa-user-check'
+        : 'fas fa-user-plus'
+    },
+    buttonText() {
+    return this.isFollowedBy
+        ? 'フォロー中'
+        : 'フォロー'
+    },
+},
+methods: {
+    clickFollow() {
+    if (!this.authorized) {
+        alert('フォロー機能はログイン中のみ使用できます')
+        return
+    }
+
+    this.isFollowedBy
+        ? this.unfollow()
+        : this.follow()
+    },
+    async follow() {
+    const response = await axios.put(this.endpoint)
+
+    this.isFollowedBy = true
+    },
+    async unfollow() {
+    const response = await axios.delete(this.endpoint)
+
+    this.isFollowedBy = false
+    },
+},
+}
+</script>
 <template>
   <div>
     <button
@@ -13,65 +74,3 @@
     </button>
   </div>
 </template>
-
-<script>
-  export default {
-    props: {
-      initialIsFollowedBy: {
-        type: Boolean,
-        default: false,
-      },
-      authorized: {
-        type: Boolean,
-        default: false,
-      },
-      endpoint: {
-        type: String,
-      },
-    },
-    data() {
-      return {
-        isFollowedBy: this.initialIsFollowedBy,
-      }
-    },
-    computed: {
-      buttonColor() {
-        return this.isFollowedBy
-          ? 'bg-primary text-white'
-          : 'bg-white'
-      },
-      buttonIcon() {
-        return this.isFollowedBy
-          ? 'fas fa-user-check'
-          : 'fas fa-user-plus'
-      },
-      buttonText() {
-        return this.isFollowedBy
-          ? 'フォロー中'
-          : 'フォロー'
-      },
-    },
-    methods: {
-      clickFollow() {
-        if (!this.authorized) {
-          alert('フォロー機能はログイン中のみ使用できます')
-          return
-        }
-
-        this.isFollowedBy
-          ? this.unfollow()
-          : this.follow()
-      },
-      async follow() {
-        const response = await axios.put(this.endpoint)
-
-        this.isFollowedBy = true
-      },
-      async unfollow() {
-        const response = await axios.delete(this.endpoint)
-
-        this.isFollowedBy = false
-      },
-    },
-  }
-</script>

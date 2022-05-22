@@ -6,7 +6,6 @@ import FollowButton from './components/FollowButton'
 
 createApp({
     components: {
-        'example-component': ExampleComponent,
         'ArticleLike': ArticleLike,
         'ArticleTagsInput': ArticleTagsInput,
         'FollowButton': FollowButton,

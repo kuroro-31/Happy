@@ -1,21 +1,3 @@
-<template>
-  <div>
-    <input
-      type="hidden"
-      name="tags"
-      :value="tagsJson"
-    >
-    <vue-tags-input
-      v-model="tag"
-      :tags="tags"
-      placeholder="タグを5個まで入力できます"
-      :add-on-key="[13, 32]"
-      :autocomplete-items="filteredItems"
-      @tags-changed="newTags => tags = newTags"
-    />
-  </div>
-</template>
-
 <script>
   import VueTagsInput from '@johmun/vue-tags-input';
 
@@ -51,12 +33,30 @@
     },
   };
 </script>
+<template>
+  <div>
+    <input
+      type="hidden"
+      name="tags"
+      :value="tagsJson"
+    >
+    <vue-tags-input
+      v-model="tag"
+      :tags="tags"
+      placeholder="タグを5個まで入力できます"
+      :add-on-key="[13, 32]"
+      :autocomplete-items="filteredItems"
+      @tags-changed="newTags => tags = newTags"
+    />
+  </div>
+</template>
+
 <style lang="css" scoped>
   .vue-tags-input {
     max-width: inherit;
   }
 </style>
-<style lang="css">
+<style lang="scss">
   .vue-tags-input .ti-tag {
     background: transparent;
     border: 1px solid #747373;
