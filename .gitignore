@@ -4,3 +4,5 @@
 memo.txt
 src/public/mix-manifest.json
 src/package.json
+src/public/js/app.js
+src/public/css/app.css
