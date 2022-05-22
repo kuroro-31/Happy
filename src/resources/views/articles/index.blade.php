@@ -3,10 +3,11 @@
 @section('title', '記事一覧')
 
 @section('content')
-  @include('atoms.nav')
-  <div>
+@include('atoms.nav')
+<div>
     @foreach($articles as $article)
-      @include('articles.card')
+    @include('articles.card')
     @endforeach
-  </div>
+    {{ $articles->links() }}
+</div>
 @endsection
