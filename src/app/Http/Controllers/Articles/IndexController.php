@@ -10,9 +10,13 @@ class IndexController extends Controller
     /**
      * トップページ
      */
-    public function __invoke()
+    public function __invoke(Article $article)
     {
-        $articles = Article::orderBy('created_at')->paginate(10)
+
+        // $articles = Article::all()->sortByDesc('created_at')
+        // ->load(['user', 'likes', 'tags'])
+        $article = new Article();
+        $articles = $article->orderBy("created_at", "desc")->paginate(15)
         ->load(['user', 'likes', 'tags']);
         return view('articles.index', compact('articles'));
     }

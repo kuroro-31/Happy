@@ -2,7 +2,7 @@
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="/" class="flex items-center">
             {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" /> --}}
-            <span class="self-center text-3xl font-semibold whitespace-nowrap">Wisher</span>
+            <span class="self-center text-3xl font-semibold whitespace-nowrap">Pub</span>
         </a>
         <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium">

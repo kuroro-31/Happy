@@ -8,6 +8,9 @@
     @foreach($articles as $article)
     @include('articles.card')
     @endforeach
-    {{ $articles->links() }}
 </div>
+{{-- {{ $articles->links() }} --}}
+{{-- {{ $articles->links('vendor/pagination/tailwind') }} --}}
+{{-- {{ $articles->withQueryString()->links() }} --}}
+{{-- {{ $articles->onEachSide(5)->links() }} --}}
 @endsection
