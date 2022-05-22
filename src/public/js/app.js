@@ -2506,9 +2506,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _components_ArticleLike__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ArticleLike */ "./resources/js/components/ArticleLike.vue");
 /* harmony import */ var _components_ArticleTagsInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ArticleTagsInput */ "./resources/js/components/ArticleTagsInput.vue");
 /* harmony import */ var _components_FollowButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FollowButton */ "./resources/js/components/FollowButton.vue");
