@@ -1,5 +1,5 @@
 <script>
-  import VueTagsInput from '@johmun/vue-tags-input';
+  import VueTagsInput from "@sipec/vue3-tags-input";
 
   export default {
     components: {
