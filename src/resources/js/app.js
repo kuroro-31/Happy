@@ -3,11 +3,14 @@ import './bootstrap'
 import ArticleLike from './components/ArticleLike'
 import ArticleTagsInput from './components/ArticleTagsInput'
 import FollowButton from './components/FollowButton'
+import HeaderNav from './components/HeaderNav'
+
 
 createApp({
     components: {
-        'ArticleLike': ArticleLike,
-        'ArticleTagsInput': ArticleTagsInput,
-        'FollowButton': FollowButton,
+        ArticleLike,
+        ArticleTagsInput,
+        FollowButton,
+        HeaderNav
     },
 }).mount('#app')
