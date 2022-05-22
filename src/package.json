@@ -10,8 +10,8 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "@sipec/vue3-tags-input": "^3.0.4",
         "@popperjs/core": "^2.10.2",
+        "@sipec/vue3-tags-input": "^3.0.4",
         "@vue/compiler-sfc": "^3.2.35",
         "autoprefixer": "^10.4.7",
         "axios": "^0.25",

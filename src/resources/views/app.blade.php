@@ -14,8 +14,8 @@
   <div id="app">
     @yield('content')
   </div>
-
-  <script src="{{ mix('js/app.js') }}"></script> {{--この行を追加--}}
+  <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
+  <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
