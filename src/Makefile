@@ -43,7 +43,8 @@ optimize:
 optimize-clear:
 	php artisan optimize:clear
 cache:
-	composer dump-autoload -o
+	composer dump-autoload
+	php artisan clear-compiled
 	@make optimize
 	@make optimize-clear
 	php artisan event:cache
@@ -53,3 +54,5 @@ cache-clear:
 	composer clear-cache
 	@make optimize-clear
 	php artisan event:clear
+route:
+	php artisan route:list
