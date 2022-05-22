@@ -52,9 +52,8 @@
                                 " data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
                         <ul class="py-1 text-sm" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="{{ route(" users.show", ["name"=> Auth::user()->name]) }}"
-                                    class="block px-4 py-2"
-                                    >マイページ</a>
+                                <a href="{{ route('users.show', ['name'=> Auth::user()->name]) }}"
+                                    class="block px-4 py-2">マイページ</a>
                             </li>
                         </ul>
                         <div class="py-1">
