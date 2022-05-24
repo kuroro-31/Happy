@@ -13,6 +13,8 @@ Auth::routes();
 Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
 Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
 
+Route::get('/facebook/auth', 'App\Http\Controllers\Auth\FacebookController@loginUsingFacebook')->name('facebook.login');
+Route::get('facebook/callback', 'App\Http\Controllers\Auth\FacebookController@callbackFromFacebook')->name('facebook.callback');
 /*
 |--------------------------------------------------------------------------
 | Articles Routes

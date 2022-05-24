@@ -11,7 +11,7 @@
             @endif
         </div>
         <h2 class="h5 card-title m-0">
-            <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
+            <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-4xl font-semibold">
                 {{ $user->name }}
             </a>
         </h2>
@@ -19,10 +19,12 @@
     <div class="card-body">
         <div class="card-text">
             <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted">
-                {{ $user->count_followings }} フォロー
+                <span class="font-semibold text-xl">{{ $user->count_followings }}</span>
+                フォロー
             </a>
             <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted">
-                {{ $user->count_followers }} フォロワー
+                <span class="font-semibold text-xl">{{ $user->count_followers }}</span>
+                フォロワー
             </a>
         </div>
     </div>

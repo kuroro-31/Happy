@@ -8,9 +8,11 @@
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium">
                 @auth
                 <li class="nav-item">
-                    <a href="{{ route('articles.create') }}" class="py-3 px-6 rounded-full bg-primary text-white"><i
+                    <a href="{{ route('articles.create') }}"
+                        class="text-sm px-5 py-2.5 rounded-full bg-primary text-white"><i
                             class="fas fa-pen mr-1"></i>投稿する</a>
                 </li>
+
                 @endauth
                 @guest
                 <li>
@@ -25,19 +27,20 @@
                         ログイン
                     </a>
                 </li>
+                {{-- <li>
+                    <a href="{{ route('facebook.login') }}" class="btn btn-facebook btn-user btn-block">
+                        <i class="fab fa-facebook-f fa-fw"></i>
+                        Login with Facebook
+                    </a>
+                </li> --}}
                 @endguest
 
                 @auth
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium border-b border-gray-100 md:p-0 md:w-auto">
-                        Dropdown
-                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        class="flex items-center justify-between w-full pl-3 pr-4 font-medium border-b border-gray-100 md:p-0 md:w-auto">
+                        <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+                            src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bordered avatar">
                     </button>
 
                     <div id="dropdownNavbar" class="z-10 hidden divide-y divide-gray-100 rounded shadow w-44 bg-white"

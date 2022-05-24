@@ -36,4 +36,9 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('APP_URL') . '/login/google/callback',
     ],
+    'facebook' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'), //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'), //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'redirect' => env('APP_URL') . '/login/facebook/callback'
+    ],
 ];
