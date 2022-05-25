@@ -27,7 +27,8 @@
 
                 <div class="md-form">
                   <label for="password_confirmation">新しいパスワード(再入力)</label>
-                  <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" required>
+                  <input class="form-control" type="password" id="password_confirmation" name="password_confirmation"
+                    required>
                 </div>
 
                 <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">送信</button>

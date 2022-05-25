@@ -3,12 +3,12 @@
 @section('title', $user->name . 'のフォロー中')
 
 @section('content')
-@include('atoms.nav')
-<div class="container">
+  @include('atoms.nav')
+  <div class="container">
     @include('users.user')
     @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false])
-    @foreach($followings as $person)
-    @include('users.person')
+    @foreach ($followings as $person)
+      @include('users.person')
     @endforeach
-</div>
+  </div>
 @endsection
