@@ -1,71 +1,83 @@
-<nav class="p-4 bg-white">
-  <div class="container flex flex-wrap items-center justify-between mx-auto">
-    <a href="/" class="flex items-center">
-      {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" /> --}}
-      <span class="self-center text-3xl font-semibold whitespace-nowrap">Pub</span>
-    </a>
-    <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium">
-        @auth
-          <li class="nav-item">
-            <a href="{{ route('articles.create') }}" class="text-sm px-5 py-2.5 rounded-full bg-primary text-white"><i
-                class="fas fa-pen mr-1"></i>投稿する</a>
-          </li>
-
-        @endauth
-        @guest
-          <li>
-            <a href="{{ route('register') }}" class="block py-2 pl-3 pr-4 border-b border-gray-100">
-              ユーザー登録
-            </a>
-          </li>
-        @endguest
-        @guest
-          <li>
-            <a href="{{ route('login') }}" class="block py-2 pl-3 pr-4 border-b border-gray-100">
-              ログイン
-            </a>
-          </li>
-          {{-- <li>
-                    <a href="{{ route('facebook.login') }}" class="btn btn-facebook btn-user btn-block">
-                        <i class="fab fa-facebook-f fa-fw"></i>
-                        Login with Facebook
-                    </a>
-                </li> --}}
-        @endguest
-
-        @auth
-          <li>
-            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-              class="flex items-center justify-between w-full pl-3 pr-4 font-medium border-b border-gray-100 md:p-0 md:w-auto">
-              <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bordered avatar">
-            </button>
-
-            <div id="dropdownNavbar" class="z-10 hidden divide-y divide-gray-100 rounded shadow w-44 bg-white" style="
-                                              position: absolute;
-                                              inset: auto auto 0px 0px;
-                                              margin: 0px;
-                                              transform: translate3d(
-                                                  741px,
-                                                  2266.5px,
-                                                  0px
-                                              );
-                                          " data-popper-reference-hidden="" data-popper-escaped=""
-              data-popper-placement="top">
-              <ul class="py-1" aria-labelledby="dropdownLargeButton">
+<div
+  class="bg-white sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] supports-backdrop-blur:bg-white/60 dark:bg-transparent">
+  <div class="max-w-8xl mx-auto">
+    <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+      <div class="relative flex items-center">
+        <a href="/" class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto">
+          <span class="sr-only">Tailwind CSS home page</span>
+          <span class="text-2xl font-semibold">Public</span>
+        </a>
+        <div class="relative hidden lg:flex items-center ml-auto">
+          <nav class="text-sm leading-6 font-semibold">
+            <ul class="flex space-x-8">
+              @guest
                 <li>
-                  <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}" class="block px-4 py-2">マイページ</a>
+                  <a href="{{ route('register') }}">
+                    ユーザー登録
+                  </a>
                 </li>
-              </ul>
-              <div class="py-1">
-                <button form="logout-button" type="submit" class="block px-4 py-2">ログアウト</button>
-                <form id="logout-button" method="POST" action="{{ route('logout') }}">@csrf</form>
-              </div>
-            </div>
-          </li>
-        @endauth
-      </ul>
+                <li>
+                  <a href="{{ route('login') }}">
+                    ログイン
+                  </a>
+                </li>
+              @endguest
+              @auth
+                <li>
+                  <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                    class="flex items-center justify-between w-full pl-3 pr-4 font-medium border-b border-gray-100 md:p-0 md:w-auto">
+                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bordered avatar">
+                  </button>
+
+                  <div id="dropdownNavbar" class="z-10 hidden divide-y divide-gray-100 rounded shadow w-44 bg-white"
+                    data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
+                    <ul class="py-1" aria-labelledby="dropdownLargeButton">
+                      <li>
+                        <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}"
+                          class="block px-4 py-2">マイページ</a>
+                      </li>
+                    </ul>
+                    <div class="py-1">
+                      <button form="logout-button" type="submit" class="block px-4 py-2">ログアウト</button>
+                      <form id="logout-button" method="POST" action="{{ route('logout') }}">@csrf</form>
+                    </div>
+                  </div>
+                </li>
+              @endauth
+            </ul>
+          </nav>
+          <div class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800"><label
+              class="sr-only" id="headlessui-listbox-label-3">Theme</label><button type="button"
+              id="headlessui-listbox-button-4" aria-haspopup="true" aria-expanded="false"
+              aria-labelledby="headlessui-listbox-label-3 headlessui-listbox-button-undefined"><span
+                class="dark:hidden"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="w-6 h-6">
+                  <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="stroke-slate-400 dark:stroke-slate-500"></path>
+                  <path
+                    d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+                    class="stroke-slate-400 dark:stroke-slate-500"></path>
+                </svg></span>
+              <span class="hidden dark:inline"><svg viewBox="0 0 24 24" fill="none" class="w-6 h-6">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+                    class="fill-transparent"></path>
+                  <path
+                    d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+                    class="fill-slate-400 dark:fill-slate-500"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+                    class="fill-slate-400 dark:fill-slate-500"></path>
+                </svg></span></button><a href="https://github.com/tailwindlabs/tailwindcss"
+              class="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"><span
+                class="sr-only">Tailwind CSS on GitHub</span><svg viewBox="0 0 16 16" class="w-5 h-5"
+                fill="currentColor" aria-hidden="true">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                </path>
+              </svg></a></div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</div>
