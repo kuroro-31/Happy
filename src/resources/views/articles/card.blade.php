@@ -1,4 +1,4 @@
-<div class="card p-4 border">
+<div class="card p-4 shadow rounded-lg bg-white mb-4">
   <div class="flex items-center justify-between">
     <span class="flex items-center">
       <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt=""
