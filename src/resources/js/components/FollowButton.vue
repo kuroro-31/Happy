@@ -1,3 +1,15 @@
+<template>
+    <div>
+        <button
+            class="btn-sm shadow-none border border-primary p-2"
+            :class="buttonColor"
+            @click="clickFollow"
+        >
+            <i class="mr-1" :class="buttonIcon"></i>
+            {{ buttonText }}
+        </button>
+    </div>
+</template>
 <script>
 export default {
     props: {
@@ -51,15 +63,3 @@ export default {
     },
 };
 </script>
-<template>
-    <div>
-        <button
-            class="btn-sm shadow-none border border-primary p-2"
-            :class="buttonColor"
-            @click="clickFollow"
-        >
-            <i class="mr-1" :class="buttonIcon"></i>
-            {{ buttonText }}
-        </button>
-    </div>
-</template>

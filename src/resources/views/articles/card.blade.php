@@ -1,16 +1,24 @@
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
-    <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+    <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="font-semibold">
       <i class="fas fa-user-circle fa-3x mr-1"></i>
     </a>
-    <div>
-      <div class="font-weight-bold">
-        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-          {{ $article->user->name }}
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt=""
+          class="rounded-full h-10 w-10 object-cover mr-3">
+        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex flex-col">
+          <span class="font-semibold">{{ $article->user->name }}</span>
+          <span class="text-gray text-xs font-semibold">
+            {{ $article->created_at->format('Y/m/d H:i') }}
+          </span>
+        </a>
       </div>
-      <div class="font-weight-lighter">
-        {{ $article->created_at->format('Y/m/d H:i') }}
-      </div>
+      @if (Auth::id() === $article->user_id)
+        <div>
+          <edit-modal :article-id='{{ $article->id }}'></edit-modal>
+        </div>
+      @endif
     </div>
 
     {{-- ログインユーザー & 投稿者 --}}
@@ -18,6 +26,7 @@
       <!-- dropdown -->
       <div class="ml-auto card-text">
         <div class="dropdown">
+
           <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <button type="button" class="btn btn-link text-muted m-0 p-2">
               <i class="fas fa-ellipsis-v"></i>

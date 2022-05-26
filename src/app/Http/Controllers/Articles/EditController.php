@@ -17,10 +17,6 @@ class EditController extends Controller
     {
         $this->authorize('update', $article);
 
-        if ($request->user()->cannot('article-policy', $article)) {
-            abort(403);
-        }
-
         $tagNames = $article->tags->map(function ($tag) {
             return ['text' => $tag->name];
         });
