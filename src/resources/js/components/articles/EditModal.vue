@@ -22,12 +22,12 @@
       @click.self="open = false"
     >
       <div class="">
-        <span class="cursor-pointer" @click="update">
+        <span class="cursor-pointer" @click="edit">
           <i class="fas fa-pen mr-1"></i>
           記事を更新する
         </span>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item text-danger" data-toggle="modal">
+        <a class="cursor-pointer" @click="destroy">
           <i class="fas fa-trash-alt mr-1"></i>
           記事を削除する
         </a>
@@ -49,8 +49,11 @@ export default {
     },
   },
   methods: {
-    update() {
+    edit() {
       window.location = `/articles/${this.articleId}/edit`
+    },
+    destroy() {
+      window.location = `/articles/${this.articleId}`
     },
   },
 }
