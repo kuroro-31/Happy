@@ -9,7 +9,7 @@
         </a>
         <div class="relative hidden lg:flex items-center ml-auto">
           <nav class="text-sm leading-6 font-semibold">
-            <ul class="flex space-x-8">
+            <ul class="flex items-center">
               @guest
                 <li>
                   <a href="{{ route('register') }}">
@@ -23,6 +23,11 @@
                 </li>
               @endguest
               @auth
+                <li class="mr-6 bg-primary text-white rounded-full py-2.5 px-6">
+                  <a href="{{ route('articles.create') }}">
+                    投稿する
+                  </a>
+                </li>
                 <li>
                   <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
                     class="flex items-center justify-between w-full pl-3 pr-4 font-medium border-b border-gray-100 md:p-0 md:w-auto">
