@@ -1,15 +1,15 @@
 <div class="card p-4 shadow rounded-lg bg-white mb-4">
   <div class="flex items-center justify-between">
-    <span class="flex items-center">
+    <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex items-center">
       <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt=""
         class="rounded-full h-10 w-10 object-cover mr-3">
-      <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex flex-col">
+      <span class="flex flex-col">
         <span class="font-semibold">{{ $article->user->name }}</span>
         <span class="text-gray text-xs font-semibold">
           {{ $article->created_at->format('Y/m/d H:i') }}
         </span>
-      </a>
-    </span>
+      </span>
+    </a>
     @if (Auth::id() === $article->user_id)
       <div>
         <edit-modal :article-id='{{ $article->id }}'>
