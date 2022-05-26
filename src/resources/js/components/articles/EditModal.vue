@@ -20,17 +20,7 @@
         v-show="open"
         class="absolute right-0 -top-2 w-48 z-50 rounded shadow-lg p-4 bg-white"
       >
-        <div>
-          <span class="cursor-pointer" @click="edit">
-            <i class="fas fa-pen mr-1 hover:text-primary"></i>
-            記事を更新する
-          </span>
-          <div class="dropdown-divider"></div>
-          <span @click="destroy" class="cursor-pointer">
-            <i class="fas fa-trash-alt mr-1 hover:text-primary"></i>
-            記事を削除する
-          </span>
-        </div>
+        <slot></slot>
       </div>
     </transition>
   </div>
