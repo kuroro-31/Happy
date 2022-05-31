@@ -1,7 +1,7 @@
 <template>
     <div>
         <button
-            class="btn-sm shadow-none border border-primary p-2"
+            class="text-base shadow-none border border-primary rounded-full py-2.5 px-6"
             :class="buttonColor"
             @click="clickFollow"
         >

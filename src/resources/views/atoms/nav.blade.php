@@ -29,7 +29,7 @@
                 </li>
                 <li>
                   <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                    class="flex items-center justify-between w-full pl-3 pr-4 font-medium border-b border-gray-100 md:p-0 md:w-auto">
+                    class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto">
                     <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
                       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bordered avatar">
                   </button>

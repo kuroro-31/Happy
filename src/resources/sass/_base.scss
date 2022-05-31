@@ -14,3 +14,11 @@ body {
     white-space: nowrap;
     border-width: 0;
 }
+
+.profile-img {
+    @apply object-cover max-w-full min-w-full rounded-lg shadow;
+    @screen md {
+        min-height: 300px;
+        max-height: 300px;
+    }
+}

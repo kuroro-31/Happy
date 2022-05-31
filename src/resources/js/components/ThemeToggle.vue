@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800"
+            class="flex items-center border-l border-slate-400 ml-4 pl-4 dark:border-slate-800"
         >
             <label class="sr-only" id="headlessui-listbox-label-3">
                 Theme
