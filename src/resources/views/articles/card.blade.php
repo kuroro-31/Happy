@@ -1,4 +1,4 @@
-<div class="card p-4 shadow rounded-lg bg-white mb-4">
+<div class="card p-2 shadow rounded-lg bg-white mb-4">
   <div class="flex items-center justify-between">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex items-center">
       <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt=""
@@ -13,11 +13,12 @@
     @if (Auth::id() === $article->user_id)
       <div>
         <edit-modal :article-id='{{ $article->id }}'>
-          <a class="cursor-pointer" href="{{ route('articles.edit', ['article' => $article]) }}">
+          <a class="block cursor-pointer p-2 rounded-lg hover:bg-slate-100"
+            href="{{ route('articles.edit', ['article' => $article]) }}">
             <i class=""></i>記事を更新する
           </a>
           <form method="POST" action="{{ route('articles.destroy', ['article' => $article->id]) }}"
-            class="cursor-pointer">
+            class="cursor-pointer p-2 rounded-lg hover:bg-slate-100">
             @csrf
             @method('DELETE')
             <button type="submit" class="">削除する</button>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="dark">
 
 <head>
   <meta charset="utf-8">
@@ -9,6 +9,7 @@
   <title>
     @yield('title')
   </title>
+  <script src="{{ asset('js/darkmode.js') }}"></script>
 </head>
 
 <body>

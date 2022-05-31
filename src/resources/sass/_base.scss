@@ -1,7 +1,6 @@
 body {
-    @apply text-lg;
+    @apply text-lg bg-white-100 dark:bg-dark;
     color: #3c4043;
-    background: #f8f8f8 !important;
     font-family: "Montserrat", sans-serif;
 }
 

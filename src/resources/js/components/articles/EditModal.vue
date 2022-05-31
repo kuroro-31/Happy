@@ -18,7 +18,7 @@
     <transition>
       <div
         v-show="open"
-        class="absolute right-0 -top-2 w-48 z-50 rounded-lg shadow p-4 bg-white"
+        class="absolute right-0 -top-2 w-48 z-50 rounded-lg shadow p-2 bg-white"
       >
         <slot></slot>
       </div>
