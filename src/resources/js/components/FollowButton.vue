@@ -31,7 +31,7 @@ export default {
     },
     computed: {
         buttonColor() {
-            return this.isFollowedBy ? "bg-primary text-white shadow shadow-primary" : "bg-white text-primary hover:bg-slate-100";
+            return this.isFollowedBy ? "bg-primary hover:bg-opacity-90 text-white shadow shadow-primary" : "bg-white dark:hover:bg-opacity-70 dark:font-bold dark:bg-primary text-primary dark:text-white hover:bg-slate-100";
         },
         buttonText() {
             return this.isFollowedBy ? "フォロー中" : "フォロー";

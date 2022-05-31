@@ -22,7 +22,7 @@
                 </li>
               @endguest
               @auth
-                <li class="mr-6 bg-primary shadow shadow-primary text-white rounded-xl py-2 px-6">
+                <li class="mr-6 bg-primary hover:bg-opacity-90 shadow shadow-primary text-white rounded-xl py-2 px-6">
                   <a href="{{ route('articles.create') }}">
                     投稿する
                   </a>

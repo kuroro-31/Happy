@@ -1,7 +1,7 @@
 <ul class="mb-4 flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
   <li class="mr-2">
     <a href="{{ route('users.show', ['name' => $user->name]) }}"
-      class="{{ $hasArticles ? 'text-white bg-primary shadow shadow-primary' : 'hover:bg-slate-100' }} inline-block py-2 px-4 rounded-xl"
+      class="{{ $hasArticles ? 'text-white bg-primary hover:bg-opacity-90 shadow shadow-primary' : 'hover:bg-slate-100' }} inline-block py-2 px-4 rounded-xl"
       aria-current="page">記事</a>
   </li>
   <li class="mr-2">
