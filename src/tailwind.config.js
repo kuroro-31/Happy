@@ -18,7 +18,11 @@ module.exports = {
             'white': '#ffffff',
             'white-100': 'f8f8f8',
             // dark
-            'dark': '#232429',
+            'dark': '#222327',
+            'dark-2': '#31353F',
+            //color
+            't-color': '#3c4043',
+            't-d-color': '#ffffff',
             'purple': '#3f3cbb',
             'midnight': '#121063',
             'metal': '#565584',

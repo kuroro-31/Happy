@@ -1,4 +1,4 @@
-<div class="card p-2 shadow rounded-lg bg-white mb-4">
+<div class="card p-4 shadow dark:shadow-none rounded-lg bg-white dark:bg-dark-2 mb-6">
   <div class="flex items-center justify-between">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex items-center">
       <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt=""

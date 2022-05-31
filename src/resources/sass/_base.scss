@@ -1,6 +1,5 @@
 body {
-    @apply text-lg bg-white-100 dark:bg-dark;
-    color: #3c4043;
+    @apply text-lg bg-white-100 dark:bg-dark text-t-color dark:text-t-d-color;
     font-family: "Montserrat", sans-serif;
 }
 
