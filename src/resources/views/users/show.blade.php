@@ -11,7 +11,6 @@
     <div class="md:w-1/5 relative h-screen py-8 pr-4">
       <div class="sticky">
         <a href="">aajjrgiaj
-
         </a>
       </div>
     </div>
@@ -24,7 +23,6 @@
     <div class="md:w-1/5 relative h-screen py-8 pl-4">
       <div class="sticky">
         <a href="">aajjrgiaj
-
         </a>
       </div>
     </div>
