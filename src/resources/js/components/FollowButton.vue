@@ -1,11 +1,10 @@
 <template>
     <div>
         <button
-            class="text-base shadow-none border border-primary rounded-full py-2.5 px-6"
+            class="text-sm shadow-none border border-primary rounded-xl py-2 px-6"
             :class="buttonColor"
             @click="clickFollow"
         >
-            <i class="mr-1" :class="buttonIcon"></i>
             {{ buttonText }}
         </button>
     </div>
@@ -32,10 +31,7 @@ export default {
     },
     computed: {
         buttonColor() {
-            return this.isFollowedBy ? "bg-primary text-white" : "bg-white";
-        },
-        buttonIcon() {
-            return this.isFollowedBy ? "fas fa-user-check" : "fas fa-user-plus";
+            return this.isFollowedBy ? "bg-primary text-white shadow shadow-primary" : "bg-white text-primary";
         },
         buttonText() {
             return this.isFollowedBy ? "フォロー中" : "フォロー";

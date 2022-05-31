@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-dark-2 sticky top-0 z-40 w-full flex-none lg:z-50">
+<div class="bg-white dark:bg-dark sticky top-0 z-40 w-full flex-none lg:z-50">
   <div class="max-w-8xl mx-auto">
     <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
       <div class="relative flex items-center">
@@ -7,7 +7,7 @@
           <span class="text-2xl font-semibold">Public</span>
         </a>
         <div class="relative hidden lg:flex items-center ml-auto">
-          <nav class="text-sm leading-6 font-semibold">
+          <nav class="text-sm">
             <ul class="flex items-center">
               @guest
                 <li>
@@ -22,7 +22,7 @@
                 </li>
               @endguest
               @auth
-                <li class="mr-6 bg-primary text-white rounded-full py-2.5 px-6">
+                <li class="mr-6 bg-primary shadow shadow-primary text-white rounded-xl py-2 px-6">
                   <a href="{{ route('articles.create') }}">
                     投稿する
                   </a>
