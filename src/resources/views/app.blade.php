@@ -9,7 +9,6 @@
   <title>
     @yield('title')
   </title>
-  <script src="{{ asset('js/darkmode.js') }}"></script>
 </head>
 
 <body>
