@@ -1,10 +1,6 @@
 <template>
     <div>
-        <button
-            class="text-sm shadow-none border border-primary rounded-xl py-2 px-6"
-            :class="buttonColor"
-            @click="clickFollow"
-        >
+        <button :class="buttonColor" @click="clickFollow">
             {{ buttonText }}
         </button>
     </div>
@@ -31,7 +27,7 @@ export default {
     },
     computed: {
         buttonColor() {
-            return this.isFollowedBy ? "bg-primary hover:bg-opacity-90 text-white shadow shadow-primary" : "bg-white dark:hover:bg-opacity-70 dark:font-bold dark:bg-primary text-primary dark:text-white hover:bg-slate-100";
+            return this.isFollowedBy ? "btn-primary" : "btn-border";
         },
         buttonText() {
             return this.isFollowedBy ? "フォロー中" : "フォロー";
