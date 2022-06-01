@@ -16,7 +16,7 @@ body {
 }
 
 .profile-img {
-    @apply object-cover max-w-full min-w-full rounded-lg shadow;
+    @apply object-cover max-w-full min-w-full rounded-lg;
     @screen md {
         min-height: 300px;
         max-height: 300px;

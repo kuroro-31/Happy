@@ -1,6 +1,6 @@
 <div class="max-w-6xl mx-auto">
   <img src="https://source.unsplash.com/1000x300?fashion" alt="" class="profile-img">
-  <div class="flex items-end -mt-16 px-16">
+  <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark rounded-lg pb-4 shadow">
     <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
       <img src="https://source.unsplash.com/190x190?woman" alt=""
         class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">

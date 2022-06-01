@@ -1,6 +1,7 @@
 module.exports = {
     mode: 'jit',
     darkMode: 'class',
+    important: true,
     content: [
       "./resources/**/*.blade.php",
       "./resources/**/*.js",
@@ -16,7 +17,7 @@ module.exports = {
             'gray': '#B0B3B8',
             // white
             'white': '#ffffff',
-            'white-100': 'f8f8f8',
+            'white-100': '#f8f8f8',
             // dark
             'dark': '#222327',
             'dark-2': '#31353F',
