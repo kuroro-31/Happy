@@ -1,5 +1,7 @@
 <template>
-    <span>{{ animated_number }}</span>
+    <span :class="{ liked: isLikedBy }" class="text-sm">{{
+        animated_number
+    }}</span>
 </template>
 <script>
 export default {
@@ -7,6 +9,10 @@ export default {
         value: {
             type: Number,
             default: 0,
+        },
+        isLikedBy: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {
@@ -41,3 +47,8 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.liked {
+    color: rgba(221, 70, 136, 1);
+}
+</style>

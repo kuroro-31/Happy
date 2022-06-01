@@ -3,6 +3,6 @@
 .env
 memo.txt
 src/public/mix-manifest.json
-src/package.json
+src/package-lock.json
 src/public/js/app.js
 src/public/css/app.css
