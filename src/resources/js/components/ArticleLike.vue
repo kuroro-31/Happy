@@ -35,11 +35,13 @@
                 />
             </svg>
         </button>
-        {{ countLikes }}
+        <count-animation :value="countLikes"></count-animation>
     </div>
 </template>
 <script>
+import CountAnimation from "./CountAnimation.vue";
 export default {
+    components: { CountAnimation },
     props: {
         initialIsLikedBy: {
             type: Boolean,
@@ -62,7 +64,6 @@ export default {
             isLikedBy: this.initialIsLikedBy,
             countLikes: this.initialCountLikes,
             gotToLike: false,
-            animated_number: 0,
         };
     },
     methods: {
@@ -88,31 +89,6 @@ export default {
             this.countLikes = response.data.countLikes;
             this.gotToLike = false;
         },
-    },
-    watch: {
-        value(newValue, oldValue) {
-            let timeCnt = 0;
-            let timer;
-            const animate = () => {
-                timeCnt++;
-                if (timeCnt <= 60) {
-                    this.animated_number =
-                        Math.floor(((newValue - oldValue) * timeCnt) / 60) +
-                        oldValue;
-                    timer = setTimeout(() => {
-                        animate();
-                    }, 10);
-                } else {
-                    clearTimeout(timer);
-                    timer = null;
-                    this.animated_number = newValue;
-                }
-            };
-            animate();
-        },
-    },
-    mounted() {
-        this.animated_number = this.countLikes;
     },
 };
 </script>

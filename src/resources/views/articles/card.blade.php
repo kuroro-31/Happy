@@ -1,4 +1,4 @@
-<div class="card p-4 shadow dark:shadow-none rounded-lg bg-white dark:bg-dark-2 mb-6">
+<div class="card p-4 rounded-2xl bg-white dark:bg-dark-2 mb-6">
   <div class="flex items-center justify-between">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex items-center">
       <img src="https://source.unsplash.com/190x190?urban" alt=""
