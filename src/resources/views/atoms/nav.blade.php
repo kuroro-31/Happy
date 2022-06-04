@@ -29,12 +29,11 @@
                 </li>
                 <li>
                   <header-user-modal :user-name='{{ Auth::user()->name }}'>
-                    <ul class="py-1">
-                      <li class="text-sm cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
-                        <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}">マイページ</a>
-                      </li>
-                    </ul>
-                    <div class="py-1">
+                    <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}"
+                      class="block text-sm cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
+                      マイページ
+                    </a>
+                    <div>
                       <button form="logout-button" type="submit"
                         class="w-full text-left cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
                         ログアウト
