@@ -8,12 +8,14 @@ import Register from './components/auth/Register'
 import CountAnimation from './components/CountAnimation'
 import FollowButton from './components/FollowButton'
 import HeaderNav from './components/HeaderNav'
+import HeaderUserModal from './components/HeaderUserModal'
 import Modal from './components/Modal'
 import ThemeToggle from './components/ThemeToggle'
 
 createApp({
     components: {
         CountAnimation,
+        HeaderUserModal,
         ThemeToggle,
         EditModal,
         ArticleLike,

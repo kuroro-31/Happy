@@ -4,7 +4,7 @@
       <div class="relative flex items-center">
         <a href="/" class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto">
           <span class="sr-only">Tailwind CSS home page</span>
-          <span class="text-2xl font-semibold">Public</span>
+          <span class="text-2xl font-semibold">Happy</span>
         </a>
         <div class="relative hidden lg:flex items-center ml-auto">
           <nav class="text-sm">
@@ -28,25 +28,22 @@
                   </a>
                 </li>
                 <li>
-                  <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                    class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto">
-                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bordered avatar">
-                  </button>
-
-                  <div id="dropdownNavbar" class="z-10 hidden divide-y divide-gray-100 rounded shadow w-44 bg-white"
-                    data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
-                    <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                      <li>
-                        <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}"
-                          class="block px-4 py-2">マイページ</a>
+                  <header-user-modal :user-name='{{ Auth::user()->name }}'>
+                    <ul class="py-1">
+                      <li class="text-sm cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
+                        <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}">マイページ</a>
                       </li>
                     </ul>
                     <div class="py-1">
-                      <button form="logout-button" type="submit" class="block px-4 py-2">ログアウト</button>
-                      <form id="logout-button" method="POST" action="{{ route('logout') }}">@csrf</form>
+                      <button form="logout-button" type="submit"
+                        class="w-full text-left cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
+                        ログアウト
+                      </button>
+                      <form id="logout-button" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                      </form>
                     </div>
-                  </div>
+                  </header-user-modal>
                 </li>
               @endauth
             </ul>
