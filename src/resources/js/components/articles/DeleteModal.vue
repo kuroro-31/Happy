@@ -3,7 +3,7 @@
         <svg
             @click="open = true"
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 cursor-pointer hover:text-primary"
+            class="h-5 w-5 cursor-pointer hover:text-primary"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -18,6 +18,7 @@
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div class="window">
+                    <div class="">本当に削除してよろしいですか？</div>
                     <slot></slot>
                 </div>
             </div>

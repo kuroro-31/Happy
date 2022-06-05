@@ -24,10 +24,10 @@
         </edit-modal>
         <delete-modal>
           <form method="POST" action="{{ route('articles.destroy', ['article' => $article->id]) }}"
-            class="cursor-pointer text-sm p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
+            class="p-2 rounded-lg">
             @csrf
             @method('DELETE')
-            <button type="submit" class="">削除する</button>
+            <button type="submit" class="btn-danger">削除する</button>
           </form>
         </delete-modal>
       </div>
