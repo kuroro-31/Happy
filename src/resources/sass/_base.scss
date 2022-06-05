@@ -29,3 +29,18 @@ body {
 .btn-border {
     @apply text-sm font-bold hover:bg-primary hover:bg-opacity-10 dark:hover:bg-opacity-20 border border-primary text-primary dark:text-white rounded-xl py-2 px-6;
 }
+
+.tag-hero {
+    @apply relative flex max-w-6xl w-full mx-auto px-8 justify-center items-center;
+    &-img {
+        @apply max-w-6xl w-full relative rounded-lg;
+        img {
+            @apply w-full mx-auto object-cover rounded-lg;
+            max-height: 200px;
+        }
+        &-bg {
+            @apply absolute top-0 right-0 left-0 bottom-0 w-full h-full rounded-lg;
+            background: rgba(#5367ed, 0.5);
+        }
+    }
+}

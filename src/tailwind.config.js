@@ -14,7 +14,8 @@ module.exports = {
             transparent: 'transparent',
             current: 'currentColor',
             // 'primary': '#1966D2',
-            'primary': '#A875FF',
+            // 'primary': '#A875FF',
+            'primary': '#5367ED',
             'gray': '#B0B3B8',
             // white
             'white': '#ffffff',
@@ -24,6 +25,7 @@ module.exports = {
             'dark-2': '#31353F',
             //color
             't-color': '#3c4043',
+            // 't-color': '#455078',
             't-d-color': '#ffffff',
             'purple': '#3f3cbb',
             'midnight': '#121063',

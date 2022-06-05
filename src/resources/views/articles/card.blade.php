@@ -46,7 +46,7 @@
         <div class="">
           <div class="">
       @endif
-      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="text-xs btn-primary p-1.5 px-2 mr-1 mt-1">
         {{ $tag->hashtag }}
       </a>
       @if ($loop->last)
