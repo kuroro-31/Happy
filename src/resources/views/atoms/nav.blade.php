@@ -27,7 +27,7 @@
                     @include('atoms.error_card_list')
                     <form method="POST" action="{{ route('articles.store') }}">
                       @include('articles.form')
-                      <button type="submit" class="btn-primary">投稿する</button>
+                      <button type="submit" class="btn-primary justify-end">投稿する</button>
                     </form>
                   </create-modal>
                 </li>
