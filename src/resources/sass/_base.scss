@@ -1,6 +1,7 @@
 body {
-    @apply text-lg bg-white-100 dark:bg-dark text-t-color dark:text-t-d-color;
+    @apply bg-white-100 dark:bg-dark text-t-color dark:text-t-d-color;
     font-family: "Montserrat", sans-serif;
+    font-size: 14px;
 }
 
 textarea {

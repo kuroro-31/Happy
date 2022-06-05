@@ -1,9 +1,31 @@
 <div class="max-w-6xl mx-auto">
-  <img src="https://source.unsplash.com/1000x300?fashion" alt="" class="profile-img">
-  <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
-    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-      <img src="https://source.unsplash.com/190x190?woman" alt=""
+  <div class="relative">
+    @if (Auth::user()->thumbnail)
+      <img class="profile-img" src="{{ asset('/img/' . Auth::user()->thumbnail) }}" alt="profile_thumbnail"
         class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+    @else
+      <img src="https://source.unsplash.com/1000x300?fashion" alt="" class="profile-img">
+    @endif
+    <edit-user-modal class="absolute bottom-4 right-4">
+      @include('atoms.error_card_list')
+      {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
+      <form method="POST" action="{{ route('users.update', ['name' => $user->name]) }}">
+        {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
+        @method('PATCH')
+        @include('users.form')
+        <button type="submit" class="btn-primary">更新する</button>
+      </form>
+    </edit-user-modal>
+  </div>
+  <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
+    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark z-50">
+      @if (Auth::user()->image)
+        <img class="image rounded-circle" src="{{ asset('/img/' . Auth::user()->image) }}" alt="profile_image"
+          class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+      @else
+        <img src="https://source.unsplash.com/190x190?woman" alt=""
+          class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+      @endif
     </a>
     <div class="w-full px-6 flex justify-between">
       <div class="flex flex-col">

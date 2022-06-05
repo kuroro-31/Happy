@@ -12,6 +12,7 @@ import HeaderNav from './components/HeaderNav'
 import HeaderUserModal from './components/HeaderUserModal'
 import Modal from './components/Modal'
 import ThemeToggle from './components/ThemeToggle'
+import EditUserModal from './components/users/EditUserModal'
 
 createApp({
     components: {
@@ -22,6 +23,7 @@ createApp({
         HeaderUserModal,
         ThemeToggle,
         EditModal,
+        EditUserModal,
         ArticleLike,
         ArticleTagsInput,
         FollowButton,

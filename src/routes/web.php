@@ -44,6 +44,7 @@ Route::get('/tags/{name}', 'App\Http\Controllers\TagController')->name('tags.sho
 */
 Route::prefix('users')->name('users.')->group(function () {
     Route::middleware('auth')->group(function () {
+        Route::patch('/{name}', 'App\Http\Controllers\User\UpdateController')->name('update');
         Route::put('/{name}/follow', 'App\Http\Controllers\User\FollowController')->name('follow');
         Route::delete('/{name}/follow', 'App\Http\Controllers\User\UnfollowController')->name('unfollow');
     });
