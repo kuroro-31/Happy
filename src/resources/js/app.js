@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './bootstrap'
 import ArticleLike from './components/ArticleLike'
+import CreateModal from './components/articles/CreateModal'
 import EditModal from './components/articles/EditModal'
 import ArticleTagsInput from './components/ArticleTagsInput'
 import Login from './components/auth/Login'
@@ -14,6 +15,7 @@ import ThemeToggle from './components/ThemeToggle'
 
 createApp({
     components: {
+        CreateModal,
         CountAnimation,
         HeaderUserModal,
         ThemeToggle,

@@ -6,7 +6,7 @@
           <span class="sr-only">Tailwind CSS home page</span>
           <span class="text-2xl font-semibold">Happy</span>
         </a>
-        <div class="relative hidden lg:flex items-center ml-auto">
+        <div class="hidden lg:flex items-center ml-auto">
           <nav class="text-sm">
             <ul class="flex items-center">
               @guest
@@ -22,10 +22,14 @@
                 </li>
               @endguest
               @auth
-                <li class="mr-6 btn-primary">
-                  <a href="{{ route('articles.create') }}">
-                    投稿する
-                  </a>
+                <li class="mr-6">
+                  <create-modal>
+                    @include('atoms.error_card_list')
+                    <form method="POST" action="{{ route('articles.store') }}">
+                      @include('articles.form')
+                      <button type="submit" class="btn-primary">投稿する</button>
+                    </form>
+                  </create-modal>
                 </li>
                 <li>
                   <header-user-modal :user-name='{{ Auth::user()->name }}'>

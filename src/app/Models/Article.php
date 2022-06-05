@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Article extends Model
 {
     protected $fillable = [
-        'title',
+        // 'title',
         'body',
     ];
     public function user(): BelongsTo
