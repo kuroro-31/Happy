@@ -17,6 +17,8 @@ module.exports = {
             // 'primary': '#A875FF',
             'primary': '#5367ED',
             // 'primary': '#F47487',
+            // 'primary': '#E976B0',
+            // 'primary': '#0c2088',
             'gray': '#B0B3B8',
             // white
             'white': '#ffffff',
@@ -28,6 +30,7 @@ module.exports = {
             't-color': '#3c4043',
             // 't-color': '#455078',
             't-d-color': '#ffffff',
+            'yellow': '#d8a84a',
             'purple': '#3f3cbb',
             'midnight': '#121063',
             'metal': '#565584',

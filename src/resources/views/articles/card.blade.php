@@ -32,21 +32,14 @@
       {!! nl2br(e($article->body)) !!}
     </div>
   </div>
-  <div class="card-body pt-0 pb-2 pl-3">
-    <div class="card-text">
-      <article-like :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'
-        :initial-count-likes='@json($article->count_likes)' :authorized='@json(Auth::check())'
-        endpoint="{{ route('articles.like', ['article' => $article]) }}">
-      </article-like>
-    </div>
-  </div>
   @if ($article->tags)
     @foreach ($article->tags as $tag)
       @if ($loop->first)
         <div class="">
           <div class="">
       @endif
-      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="text-xs btn-primary p-1.5 px-2 mr-1 mt-1">
+      <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
+        class="inline-block text-xs btn-border p-1.5 px-2 m-1">
         {{ $tag->hashtag }}
       </a>
       @if ($loop->last)
@@ -55,4 +48,13 @@
 @endif
 @endforeach
 @endif
+<div class="card-body pt-0 pb-2 pl-3">
+  <div class="card-text">
+    <article-like :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'
+      :initial-count-likes='@json($article->count_likes)' :authorized='@json(Auth::check())'
+      endpoint="{{ route('articles.like', ['article' => $article]) }}">
+    </article-like>
+  </div>
+</div>
+
 </div>

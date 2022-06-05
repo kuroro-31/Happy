@@ -2,11 +2,11 @@
   <li class="mr-2">
     <a href="{{ route('users.show', ['name' => $user->name]) }}"
       class="{{ $hasArticles ? 'btn-primary' : 'hover:bg-slate-200 py-2 px-4 rounded-xl' }} inline-block"
-      aria-current="page">記事</a>
+      aria-current="page">my happy</a>
   </li>
   <li class="mr-2">
     <a href="{{ route('users.likes', ['name' => $user->name]) }}"
-      class="{{ $hasLikes ? 'btn-primary' : 'hover:bg-slate-200 py-2 px-4 rounded-xl' }} inline-block">いいね</a>
+      class="{{ $hasLikes ? 'btn-primary' : 'hover:bg-slate-200 py-2 px-4 rounded-xl' }} inline-block">liked</a>
   </li>
   {{-- <li class="mr-2 {{ $hasArticles ? 'active' : '' }}">
     <a href="#"

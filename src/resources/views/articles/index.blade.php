@@ -7,7 +7,7 @@
 
   @if (Auth::user())
     <div class="top-hero">
-      <div class="z-30 absolute text-white font-semibold text-4xl flex justify-center">
+      <div class="z-30 absolute text-white font-semibold text-3xl flex justify-center">
         嬉しかったこと、楽しかったことを共有しよう
       </div>
       <div class="top-hero-img">

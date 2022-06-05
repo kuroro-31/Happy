@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" class="dark">
+<html class="dark">
 
 <head>
   <meta charset="utf-8">
@@ -18,7 +18,6 @@
   <div id="app">
     @yield('content')
   </div>
-  <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
   <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
