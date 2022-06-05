@@ -18,7 +18,7 @@
     </edit-user-modal>
   </div>
   <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
-    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark z-50">
+    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark z-30">
       @if (Auth::user()->image)
         <img class="image rounded-circle" src="{{ asset('/img/' . Auth::user()->image) }}" alt="profile_image"
           class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
