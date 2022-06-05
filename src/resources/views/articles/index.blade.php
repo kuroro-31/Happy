@@ -18,7 +18,7 @@
   @else
     <div class="top-authed-hero">
       <div class="text-6xl font-bold mr-24 leading-snug">あなたの<br> 幸せな日常を<br> 皆に共有しよう</div>
-      <div class="heart-2"></div>
+      <div class="heart"></div>
     </div>
   @endif
   <div class="flex max-w-6xl w-full mx-auto px-8 justify-center">

@@ -34,7 +34,7 @@ class FaceBookController extends Controller
 
        Auth::loginUsingId($saveUser->id);
 
-       return redirect()->route('home');
+       return redirect()->route('/');
        } catch (\Throwable $th) {
           throw $th;
        }

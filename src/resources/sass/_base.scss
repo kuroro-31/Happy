@@ -51,13 +51,14 @@ body {
         margin-left: 85px;
     }
 
-    .heart-2 {
+    .heart {
         width: 250px;
         height: 250px;
         position: relative;
+        animation: heart 3s infinite;
     }
 
-    .heart-2::before {
+    .heart::before {
         content: "";
         position: absolute;
         left: 150px; /* x位置 */
@@ -66,13 +67,13 @@ body {
         height: 250px; /* 高さ */
         background: #ff3266; /* 色 */
         // animation: change-color-anim 60s linear infinite;
+        transform: rotate(-45deg);
+        transform-origin: 0% 100%;
         border-radius: 100px 60px 0 0; /* 丸み */
-        transform: rotate(-45deg); /* 角度調整 */
-        transform-origin: 0 100%; /* 回転の基準点 */
         opacity: 0.75;
     }
 
-    .heart-2::after {
+    .heart::after {
         content: "";
         position: absolute;
         left: 0; /* x位置 */
@@ -80,81 +81,11 @@ body {
         width: 150px; /* 幅 */
         height: 250px; /* 高さ */
         background: #e5305c; /* 色 */
-        // animation: change-color 60s linear infinite;
-        border-radius: 60px 100px 0 0; /* 丸み */
         transform: rotate(45deg); /* 角度調整 */
         transform-origin: 100% 100%; /* 回転の基準点 */
+        // animation: light-heart 1s infinite;
+        border-radius: 60px 100px 0 0; /* 丸み */
         // opacity: 0.75;
-    }
-    @keyframes change-color-anim {
-        0% {
-            background-color: #f72585;
-        }
-        10% {
-            background-color: #fdfdfd;
-        }
-        20% {
-            background-color: #40c8db;
-        }
-        30% {
-            background-color: #fae88e;
-        }
-        40% {
-            background-color: #32aae9;
-        }
-        50% {
-            background-color: #d8a84a;
-        }
-        60% {
-            background-color: #cd537f;
-        }
-        70% {
-            background-color: #022f61;
-        }
-        80% {
-            background-color: #6a48ff;
-        }
-        90% {
-            background-color: #f9e5db;
-        }
-        100% {
-            background-color: #f72585;
-        }
-    }
-    @keyframes change-color {
-        0% {
-            background-color: #e5305c;
-        }
-        10% {
-            background-color: #34a7e7;
-        }
-        20% {
-            background-color: #f3edd2;
-        }
-        30% {
-            background-color: #ee606c;
-        }
-        40% {
-            background-color: #eede44;
-        }
-        50% {
-            background-color: #0c2088;
-        }
-        60% {
-            background-color: #ecfbea;
-        }
-        70% {
-            background-color: #08cfe9;
-        }
-        80% {
-            background-color: #fbb3ff;
-        }
-        90% {
-            background-color: #229781;
-        }
-        100% {
-            background-color: #e5305c;
-        }
     }
 }
 
