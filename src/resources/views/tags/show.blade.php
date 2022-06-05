@@ -5,7 +5,7 @@
 @section('content')
   @include('atoms.nav')
   <div class="tag-hero">
-    <div class="z-50 absolute text-white font-semibold text-2xl flex justify-center">
+    <div class="z-30 absolute text-white font-semibold text-2xl flex justify-center">
       <h2>{{ $tag->hashtag }}</h2>
       <span class="inline-block ml-6">
         {{ $tag->articles->count() }}件
@@ -15,7 +15,6 @@
       <img class="" src="/img/balloon.jpeg" alt="">
       <div class="tag-hero-img-bg"></div>
     </div>
-
   </div>
   <div class="flex max-w-6xl w-full mx-auto px-8 justify-center">
     <div class="md:w-1/5 relative h-screen py-8 pr-4">

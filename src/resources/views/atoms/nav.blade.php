@@ -10,7 +10,7 @@
           <nav class="text-sm">
             <ul class="flex items-center">
               @guest
-                <li>
+                <li class="mr-4">
                   <a href="{{ route('register') }}">
                     ユーザー登録
                   </a>

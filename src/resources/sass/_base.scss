@@ -24,10 +24,67 @@ body {
 }
 
 .btn-primary {
-    @apply text-sm bg-primary hover:bg-opacity-90 text-white shadow shadow-primary rounded-xl py-2 px-6;
+    @apply text-sm bg-primary hover:bg-opacity-90 text-white shadow shadow-primary rounded-lg py-2 px-6;
 }
 .btn-border {
-    @apply text-sm font-bold hover:bg-primary hover:bg-opacity-10 dark:hover:bg-opacity-20 border border-primary text-primary dark:text-white rounded-xl py-2 px-6;
+    @apply text-sm font-bold hover:bg-primary hover:bg-opacity-10 dark:hover:bg-opacity-20 border border-primary text-primary dark:text-white rounded-lg py-2 px-6;
+}
+
+.top-hero {
+    @apply relative flex max-w-6xl w-full mx-auto px-8 justify-center items-center;
+    &-img {
+        @apply max-w-6xl w-full relative rounded-lg;
+        img {
+            @apply w-full mx-auto object-cover rounded-lg;
+            max-height: 200px;
+        }
+        &-bg {
+            @apply absolute top-0 right-0 left-0 bottom-0 w-full h-full rounded-lg;
+            background: rgba(#f566af, 0.5);
+        }
+    }
+}
+.top-authed-hero {
+    @apply relative bg-white dark:bg-dark flex w-full mx-auto py-16 px-8 justify-center items-center;
+    img {
+        @apply absolute z-10 object-contain;
+        max-height: 500px;
+        margin-left: 85px;
+    }
+
+    .heart-2 {
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+
+    .heart-2::before {
+        content: "";
+        position: absolute;
+        left: 180px; /* x位置 */
+        top: 0; /* y位置 */
+        width: 180px; /* 幅 */
+        height: 300px; /* 高さ */
+        background: #ff3266; /* 色 */
+        border-radius: 100px 60px 0 0; /* 丸み */
+        transform: rotate(-45deg); /* 角度調整 */
+        transform-origin: 0 100%; /* 回転の基準点 */
+        opacity: 0.75;
+    }
+
+    .heart-2::after {
+        content: "";
+        position: absolute;
+        left: 0; /* x位置 */
+        top: 0; /* y位置 */
+        width: 180px; /* 幅 */
+        height: 300px; /* 高さ */
+        background: #e5305c; /* 色 */
+        border-radius: 60px 100px 0 0; /* 丸み */
+        transform: rotate(45deg); /* 角度調整 */
+        transform-origin: 100% 100%; /* 回転の基準点 */
+        opacity: 0.75;
+    }
 }
 
 .tag-hero {
