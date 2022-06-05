@@ -1,4 +1,4 @@
-<div class="max-w-6xl mx-auto">
+<div class="max-w-4xl mx-auto">
   <div class="relative">
     @if (Auth::user()->thumbnail)
       <img class="profile-img" src="{{ asset('/img/' . Auth::user()->thumbnail) }}" alt="profile_thumbnail"

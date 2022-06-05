@@ -23,8 +23,8 @@ textarea {
 .profile-img {
     @apply object-cover max-w-full min-w-full rounded-lg;
     @screen md {
-        min-height: 300px;
-        max-height: 300px;
+        min-height: 250px;
+        max-height: 250px;
     }
 }
 
@@ -39,9 +39,9 @@ textarea {
 }
 
 .top-hero {
-    @apply relative flex max-w-6xl w-full mx-auto px-8 justify-center items-center;
+    @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
     &-img {
-        @apply max-w-6xl w-full relative rounded-lg;
+        @apply max-w-4xl w-full relative rounded-lg;
         img {
             @apply w-full mx-auto object-cover rounded-lg;
             max-height: 200px;
@@ -98,9 +98,9 @@ textarea {
 }
 
 .tag-hero {
-    @apply relative flex max-w-6xl w-full mx-auto px-8 justify-center items-center;
+    @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
     &-img {
-        @apply max-w-6xl w-full relative rounded-lg;
+        @apply max-w-4xl w-full relative rounded-lg;
         img {
             @apply w-full mx-auto object-cover rounded-lg;
             max-height: 200px;
