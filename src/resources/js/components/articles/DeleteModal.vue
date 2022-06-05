@@ -30,28 +30,7 @@ export default {
     data() {
         return {
             open: false,
-            errors: {},
-            success: false,
-            loaded: true,
         };
-    },
-    props: {
-        articleId: {
-            type: Object,
-            default: {},
-        },
-    },
-    methods: {
-        edit() {
-            window.location = `/articles/${this.articleId}/edit`;
-        },
-        destroy() {
-            if (this.loaded) {
-                axios.delete(`/articles/${this.articleId}`).then(() => {
-                    alert("成功！");
-                });
-            }
-        },
     },
 };
 </script>

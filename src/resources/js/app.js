@@ -5,8 +5,7 @@ import CreateModal from './components/articles/CreateModal'
 import DeleteModal from './components/articles/DeleteModal'
 import EditModal from './components/articles/EditModal'
 import ArticleTagsInput from './components/ArticleTagsInput'
-import Login from './components/auth/Login'
-import Register from './components/auth/Register'
+import AuthModal from './components/auth/AuthModal'
 import CountAnimation from './components/CountAnimation'
 import FollowButton from './components/FollowButton'
 import HeaderNav from './components/HeaderNav'
@@ -16,6 +15,7 @@ import ThemeToggle from './components/ThemeToggle'
 
 createApp({
     components: {
+        AuthModal,
         DeleteModal,
         CreateModal,
         CountAnimation,
@@ -26,8 +26,6 @@ createApp({
         ArticleTagsInput,
         FollowButton,
         HeaderNav,
-        Register,
-        Login,
         Modal
     },
 }).mount('#app')

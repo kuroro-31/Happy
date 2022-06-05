@@ -10,15 +10,72 @@
           <nav class="text-sm">
             <ul class="flex items-center">
               @guest
-                <li class="mr-4">
-                  <a href="{{ route('register') }}">
-                    ユーザー登録
-                  </a>
-                </li>
                 <li>
-                  <a href="{{ route('login') }}">
-                    ログイン
-                  </a>
+                  <auth-modal>
+                    <div class="tabs">
+                      <input id="all" type="radio" name="tab_item" checked>
+                      <label class="tab_item" for="all">ログイン</label>
+                      <input id="programming" type="radio" name="tab_item">
+                      <label class="tab_item" for="programming">新規登録</label>
+
+                      <div class="tab_content" id="all_content">
+                        @include('atoms.error_card_list')
+                        <form method="POST" action="{{ route('login') }}">
+                          @csrf
+
+                          <div class="md-form">
+                            <label for="email">メールアドレス</label>
+                            <input class="form-control" type="text" id="email" name="email" required>
+                          </div>
+
+                          <div class="md-form">
+                            <label for="password">パスワード</label>
+                            <input class="form-control" type="password" id="password" name="password" required>
+                          </div>
+
+                          <input type="hidden" name="remember" id="remember" value="on">
+
+                          <div class="text-left">
+                            <a href="{{ route('password.request') }}" class="card-text">パスワードを忘れた方</a>
+                          </div>
+
+                          <button class="btn-primary" type="submit">ログイン</button>
+
+                        </form>
+
+
+                      </div>
+                      <div class="tab_content" id="programming_content">
+                        @include('atoms.error_card_list')
+
+                        <form method="POST" action="{{ route('register') }}">
+                          @csrf
+                          <div class="md-form">
+                            <label for="name">ユーザー名</label>
+                            <input class="form-control" type="text" id="name" name="name" required
+                              value="{{ old('name') }}">
+                            <small>英数字3〜16文字(登録後の変更はできません)</small>
+                          </div>
+                          <div class="md-form">
+                            <label for="email">メールアドレス</label>
+                            <input class="form-control" type="text" id="email" name="email" required
+                              value="{{ old('email') }}">
+                          </div>
+                          <div class="md-form">
+                            <label for="password">パスワード</label>
+                            <input class="form-control" type="password" id="password" name="password" required>
+                          </div>
+                          <div class="md-form">
+                            <label for="password_confirmation">パスワード(確認)</label>
+                            <input class="form-control" type="password" id="password_confirmation"
+                              name="password_confirmation" required>
+                          </div>
+                          <button class="btn-primary" type="submit">ユーザー登録</button>
+                        </form>
+
+
+                      </div>
+                  </auth-modal>
                 </li>
               @endguest
               @auth
