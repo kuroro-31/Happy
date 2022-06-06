@@ -27,9 +27,11 @@ module.exports = {
             // white
             'white': '#ffffff',
             'white-100': '#f8f8f8',
+            'f5': '#F5F5F5',
             // dark
             'dark': '#222327',
             'dark-2': '#31353F',
+            'dark-blue': '#022f61',
             //color
             't-color': '#3c4043',
             // 't-color': '#455078',

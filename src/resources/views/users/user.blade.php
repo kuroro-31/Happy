@@ -1,10 +1,10 @@
 <div class="max-w-4xl mx-auto">
   <div class="relative">
     @if (empty($user->thumbnail))
-      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="">
+      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
     @else
       <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
-        alt="profile_thumbnail" class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+        alt="profile_thumbnail" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
     @endif
     @if (Auth::id() === $user->id)
       <edit-user-modal class="absolute bottom-4 right-4">
