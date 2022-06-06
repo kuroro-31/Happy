@@ -1,20 +1,60 @@
 @csrf
 <div class="p-4 flex flex-col text-sm">
-  <label for="thumbnail">サムネイル</label>
-  <input type="file" name="thumbnail">
+  <div class="flex w-full mb-4">
+    <div class="w-1/4 font-semibold mb-2">現在のカバー画像</div>
+    <div class="w-3/4 pl-4 flex flex-col items-center">
+      @if (empty($user->thumbnail))
+        <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded-lg max-h-6 flex flex-shrink-0">
+      @else
+        <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
+          alt="profile_thumbnail" class="rounded-lg max-h-6 flex flex-shrink-0">
+      @endif
+      <input type="file" name="thumbnail" class="my-2">
+    </div>
+  </div>
 
-  <label for="avatar">アバター</label>
-  <input type="file" name="avatar">
+  <div class="flex w-full mb-4">
+    <div class="w-1/4 font-semibold mb-2">現在のプロフィール画像</div>
+    <div class="w-3/4 pl-4 flex flex-col items-center">
+      @if (empty($user->avatar))
+        <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="avatar">
+      @else
+        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="avatar">
+      @endif
+      <input type="file" name="avatar" class="my-2">
+    </div>
+  </div>
 
-  <label for="name">名前</label>
-  <input disabled type="text" name="name" value="{{ $user->name ?? old('name') }}">
+  <div class="flex w-full mb-4">
+    <div class="w-1/4 font-semibold mb-2">名前</div>
+    <div class="w-3/4 pl-4">
+      <input disabled type="text" name="name" value="{{ $user->name ?? old('name') }}"
+        class="w-full p-2 bg-gray-2 rounded">
+    </div>
+  </div>
 
-  <label for="email">メールアドレス</label>
-  <input disabled type="email" name="email" value="{{ $user->email ?? old('email') }}">
+  <div class="flex w-full mb-4">
+    <div class="w-1/4 font-semibold mb-2">メールアドレス</div>
+    <div class="w-3/4 pl-4">
+      <input disabled type="email" name="email" value="{{ $user->email ?? old('email') }}"
+        class="w-full p-2 bg-gray-2 rounded">
+    </div>
+  </div>
 
-  <label for="website">リンク</label>
-  <input type="text" name="website" value="{{ $user->website ?? old('website') }}">
+  <div class="flex w-full mb-4">
+    <div class="w-1/4 font-semibold mb-2">リンク</div>
+    <div class="w-3/4 pl-4">
+      <input type="text" name="website" value="{{ $user->website ?? old('website') }}"
+        class="w-full p-2 bg-white-100">
+    </div>
+  </div>
 
-  <label for="body">自己紹介</label>
-  <textarea name="body" placeholder="">{{ $user->body ?? old('body') }}</textarea>
+  <div class="flex w-full mb-4">
+    <div class="w-1/4 font-semibold mb-2">自己紹介</div>
+    <div class="w-3/4 pl-4">
+      <textarea name="body" placeholder="200文字以内で入力してください。" maxlength="200"
+        class="w-full p-2 bg-white-100 h-40">{{ $user->body ?? old('body') }}</textarea>
+    </div>
+  </div>
+  {{-- <user-body-count :content='@json($user->body ?? old('body'))'></user-body-count> --}}
 </div>

@@ -5,6 +5,6 @@
 </div>
 <div class="p-4">
   <label></label>
-  <textarea name="body" required class="form-textarea"
-    placeholder="どんなよいことがあった？">{{ $article->body ?? old('body') }}</textarea>
+  <textarea name="body" required class="dark:bg-dark-2 p-2" placeholder="投稿できるのは400文字までです"
+    maxlength="400">{{ $article->body ?? old('body') }}</textarea>
 </div>

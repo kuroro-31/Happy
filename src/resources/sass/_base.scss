@@ -4,6 +4,7 @@ body {
     font-size: 14px;
 }
 
+input,
 textarea {
     @apply outline-none;
 }
@@ -207,4 +208,12 @@ input[name="tab_item"] {
     min-height: 160px;
     max-width: 160px;
     max-height: 160px;
+}
+
+.edit-user-modal {
+    @apply absolute bottom-4 right-4;
+    form {
+        @apply overflow-y-auto;
+        max-height: 80vh;
+    }
 }

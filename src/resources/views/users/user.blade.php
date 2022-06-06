@@ -7,7 +7,7 @@
         alt="profile_thumbnail" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
     @endif
     @if (Auth::id() === $user->id)
-      <edit-user-modal class="absolute bottom-4 right-4">
+      <edit-user-modal class="edit-user-modal">
         @include('atoms.error_card_list')
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form method="POST" action="{{ route('users.update', ['name' => $user->name]) }}"
@@ -15,7 +15,7 @@
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
           @include('users.form')
-          <button type="submit" class="btn-primary">更新する</button>
+          <button type="submit" class="btn-primary w-full py-4">更新する</button>
         </form>
       </edit-user-modal>
     @endif
