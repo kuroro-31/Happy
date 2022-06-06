@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->string('avator')->nullable();
-            $table->string('thumbnail')->default('user.png');
+            $table->string('avatar')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->string('website')->nullable();
             $table->text('body')->nullable();
             $table->timestamp('email_verified_at')->nullable();

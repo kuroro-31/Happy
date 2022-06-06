@@ -21,16 +21,21 @@ class UpdateController extends Controller
         $user = Auth::user();
         $user->body = $request->body;
         $user->website = $request->website;
-        if($request->hasFile('avator')){
-            $filename = $request->avator->getClientOriginalName();
-            $request->avator->storeAs('img',$filename,'public');
-            Auth()->user()->update(['avator'=>$filename]);
+
+        if($request->has('avatar')) {
+            $image = $request->file('avatar');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('img/users/avatar'), $filename);
+            $user->avatar = $request->file('avatar')->getClientOriginalName();
         }
-        if($request->hasFile('thumbnail')){
-            $filename = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('img',$filename,'public');
-            Auth()->user()->update(['thumbnail'=>$filename]);
+
+        if($request->has('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('img/users/thumbnail'), $filename);
+            $user->thumbnail = $request->file('thumbnail')->getClientOriginalName();
         }
+    
         $user->save();
 
         return redirect()->back();

@@ -1,6 +1,6 @@
 <template>
     <div @click.self="open = false">
-        <div @click="open = true" class="btn-primary">プロフィールを編集</div>
+        <div @click="open = true" class="btn-sub">プロフィールを編集</div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div class="window">

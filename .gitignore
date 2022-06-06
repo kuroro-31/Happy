@@ -6,3 +6,5 @@ src/public/mix-manifest.json
 src/package-lock.json
 src/public/js/app.js
 src/public/css/app.css
+src/public/img/users/avatar/*
+src/public/img/users/thumbnail/*

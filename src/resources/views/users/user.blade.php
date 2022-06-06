@@ -1,30 +1,31 @@
 <div class="max-w-4xl mx-auto">
   <div class="relative">
-    @if (Auth::user()->thumbnail)
-      <img class="profile-img" src="{{ asset('/img/' . Auth::user()->thumbnail) }}" alt="profile_thumbnail"
-        class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+    @if (empty($user->thumbnail))
+      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="">
     @else
-      <img src="https://source.unsplash.com/1000x300?fashion" alt="" class="profile-img">
+      <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
+        alt="profile_thumbnail" class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
     @endif
-    <edit-user-modal class="absolute bottom-4 right-4">
-      @include('atoms.error_card_list')
-      {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-      <form method="POST" action="{{ route('users.update', ['name' => $user->name]) }}">
-        {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
-        @method('PATCH')
-        @include('users.form')
-        <button type="submit" class="btn-primary">更新する</button>
-      </form>
-    </edit-user-modal>
+    @if (Auth::id() === $user->id)
+      <edit-user-modal class="absolute bottom-4 right-4">
+        @include('atoms.error_card_list')
+        {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
+        <form method="POST" action="{{ route('users.update', ['name' => $user->name]) }}"
+          enctype="multipart/form-data">
+          {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
+          @method('PATCH')
+          @include('users.form')
+          <button type="submit" class="btn-primary">更新する</button>
+        </form>
+      </edit-user-modal>
+    @endif
   </div>
   <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
     <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark z-30">
-      @if (Auth::user()->image)
-        <img class="image rounded-circle" src="{{ asset('/img/' . Auth::user()->image) }}" alt="profile_image"
-          class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+      @if (empty($user->avatar))
+        <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="avatar">
       @else
-        <img src="https://source.unsplash.com/190x190?woman" alt=""
-          class="rounded-full min-h-40 min-w-40 flex flex-shrink-0">
+        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="avatar">
       @endif
     </a>
     <div class="w-full px-6 flex justify-between">

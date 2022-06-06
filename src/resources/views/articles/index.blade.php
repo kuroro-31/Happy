@@ -29,7 +29,7 @@
         </a>
       </div>
     </div>
-    <div class="md:w-3/4 p-8">
+    <div class="md:w-3/4 py-8 pl-8">
       @foreach ($articles as $article)
         @include('articles.card')
       @endforeach

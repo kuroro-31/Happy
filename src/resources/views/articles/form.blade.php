@@ -6,5 +6,5 @@
 <div class="p-4">
   <label></label>
   <textarea name="body" required class="form-textarea"
-    placeholder="よいことあった？">{{ $article->body ?? old('body') }}</textarea>
+    placeholder="どんなよいことがあった？">{{ $article->body ?? old('body') }}</textarea>
 </div>

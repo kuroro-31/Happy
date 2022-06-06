@@ -32,7 +32,14 @@ textarea {
     @apply cursor-pointer text-sm bg-primary hover:bg-opacity-90 text-white shadow shadow-primary rounded-xl py-2 px-6;
 }
 .btn-border {
-    @apply cursor-pointer text-sm font-bold hover:bg-primary hover:bg-opacity-10 dark:hover:bg-opacity-20 border border-primary text-primary dark:text-white rounded-xl py-2 px-6;
+    @apply cursor-pointer text-sm font-bold hover:bg-primary dark:bg-primary dark:bg-opacity-20 hover:bg-opacity-10 dark:hover:bg-opacity-30 border dark:border-none border-primary text-primary dark:text-primary-light rounded-xl py-2 px-6;
+}
+.btn-sub {
+    @apply cursor-pointer font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 shadow rounded-xl py-2 px-6;
+    // background: ;
+    // &:hover {
+    //     background: #e4e6eb;
+    // }
 }
 .btn-danger {
     @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white shadow shadow-red rounded-xl py-2 px-6;
@@ -200,4 +207,12 @@ input[name="tab_item"] {
 /*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab_item {
     @apply bg-primary text-white rounded-xl;
+}
+
+.avatar {
+    @apply rounded-full object-cover flex flex-shrink-0 shadow;
+    min-width: 160px;
+    min-height: 160px;
+    max-width: 160px;
+    max-height: 160px;
 }
