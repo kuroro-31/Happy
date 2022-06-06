@@ -1,4 +1,4 @@
-<ul class="border-b border-gray mb-4 flex flex-wrap text-xs text-center">
+<ul class="mb-4 flex flex-wrap text-xs text-center">
 
   <li class="mr-2 {{ $hasArticles ? 'border-b-2 border-primary' : '' }}">
     <a href="{{ route('users.show', ['name' => $user->name]) }}"
