@@ -99,12 +99,12 @@
                       @endif
                     </template>
                     <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}"
-                      class="block text-sm cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
+                      class="block text-sm cursor-pointer p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-dark whitespace-nowrap">
                       マイページ
                     </a>
                     <div>
                       <button form="logout-button" type="submit"
-                        class="w-full text-left cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
+                        class="w-full text-left cursor-pointer p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-dark whitespace-nowrap">
                         ログアウト
                       </button>
                       <form id="logout-button" method="POST" action="{{ route('logout') }}">
