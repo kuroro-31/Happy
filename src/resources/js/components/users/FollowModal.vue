@@ -1,7 +1,7 @@
 <template>
-    <div @click.self="open = false">
+    <div>
         <transition name="modal" appear>
-            <div v-show="open" class="overlay" @click.self="open = false">
+            <div v-show="open" class="overlay" @click.self="close">
                 <div class="window">
                     <slot></slot>
                 </div>
@@ -15,6 +15,17 @@ export default {
         return {
             open: true,
         };
+    },
+    props: {
+        userName: {
+            type: String,
+        },
+    },
+    methods: {
+        close() {
+            this.open = false;
+            window.history.back();
+        },
     },
 };
 </script>
