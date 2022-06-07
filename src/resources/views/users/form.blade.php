@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="flex w-full">
+  <div class="flex w-full mb-4">
     <div class="w-1/4 font-semibold mb-2">自己紹介</div>
     <div class="w-3/4 pl-4">
       <textarea name="body" placeholder="200文字以内で入力してください。" maxlength="200"
