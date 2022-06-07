@@ -131,7 +131,7 @@ textarea {
 }
 
 .window {
-    @apply absolute rounded-lg shadow p-4 bg-white dark:bg-dark;
+    @apply absolute rounded-lg shadow p-4 bg-white dark:bg-dark-2;
     max-width: 600px;
     @screen lg {
         width: 600px;

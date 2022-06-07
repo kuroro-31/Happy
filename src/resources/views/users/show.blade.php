@@ -22,7 +22,9 @@
             <span class="pl-2">About</span>
           </p>
           <div class="card-body p-0">
-            {!! nl2br(e(Markdown::parse($user->body))) !!}
+            @if (!empty($user->body))
+              {!! nl2br(e(Markdown::parse($user->body))) !!}
+            @endif
           </div>
         </div>
 

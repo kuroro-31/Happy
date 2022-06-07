@@ -3,12 +3,12 @@
   <div class="flex w-full mb-12">
     <div class="w-1/4 font-semibold mb-2">カバー画像</div>
     <div class="w-3/4 pl-4 flex flex-col items-center">
-      @if (empty($user->thumbnail))
+      @empty($user->thumbnail)
         <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded-lg max-h-6 flex flex-shrink-0">
       @else
         <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
           alt="profile_thumbnail" class="rounded-lg max-h-6 flex flex-shrink-0">
-      @endif
+      @endempty
       <input type="file" name="thumbnail" class="my-2 dark:text-gray">
     </div>
   </div>
@@ -16,11 +16,11 @@
   <div class="flex w-full mb-12">
     <div class="w-1/4 font-semibold mb-2">プロフィール画像</div>
     <div class="w-3/4 pl-4 flex flex-col items-center">
-      @if (empty($user->avatar))
+      @empty($user->avatar)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="avatar">
       @else
         <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="avatar">
-      @endif
+      @endempty
       <input type="file" name="avatar" class="my-2 dark:text-gray">
     </div>
   </div>

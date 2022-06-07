@@ -13,9 +13,11 @@ import HeaderUserModal from './components/HeaderUserModal'
 import Modal from './components/Modal'
 import ThemeToggle from './components/ThemeToggle'
 import EditUserModal from './components/users/EditUserModal'
+import FollowModal from './components/users/FollowModal'
 
 createApp({
     components: {
+        FollowModal,
         AuthModal,
         DeleteModal,
         CreateModal,
