@@ -90,6 +90,14 @@
                 </li>
                 <li>
                   <header-user-modal :user-name='{{ Auth::user()->name }}'>
+                    <template #avatar>
+                      @if (empty(Auth::user()->avatar))
+                        <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="w-10 h-10 shadow rounded-full">
+                      @else
+                        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}"
+                          alt="w-10 h-10 shadow rounded-full" class="w-10 h-10 shadow rounded-full">
+                      @endif
+                    </template>
                     <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}"
                       class="block text-sm cursor-pointer p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-2">
                       マイページ
