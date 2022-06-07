@@ -73,7 +73,6 @@
                           <button class="btn-primary" type="submit">ユーザー登録</button>
                         </form>
 
-
                       </div>
                   </auth-modal>
                 </li>

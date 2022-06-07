@@ -5,7 +5,7 @@
 @section('content')
   @include('atoms.nav')
   <div class="">
-    @include('users.user')
+    @include('users.components.user')
   </div>
   <div class="flex max-w-4xl w-full mx-auto px-8 md:px-0 justify-center">
     <div class="md:w-2/5 relative h-screen py-8 pr-8">
@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="md:w-3/5 py-8">
-      @include('users.tabs', ['hasArticles' => true, 'hasLikes' => false])
+      @include('users.components.tabs', ['hasArticles' => true, 'hasLikes' => false])
       @foreach ($articles as $article)
         @include('articles.card')
       @endforeach

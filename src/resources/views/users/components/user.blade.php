@@ -14,7 +14,7 @@
           enctype="multipart/form-data">
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
-          @include('users.form')
+          @include('users.components.form')
           <button type="submit" class="btn-primary w-full py-4">更新する</button>
         </form>
       </edit-user-modal>
@@ -47,6 +47,11 @@
             <span class="font-semibold text-xl">{{ $user->count_followings }}</span>
             フォロー
           </a>
+          {{-- <follow-modal :auth-user='@json(Auth::user())' :authorized='@json(Auth::check())'
+            :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+            endpoint="{{ route('users.followings', ['name' => $user->name]) }}">
+          </follow-modal> --}}
+          {{-- フォロワー --}}
           <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="ml-2">
             <span class="font-semibold text-xl">{{ $user->count_followers }}</span>
             フォロワー
