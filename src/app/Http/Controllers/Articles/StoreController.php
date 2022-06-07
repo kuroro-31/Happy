@@ -17,7 +17,11 @@ class StoreController extends Controller
     {
         $this->authorize('create', $article);
 
-        $article->fill($request->all());
+        $article->fill($request->except('body'));
+
+        $linkify = new \Misd\Linkify\Linkify();
+        $article->body = $linkify->process($request->body);
+        
         $article->user_id = $request->user()->id;
         $article->save();
 

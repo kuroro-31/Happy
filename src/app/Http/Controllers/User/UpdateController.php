@@ -19,7 +19,8 @@ class UpdateController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $user = Auth::user();
-        $user->body = $request->body;
+        $linkify = new \Misd\Linkify\Linkify();
+        $user->body = $linkify->process($request->body);
         $user->website = $request->website;
 
         if($request->has('avatar')) {

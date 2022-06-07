@@ -38,10 +38,8 @@
       </div>
     @endif
   </div>
-  <div class="p-4 break-words">
-    <div class="card-text">
-      {!! nl2br(e($article->body)) !!}
-    </div>
+  <div class="card-body">
+    {!! nl2br(e(Markdown::parse($article->body))) !!}
   </div>
   @if ($article->tags)
     @foreach ($article->tags as $tag)

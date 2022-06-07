@@ -217,3 +217,10 @@ input[name="tab_item"] {
         max-height: 80vh;
     }
 }
+
+.card-body {
+    @apply p-4 break-words whitespace-pre-line;
+    a {
+        @apply inline-block text-primary my-2;
+    }
+}

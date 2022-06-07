@@ -21,7 +21,9 @@
             </svg>
             <span class="pl-2">About</span>
           </p>
-          <p id="withAnker" class="whitespace-pre-line">{!! nl2br(e($user->body)) !!}</p>
+          <div class="card-body">
+            {!! nl2br(e(Markdown::parse($user->body))) !!}
+          </div>
         </div>
 
         {{-- リンク --}}
