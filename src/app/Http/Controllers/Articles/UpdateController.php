@@ -16,14 +16,17 @@ class UpdateController extends Controller
     public function __invoke(ArticleRequest $request, Article $article)
     {
         $this->authorize('update', $article);
-
-        $article->fill($request->all())->save();
+        
+        $article->fill($request->except('body'));
+        $linkify = new \Misd\Linkify\Linkify();
+        $article->body = $linkify->process($request->body);
 
         $article->tags()->detach();
         $request->tags->each(function ($tagName) use ($article) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
         });
+        $article->save();
 
         return redirect()->route('articles.index');
     }

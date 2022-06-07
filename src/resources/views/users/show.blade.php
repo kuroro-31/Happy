@@ -12,7 +12,7 @@
       <div class="bg-white dark:bg-dark-2 rounded-lg p-6">
 
         {{-- 自己紹介 --}}
-        <div class="mb-4">
+        <div class="">
           <p class="text-gray text-xs font-semibold mb-2 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
               stroke="currentColor" stroke-width="2">
@@ -21,7 +21,7 @@
             </svg>
             <span class="pl-2">About</span>
           </p>
-          <div class="card-body">
+          <div class="card-body p-0">
             {!! nl2br(e(Markdown::parse($user->body))) !!}
           </div>
         </div>
