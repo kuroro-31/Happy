@@ -1,8 +1,13 @@
 <div class="card p-4 rounded-2xl bg-white dark:bg-dark-2 mb-6">
   <div class="flex items-center justify-between">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex items-center">
-      <img src="https://source.unsplash.com/190x190?urban" alt=""
-        class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
+      @if (empty($article->user->avatar))
+        <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
+          class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
+      @else
+        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar"
+          class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
+      @endif
       <span class="flex flex-col">
         <span class="font-semibold">{{ $article->user->name }}</span>
         <span class="text-gray text-xs font-semibold">

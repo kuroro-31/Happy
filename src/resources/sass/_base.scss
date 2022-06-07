@@ -213,7 +213,7 @@ input[name="tab_item"] {
 .edit-user-modal {
     @apply absolute bottom-4 right-4;
     form {
-        @apply overflow-y-auto;
+        @apply overflow-y-auto p-4;
         max-height: 80vh;
     }
 }
