@@ -21,7 +21,7 @@
             </svg>
             <span class="pl-2">About</span>
           </p>
-          <span class="whitespace-pre-line">{{ $user->body }}</span>
+          <p id="withAnker" class="whitespace-pre-line">{!! nl2br(e($user->body)) !!}</p>
         </div>
 
         {{-- リンク --}}
