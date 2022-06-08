@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="md:w-3/5 py-8">
-      @foreach ($tag->articles->sortByDesc('created_at') as $article)
+      @foreach ($tag->articles as $article)
         @include('articles.card')
       @endforeach
     </div>
