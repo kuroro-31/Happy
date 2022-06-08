@@ -46,11 +46,17 @@
     </div>
     <div class="md:w-3/5 py-8">
       @include('users.components.tabs', ['hasArticles' => false, 'hasLikes' => false])
+
       <follow-modal :user-name='@json($user->name)'>
-        @foreach ($followings as $person)
-          @include('users.components.person')
-        @endforeach
+        @if ($followings->count())
+          @foreach ($followings as $person)
+            @include('users.components.person')
+          @endforeach
+        @else
+          <p>フォローしている人はいません</p>
+        @endif
       </follow-modal>
+
     </div>
   </div>
 @endsection

@@ -52,7 +52,7 @@
           @include('articles.card')
         @endforeach
       @else
-        <div class="">いいねはありません</div>
+        <div>いいねはありません</div>
       @endif
 
       {{-- ページネーション --}}
