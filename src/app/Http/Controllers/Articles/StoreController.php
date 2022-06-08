@@ -30,6 +30,6 @@ class StoreController extends Controller
             $article->tags()->attach($tag);
         });
 
-        return redirect()->route('articles.index');
+        return redirect()->route('users.show', ['name' => $article->user->name]);
     }
 }

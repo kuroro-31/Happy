@@ -13,7 +13,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $articles = Article::with('user')->latest()->paginate(20);
-        // ->load(['user', 'likes', 'tags']);
         return view('articles.index', compact ('articles'));
     }
 }

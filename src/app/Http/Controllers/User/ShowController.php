@@ -15,14 +15,9 @@ class ShowController extends Controller
      */
     public function __invoke(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load([
-                'articles.user',
-                'articles.likes',
-                'articles.tags'
-            ]);
+        $user = User::where('name', $name)->first();
 
-        $articles = $user->articles->sortByDesc('created_at');
+        $articles = $user->articles()->latest()->paginate(20);
 
         return view('users.show', compact('user', 'articles'));
     }
