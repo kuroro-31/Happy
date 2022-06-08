@@ -15,14 +15,9 @@ class LikesController extends Controller
      */
     public function __invoke(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load(['likes.user', 'likes.likes', 'likes.tags']);
+        $user = User::where('name', $name)->first();
+        $articles = $user->likes()->latest()->paginate(20);
 
-        $articles = $user->likes->sortByDesc('created_at');
-
-        return view('users.likes', [
-            'user' => $user,
-            'articles' => $articles,
-        ]);
+        return view('users.likes', compact('user', 'articles'));
     }
 }
