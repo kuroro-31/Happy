@@ -30,13 +30,15 @@
       </div>
     </div>
     <div class="md:w-3/5 py-8">
-      @foreach ($articles as $article)
-        @include('articles.card')
-      @endforeach
+      @if ($articles->count())
+        @foreach ($articles as $article)
+          @include('articles.card')
+        @endforeach
+      @else
+        <div class="">投稿はありません</div>
+      @endif
+
+      {{ $articles->links() }}
     </div>
   </div>
-  {{-- {{ $articles->links() }} --}}
-  {{-- {{ $articles->links('vendor/pagination/tailwind') }} --}}
-  {{-- {{ $articles->withQueryString()->links() }} --}}
-  {{-- {{ $articles->onEachSide(5)->links() }} --}}
 @endsection
