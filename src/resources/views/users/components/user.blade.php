@@ -3,8 +3,12 @@
     @empty($user->thumbnail)
       <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
     @else
-      <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
-        alt="profile_thumbnail" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
+      <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
+        <template #thumbnail>
+          <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . $user->thumbnail) }}"
+            alt="profile_thumbnail" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
+        </template>
+      </thumbnail-zoom>
     @endempty
     @if (Auth::id() === $user->id)
       <edit-user-modal class="edit-user-modal">
@@ -21,13 +25,17 @@
     @endif
   </div>
   <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
-    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark z-30">
+    <div class="text-dark z-30">
       @empty($user->avatar)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="avatar">
       @else
-        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="avatar">
+        <avatar-zoom :avatar='@json($user->avatar)'>
+          <template #avatar>
+            <img src="{{ asset('/img/users/avatar/' . $user->avatar) }}" alt="avatar" class="avatar">
+          </template>
+        </avatar-zoom>
       @endempty
-    </a>
+    </div>
     <div class="w-full px-6 flex justify-between">
       <div class="flex flex-col">
         <div class="text-4xl font-semibold flex items-center">
