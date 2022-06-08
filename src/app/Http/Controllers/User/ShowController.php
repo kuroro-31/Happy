@@ -24,9 +24,6 @@ class ShowController extends Controller
 
         $articles = $user->articles->sortByDesc('created_at');
 
-        return view('users.show', [
-            'user' => $user,
-            'articles' => $articles,
-        ]);
+        return view('users.show', compact('user', 'articles'));
     }
 }

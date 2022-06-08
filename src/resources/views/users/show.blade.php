@@ -46,9 +46,14 @@
     </div>
     <div class="md:w-3/5 py-8">
       @include('users.components.tabs', ['hasArticles' => true, 'hasLikes' => false])
-      @foreach ($articles as $article)
-        @include('articles.card')
-      @endforeach
+
+      @if ($articles->count())
+        @foreach ($articles as $article)
+          @include('articles.card')
+        @endforeach
+      @else
+        <div class="">投稿はありません</div>
+      @endif
     </div>
   </div>
 @endsection

@@ -38,6 +38,7 @@
         <div class="">投稿はありません</div>
       @endif
 
+      {{-- ページネーション --}}
       {{ $articles->links() }}
     </div>
   </div>
