@@ -30,16 +30,19 @@
       </div>
     </div>
     <div class="md:w-3/5 py-8">
-      @if ($articles->count())
+      @if (!empty($articles))
         @foreach ($articles as $article)
           @include('articles.card')
         @endforeach
-      @else
-        <div class="">投稿はありません</div>
+
+        {{ $articles->links() }}
       @endif
 
-      {{-- ページネーション --}}
-      {{ $articles->links() }}
+      @if (!empty($likeRankings))
+        @foreach ($likeRankings as $article)
+          @include('articles.card')
+        @endforeach
+      @endif
     </div>
   </div>
 @endsection
