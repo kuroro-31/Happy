@@ -4,7 +4,7 @@
       <div class="relative flex items-center">
         <a href="/" class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto">
           <span class="sr-only">Tailwind CSS home page</span>
-          <span class="text-2xl font-semibold">Happy</span>
+          <span class="text-2xl font-semibold">Emma</span>
         </a>
         <div class="hidden lg:flex items-center ml-auto">
           <nav class="text-sm">

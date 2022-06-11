@@ -30,6 +30,7 @@
       </div>
     </div>
     <div class="md:w-3/5 py-8">
+      {{-- <app-timeline></app-timeline> --}}
       @if (!empty($articles))
         @foreach ($articles as $article)
           @include('articles.card')

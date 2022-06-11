@@ -45,7 +45,7 @@
     <div class="w-1/4 font-semibold mb-2">リンク</div>
     <div class="w-3/4 pl-4">
       <input type="text" name="website" value="{{ $user->website ?? old('website') }}"
-        class="w-full p-2 bg-white-100 dark:bg-dark-2 rounded">
+        class="w-full p-2 bg-white-1 dark:bg-dark-2 rounded">
     </div>
   </div>
 
@@ -53,7 +53,7 @@
     <div class="w-1/4 font-semibold mb-2">自己紹介</div>
     <div class="w-3/4 pl-4">
       <textarea name="body" placeholder="200文字以内で入力してください。" maxlength="200"
-        class="w-full p-2 bg-white-100 dark:bg-dark-2 rounded h-40">{{ $user->body ?? old('body') }}</textarea>
+        class="w-full p-2 bg-white-1 dark:bg-dark-2 rounded h-40">{{ $user->body ?? old('body') }}</textarea>
     </div>
   </div>
   {{-- <user-body-count :content='@json($user->body ?? old('body'))'></user-body-count> --}}
