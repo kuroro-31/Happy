@@ -30,6 +30,8 @@ class StoreController extends Controller
             $article->tags()->attach($tag);
         });
 
-        return redirect()->route('users.show', ['name' => $article->user->name]);
+        return redirect()
+        ->route('users.show', ['name' => $article->user->name])
+        ->withSuccess("投稿しました！");
     }
 }

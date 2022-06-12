@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('website')->nullable();
-            $table->text('body')->nullable();
+            $table->text('body', 200)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();

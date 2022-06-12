@@ -50,6 +50,7 @@ Route::prefix('users')->name('users.')->group(function () {
     });
     Route::get('/{name}', 'App\Http\Controllers\User\ShowController')->name('show');
     Route::get('/{name}/likes', 'App\Http\Controllers\User\LikesController')->name('likes');
+    Route::get('/{name}/about', 'App\Http\Controllers\User\AboutController')->name('about');
     Route::get('/{name}/followings', 'App\Http\Controllers\User\FollowingsController')->name('followings');
     Route::get('/{name}/followers', 'App\Http\Controllers\User\FollowersController')->name('followers');
 });
