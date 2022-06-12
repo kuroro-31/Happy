@@ -26,7 +26,19 @@ class TimelineController extends Controller
             if((empty($ownPost)) || (empty($followed)) || (empty($ownPost) && empty($followed))){
                 $likeRankings = Article::withCount('likes')
                     ->orderBy('likes_count', 'desc')
-                    ->limit(1)
+                    ->limit(10)
+                    ->with([
+                        'user',
+                        'likes',
+                        'tags',
+                        // 'retweets',
+                        // 'replies',
+                        // 'media.baseMedia',
+                        // 'originalTweet.user',
+                        // 'originalTweet.likes',
+                        // 'originalTweet.retweets',
+                        // 'originalTweet.media.baseMedia',
+                    ])
                     ->get();
             }
 
@@ -36,12 +48,36 @@ class TimelineController extends Controller
                     ->whereIn('user_id', Auth::user()->followings()->pluck('followee_id')) // フォロー中ユーザー
                     ->orWhere('user_id', Auth::user()->id) // 自分
                     ->latest() // 最新順
-                    ->paginate(1);
+                    ->with([
+                        'user',
+                        'likes',
+                        'tags',
+                        // 'retweets',
+                        // 'replies',
+                        // 'media.baseMedia',
+                        // 'originalTweet.user',
+                        // 'originalTweet.likes',
+                        // 'originalTweet.retweets',
+                        // 'originalTweet.media.baseMedia',
+                    ])
+                    ->paginate(20);
             }
         } else {
             $likeRankings = Article::withCount('likes')
                 ->orderBy('likes_count', 'desc')
-                ->limit(1)
+                ->with([
+                        'user',
+                        'likes',
+                        'tags',
+                        // 'retweets',
+                        // 'replies',
+                        // 'media.baseMedia',
+                        // 'originalTweet.user',
+                        // 'originalTweet.likes',
+                        // 'originalTweet.retweets',
+                        // 'originalTweet.media.baseMedia',
+                ])
+                ->limit(10)
                 ->get();
         }
 
