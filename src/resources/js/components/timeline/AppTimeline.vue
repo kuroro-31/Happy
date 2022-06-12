@@ -6,12 +6,12 @@
 
         <app-tweet v-for="tweet in posts" :key="tweet.id" :tweet="tweet" />
 
-        <!-- <div
-      v-if="tweets.length"
-      v-observe-visibility="{
-        callback: handleScrolledToBottomOfTimeline
-      }"
-    > -->
+        <div
+            v-if="posts.length"
+            v-observe-visibility="{
+                callback: handleScrolledToBottomOfTimeline,
+            }"
+        ></div>
     </div>
 </template>
 
@@ -59,16 +59,17 @@ export default {
         //     this.lastPage = response.data.meta.last_page
         //   })
         // },
-        // handleScrolledToBottomOfTimeline (isVisible) {
-        //   if (!isVisible) {
-        //     return
-        //   }
-        //   if (this.lastPage === this.page) {
-        //     return
-        //   }
-        //   this.page++
-        //   this.loadTweets()
-        // }
+        handleScrolledToBottomOfTimeline(isVisible) {
+            //   if (!isVisible) {
+            //     return
+            //   }
+            //   if (this.lastPage === this.page) {
+            //     return
+            //   }
+            //   this.page++
+            //   this.loadTweets()
+            console.log("一番下だ！");
+        },
     },
 
     mounted() {
