@@ -8,3 +8,4 @@ src/public/js/app.js
 src/public/css/app.css
 src/public/img/users/avatar/*
 src/public/img/users/thumbnail/*
+src/package-lock.json
