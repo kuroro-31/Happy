@@ -68,6 +68,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -89,7 +90,8 @@ class RegisterController extends Controller
     public function registerProviderUser(Request $request, string $provider)
     {
         $request->validate([
-            'name' => ['required', 'string', 'alpha_num', 'min:3', 'max:16', 'unique:users'],
+            'name' => ['required', 'string', 'min:2', 'max:20'],
+            'username' => ['required', 'string', 'alpha_num', 'min:3', 'max:16', 'unique:users'],
             'token' => ['required', 'string'],
         ]);
 
@@ -99,6 +101,7 @@ class RegisterController extends Controller
 
         $user = User::create([
             'name' => $request->name,
+            'username' => $request->username,
             'email' => $providerUser->getEmail(),
             'password' => null,
         ]);

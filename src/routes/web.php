@@ -44,13 +44,13 @@ Route::get('/tags/{name}', 'App\Http\Controllers\TagController')->name('tags.sho
 */
 Route::prefix('users')->name('users.')->group(function () {
     Route::middleware('auth')->group(function () {
-        Route::patch('/{name}', 'App\Http\Controllers\User\UpdateController')->name('update');
-        Route::put('/{name}/follow', 'App\Http\Controllers\User\FollowController')->name('follow');
-        Route::delete('/{name}/follow', 'App\Http\Controllers\User\UnfollowController')->name('unfollow');
+        Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('update');
+        Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('follow');
+        Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('unfollow');
     });
-    Route::get('/{name}', 'App\Http\Controllers\User\ShowController')->name('show');
-    Route::get('/{name}/likes', 'App\Http\Controllers\User\LikesController')->name('likes');
-    Route::get('/{name}/about', 'App\Http\Controllers\User\AboutController')->name('about');
-    Route::get('/{name}/followings', 'App\Http\Controllers\User\FollowingsController')->name('followings');
-    Route::get('/{name}/followers', 'App\Http\Controllers\User\FollowersController')->name('followers');
+    Route::get('/{username}', 'App\Http\Controllers\User\ShowController')->name('show');
+    Route::get('/{username}/likes', 'App\Http\Controllers\User\LikesController')->name('likes');
+    Route::get('/{username}/about', 'App\Http\Controllers\User\AboutController')->name('about');
+    Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsController')->name('followings');
+    Route::get('/{username}/followers', 'App\Http\Controllers\User\FollowersController')->name('followers');
 });

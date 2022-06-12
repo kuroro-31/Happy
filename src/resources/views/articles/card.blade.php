@@ -1,6 +1,6 @@
 <div class="card p-4 rounded-2xl bg-white dark:bg-dark-2 mb-6">
   <div class="flex items-center justify-between">
-    <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="flex items-center">
+    <a href="{{ route('users.show', ['username' => $article->user->username]) }}" class="flex items-center">
       @empty($article->user->avatar)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
           class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">

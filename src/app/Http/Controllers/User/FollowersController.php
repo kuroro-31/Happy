@@ -13,9 +13,9 @@ class FollowersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(string $name)
+    public function __invoke(string $username)
     {
-        $user = User::where('name', $name)->first()
+        $user = User::where('username', $username)->first()
             ->load('followers.followers');
 
         $followers = $user->followers->sortByDesc('created_at');

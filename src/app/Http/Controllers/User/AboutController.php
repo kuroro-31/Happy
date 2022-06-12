@@ -13,9 +13,9 @@ class AboutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(string $name)
+    public function __invoke(string $username)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::where('username', $username)->first();
 
         $articles = $user->articles()->latest()->paginate(20);
 

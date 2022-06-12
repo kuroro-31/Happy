@@ -1,7 +1,7 @@
 <ul class="mb-4 flex flex-wrap text-xs text-center">
 
   <li class="mr-2 {{ $hasArticles ? 'border-b-2 border-primary' : '' }}">
-    <a href="{{ route('users.show', ['name' => $user->name]) }}"
+    <a href="{{ route('users.show', ['username' => $user->username]) }}"
       class="flex items-center py-2 px-4 {{ $hasArticles ? 'text-primary font-semibold' : 'hover:text-primary' }}"
       aria-current="page">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -14,7 +14,7 @@
   </li>
 
   <li class="mr-2 {{ $hasLikes ? 'border-b-2 border-primary' : '' }}">
-    <a href="{{ route('users.likes', ['name' => $user->name]) }}"
+    <a href="{{ route('users.likes', ['username' => $user->username]) }}"
       class="flex items-center p-2 {{ $hasLikes ? 'text-primary font-semibold' : 'hover:text-primary' }}">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
         stroke="currentColor" stroke-width="2">
@@ -26,7 +26,7 @@
   </li>
 
   <li class="mr-2 {{ $about ? 'border-b-2 border-primary' : '' }}">
-    <a href="{{ route('users.about', ['name' => $user->name]) }}"
+    <a href="{{ route('users.about', ['username' => $user->username]) }}"
       class="flex items-center p-2 {{ $about ? 'text-primary font-semibold' : 'hover:text-primary' }}">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
         stroke="currentColor" stroke-width="2">

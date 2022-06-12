@@ -26,9 +26,17 @@
   </div>
 
   <div class="flex w-full mb-8">
+    <div class="w-1/4 font-semibold mb-2">ニックネーム</div>
+    <div class="w-3/4 pl-4">
+      <input type="text" name="name" value="{{ $user->name ?? old('name') }}"
+        class="w-full p-2 bg-gray-2 dark:bg-dark rounded">
+    </div>
+  </div>
+
+  <div class="flex w-full mb-8">
     <div class="w-1/4 font-semibold mb-2">名前</div>
     <div class="w-3/4 pl-4">
-      <input disabled type="text" name="name" value="{{ $user->name ?? old('name') }}"
+      <input disabled type="text" name="name" value="{{ $user->username ?? old('username') }}"
         class="w-full p-2 bg-gray-2 dark:bg-dark rounded">
     </div>
   </div>

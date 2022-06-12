@@ -93,7 +93,7 @@
                   </create-modal>
                 </li>
                 <li>
-                  <header-user-modal :user-name='{{ Auth::user()->name }}'>
+                  <header-user-modal>
                     <template #avatar>
                       @if (empty(Auth::user()->avatar))
                         <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="w-10 h-10 shadow rounded-full">
@@ -102,7 +102,7 @@
                           alt="w-10 h-10 shadow rounded-full" class="w-10 h-10 shadow rounded-full">
                       @endif
                     </template>
-                    <a href="{{ route('users.show', ['name' => Auth::user()->name]) }}"
+                    <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                       class="block text-sm cursor-pointer p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-dark whitespace-nowrap">
                       マイページ
                     </a>

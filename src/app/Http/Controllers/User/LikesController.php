@@ -13,9 +13,9 @@ class LikesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(string $name)
+    public function __invoke(string $username)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::where('username', $username)->first();
         $articles = $user->likes()->latest()->paginate(20);
 
         return view('users.likes', compact('user', 'articles'));

@@ -14,7 +14,7 @@
       <edit-user-modal class="edit-user-modal">
         @include('atoms.error_card_list')
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-        <form method="POST" action="{{ route('users.update', ['name' => $user->name]) }}"
+        <form method="POST" action="{{ route('users.update', ['username' => $user->username]) }}"
           enctype="multipart/form-data">
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
@@ -51,16 +51,16 @@
 
         </div>
         <div class="flex items-center text-sm pt-2">
-          <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="">
+          <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
             <span class="font-semibold text-xl">{{ $user->count_followings }}</span>
             フォロー
           </a>
           {{-- <follow-modal :auth-user='@json(Auth::user())' :authorized='@json(Auth::check())'
             :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
-            endpoint="{{ route('users.followings', ['name' => $user->name]) }}">
+            endpoint="{{ route('users.followings', ['username' => $user->username]) }}">
           </follow-modal> --}}
           {{-- フォロワー --}}
-          <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="ml-2">
+          <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
             <span class="font-semibold text-xl">{{ $user->count_followers }}</span>
             フォロワー
           </a>
@@ -68,7 +68,8 @@
       </div>
       @if (Auth::id() !== $user->id)
         <follow-button class="ml-auto" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
-          :authorized='@json(Auth::check())' endpoint="{{ route('users.follow', ['name' => $user->name]) }}">
+          :authorized='@json(Auth::check())'
+          endpoint="{{ route('users.follow', ['username' => $user->username]) }}">
         </follow-button>
       @endif
     </div>

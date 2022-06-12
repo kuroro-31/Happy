@@ -14,9 +14,9 @@ class FollowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, string $name)
+    public function __invoke(Request $request, string $username)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::where('username', $username)->first();
 
         if ($user->id === $request->user()->id)
         {
@@ -26,6 +26,6 @@ class FollowController extends Controller
         $request->user()->followings()->detach($user);
         $request->user()->followings()->attach($user);
 
-        return ['name' => $name];
+        return ['username' => $username];
     }
 }

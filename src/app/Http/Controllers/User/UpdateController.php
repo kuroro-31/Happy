@@ -19,6 +19,7 @@ class UpdateController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $user = Auth::user();
+        $user->name = $request->name;
         $linkify = new \Misd\Linkify\Linkify();
         $user->body = $linkify->process($request->body);
         $user->website = $request->website;
@@ -36,7 +37,7 @@ class UpdateController extends Controller
             $image->move(public_path('img/users/thumbnail'), $filename);
             $user->thumbnail = $request->file('thumbnail')->getClientOriginalName();
         }
-    
+
         $user->save();
 
         return redirect()->back();
