@@ -4,7 +4,7 @@
             <app-tweet-compose />
         </div> -->
 
-        <app-tweet v-for="tweet in post" :key="tweet.id" :tweet="tweet" />
+        <app-tweet v-for="tweet in posts" :key="tweet.id" :tweet="tweet" />
 
         <!-- <div
       v-if="tweets.length"
@@ -16,8 +16,7 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions, mapMutations } from 'vuex'
-import axios from "axios";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import AppTweet from "../tweets/AppTweet.vue";
 
 export default {
@@ -28,38 +27,35 @@ export default {
         return {
             // page: 1,
             // lastPage: 1
-            posts: [],
-            rankingPosts: [],
+            // posts: [],
+            // likeRankings: [],
         };
     },
 
     computed: {
-        // ...mapGetters({
-        //   tweets: 'timeline/tweets'
-        // }),
+        ...mapGetters({
+            posts: "posts/posts",
+            // likeRankings: "posts/likeRankings",
+        }),
         // urlWithPage () {
         //   return `/api/timeline?page=${this.page}`
         // }
-        post() {
-            if (this.posts) return this.posts;
-            if (this.rankingPosts) return this.rankingPosts;
-        },
+        // post() {
+        //     if (this.posts) return this.posts;
+        //     if (this.likeRankings) return this.likeRankings;
+        // },
     },
 
     methods: {
-        async getPosts() {
-            let response = await axios.get("api/posts");
-            this.posts = response.data.articles;
-            this.rankingPosts = response.data.likeRankings;
-        },
-        // ...mapActions({
-        //   getTweets: 'timeline/getTweets'
-        // }),
-        // ...mapMutations({
-        //   PUSH_TWEETS: 'timeline/PUSH_TWEETS'
-        // }),
+        ...mapActions({
+            getPosts: "posts/getPosts",
+        }),
+        ...mapMutations({
+            PUSH_TWEETS: "posts/PUSH_TWEETS",
+            // PUSH_RANKINGS: "posts/PUSH_RANKINGS",
+        }),
         // loadTweets () {
-        //   this.getTweets(this.urlWithPage).then((response) => {
+        //   this.getPosts(this.urlWithPage).then((response) => {
         //     this.lastPage = response.data.meta.last_page
         //   })
         // },
