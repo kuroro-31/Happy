@@ -1,3 +1,5 @@
-import './bootstrap'
-import './components'
+import './bootstrap';
+import './components';
+import './library';
+
 

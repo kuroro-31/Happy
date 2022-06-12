@@ -11,6 +11,7 @@ import HeaderNav from './components/HeaderNav'
 import HeaderUserModal from './components/HeaderUserModal'
 import Modal from './components/Modal'
 import ThemeToggle from './components/ThemeToggle'
+import AppTimeline from './components/timeline/AppTimeline'
 import AvatarZoom from './components/users/AvatarZoom'
 import EditUserModal from './components/users/EditUserModal'
 import FollowModal from './components/users/FollowModal'
@@ -18,6 +19,7 @@ import ThumbnailZoom from './components/users/ThumbnailZoom'
 
 createApp({
     components: {
+        AppTimeline,
         ThumbnailZoom,
         FollowModal,
         AvatarZoom,
