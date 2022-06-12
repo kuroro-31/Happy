@@ -1,35 +1,29 @@
 <template>
     <div>
         <!-- <div class="border-b-8 border-gray-800 p-4 w-full">
-      <app-tweet-compose />
-    </div> -->
+            <app-tweet-compose />
+        </div> -->
 
-        <!-- <app-tweet
-      v-for="tweet in tweets"
-      :key="tweet.id"
-      :tweet="tweet"
-    />
+        <app-tweet v-for="tweet in post" :key="tweet.id" :tweet="tweet" />
 
-    <div
+        <!-- <div
       v-if="tweets.length"
       v-observe-visibility="{
         callback: handleScrolledToBottomOfTimeline
       }"
     > -->
-        {{ posts }}
-        {{ rankingPosts }}
     </div>
 </template>
 
 <script>
 // import { mapGetters, mapActions, mapMutations } from 'vuex'
 import axios from "axios";
+import AppTweet from "../tweets/AppTweet.vue";
 
 export default {
-    // async asyncData() {
-    //     const { data } = await axios.get(`/api/posts`);
-    //     return { posts: data };
-    // },
+    components: {
+        AppTweet,
+    },
     data() {
         return {
             // page: 1,
@@ -46,6 +40,10 @@ export default {
         // urlWithPage () {
         //   return `/api/timeline?page=${this.page}`
         // }
+        post() {
+            if (this.posts) return this.posts;
+            if (this.rankingPosts) return this.rankingPosts;
+        },
     },
 
     methods: {
