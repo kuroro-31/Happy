@@ -1,26 +1,25 @@
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  async getPosts ({ commit }) {
-    let response = await axios.get("api/posts")
+    async getPosts({ commit }, url) {
+        let response = await axios.get(url);
 
-    if (response.data.articles){
-      commit('PUSH_POSTS', response.data.articles)
-    } else {
-      commit('PUSH_POSTS', response.data.likeRankings)
-    }
+        if (!response.data.articles) {
+            commit("PUSH_POSTS", response.data.likeRankings);
+        } else {
+            commit("PUSH_POSTS", response.data.articles);
+        }
 
-    // commit('likes/PUSH_LIKES', response.data.meta.likes, { root: true })
-    // commit('retweets/PUSH_RETWEETS', response.data.meta.retweets, { root: true })
+        // commit('likes/PUSH_LIKES', response.data.meta.likes, { root: true })
+        // commit('retweets/PUSH_RETWEETS', response.data.meta.retweets, { root: true })
+        return response;
+    },
 
-    return response
-  },
+    // async quoteTweet (_, { tweet, data }) {
+    //   await axios.post(`/api/tweets/${tweet.id}/quotes`, data)
+    // },
 
-  // async quoteTweet (_, { tweet, data }) {
-  //   await axios.post(`/api/tweets/${tweet.id}/quotes`, data)
-  // },
-
-  // async replyToTweet (_, { tweet, data }) {
-  //   await axios.post(`/api/tweets/${tweet.id}/replies`, data)
-  // }
-}
+    // async replyToTweet (_, { tweet, data }) {
+    //   await axios.post(`/api/tweets/${tweet.id}/replies`, data)
+    // }
+};

@@ -9,6 +9,6 @@ const app = createApp({
 })
 
 app
-.use(store)
 .use(VueObserveVisibility)
+.use(store)
 .mount("#app")

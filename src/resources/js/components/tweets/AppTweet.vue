@@ -4,10 +4,7 @@
     >
         <!-- <component :is="`app-tweet-variant-${tweet.type}`" :tweet="tweet" /> -->
         <div class="flex w-full">
-            <a
-                :href="`/users/${tweet.user.username}`"
-                class="inline-block mr-3"
-            >
+            <a :href="`/users/${post.user.username}`" class="inline-block mr-3">
                 <img
                     :src="avatar"
                     alt="user avatar"
@@ -15,9 +12,9 @@
                 />
             </a>
             <div>
-                <app-tweet-username :user="tweet.user" />
+                <app-tweet-username :user="post.user" />
                 <p class="text-gray-300 whitespace-pre-wrap">
-                    {{ tweet.body }}
+                    {{ post.body }}
                 </p>
             </div>
         </div>
@@ -32,15 +29,15 @@ export default {
         AppTweetUsername,
     },
     props: {
-        tweet: {
+        post: {
             required: true,
             type: Object,
         },
     },
     computed: {
         avatar() {
-            if (this.tweet.user.avatar) {
-                return this.tweet.user.avatar;
+            if (this.post.user.avatar) {
+                return this.post.user.avatar;
             } else {
                 return "./img/avatar.jpeg";
             }

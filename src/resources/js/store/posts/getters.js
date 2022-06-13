@@ -1,10 +1,13 @@
 export default {
-  posts (state) {
-    return state.posts
-      .sort((a, b) => b.created_at - a.created_at)
-  },
+    posts(state) {
+        let posts = [];
+        state.posts.filter((t) => {
+            posts = t.data;
+        });
+        return posts;
+    },
 
-  post (state) {
-    return id => state.posts.find(t => t.id === id)
-  }
-}
+    // post (state) {
+    //   return id => state.posts.find(t => t.id === id)
+    // }
+};
