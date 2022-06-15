@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            // $table->string('title');
+            $table->string('title');
             $table->text('body', 200);
             $table->unsignedbigInteger('user_id');
             $table->timestamps();
