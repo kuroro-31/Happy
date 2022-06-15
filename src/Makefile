@@ -58,3 +58,5 @@ route:
 	php artisan route:list
 w:
 	npm run watch-poll
+lint:
+	npm run lint

@@ -100,6 +100,12 @@ sql:
 	docker compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
 	docker compose exec redis redis-cli
+reset:
+	rm -rf node_modules
+	rm package-lock.json
+	npm cache clear --force
+	npm cache clean --force
+	npm i
 ide-helper:
 	docker compose exec app php artisan clear-compiled
 	docker compose exec app php artisan ide-helper:generate
