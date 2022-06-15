@@ -1,4 +1,4 @@
-<!-- https://ismail9k.github.io/vue3-carousel/getting-started.html -->
+<!-- https://ismail9k.github.io/vue3-carousel/examples.html#basic-example -->
 <template>
     <Carousel
         :settings="settings"
@@ -44,8 +44,8 @@ export default defineComponent({
                 },
                 // 1024 and up
                 1024: {
-                    itemsToShow: 5,
-                    snapAlign: "start",
+                    itemsToShow: 3.95,
+                    snapAlign: "center",
                 },
             },
             slides: [
@@ -73,5 +73,24 @@ $img-h: calc($img-w * 0.7);
 img {
     height: $img-w;
     width: $img-h;
+}
+
+.carousel__slide > .carousel__item {
+    transform: scale(1);
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.carousel__slide--visible > .carousel__item {
+    opacity: 1;
+    transform: rotateY(0);
+}
+.carousel__slide--next > .carousel__item {
+    transform: scale(0.9) translate(-10px);
+}
+.carousel__slide--prev > .carousel__item {
+    transform: scale(0.9) translate(10px);
+}
+.carousel__slide--active > .carousel__item {
+    transform: scale(1.1);
 }
 </style>

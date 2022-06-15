@@ -1,9 +1,9 @@
-import ArticleLike from "../components/ArticleLike";
-import CreateModal from "../components/articles/CreateModal";
-import DeleteModal from "../components/articles/DeleteModal";
-import EditModal from "../components/articles/EditModal";
-import RankingItems from "../components/articles/RankingItems";
-import ArticleTagsInput from "../components/ArticleTagsInput";
+import BookLike from "../components/BookLike";
+import CreateModal from "../components/books/CreateModal";
+import DeleteModal from "../components/books/DeleteModal";
+import EditModal from "../components/books/EditModal";
+import RankingItems from "../components/books/RankingItems";
+import BookTagsInput from "../components/BookTagsInput";
 import AuthModal from "../components/auth/AuthModal";
 import CountAnimation from "../components/CountAnimation";
 import FollowButton from "../components/FollowButton";
@@ -29,8 +29,8 @@ export default {
     ThemeToggle,
     EditModal,
     EditUserModal,
-    ArticleLike,
-    ArticleTagsInput,
+    BookLike,
+    BookTagsInput,
     FollowButton,
     HeaderNav,
     Modal,

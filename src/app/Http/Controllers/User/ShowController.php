@@ -17,8 +17,8 @@ class ShowController extends Controller
     {
         $user = User::where('username', $username)->first();
 
-        $articles = $user->articles()->latest()->paginate(20);
+        $books = $user->books()->latest()->paginate(20);
 
-        return view('users.show', compact('user', 'articles'));
+        return view('users.show', compact('user', 'books'));
     }
 }

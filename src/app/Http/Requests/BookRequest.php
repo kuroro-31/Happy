@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 // 記事投稿画面や記事更新画面から送信された記事タイトルや記事本文のバリデーション
-class ArticleRequest extends FormRequest
+class BookRequest extends FormRequest
 {
     /**
      * リクエストの対象となるリソース(ここでは記事)をユーザーが更新して良いかどうかを判定

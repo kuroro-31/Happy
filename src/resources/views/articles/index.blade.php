@@ -23,24 +23,24 @@
   @endif --}}
   <div class="flex flex-col w-full mx-auto px-8 justify-center">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-xl font-semibold mb-2">人気ランキング</h2>
+      <h2 class="text-xl font-semibold mb-2">オススメの本</h2>
       <ranking-items></ranking-items>
     </div>
 
     <div class="max-w-5xl mx-auto py-8">
-      @include('articles.components.tabs')
+      @include('book.components.tabs')
       {{-- <app-timeline></app-timeline> --}}
-      @if (!empty($articles))
-        @foreach ($articles as $article)
-          @include('articles.components.card')
+      @if (!empty($books))
+        @foreach ($books as $book)
+          @include('book.components.card')
         @endforeach
 
-        {{ $articles->links() }}
+        {{ $books->links() }}
       @endif
 
       @if (!empty($likeRankings))
-        @foreach ($likeRankings as $article)
-          @include('articles.components.card')
+        @foreach ($likeRankings as $book)
+          @include('book.components.card')
         @endforeach
       @endif
     </div>

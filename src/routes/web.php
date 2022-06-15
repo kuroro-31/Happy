@@ -14,22 +14,22 @@ Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redir
 Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
 /*
 |--------------------------------------------------------------------------
-| Articles Routes
+| Books Routes
 |--------------------------------------------------------------------------
 | 投稿
 */
-Route::get('/', 'App\Http\Controllers\Articles\IndexController')->name('articles.index');
-Route::prefix('articles')->name('articles.')->group(function () {
+Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index');
+Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
-        Route::post('/', 'App\Http\Controllers\Articles\StoreController')->name('store');
-        Route::get('/create', 'App\Http\Controllers\Articles\CreateController')->name('create');
-        Route::delete('/{article}', 'App\Http\Controllers\Articles\DestroyController')->name('destroy');
-        Route::patch('/{article}', 'App\Http\Controllers\Articles\UpdateController')->name('update');
-        Route::get('/{article}/edit', 'App\Http\Controllers\Articles\EditController')->name('edit');
-        Route::put('/{article}/like', 'App\Http\Controllers\Articles\LikeController')->name('like');
-        Route::delete('/{article}/like', 'App\Http\Controllers\Articles\UnlikeController')->name('unlike');
+        Route::post('/', 'App\Http\Controllers\Books\StoreController')->name('store');
+        Route::get('/create', 'App\Http\Controllers\Books\CreateController')->name('create');
+        Route::delete('/{book}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
+        Route::patch('/{book}', 'App\Http\Controllers\Books\UpdateController')->name('update');
+        Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
+        Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
+        Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
     });
-    Route::get('/{article}', 'App\Http\Controllers\Articles\ShowController')->name('show');
+    Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });
 
 // タグ

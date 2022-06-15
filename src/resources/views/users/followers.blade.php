@@ -10,7 +10,7 @@
   <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
     <div class="py-8 w-full">
       @include('users.components.tabs', [
-          'hasArticles' => false,
+          'hasBooks' => false,
           'hasLikes' => false,
           'about' => false,
       ])

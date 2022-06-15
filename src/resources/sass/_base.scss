@@ -245,3 +245,7 @@ input[name="tab_item"] {
         @apply inline-block text-primary my-2;
     }
 }
+
+.carousel__icon {
+    fill: $primary;
+}

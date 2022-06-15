@@ -4,10 +4,10 @@ export default {
     async getPosts({ commit }, url) {
         let response = await axios.get(url);
 
-        if (!response.data.articles) {
+        if (!response.data.books) {
             commit("PUSH_POSTS", response.data.likeRankings);
         } else {
-            commit("PUSH_POSTS", response.data.articles);
+            commit("PUSH_POSTS", response.data.books);
         }
 
         // commit('likes/PUSH_LIKES', response.data.meta.likes, { root: true })

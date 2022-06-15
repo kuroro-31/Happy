@@ -8,7 +8,7 @@
     <div class="z-30 absolute text-white font-semibold text-2xl flex justify-center">
       <h2>{{ $tag->hashtag }}</h2>
       <span class="inline-block ml-6">
-        {{ $tag->articles->count() }}件
+        {{ $tag->books->count() }}件
       </span>
     </div>
     <div class="tag-hero-img">
@@ -25,8 +25,8 @@
       </div>
     </div>
     <div class="md:w-3/5 py-8">
-      @foreach ($tag->articles as $article)
-        @include('articles.components.card')
+      @foreach ($tag->books as $book)
+        @include('book.components.card')
       @endforeach
     </div>
 

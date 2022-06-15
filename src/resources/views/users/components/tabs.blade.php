@@ -1,8 +1,8 @@
 <ul class="mb-4 flex flex-wrap text-xs text-center">
 
-  <li class="mr-2 {{ $hasArticles ? 'border-b-2 border-primary' : '' }}">
+  <li class="mr-2 {{ $hasBooks ? 'border-b-2 border-primary' : '' }}">
     <a href="{{ route('users.show', ['username' => $user->username]) }}"
-      class="flex items-center py-2 px-4 {{ $hasArticles ? 'text-primary font-semibold' : 'hover:text-primary' }}"
+      class="flex items-center py-2 px-4 {{ $hasBooks ? 'text-primary font-semibold' : 'hover:text-primary' }}"
       aria-current="page">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
         stroke="currentColor" stroke-width="2">

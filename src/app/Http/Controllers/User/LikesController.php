@@ -16,8 +16,8 @@ class LikesController extends Controller
     public function __invoke(string $username)
     {
         $user = User::where('username', $username)->first();
-        $articles = $user->likes()->latest()->paginate(20);
+        $books = $user->likes()->latest()->paginate(20);
 
-        return view('users.likes', compact('user', 'articles'));
+        return view('users.likes', compact('user', 'books'));
     }
 }

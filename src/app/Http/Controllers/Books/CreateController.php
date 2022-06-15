@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Articles;
+namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
+use App\Models\Book;
 use App\Models\Tag;
 
 class CreateController extends Controller
 {
     /**
      * 記事の作成
-     * ポリシー(src/app/Policies/ArticlePolicy.php)
+     * ポリシー(src/app/Policies/BookPolicy.php)
      */
-    public function __invoke(Article $article)
+    public function __invoke(Book $book)
     {
-        $this->authorize('create', $article);
+        $this->authorize('create', $book);
         $allTagNames = Tag::all()->map(function ($tag) {
             return ['text' => $tag->name];
         });
 
-        return view('articles.create', [
+        return view('books.create', [
             'allTagNames' => $allTagNames,
         ]);
     }

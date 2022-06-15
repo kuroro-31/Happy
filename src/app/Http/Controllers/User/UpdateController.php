@@ -14,7 +14,7 @@ class UpdateController extends Controller
 {
     /**
      * 記事の更新
-     * ポリシー(src/app/Policies/ArticlePolicy.php)
+     * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(Request $request, User $user)
     {
