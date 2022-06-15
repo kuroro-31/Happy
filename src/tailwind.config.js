@@ -1,3 +1,4 @@
+// prettier-ignore
 module.exports = {
     mode: 'jit',
     darkMode: 'class',
@@ -11,12 +12,14 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-            transparent: 'transparent',
-            current: 'currentColor',
+            'transparent': 'transparent',
+            'current': 'currentColor',
             // 'primary': '#3AA2FF',
-            'primary': '#0177FE',
+            // 'primary': '#0177FE',
+            // 'primary': '#08a698',
+            'primary': '#1F51C5',
             // 'primary': '#009FFF',
-            'primary-light': '#7787fc',
+            'primary-light': '#9cc4ff',
             'gray': '#B0B3B8',
             'gray-2': '#E3E6EA',
             'gray-3': '#cacccf',
@@ -48,4 +51,3 @@ module.exports = {
     },
     plugins: []
 }
-
