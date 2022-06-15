@@ -27,9 +27,7 @@ export default {
     },
     computed: {
         buttonColor() {
-            return this.isFollowedBy
-                ? "border border-gray rounded-xl py-1.5 px-4"
-                : "bg-primary text-white rounded-xl py-1.5 px-4";
+            return this.isFollowedBy ? "btn-border" : "btn-primary";
         },
         buttonText() {
             return this.isFollowedBy ? "フォロー中" : "フォローする";
