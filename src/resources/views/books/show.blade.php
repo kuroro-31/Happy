@@ -5,6 +5,6 @@
 @section('content')
   @include('atoms.nav')
   <div class="container">
-    @include('book.components.card')
+    @include('books.components.card')
   </div>
 @endsection

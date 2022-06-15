@@ -23,7 +23,7 @@
           <form method="POST" action="{{ route('book.update', ['book' => $book->id]) }}">
             {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
             @method('PATCH')
-            @include('book.components.form')
+            @include('books.components.form')
             <button type="submit" class="btn-primary">更新する</button>
           </form>
         </edit-modal>
@@ -58,9 +58,8 @@
 @endif
 <div class="card-body pt-0 pb-2 pl-3">
   <div class="card-text">
-    <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
-      :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-      endpoint="{{ route('book.like', ['book' => $book]) }}">
+    <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))' :initial-count-likes='@json($book->count_likes)'
+      :authorized='@json(Auth::check())' endpoint="{{ route('book.like', ['book' => $book]) }}">
     </book-like>
   </div>
 </div>

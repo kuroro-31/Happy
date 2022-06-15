@@ -17,7 +17,7 @@
 
       @if ($books->count())
         @foreach ($books as $book)
-          @include('book.components.card')
+          @include('books.components.card')
         @endforeach
       @else
         <div>投稿はありません</div>

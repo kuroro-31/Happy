@@ -87,7 +87,7 @@
                   <create-modal>
                     @include('atoms.error_card_list')
                     <form method="POST" action="{{ route('book.store') }}">
-                      @include('book.components.form')
+                      @include('books.components.form')
                       <button type="submit" class="btn-primary justify-end">投稿する</button>
                     </form>
                   </create-modal>

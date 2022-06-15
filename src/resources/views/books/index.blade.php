@@ -28,11 +28,11 @@
     </div>
 
     <div class="max-w-5xl mx-auto py-8">
-      @include('book.components.tabs')
+      @include('books.components.tabs')
       {{-- <app-timeline></app-timeline> --}}
       @if (!empty($books))
         @foreach ($books as $book)
-          @include('book.components.card')
+          @include('books.components.card')
         @endforeach
 
         {{ $books->links() }}
@@ -40,7 +40,7 @@
 
       @if (!empty($likeRankings))
         @foreach ($likeRankings as $book)
-          @include('book.components.card')
+          @include('books.components.card')
         @endforeach
       @endif
     </div>
