@@ -17,7 +17,7 @@
 
       @if ($articles->count())
         @foreach ($articles as $article)
-          @include('articles.card')
+          @include('articles.components.card')
         @endforeach
       @else
         <div>いいねはありません</div>

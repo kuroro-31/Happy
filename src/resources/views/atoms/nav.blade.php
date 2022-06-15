@@ -4,7 +4,7 @@
       <div class="relative flex items-center">
         <a href="/" class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto">
           <span class="sr-only">Tailwind CSS home page</span>
-          <span class="text-2xl font-semibold">Emma</span>
+          <h1 class="text-2xl font-semibold">Starbooks</h1>
         </a>
         <div class="hidden lg:flex items-center ml-auto">
           <nav class="text-sm">
@@ -87,7 +87,7 @@
                   <create-modal>
                     @include('atoms.error_card_list')
                     <form method="POST" action="{{ route('articles.store') }}">
-                      @include('articles.form')
+                      @include('articles.components.form')
                       <button type="submit" class="btn-primary justify-end">投稿する</button>
                     </form>
                   </create-modal>

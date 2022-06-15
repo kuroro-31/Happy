@@ -23,7 +23,7 @@
           <form method="POST" action="{{ route('articles.update', ['article' => $article->id]) }}">
             {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
             @method('PATCH')
-            @include('articles.form')
+            @include('articles.components.form')
             <button type="submit" class="btn-primary">更新する</button>
           </form>
         </edit-modal>

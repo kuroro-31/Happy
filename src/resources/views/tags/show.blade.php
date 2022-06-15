@@ -26,7 +26,7 @@
     </div>
     <div class="md:w-3/5 py-8">
       @foreach ($tag->articles as $article)
-        @include('articles.card')
+        @include('articles.components.card')
       @endforeach
     </div>
 
