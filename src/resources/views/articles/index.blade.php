@@ -23,8 +23,8 @@
   @endif --}}
   <div class="flex max-w-4xl w-full mx-auto px-8 justify-center">
     <div class="py-8">
-      <app-timeline></app-timeline>
-      {{-- @if (!empty($articles))
+      {{-- <app-timeline></app-timeline> --}}
+      @if (!empty($articles))
         @foreach ($articles as $article)
           @include('articles.card')
         @endforeach
@@ -36,7 +36,7 @@
         @foreach ($likeRankings as $article)
           @include('articles.card')
         @endforeach
-      @endif --}}
+      @endif
     </div>
   </div>
 @endsection
