@@ -12,6 +12,6 @@ class ShowController extends Controller
      */
     public function __invoke(Book $book)
     {
-        return view('book.show', ['book' => $book]);
+        return view('books.show', ['book' => $book]);
     }
 }

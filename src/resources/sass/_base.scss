@@ -247,5 +247,57 @@ input[name="tab_item"] {
 }
 
 .carousel__icon {
-    fill: $primary;
+    fill: $color !important;
+    display: flex !important;
+    flex-shrink: 0 !important;
+}
+.carousel__next,
+.carousel__prev {
+    @apply shadow-xl;
+    background: white !important;
+    border-radius: 8px !important;
+    border: 1px solid #ccc !important;
+    padding: 1.25rem !important;
+}
+
+// .carousel__prev--in-active,
+// .carousel__next--in-active {
+//     display: none !important;
+// }
+
+$img-h: 250px;
+$img-w: calc($img-h * 0.7);
+.thumbnail {
+    @apply object-cover shadow cursor-pointer;
+    height: $img-h;
+    width: $img-w;
+    &-title {
+        @apply w-full cursor-pointer font-semibold mt-2;
+        width: $img-w;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+}
+
+.book-show {
+    @apply w-full relative overflow-hidden flex items-center justify-center;
+    height: 500px;
+    &-bg {
+        @apply absolute w-full h-full;
+        background: rgba(0, 0, 0, 0.5);
+        &-img {
+            @apply w-full h-full object-cover;
+            filter: blur(50px);
+        }
+    }
+    &-contents {
+        @apply z-10 absolute flex items-center justify-center mx-auto;
+        img {
+            @apply rounded;
+            height: 350px;
+            width: calc(350px * 0.7);
+        }
+    }
 }
