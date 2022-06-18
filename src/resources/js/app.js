@@ -1,14 +1,11 @@
-import { createApp } from 'vue';
-import VueObserveVisibility from 'vue-observe-visibility';
-import './common/bootstrap';
-import components from './common/components';
-import store from './store';
+import { createApp } from "vue";
+import VueObserveVisibility from "vue-observe-visibility";
+import "./common/bootstrap";
+import components from "./common/components";
+import store from "./store";
 
 const app = createApp({
-  components
-})
+    components,
+});
 
-app
-.use(VueObserveVisibility)
-.use(store)
-.mount("#app")
+app.use(VueObserveVisibility).use(store).mount("#app");

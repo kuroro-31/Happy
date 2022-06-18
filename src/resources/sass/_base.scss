@@ -295,7 +295,7 @@ $img-w: calc($img-h * 0.7);
     &-contents {
         @apply z-10 absolute flex items-center justify-center mx-auto;
         img {
-            @apply rounded;
+            // @apply;
             height: 350px;
             width: calc(350px * 0.7);
         }

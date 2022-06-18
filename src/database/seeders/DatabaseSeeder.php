@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create('en_US');
         for($i = 1; $i < 100; $i++){
             \App\Models\Book::create([
-                'title' => $faker->text,
+                'title' => $faker->text(30),
                 'body' => $faker->sentence,
                 'user_id' => random_int(1, 100)
             ]);
