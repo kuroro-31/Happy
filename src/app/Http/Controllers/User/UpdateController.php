@@ -20,6 +20,7 @@ class UpdateController extends Controller
     {
         $user = Auth::user();
         $user->name = $request->name;
+        $user->username = $request->username;
         $linkify = new \Misd\Linkify\Linkify();
         $user->body = $linkify->process($request->body);
         $user->website = $request->website;

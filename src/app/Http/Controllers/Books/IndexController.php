@@ -26,7 +26,7 @@ class IndexController extends Controller
             if((empty($ownPost)) || (empty($followed)) || (empty($ownPost) && empty($followed))){
                 $likeRankings = Book::withCount('likes')
                     ->orderBy('likes_count', 'desc')
-                    ->limit(10)
+                    ->limit(20)
                     ->get();
             }
 
@@ -41,7 +41,7 @@ class IndexController extends Controller
         } else {
             $likeRankings = Book::withCount('likes')
                 ->orderBy('likes_count', 'desc')
-                ->limit(10)
+                ->limit(20)
                 ->get();
         }
 

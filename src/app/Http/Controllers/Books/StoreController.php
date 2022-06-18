@@ -31,7 +31,7 @@ class StoreController extends Controller
         });
 
         return redirect()
-        ->route('users.show', ['name' => $book->user->name])
+        ->route('users.show', ['username' => $book->user->username])
         ->withSuccess("投稿しました！");
     }
 }

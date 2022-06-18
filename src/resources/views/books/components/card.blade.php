@@ -1,45 +1,41 @@
-<div class="card p-4 rounded bg-white dark:bg-dark-2 mb-6">
-  <div class="flex items-center justify-between">
-    <a href="{{ route('users.show', ['username' => $book->user->username]) }}" class="flex items-center">
-      @empty($book->user->avatar)
+<div class="ml-auto p-4">
+  {{-- @empty($book->thumbnail)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
           class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
-      @else
-        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar"
-          class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
-      @endempty
-      <span class="flex flex-col">
-        <span class="font-semibold">{{ $book->user->name }}</span>
-        <span class="text-gray text-xs font-semibold">
-          {{ $book->created_at->format('Y/m/d H:i') }}
-        </span>
-      </span>
-    </a>
-    @if (Auth::id() === $book->user_id)
-      <div class="flex items-center">
-        <edit-modal class="mr-2">
-          @include('atoms.error_card_list')
-          {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-          <form method="POST" action="{{ route('book.update', ['book' => $book->id]) }}">
-            {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
-            @method('PATCH')
-            @include('books.components.form')
-            <button type="submit" class="btn-primary">更新する</button>
-          </form>
-        </edit-modal>
-        <delete-modal>
-          <form method="POST" action="{{ route('book.destroy', ['book' => $book->id]) }}" class="p-2 rounded-lg">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn-danger">削除する</button>
-          </form>
-        </delete-modal>
-      </div>
-    @endif
-  </div>
-  <div class="card-body">
+      @else --}}
+  <a href="{{ route('book.show', ['book' => $book]) }}">
+    <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail" class="thumbnail">
+    {{-- @endempty --}}
+    <span class="thumbnail-title">{{ $book->title }}</span>
+  </a>
+  {{-- <span class="text-gray text-xs font-semibold">
+    {{ $book->created_at->format('Y/m/d H:i') }}
+  </span> --}}
+
+  @if (Auth::id() === $book->user_id)
+    <div class="flex items-center">
+      <edit-modal class="mr-2">
+        @include('atoms.error_card_list')
+        {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
+        <form method="POST" action="{{ route('book.update', ['book' => $book->id]) }}">
+          {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
+          @method('PATCH')
+          @include('books.components.form')
+          <button type="submit" class="btn-primary">更新する</button>
+        </form>
+      </edit-modal>
+      <delete-modal>
+        <form method="POST" action="{{ route('book.destroy', ['book' => $book->id]) }}" class="p-2 rounded-lg">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn-danger">削除する</button>
+        </form>
+      </delete-modal>
+    </div>
+  @endif
+  {{-- <div class="card-body">
     {!! nl2br(e(Markdown::parse($book->body))) !!}
-  </div>
+  </div> --}}
   @if ($book->tags)
     @foreach ($book->tags as $tag)
       @if ($loop->first)

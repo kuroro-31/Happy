@@ -22,27 +22,32 @@
     </div>
   @endif --}}
   <div class="flex flex-col w-full mx-auto px-8 justify-center">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto mb-8">
       <h2 class="text-xl font-semibold mb-2">オススメの本</h2>
       <ranking-items></ranking-items>
     </div>
+    {{-- <div class="max-w-5xl mx-auto">
+      <h2 class="text-xl font-semibold mb-2">ベストセラー</h2>
+      <best-seller></best-seller>
+    </div> --}}
 
-    <div class="max-w-5xl mx-auto py-8">
+    <div class="max-w-6xl mx-auto py-8">
       @include('books.components.tabs')
-      {{-- <app-timeline></app-timeline> --}}
-      @if (!empty($books))
-        @foreach ($books as $book)
-          @include('books.components.card')
-        @endforeach
+      <div class="w-full flex flex-wrap justify-start">
+        @if (!empty($books))
+          @foreach ($books as $book)
+            @include('books.components.card')
+          @endforeach
 
-        {{ $books->links() }}
-      @endif
+          {{ $books->links() }}
+        @endif
 
-      @if (!empty($likeRankings))
-        @foreach ($likeRankings as $book)
-          @include('books.components.card')
-        @endforeach
-      @endif
+        @if (!empty($likeRankings))
+          @foreach ($likeRankings as $book)
+            @include('books.components.card')
+          @endforeach
+        @endif
+      </div>
     </div>
   </div>
 @endsection
