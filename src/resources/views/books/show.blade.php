@@ -18,20 +18,14 @@
         <div class="flex flex-col max-w-lg ml-16">
           <p class="text-4xl text-white font-semibold">{{ $book->title }}</p>
           <a href="{{ route('users.show', ['username' => $book->user->username]) }}" class="flex items-center my-4">
-            @empty($book->thumbnail)
-              <img src="/img/avatar.jpeg" alt="user atavar" class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg">
-            @else
-              <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
-                class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg">
-            @endempty
             <span class="text-xl text-white">{{ $book->user->name }}</span>
           </a>
 
           <rate-review></rate-review>
 
           <div class="my-8 flex">
-            <p class="text-primary bg-white rounded px-6 py-2 cursor-pointer font-semibold mr-3">1話へ</p>
-            <p class="text-primary bg-white rounded px-6 py-2 cursor-pointer font-semibold">最新話へ</p>
+            <p class="hover:text-primary bg-white rounded px-6 py-2 cursor-pointer font-semibold mr-3">1話へ</p>
+            <p class="hover:text-primary bg-white rounded px-6 py-2 cursor-pointer font-semibold">最新話へ</p>
           </div>
           @if ($book->tags)
             @foreach ($book->tags as $tag)
