@@ -49,6 +49,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .liked {
-    color: rgba(221, 70, 136, 1);
+    @apply text-yellow font-semibold;
 }
 </style>

@@ -4,7 +4,7 @@
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div
-                    class="window absolute rounded-lg shadow p-4 bg-white dark:bg-dark"
+                    class="window absolute rounded shadow p-4 bg-white dark:bg-dark"
                 >
                     <slot></slot>
                 </div>

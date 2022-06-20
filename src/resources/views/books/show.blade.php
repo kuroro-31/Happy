@@ -15,17 +15,22 @@
           <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
             class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
         @endempty
+
         <div class="flex flex-col max-w-lg ml-16">
-          <p class="text-4xl text-white font-semibold">{{ $book->title }}</p>
+          <p class="w-full flex flex-wrap text-4xl whitespace-pre-line text-white font-semibold">{{ $book->title }}</p>
           <a href="{{ route('users.show', ['username' => $book->user->username]) }}" class="flex items-center my-4">
             <span class="text-xl text-white">{{ $book->user->name }}</span>
           </a>
 
-          <rate-review></rate-review>
+          <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+            :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+            endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true' class="text-white">
+          </book-like>
 
           <div class="my-8 flex">
-            <p class="hover:text-primary bg-white rounded px-6 py-2 cursor-pointer font-semibold mr-3">1話へ</p>
-            <p class="hover:text-primary bg-white rounded px-6 py-2 cursor-pointer font-semibold">最新話へ</p>
+            <p class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 cursor-pointer font-semibold mr-3">1話へ
+            </p>
+            <p class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 cursor-pointer font-semibold">最新話へ</p>
           </div>
           @if ($book->tags)
             @foreach ($book->tags as $tag)
@@ -50,13 +55,6 @@
   </div>
 
 
-  <div class="card-body pt-0 pb-2 pl-3">
-    <div class="card-text">
-      <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))' :initial-count-likes='@json($book->count_likes)'
-        :authorized='@json(Auth::check())' endpoint="{{ route('book.like', ['book' => $book]) }}">
-      </book-like>
-    </div>
-  </div>
 
   <div class="card-body">
     {!! nl2br(e(Markdown::parse($book->body))) !!}

@@ -38,7 +38,7 @@ module.exports = {
             't-d-color': '#ffffff',
             'red': '#F9197F',
             'blue': '#4e86ff',
-            'yellow': '#d8a84a',
+            'yellow': '#FFBD64',
             'purple': '#3f3cbb',
             'midnight': '#121063',
             'metal': '#565584',

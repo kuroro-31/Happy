@@ -27,7 +27,7 @@ h1 {
 }
 
 .profile-img {
-    @apply object-cover max-w-full min-w-full rounded-lg;
+    @apply object-cover max-w-full min-w-full rounded;
     @screen md {
         min-height: 250px;
         max-height: 250px;
@@ -43,26 +43,26 @@ h1 {
     border-radius: 3px;
 }
 .btn-sub {
-    @apply cursor-pointer font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 shadow rounded-lg py-2 px-6;
+    @apply cursor-pointer font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 shadow rounded py-2 px-6;
     // background: ;
     // &:hover {
     //     background: #e4e6eb;
     // }
 }
 .btn-danger {
-    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white shadow shadow-red rounded-lg py-2 px-6;
+    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white shadow shadow-red rounded py-2 px-6;
 }
 
 .top-hero {
     @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
     &-img {
-        @apply max-w-4xl w-full relative rounded-lg;
+        @apply max-w-4xl w-full relative rounded;
         img {
-            @apply w-full mx-auto object-cover rounded-lg;
+            @apply w-full mx-auto object-cover rounded;
             max-height: 200px;
         }
         &-bg {
-            @apply absolute bg-yellow bg-opacity-50 top-0 right-0 left-0 bottom-0 w-full h-full rounded-lg;
+            @apply absolute bg-yellow bg-opacity-50 top-0 right-0 left-0 bottom-0 w-full h-full rounded;
         }
     }
 }
@@ -115,13 +115,13 @@ h1 {
 .tag-hero {
     @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
     &-img {
-        @apply max-w-4xl w-full relative rounded-lg;
+        @apply max-w-4xl w-full relative rounded;
         img {
-            @apply w-full mx-auto object-cover rounded-lg;
+            @apply w-full mx-auto object-cover rounded;
             max-height: 200px;
         }
         &-bg {
-            @apply absolute top-0 right-0 left-0 bottom-0 w-full h-full rounded-lg;
+            @apply absolute top-0 right-0 left-0 bottom-0 w-full h-full rounded;
             background: rgba(#5367ed, 0.5);
         }
     }
@@ -138,7 +138,7 @@ h1 {
 }
 
 .window {
-    @apply absolute rounded-lg shadow p-4 bg-white dark:bg-dark-2;
+    @apply absolute rounded shadow p-4 bg-white dark:bg-dark-2;
     max-width: 600px;
     @screen lg {
         width: 600px;
@@ -151,7 +151,7 @@ h1 {
         @apply absolute dark:bg-dark-2;
         max-width: 600px;
         img {
-            @apply rounded-lg;
+            @apply rounded;
         }
         @screen lg {
             width: 600px;
@@ -220,7 +220,7 @@ input[name="tab_item"] {
 
 /*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab_item {
-    @apply bg-primary text-white rounded-lg;
+    @apply bg-primary text-white rounded;
 }
 
 .avatar {

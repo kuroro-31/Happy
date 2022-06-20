@@ -15,7 +15,7 @@
           'about' => true,
       ])
 
-      <div class="bg-white dark:bg-dark-2 rounded-lg p-6">
+      <div class="bg-white dark:bg-dark-2 rounded p-6">
 
         {{-- 自己紹介 --}}
         <div class="">

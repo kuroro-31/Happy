@@ -1,12 +1,12 @@
 <div class="max-w-4xl mx-auto">
   <div class="relative">
     @empty($user->thumbnail)
-      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
+      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded min-h-40 min-w-40 flex flex-shrink-0">
     @else
       <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
         <template #thumbnail>
           <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . $user->thumbnail) }}"
-            alt="profile_thumbnail" class="rounded-lg min-h-40 min-w-40 flex flex-shrink-0">
+            alt="profile_thumbnail" class="rounded min-h-40 min-w-40 flex flex-shrink-0">
         </template>
       </thumbnail-zoom>
     @endempty

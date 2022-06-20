@@ -18,7 +18,7 @@
                 <button
                     data-collapse-toggle="mobile-menu"
                     type="button"
-                    class="inline-flex items-center justify-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
+                    class="inline-flex items-center justify-center ml-3 text-gray-400 rounded md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
                     aria-controls="mobile-menu-2"
                     aria-expanded="false"
                 >

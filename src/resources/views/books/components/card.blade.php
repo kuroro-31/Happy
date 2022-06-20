@@ -25,7 +25,7 @@
         </form>
       </edit-modal>
       <delete-modal>
-        <form method="POST" action="{{ route('book.destroy', ['book' => $book->id]) }}" class="p-2 rounded-lg">
+        <form method="POST" action="{{ route('book.destroy', ['book' => $book->id]) }}" class="p-2 rounded">
           @csrf
           @method('DELETE')
           <button type="submit" class="btn-danger">削除する</button>
