@@ -304,7 +304,7 @@ $img-w: calc($img-h * 0.7);
 
 button:disabled,
 button[disabled] {
-    @apply cursor-not-allowed duration-200;
+    @apply cursor-not-allowed duration-200 shadow-none;
     background-color: #eee !important;
     color: white !important;
 }
