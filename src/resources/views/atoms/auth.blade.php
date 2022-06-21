@@ -12,7 +12,8 @@
         <input class="w-full p-2 rounded border border-slate-300" type="password" name="password" required>
       </div>
       <input type="hidden" name="remember" value="on">
-      <button class="bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4" type="submit">ログイン</button>
+      <button class="login-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
+        type="submit">ログイン</button>
     </form>
   </template>
   <template #login-footer>
@@ -46,7 +47,8 @@
         <div class="w-full mb-1 text-xs">パスワード確認</div>
         <input class="w-full p-2 rounded border border-slate-300" type="password" name="password_confirmation" required>
       </div>
-      <button class="bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4" type="submit">ユーザー登録</button>
+      <button class="register-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
+        type="submit">ユーザー登録</button>
     </form>
   </template>
 </auth-modal>

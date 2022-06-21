@@ -9,3 +9,5 @@ const app = createApp({
 });
 
 app.use(VueObserveVisibility).use(store).mount("#app");
+
+require("./common/submit");

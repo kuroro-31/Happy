@@ -11,7 +11,7 @@
             <ul class="flex items-center">
               @guest
                 <li>
-                  @include('atoms.auth')
+                  <a href="/login" class="btn-border">ログイン</a>
                 </li>
               @endguest
               @auth

@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '記事詳細')
+@section('title', $book->title)
 
 @section('content')
   @include('atoms.nav')
