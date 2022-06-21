@@ -30,7 +30,7 @@
       </div>
       <div class="w-full mb-3">
         <div class="w-full mb-1 text-xs">ユーザー名</div>
-        <input class="w-full p-2 rounded border border-slate-300" type="text" name="name" name="username" required
+        <input class="w-full p-2 rounded border border-slate-300" type="text" name="username" required
           value="{{ old('username') }}">
         <small>英数字3〜16文字(登録後の変更はできません)</small>
       </div>
