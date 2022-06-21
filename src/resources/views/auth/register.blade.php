@@ -5,7 +5,7 @@
 @section('content')
   @include('atoms.nav')
   <div class="max-w-md mx-auto p-8 bg-white rounded">
-    <h2 class="text-3xl font-semibold mb-8">新規登録</h2>
+    <h2 class="text-3xl font-semibold mb-4">Sign up</h2>
     <form id="submit-form" method="POST" action="{{ route('register') }}">
       @csrf
       @include('atoms.error_card_list')
