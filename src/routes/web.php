@@ -28,6 +28,8 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
         Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
+
+        // Route::post('/{book}/chapter/create', 'App\Http\Controllers\Books\Chapter\CreateController')->name('chapter.create');
     });
     Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });

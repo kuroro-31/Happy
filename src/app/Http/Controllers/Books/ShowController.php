@@ -12,6 +12,10 @@ class ShowController extends Controller
      */
     public function __invoke(Book $book)
     {
-        return view('books.show', ['book' => $book]);
+        $chapters = Book::find($book->id)->chapters;
+        return view('books.show', [
+            'book' => $book,
+            'chapters' => $chapters,
+        ]);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-// use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +18,4 @@
 //     return $request->user();
 // });
 // Route::get('/posts', 'App\Http\Controllers\Api\Timeline\TimelineController');
+Route::post('/books/{book}/chapter', 'App\Http\Controllers\Books\Chapter\StoreController');

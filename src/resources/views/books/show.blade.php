@@ -59,4 +59,23 @@
   <div class="card-body">
     {!! nl2br(e(Markdown::parse($book->body))) !!}
   </div>
+
+
+  <div class="">
+    <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
+    @if (!empty($chapters))
+      @foreach ($chapters as $chapter)
+        <div class="max-w-md mx-auto flex flex-col">
+          <div class="flex items-center w-full justify-around">
+            <div class="flex items-center">
+              <span class="mr-2">{{ $chapter->id }}</span>
+              <span>話</span>
+            </div>
+            <span>{{ $chapter->name }}</span>
+          </div>
+
+        </div>
+      @endforeach
+    @endif
+  </div>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
 {
@@ -15,6 +16,11 @@ class Book extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\Models\User');
+    }
+
+    public function chapters(): HasMany
+    {
+        return $this->hasMany('App\Models\Chapter');
     }
 
     public function likes(): BelongsToMany

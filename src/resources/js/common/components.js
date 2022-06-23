@@ -2,6 +2,7 @@ import RateReview from "../components/atoms/RateReview";
 import AuthModal from "../components/auth/AuthModal";
 import BookLike from "../components/BookLike";
 import BestSeller from "../components/books/BestSeller";
+import ChapterList from "../components/books/chapters/ChapterList";
 import CreateModal from "../components/books/CreateModal";
 import DeleteModal from "../components/books/DeleteModal";
 import EditModal from "../components/books/EditModal";
@@ -18,6 +19,7 @@ import EditUserModal from "../components/users/EditUserModal";
 import FollowModal from "../components/users/FollowModal";
 import ThumbnailZoom from "../components/users/ThumbnailZoom";
 export default {
+    ChapterList,
     RateReview,
     ThumbnailZoom,
     BestSeller,
