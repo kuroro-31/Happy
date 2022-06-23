@@ -21,6 +21,7 @@ class StoreController extends Controller
         $chapter->book_id = $request->book_id;
         $chapter->save();
 
+        // 作成後のページ遷移に必要なのでidを渡す
         return response()->json([
             'id' => $chapter->id,
         ]);

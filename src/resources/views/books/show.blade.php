@@ -67,7 +67,7 @@
         <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
         <div style="max-height: 600px" class="w-full overflow-y-auto">
           @foreach ($chapters as $chapter)
-            <a href="{{ route('book.chapter.show', ['book' => $book->id, 'chapter' => $chapter->id]) }}"
+            <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
               class="cursor-pointer hover:text-primary shadow mb-2 p-4 rounded-lg bg-white flex items-center w-full">
               <div class="flex items-center mr-4">
                 <span class="">{{ $chapter->id }}</span>
