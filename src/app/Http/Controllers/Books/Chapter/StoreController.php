@@ -20,5 +20,9 @@ class StoreController extends Controller
         $chapter->name = $request->name;
         $chapter->book_id = $request->book_id;
         $chapter->save();
+
+        return response()->json([
+            'id' => $chapter->id,
+        ]);
     }
 }

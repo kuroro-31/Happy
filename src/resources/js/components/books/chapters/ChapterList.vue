@@ -39,8 +39,8 @@ export default {
         async addChapter() {
             await axios
                 .post(`/api/books/${this.book.id}/chapter`, this.form)
-                .then((response) => {
-                    window.location = `/books/${this.book.id}`;
+                .then(({ data }) => {
+                    window.location = `/books/${this.book.id}/chapters/${data.id}`;
                 })
                 .catch((err) => {
                     console.log(err);
