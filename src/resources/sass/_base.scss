@@ -35,15 +35,15 @@ h1 {
 }
 
 .btn-primary {
-    @apply cursor-pointer text-sm bg-primary hover:bg-opacity-90 text-white shadow shadow-primary py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap text-sm bg-primary hover:bg-opacity-90 text-white shadow shadow-primary py-2 px-6;
     border-radius: 3px;
 }
 .btn-border {
-    @apply cursor-pointer text-sm font-bold bg-primary-light hover:bg-primary hover:bg-opacity-20 bg-opacity-30 text-primary py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap text-sm font-bold bg-primary-light hover:bg-primary hover:bg-opacity-20 bg-opacity-30 text-primary py-2 px-6;
     border-radius: 3px;
 }
 .btn-sub {
-    @apply cursor-pointer font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 shadow rounded py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 shadow rounded py-2 px-6;
     // background: ;
     // &:hover {
     //     background: #e4e6eb;

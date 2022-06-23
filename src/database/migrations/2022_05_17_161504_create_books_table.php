@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('body', 200);
+            $table->text('body', 400);
             $table->string('thumbnail')->nullable();
             $table->unsignedbigInteger('user_id');
             $table->timestamps();

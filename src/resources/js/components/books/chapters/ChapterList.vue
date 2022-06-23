@@ -1,17 +1,19 @@
 <template>
-    <div class="mx-auto max-w-md">
-        <div class="">Chapter</div>
-        <form id="submit-form" @submit.prevent="addChapter">
-            <input type="text" placeholder="チャプター名" v-model="form.name" />
-            <button
-                id="submit-btn"
-                type="submit"
-                class="inline-block btn-primary"
-            >
-                追加する
-            </button>
-        </form>
-    </div>
+    <form
+        id="submit-form"
+        @submit.prevent="addChapter"
+        class="w-full flex mb-4"
+    >
+        <input
+            type="text"
+            placeholder="タイトル"
+            v-model="form.name"
+            class="w-full p-2 mr-4 rounded"
+        />
+        <button id="submit-btn" type="submit" class="inline-block btn-primary">
+            追加する
+        </button>
+    </form>
 </template>
 <script>
 export default {
@@ -47,4 +49,8 @@ export default {
     },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input {
+    border: 1px solid #eee;
+}
+</style>

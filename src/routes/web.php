@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 |--------------------------------------------------------------------------
 | 認証
 */
+
 Auth::routes();
 // Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
 // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
@@ -29,7 +30,7 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
-        // Route::post('/{book}/chapter/create', 'App\Http\Controllers\Books\Chapter\CreateController')->name('chapter.create');
+        Route::get('/{book}/chapters/{chapter}', 'App\Http\Controllers\Books\Chapter\ShowController')->name('chapter.show');
     });
     Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });

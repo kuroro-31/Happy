@@ -61,21 +61,23 @@
   </div>
 
 
-  <div class="">
-    <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
+  <div class="mb-32">
     @if (!empty($chapters))
-      @foreach ($chapters as $chapter)
-        <div class="max-w-md mx-auto flex flex-col">
-          <div class="flex items-center w-full justify-around">
-            <div class="flex items-center">
-              <span class="mr-2">{{ $chapter->id }}</span>
-              <span>話</span>
-            </div>
-            <span>{{ $chapter->name }}</span>
-          </div>
-
+      <div class="max-w-md mx-auto flex flex-col items-center">
+        <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
+        <div style="max-height: 600px" class="w-full overflow-y-auto">
+          @foreach ($chapters as $chapter)
+            <a href="{{ route('book.chapter.show', ['book' => $book->id, 'chapter' => $chapter->id]) }}"
+              class="cursor-pointer hover:text-primary shadow mb-2 p-4 rounded-lg bg-white flex items-center w-full">
+              <div class="flex items-center mr-4">
+                <span class="">{{ $chapter->id }}</span>
+                <span>話</span>
+              </div>
+              <span class="truncate">{{ $chapter->name }}</span>
+            </a>
+          @endforeach
         </div>
-      @endforeach
+      </div>
     @endif
   </div>
 @endsection
