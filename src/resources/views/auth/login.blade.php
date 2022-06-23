@@ -22,8 +22,8 @@
         class=" bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4">ログイン</button>
     </form>
     <div class="w-full flex justify-between">
-      <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
       <a href="{{ route('password.request') }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
+      <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
     </div>
   </div>
 @endsection
