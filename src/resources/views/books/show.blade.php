@@ -64,7 +64,9 @@
   <div class="mb-32">
     @if (!empty($chapters))
       <div class="max-w-md mx-auto flex flex-col items-center">
-        <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
+        @if (Auth::id() === $book->user_id)
+          <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
+        @endif
         <div style="max-height: 600px" class="w-full overflow-y-auto">
           @foreach ($chapters as $chapter)
             <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
