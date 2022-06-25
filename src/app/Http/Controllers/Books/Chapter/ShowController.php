@@ -14,7 +14,7 @@ class ShowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(string $book, string $chapter)
+    public function __invoke($book, $chapter)
     {
         $story = Chapter::where('id', $chapter)->first();
         return view('books.chapter.show', [
