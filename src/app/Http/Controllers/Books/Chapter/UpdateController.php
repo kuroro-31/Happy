@@ -18,9 +18,12 @@ class UpdateController extends Controller
     {
         $update = [
             'name' => $request->name,
+            'body' => $request->body,
             'book_id' => $request->book_id
         ];
         Chapter::where('id', $id)->update($update);
-        return back()->with('success', '編集完了しました');
+        return response()->json([
+            // 'id' => $chapter->id,
+        ]);
     }
 }
