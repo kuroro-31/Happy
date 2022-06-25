@@ -28,8 +28,9 @@
           </book-like>
 
           <div class="my-8 flex">
-            <p class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 cursor-pointer font-semibold mr-3">1話へ
-            </p>
+            <a href="/books/{{ $book->id }}/chapters/1"
+              class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 cursor-pointer font-semibold mr-3">1話へ
+            </a>
             <p class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 cursor-pointer font-semibold">最新話へ</p>
           </div>
           @if ($book->tags)
@@ -75,7 +76,7 @@
                 <span class="">{{ $chapter->id }}</span>
                 <span>話</span>
               </div>
-              <span class="truncate">{{ $chapter->name }}</span>
+              <span class="truncate font-semibold">{{ $chapter->name }}</span>
             </a>
           @endforeach
         </div>
