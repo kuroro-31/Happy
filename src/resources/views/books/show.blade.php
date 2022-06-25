@@ -66,18 +66,43 @@
     @if (!empty($chapters))
       <div class="max-w-md mx-auto flex flex-col items-center">
         @if (Auth::id() === $book->user_id)
-          <chapter-list :book='@json($book)' :chapters='@json($chapters)'></chapter-list>
+          <chapter-list :book='@json($book)'></chapter-list>
         @endif
         <div style="max-height: 600px" class="w-full overflow-y-auto">
           @foreach ($chapters as $chapter)
-            <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
-              class="cursor-pointer hover:text-primary shadow mb-2 p-4 rounded-lg bg-white flex items-center w-full">
-              <div class="flex items-center mr-4">
-                <span class="">{{ $chapter->id }}</span>
-                <span>話</span>
+            <div class="cursor-pointer shadow mb-2 p-4 rounded-lg bg-white flex items-center justify-between w-full">
+              <div class="flex items-center">
+                <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
+                  class="flex items-center mr-4">
+                  <span class="">{{ $chapter->id }}</span>
+                  <span>話</span>
+                </a>
+                <span class="hover:text-primary truncate font-semibold">{{ $chapter->name }}</span>
               </div>
-              <span class="truncate font-semibold">{{ $chapter->name }}</span>
-            </a>
+              <div class="flex items-center">
+                @if (Auth::id() === $book->user_id)
+                  <div class="flex items-center">
+                    <a href="{{ route('book.chapter.edit', ['book' => $book, 'chapter' => $chapter]) }}"
+                      class="mr-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer hover:text-primary"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                      </svg>
+                    </a>
+                    <delete-modal>
+                      <form method="POST"
+                        action="{{ route('book.chapter.destroy', ['book' => $book, 'chapter' => $chapter]) }}"
+                        class="p-2 rounded">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn-danger">削除する</button>
+                      </form>
+                    </delete-modal>
+                  </div>
+                @endif
+              </div>
+            </div>
           @endforeach
         </div>
       </div>

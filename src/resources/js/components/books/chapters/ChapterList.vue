@@ -30,17 +30,13 @@ export default {
             type: Object,
             defalut: {},
         },
-        chapters: {
-            type: Object,
-            defalut: {},
-        },
     },
     methods: {
         async addChapter() {
             await axios
                 .post(`/api/books/${this.book.id}/chapter`, this.form)
                 .then(({ data }) => {
-                    window.location = `/books/${this.book.id}/chapters/${data.id}`;
+                    window.location = `/books/${this.book.id}/chapters/${data.id}/edit`;
                 })
                 .catch((err) => {
                     console.log(err);
