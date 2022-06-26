@@ -1,4 +1,5 @@
 import RateReview from "../components/atoms/RateReview";
+import ToastModal from "../components/atoms/ToastModal";
 import AuthModal from "../components/auth/AuthModal";
 import BookLike from "../components/BookLike";
 import BestSeller from "../components/books/BestSeller";
@@ -19,8 +20,8 @@ import AvatarZoom from "../components/users/AvatarZoom";
 import EditUserModal from "../components/users/EditUserModal";
 import FollowModal from "../components/users/FollowModal";
 import ThumbnailZoom from "../components/users/ThumbnailZoom";
-
 export default {
+    ToastModal,
     UpdateChapter,
     ChapterList,
     RateReview,

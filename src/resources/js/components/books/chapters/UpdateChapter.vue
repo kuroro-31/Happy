@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <div v-if="message">{{ message }}</div> -->
+        <toast-modal :success="success" :error="error"></toast-modal>
         <div class="w-full flex flex-col my-8">
             <input
                 type="text"
@@ -56,16 +56,21 @@
     </div>
 </template>
 <script>
+import ToastModal from "../../atoms/ToastModal";
 export default {
     data() {
         return {
             success: false,
+            error: false,
             form: {
                 id: this.id,
                 name: this.name,
                 body: this.body,
             },
         };
+    },
+    components: {
+        ToastModal,
     },
     props: {
         id: {
@@ -101,24 +106,18 @@ export default {
             deep: true,
         },
     },
-    computed: {
-        // message() {
-        //     if (success) return "保存しました";
-        //     if (error) return "保存できませんでした";
-        //     return false;
-        // },
-    },
     methods: {
         async update() {
-            await axios.patch(`/api/chapter/${this.id}`, this.form);
-            // .then(() => {
-            //     this.success = true;
-            //     setTimeout(() => (this.success = false), 3000);
-            // })
-            // .catch(() => {
-            //     this.error = true;
-            //     setTimeout(() => (this.error = false), 3000);
-            // });
+            await axios
+                .patch(`/api/chapter/${this.id}`, this.form)
+                .then(() => {
+                    this.success = true;
+                    setTimeout(() => (this.success = false), 3000);
+                })
+                .catch(() => {
+                    this.error = true;
+                    setTimeout(() => (this.error = false), 3000);
+                });
         },
     },
 };
