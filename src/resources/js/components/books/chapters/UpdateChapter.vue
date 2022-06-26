@@ -1,16 +1,18 @@
 <template>
     <div>
-        <div class="flex items-center">
+        <!-- <div v-if="message">{{ message }}</div> -->
+        <div class="w-full flex flex-col my-8">
             <input
                 type="text"
-                v-model.trim="chapterName"
-                class="text-3xl my-8 bg-white p-2 rounded"
+                v-model.trim="name"
+                placeholder="タイトル"
+                class="w-full text-3xl bg-white p-2 rounded"
                 maxlength="30"
                 minlength="5"
             />
-            <p v-if="chapterName" class="flex items-center">
+            <p v-if="name" class="w-full flex items-center justify-end mt-2">
                 <svg
-                    v-if="chapterName.length <= 30 && chapterName.length >= 5"
+                    v-if="name.length <= 30 && name.length >= 5"
                     xmlns="http://www.w3.org/2000/svg"
                     class="slide-animation h-5 w-5 text-primary mr-1"
                     viewBox="0 0 20 20"
@@ -22,20 +24,21 @@
                         clip-rule="evenodd"
                     />
                 </svg>
-                <span>{{ chapterName.length }}/30</span>
+                <span>{{ name.length }}/30</span>
             </p>
         </div>
 
-        <div class="flex items-center">
+        <div class="w-full flex flex-col items-center">
             <textarea
                 type="text"
                 minlength="1000"
-                v-model.trim="chapterBody"
-                class="p-4 bg-white whitespace-pre-line rounded w-full h-full text-lg leading-9"
+                v-model.trim="body"
+                placeholder="本文"
+                class="w-full p-4 bg-white whitespace-pre-line rounded w-full h-full text-lg leading-9"
             ></textarea>
-            <p v-if="chapterBody" class="flex items-center">
+            <p v-if="body" class="w-full flex items-center justify-end mt-2">
                 <svg
-                    v-if="chapterBody.length >= 1000"
+                    v-if="body.length >= 1000"
                     xmlns="http://www.w3.org/2000/svg"
                     class="slide-animation h-5 w-5 text-primary mr-1"
                     viewBox="0 0 20 20"
@@ -47,7 +50,7 @@
                         clip-rule="evenodd"
                     />
                 </svg>
-                <span>1000/{{ chapterBody.length }}</span>
+                <span>1000/{{ body.length }}</span>
             </p>
         </div>
     </div>
@@ -56,45 +59,67 @@
 export default {
     data() {
         return {
-            form: [],
+            success: false,
+            form: {
+                id: this.id,
+                name: this.name,
+                body: this.body,
+            },
         };
     },
     props: {
-        chapterName: {
+        id: {
+            type: Number,
+        },
+        name: {
             type: String,
         },
-        chapterBody: {
+        body: {
             type: Text,
         },
     },
     watch: {
-        // form: {
-        //     // eslint-disable-next-line
-        //     handler: _.debounce(function () {
-        //         this.update();
-        //     }, 2000), // 更新されたら保存処理
-        //     deep: true,
+        name: {
+            // eslint-disable-next-line
+            handler: _.debounce(function () {
+                this.form.name = this.name;
+            }, 0), // 更新されたら保存処理
+            deep: true,
+        },
+        body: {
+            // eslint-disable-next-line
+            handler: _.debounce(function () {
+                this.form.body = this.body;
+            }, 0), // 更新されたら保存処理
+            deep: true,
+        },
+        form: {
+            // eslint-disable-next-line
+            handler: _.debounce(function () {
+                this.update();
+            }, 2000), // 更新されたら保存処理
+            deep: true,
+        },
+    },
+    computed: {
+        // message() {
+        //     if (success) return "保存しました";
+        //     if (error) return "保存できませんでした";
+        //     return false;
         // },
     },
     methods: {
         async update() {
-            await axios.patch(`/api/users/${this.user.id}`, this.user);
-            this.$store
-                .dispatch("user/update", this.user)
-                .then(() => {
-                    this.success = true;
-                    setTimeout(() => (this.success = false), 3000);
-                })
-                .catch(() => {
-                    this.error = true;
-                    setTimeout(() => (this.error = false), 3000);
-                });
+            await axios.patch(`/api/chapter/${this.id}`, this.form);
+            // .then(() => {
+            //     this.success = true;
+            //     setTimeout(() => (this.success = false), 3000);
+            // })
+            // .catch(() => {
+            //     this.error = true;
+            //     setTimeout(() => (this.error = false), 3000);
+            // });
         },
     },
 };
 </script>
-<style lang="scss" scoped>
-.slide-animation {
-    animation: slide 0.2s ease;
-}
-</style>

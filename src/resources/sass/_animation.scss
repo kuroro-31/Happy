@@ -130,6 +130,10 @@
         opacity: 1;
     }
 }
+.slide-animation {
+    animation: slide 0.2s ease;
+}
+
 @keyframes slide-in {
     0% {
         transform: translateX(-30px);

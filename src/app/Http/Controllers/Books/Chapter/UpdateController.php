@@ -19,11 +19,11 @@ class UpdateController extends Controller
         $update = [
             'name' => $request->name,
             'body' => $request->body,
-            'book_id' => $request->book_id
+            // 'book_id' => $request->book_id
         ];
         Chapter::where('id', $id)->update($update);
-        return response()->json([
-            // 'id' => $chapter->id,
-        ]);
+        // return response()->json([
+        //     'id' => $chapter->id,
+        // ]);
     }
 }

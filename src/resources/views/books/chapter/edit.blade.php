@@ -5,8 +5,9 @@
 @section('content')
   @include('atoms.nav')
 
-  <div class="flex flex-col mx-auto max-w-md">
-    <update-chapter :chapter-name='@json($chapter->name ?? old('name'))' :chapter-body='@json($chapter->body ?? old('body'))'>
+  <div class="flex flex-col mx-auto container">
+    <update-chapter :id='@json($chapter->id)' :name='@json($chapter->name ?? old('name'))'
+      :body='@json($chapter->body ?? old('body'))'>
     </update-chapter>
   </div>
 @endsection
