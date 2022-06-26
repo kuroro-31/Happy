@@ -40,6 +40,7 @@ module.exports = {
             'blue': '#4e86ff',
             'yellow': '#FFBD64',
             'purple': '#3f3cbb',
+            'green': '#08a698',
             'midnight': '#121063',
             'metal': '#565584',
             'tahiti': '#3ab7bf',
