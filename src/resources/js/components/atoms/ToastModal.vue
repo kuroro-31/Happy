@@ -1,14 +1,14 @@
 <template>
-    <div class="reshelf-toast-wrapper">
-        <transition name="reshelf-toast">
+    <div class="toast-wrapper">
+        <transition name="toast">
             <div
                 :class="[
                     success || error
-                        ? 'block reshelf-toast-enter-active'
-                        : 'reshelf-toast-leave-to reshelf-toast-leave-active',
+                        ? 'block toast-enter-active'
+                        : 'toast-leave-to toast-leave-active',
                 ]"
             >
-                <div class="reshelf-toast">
+                <div class="toast">
                     <div
                         class="check"
                         :class="{
@@ -99,7 +99,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.reshelf-toast {
+.toast {
     @apply rounded ml-auto shadow flex items-center w-full justify-between p-4;
     max-width: 300px;
     background: #fff;
@@ -119,15 +119,15 @@ export default {
 }
 
 /* enter transitions */
-.reshelf-toast-enter-active {
+.toast-enter-active {
     animation: wobble 0.2s ease;
 }
 /* leave transitions */
-.reshelf-toast-leave-to {
+.toast-leave-to {
     opacity: 0;
     transform: translateY(60px) !important;
 }
-.reshelf-toast-leave-active {
+.toast-leave-active {
     transition: all 0.1s ease !important;
 }
 
