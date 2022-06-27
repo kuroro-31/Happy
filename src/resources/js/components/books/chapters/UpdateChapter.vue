@@ -80,7 +80,7 @@ export default {
             type: String,
         },
         body: {
-            type: Text,
+            type: String,
         },
     },
     watch: {

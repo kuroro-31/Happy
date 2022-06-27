@@ -88,14 +88,6 @@ export default {
             type: Boolean,
         },
     },
-    // watch: {
-    //     idSaved: {
-    //         handler: _.debounce(function () {
-    //             this.show = this.idSaved;
-    //         }, 0),
-    //         deep: true,
-    //     },
-    // },
 };
 </script>
 <style lang="scss" scoped>
@@ -107,14 +99,6 @@ export default {
         @apply fixed w-full;
         bottom: 20px;
         right: 20px;
-    }
-    &-idSaved {
-        color: white;
-        background: #01bfa5;
-    }
-    &-danger {
-        color: white;
-        background: #ff0062;
     }
 }
 
@@ -128,7 +112,7 @@ export default {
     transform: translateY(60px) !important;
 }
 .toast-leave-active {
-    transition: all 0.1s ease !important;
+    transition: all 0.3s ease !important;
 }
 
 @keyframes wobble {
