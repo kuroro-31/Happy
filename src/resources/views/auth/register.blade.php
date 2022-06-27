@@ -39,3 +39,7 @@
   <script></script>
 
 @endsection
+
+@section('scripts')
+  @include('atoms._submit')
+@endsection

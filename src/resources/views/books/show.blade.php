@@ -110,3 +110,7 @@
     @endif
   </div>
 @endsection
+
+@section('scripts')
+  @include('atoms._submit')
+@endsection
