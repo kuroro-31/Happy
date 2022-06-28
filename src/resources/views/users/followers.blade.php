@@ -3,7 +3,7 @@
 @section('title', $user->name)
 
 @section('content')
-  @include('atoms.nav')
+  @include('patials._nav')
   <div class="">
     @include('users.components.user')
   </div>

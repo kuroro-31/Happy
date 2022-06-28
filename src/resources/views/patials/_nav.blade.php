@@ -17,7 +17,7 @@
               @auth
                 <li class="mr-6">
                   <create-modal>
-                    @include('atoms.error_card_list')
+                    @include('patials._error_card_list')
                     <form method="POST" action="{{ route('book.store') }}">
                       @include('books.components.form')
                       <button type="submit" class="btn-primary justify-end">投稿する</button>

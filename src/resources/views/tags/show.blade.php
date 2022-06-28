@@ -3,7 +3,7 @@
 @section('title', $tag->hashtag)
 
 @section('content')
-  @include('atoms.nav')
+  @include('patials._nav')
   <div class="tag-hero">
     <div class="z-30 absolute text-white font-semibold text-2xl flex justify-center">
       <h2>{{ $tag->hashtag }}</h2>

@@ -12,7 +12,7 @@
     @endempty
     @if (Auth::id() === $user->id)
       <edit-user-modal class="edit-user-modal">
-        @include('atoms.error_card_list')
+        @include('patials._error_card_list')
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form id="submit-form" method="POST" action="{{ route('users.update', ['username' => $user->username]) }}"
           enctype="multipart/form-data">

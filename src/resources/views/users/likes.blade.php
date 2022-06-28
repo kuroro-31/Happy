@@ -3,7 +3,7 @@
 @section('title', $user->name . 'のいいねした記事')
 
 @section('content')
-  @include('atoms.nav')
+  @include('patials._nav')
   <div class="">
     @include('users.components.user')
   </div>

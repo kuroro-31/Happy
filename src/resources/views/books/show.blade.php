@@ -3,7 +3,7 @@
 @section('title', $book->title)
 
 @section('content')
-  @include('atoms.nav')
+  @include('patials._nav')
   <div class="w-full mx-auto">
     <div class="book-show">
       <img class="book-show-bg-img" src="/img/thumbnail.jpeg" alt="">
@@ -112,5 +112,5 @@
 @endsection
 
 @section('scripts')
-  @include('atoms._submit')
+  @include('patials._submit')
 @endsection

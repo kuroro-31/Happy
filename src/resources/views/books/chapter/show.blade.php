@@ -3,7 +3,7 @@
 @section('title', $chapter->name)
 
 @section('content')
-  @include('atoms.nav')
+  @include('patials._nav')
   <div class="my-8 flex flex-col mx-auto max-w-md">
     <div class="mb-4 text-3xl font-semibold">{{ $chapter->name }}</div>
     <div class="p-8 bg-white rounded-lg whitespace-pre-line text-lg">

@@ -3,7 +3,7 @@
 @section('title', '記事一覧')
 
 @section('content')
-  @include('atoms.nav')
+  @include('patials._nav')
 
   {{-- @if (Auth::user())
     <div class="top-hero">
