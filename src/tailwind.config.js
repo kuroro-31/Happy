@@ -29,13 +29,15 @@ module.exports = {
             'white-2': '#171d29',
             'f5': '#F5F5F5',
             // dark
-            'dark': '#171d29',
-            'dark-2': '#1f2737',
+            'dark': '#222429',
+            'dark-2': '#333740',
+            'dark-3': '#2c62f6',
             'dark-blue': '#022f61',
             //color
             't-color': '#3c4043',
             // 't-color': '#455078',
-            't-d-color': '#ffffff',
+            't-d-color': '#b1b8ca',
+            't-d-color-2': '#96969B',
             'red': '#F9197F',
             'blue': '#4e86ff',
             'yellow': '#FFBD64',

@@ -43,7 +43,7 @@ h1 {
     border-radius: 3px;
 }
 .btn-border {
-    @apply cursor-pointer whitespace-nowrap text-sm font-bold bg-primary-light hover:bg-primary hover:bg-opacity-20 bg-opacity-30 text-primary py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap text-sm dark:bg-dark-2 dark:hover:text-white py-2 px-6;
     border-radius: 3px;
 }
 .btn-sub {
