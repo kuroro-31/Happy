@@ -1,6 +1,5 @@
-<ul class="mb-4 flex flex-wrap text-xs text-center">
-
-  <li class="mr-2 {{ $hasBooks ? 'border-b-2 border-primary' : '' }}">
+<ul class="flex flex-col text-xs">
+  <li class="mb-4 {{ $hasBooks ? 'border-r-2 border-primary' : '' }}">
     <a href="{{ route('users.show', ['username' => $user->username]) }}"
       class="flex items-center py-2 px-4 {{ $hasBooks ? 'text-primary font-semibold' : 'hover:text-primary' }}"
       aria-current="page">
@@ -12,8 +11,7 @@
       <span class="ml-2">投稿</span>
     </a>
   </li>
-
-  <li class="mr-2 {{ $hasLikes ? 'border-b-2 border-primary' : '' }}">
+  <li class="mb-4 {{ $hasLikes ? 'border-r-2 border-primary' : '' }}">
     <a href="{{ route('users.likes', ['username' => $user->username]) }}"
       class="flex items-center p-2 {{ $hasLikes ? 'text-primary font-semibold' : 'hover:text-primary' }}">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -24,8 +22,7 @@
       <span class="ml-2">liked</span>
     </a>
   </li>
-
-  <li class="mr-2 {{ $about ? 'border-b-2 border-primary' : '' }}">
+  <li class="mb-4 {{ $about ? 'border-r-2 border-primary' : '' }}">
     <a href="{{ route('users.about', ['username' => $user->username]) }}"
       class="flex items-center p-2 {{ $about ? 'text-primary font-semibold' : 'hover:text-primary' }}">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -36,5 +33,4 @@
       <span class="ml-2">About</span>
     </a>
   </li>
-
 </ul>

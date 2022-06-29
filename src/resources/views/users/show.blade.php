@@ -8,13 +8,14 @@
     @include('users.components.user')
   </div>
   <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
-    <div class="py-8 w-full">
+    <div class="w-1/5">
       @include('users.components.tabs', [
           'hasBooks' => true,
           'hasLikes' => false,
           'about' => false,
       ])
-
+    </div>
+    <div class="py-8 w-4/5">
       @if ($books->count())
         @foreach ($books as $book)
           @include('books.components.card')

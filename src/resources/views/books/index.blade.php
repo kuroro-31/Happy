@@ -9,27 +9,86 @@
       <img class="st-show-bg-img" src="/img/manga.jpeg" alt="">
       <div class="st-show-bg"></div>
       <div class="st-show-contents">
-        <h1 class="st text-6xl text-white">世は漫画の戦国時代。</h1>
+        <h1 class="st text-6xl text-white">世はまさに漫画時代。</h1>
       </div>
     </div>
   </div>
 
-  <div class="flex flex-col w-full mx-auto justify-center">
-    {{-- <div class="max-w-5xl mx-auto mb-8">
-      <h2 class="text-xl font-semibold mb-2">オススメの本</h2>
-      <ranking-items></ranking-items>
-    </div> --}}
-    {{-- <div class="max-w-5xl mx-auto">
-      <h2 class="text-xl font-semibold mb-2">ベストセラー</h2>
-      <best-seller></best-seller>
-    </div> --}}
-
-    <div class="max-w-6xl mx-auto p-8 my-8">
+  <div class="flex w-full mx-auto justify-center">
+    <div class="container flex mx-auto p-8 my-8">
       @include('books.components.tabs')
-      <div class="w-full flex flex-wrap justify-start">
+
+      <div class="w-full flex flex-wrap justify-start ml-8">
         @if (!empty($books))
           @foreach ($books as $book)
-            @include('books.components.card')
+            <div class="p-4">
+              <a href="{{ route('book.show', ['book' => $book]) }}">
+                <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail"
+                  class="thumbnail">
+                <span class="thumbnail-title">{{ $book->title }}</span>
+              </a>
+
+              <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                endpoint="{{ route('book.like', ['book' => $book]) }}">
+              </book-like>
+            </div>
+          @endforeach
+          @foreach ($books as $book)
+            <div class="p-4">
+              <a href="{{ route('book.show', ['book' => $book]) }}">
+                <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail"
+                  class="thumbnail">
+                <span class="thumbnail-title">{{ $book->title }}</span>
+              </a>
+
+              <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                endpoint="{{ route('book.like', ['book' => $book]) }}">
+              </book-like>
+            </div>
+          @endforeach
+          @foreach ($books as $book)
+            <div class="p-4">
+              <a href="{{ route('book.show', ['book' => $book]) }}">
+                <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail"
+                  class="thumbnail">
+                <span class="thumbnail-title">{{ $book->title }}</span>
+              </a>
+
+              <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                endpoint="{{ route('book.like', ['book' => $book]) }}">
+              </book-like>
+            </div>
+          @endforeach
+          @foreach ($books as $book)
+            <div class="p-4">
+              <a href="{{ route('book.show', ['book' => $book]) }}">
+                <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail"
+                  class="thumbnail">
+                <span class="thumbnail-title">{{ $book->title }}</span>
+              </a>
+
+              <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                endpoint="{{ route('book.like', ['book' => $book]) }}">
+              </book-like>
+            </div>
+          @endforeach
+          @foreach ($books as $book)
+            <div class="p-4">
+              <a href="{{ route('book.show', ['book' => $book]) }}">
+                <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail"
+                  class="thumbnail">
+                <span class="thumbnail-title">{{ $book->title }}</span>
+              </a>
+
+              <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                endpoint="{{ route('book.like', ['book' => $book]) }}">
+              </book-like>
+            </div>
           @endforeach
 
           {{ $books->links() }}
@@ -37,7 +96,18 @@
 
         @if (!empty($likeRankings))
           @foreach ($likeRankings as $book)
-            @include('books.components.card')
+            <div class="p-4">
+              <a href="{{ route('book.show', ['book' => $book]) }}">
+                <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail"
+                  class="thumbnail">
+                <span class="thumbnail-title">{{ $book->title }}</span>
+              </a>
+
+              <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                endpoint="{{ route('book.like', ['book' => $book]) }}">
+              </book-like>
+            </div>
           @endforeach
         @endif
       </div>
