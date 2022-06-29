@@ -1,4 +1,3 @@
-import RateReview from "../components/atoms/RateReview";
 import ToastModal from "../components/atoms/ToastModal";
 import AuthModal from "../components/auth/AuthModal";
 import BookLike from "../components/BookLike";
@@ -24,7 +23,6 @@ export default {
     ToastModal,
     UpdateChapter,
     ChapterList,
-    RateReview,
     ThumbnailZoom,
     BestSeller,
     RankingItems,

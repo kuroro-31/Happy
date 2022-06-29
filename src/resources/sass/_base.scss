@@ -14,6 +14,10 @@ h1 {
     // font-family: "Lobster", cursive;
 }
 
+.st {
+    font-family: "Reggae One", cursive;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -286,10 +290,31 @@ $img-w: calc($img-h * 0.7);
     height: 500px;
     &-bg {
         @apply absolute w-full h-full;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
         &-img {
             @apply w-full h-full object-cover;
-            filter: blur(50px);
+            filter: blur(10px);
+        }
+    }
+    &-contents {
+        @apply z-10 absolute flex items-center justify-center mx-auto;
+        img {
+            // @apply;
+            height: 350px;
+            width: calc(350px * 0.7);
+        }
+    }
+}
+
+.st-show {
+    @apply w-full relative overflow-hidden flex items-center justify-center;
+    height: 500px;
+    &-bg {
+        @apply absolute w-full h-full;
+        background: rgba(0, 0, 0, 0.6);
+        &-img {
+            @apply w-full h-full object-cover;
+            filter: blur(10px);
         }
     }
     &-contents {

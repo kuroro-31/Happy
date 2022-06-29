@@ -3,7 +3,16 @@
 @section('title', '記事一覧')
 
 @section('content')
-  @include('patials._nav')
+  @include('patials._sub_nav')
+  <div class="w-full mx-auto">
+    <div class="st-show">
+      <img class="st-show-bg-img" src="/img/manga.jpeg" alt="">
+      <div class="st-show-bg"></div>
+      <div class="st-show-contents">
+        <h1 class="st text-6xl text-white">時は漫画の戦国時代。</h1>
+      </div>
+    </div>
+  </div>
 
   {{-- @if (Auth::user())
     <div class="top-hero">
