@@ -75,7 +75,7 @@
               <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
                 class="hover:text-primary flex items-center w-full">
                 <div class="flex items-center pr-4">
-                  <span class="">{{ $chapter->id }}</span>
+                  <span class="">{{ $counts-- }}</span>
                   <span>話</span>
                 </div>
                 <div class="w-full truncate font-semibold">{{ $chapter->name }}</div>

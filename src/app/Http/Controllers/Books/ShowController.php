@@ -12,10 +12,14 @@ class ShowController extends Controller
      */
     public function __invoke(Book $book)
     {
-        $chapters = Book::find($book->id)->chapters;
+        $book = Book::find($book->id); // 特定の本のidを取得
+        $chapters = $book->chapters()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
+        $counts = count($chapters); // 話数の番号
+
         return view('books.show', [
             'book' => $book,
             'chapters' => $chapters,
+            'counts' => $counts
         ]);
     }
 }
