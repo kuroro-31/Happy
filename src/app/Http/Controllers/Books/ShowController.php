@@ -19,7 +19,7 @@ class ShowController extends Controller
         return view('books.show', [
             'book' => $book,
             'chapters' => $chapters,
-            'counts' => $counts
+            'counts' => $counts,
         ]);
     }
 }
