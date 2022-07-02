@@ -4,7 +4,12 @@
 
 @section('content')
   @include('patials._nav')
+
   <div class="my-8 flex flex-col mx-auto max-w-md">
+    <a href="/books/{{ $book->id }}"
+      class="shadow text-xs cursor-pointer rounded bg-white border border-white hover:border-primary hover:text-primary p-4 flex items-center">
+      本のトップへ
+    </a>
     <div class="mb-4 text-3xl font-semibold">{{ $chapter->name }}</div>
     <div class="p-8 bg-white rounded-lg whitespace-pre-line text-lg">
       {!! nl2br(e($chapter->body)) !!}
