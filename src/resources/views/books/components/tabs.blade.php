@@ -1,6 +1,6 @@
 <div class="w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2 mb-4">
   <a href="/"
-    class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded {{ $books ? 'font-semibold bg-white-2 dark:bg-dark-2' : '' }}"
+    class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded {{ $books ? 'font-semibold bg-white-2 dark:bg-dark-2' : '' }}"
     aria-current="page">
     <div class="flex p-2 rounded bg-5856d6 bg-opacity-30 text-5856d6 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
@@ -10,7 +10,7 @@
     </div>
     <div class="">ランキング</div>
   </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded"
+  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
     aria-current="page">
     <div class="flex p-2 rounded bg-007aff bg-opacity-30 text-007aff mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
@@ -20,7 +20,7 @@
     </div>
     <div class="">今日の新作</div>
   </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded"
+  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
     aria-current="page">
     <div class="flex p-2 rounded bg-60C9F7 bg-opacity-30 text-60C9F7 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
@@ -33,7 +33,7 @@
 </div>
 
 <div class="w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2">
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded"
+  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
     aria-current="page">
     <div class="flex p-2 rounded bg-4cd964 bg-opacity-30 text-4cd964 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
@@ -44,7 +44,7 @@
     </div>
     <div class="">マイページ</div>
   </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded"
+  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
     aria-current="page">
     <div class="flex p-2 rounded bg-ff9500 bg-opacity-30 text-ff9500 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
@@ -55,7 +55,7 @@
     </div>
     <div class="">自分の作品</div>
   </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded"
+  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
     aria-current="page">
     <div class="flex p-2 rounded bg-ff2d55 bg-opacity-30 text-ff2d55 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
@@ -66,7 +66,7 @@
     </div>
     <div class="">お気に入り</div>
   </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-2 dark:hover:bg-dark-2 rounded"
+  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
     aria-current="page">
     <div class="flex p-2 rounded bg-8e8e93 bg-opacity-30 text-8e8e93 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
