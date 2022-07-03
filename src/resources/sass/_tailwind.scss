@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.rounded {
+    border-radius: 0.358rem !important;
+}
+.rounuded-lg {
+    border-radius: 0.428rem !important;
+}
+
+.shadow {
+    box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%) !important;
+}

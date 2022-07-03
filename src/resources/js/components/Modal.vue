@@ -1,7 +1,7 @@
 <template>
     <transition name="modal" appear>
         <div class="modal modal-overlay" @click.self="$emit('close')">
-            <div class="modal-window">
+            <div class="modal-window rounded-lg">
                 <header class="modal-header">
                     <button class="close" @click="$emit('close')">
                         <svg
@@ -51,16 +51,14 @@
     }
 
     &-window {
-        @apply rounded;
         background-color: var(--bg);
-        border-radius: 4px;
         max-width: 600px;
         @media screen and (max-width: 767px) {
             max-width: 90%;
         }
     }
     &-header {
-        @apply relative rounded-t text-xl font-bold py-3 pl-3 pr-8;
+        @apply relative rounded-t-lg text-xl font-bold py-3 pl-3 pr-8;
         background: #f2f2f2;
         text-align: left;
         min-height: 30px;
@@ -73,17 +71,18 @@
     }
 
     &-footer {
-        @apply rounded-b py-4 px-6;
+        @apply rounded-b-lg py-4 px-6;
         background-color: var(--bg);
     }
 }
 
 .close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer shadow-lg;
+    @apply absolute p-2 duration-300 cursor-pointer shadow-lg;
     color: var(--color);
     background-color: var(--bg);
     top: -10px;
     right: -10px;
+    border-radius: 0.358rem;
     &:hover {
         @apply shadow;
         top: -7px;

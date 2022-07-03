@@ -8,7 +8,7 @@
                         : 'toast-leave-to toast-leave-active',
                 ]"
             >
-                <div class="toast">
+                <div class="toast rounded">
                     <div
                         class="check"
                         :class="{
@@ -92,7 +92,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .toast {
-    @apply rounded ml-auto shadow flex items-center w-full justify-between p-4;
+    @apply ml-auto shadow flex items-center w-full justify-between p-4;
     max-width: 300px;
     background: #fff;
     &-wrapper {
