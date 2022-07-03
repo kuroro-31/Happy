@@ -25,12 +25,13 @@ module.exports = {
             'gray-3': '#cacccf',
             // white
             'white': '#ffffff',
-            'white-1': '#f5f5f5',
+            'white-1': '#F2F1F7',
             'white-2': '#f6f6f6',
             'f5': '#F5F5F5',
             // dark
-            'dark': '#222429',
-            'dark-2': '#333740',
+            'dark': '#000',
+            'dark-1': '#1C1C1F',
+            'dark-2': '#3A393D',
             'dark-3': '#2c62f6',
             'dark-blue': '#022f61',
             //color
