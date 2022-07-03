@@ -33,8 +33,8 @@
 </div>
 
 <div class="w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2">
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
-    aria-current="page">
+  <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
+    class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded" aria-current="page">
     <div class="flex p-2 rounded bg-4cd964 bg-opacity-30 text-4cd964 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
