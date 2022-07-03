@@ -29,12 +29,12 @@
                     <template #avatar>
                       @if (empty(Auth::user()->avatar))
                         <div class="flex items-center">
-                          <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="w-10 h-10 shadow rounded-full">
+                          <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="w-10 h-10  rounded-full">
                           <span class="ml-2">{{ Auth::user()->name }}</span>
                         </div>
                       @else
                         <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}"
-                          alt="w-10 h-10 shadow rounded-full" class="w-10 h-10 shadow rounded-full">
+                          alt="w-10 h-10  rounded-full" class="w-10 h-10  rounded-full">
                       @endif
                     </template>
                     <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"

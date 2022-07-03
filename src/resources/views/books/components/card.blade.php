@@ -1,7 +1,7 @@
 <div class="ml-auto p-4">
   {{-- @empty($book->thumbnail)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
-          class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
+          class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
       @else --}}
   <a href="{{ route('book.show', ['book' => $book]) }}">
     <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail" class="thumbnail">

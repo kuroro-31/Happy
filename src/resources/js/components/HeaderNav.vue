@@ -83,7 +83,7 @@
 
                             <div
                                 id="dropdownNavbar"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded w-44 dark:bg-gray-700 dark:divide-gray-600"
                                 style="
                                     position: absolute;
                                     inset: auto auto 0px 0px;

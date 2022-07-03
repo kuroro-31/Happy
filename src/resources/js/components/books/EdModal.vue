@@ -3,9 +3,7 @@
         <div @click="open = true" class="btn-primary">投稿する</div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
-                <div
-                    class="window absolute rounded shadow p-4 bg-white dark:bg-dark"
-                >
+                <div class="window absolute rounded p-4 bg-white dark:bg-dark">
                     <slot></slot>
                 </div>
             </div>
@@ -42,13 +40,12 @@ export default {
     }
 }
 .close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer shadow-lg;
+    @apply absolute p-2 rounded duration-300 cursor-pointer;
     color: var(--color);
     background-color: var(--bg);
     top: -10px;
     right: -10px;
     &:hover {
-        @apply shadow;
         top: -7px;
         right: -7px;
     }

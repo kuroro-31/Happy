@@ -4,7 +4,7 @@
 
 @section('content')
   @include('patials._nav')
-  <div class="max-w-md mx-auto p-8 bg-white rounded-lg shadow">
+  <div class="max-w-md mx-auto p-8 bg-white rounded-lg ">
     <h2 class="text-3xl font-semibold mb-4">Login</h2>
     <form id="submit-form" method="POST" action="{{ route('login') }}">
       @csrf

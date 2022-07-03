@@ -100,7 +100,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .reshelf-toast {
-    @apply rounded ml-auto shadow-lg flex items-center w-full justify-between p-6;
+    @apply rounded ml-auto -lg flex items-center w-full justify-between p-6;
     max-width: 400px;
     background: #fff;
     video {

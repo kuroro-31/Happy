@@ -92,7 +92,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .toast {
-    @apply ml-auto shadow flex items-center w-full justify-between p-4;
+    @apply ml-auto  flex items-center w-full justify-between p-4;
     max-width: 300px;
     background: #fff;
     &-wrapper {

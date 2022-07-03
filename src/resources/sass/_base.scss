@@ -43,7 +43,7 @@ h1 {
 }
 
 .btn-primary {
-    @apply cursor-pointer whitespace-nowrap text-sm bg-primary hover:bg-opacity-90 text-white shadow shadow-primary py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap text-sm bg-primary hover:bg-opacity-90 text-white py-2 px-6;
     border-radius: 3px;
 }
 .btn-border {
@@ -51,14 +51,14 @@ h1 {
     border-radius: 3px;
 }
 .btn-sub {
-    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 shadow rounded py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 rounded py-2 px-6;
     // background: ;
     // &:hover {
     //     background: #e4e6eb;
     // }
 }
 .btn-danger {
-    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white shadow shadow-red rounded py-2 px-6;
+    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded py-2 px-6;
 }
 
 .top-hero {
@@ -146,7 +146,7 @@ h1 {
 }
 
 .window {
-    @apply absolute rounded shadow p-4 bg-white dark:bg-dark-2;
+    @apply absolute rounded p-4 bg-white dark:bg-dark-2;
     max-width: 600px;
     @screen lg {
         width: 600px;
@@ -171,20 +171,19 @@ h1 {
 }
 
 .close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer shadow-lg;
+    @apply absolute p-2 rounded duration-300 cursor-pointer;
     color: var(--color);
     background-color: var(--bg);
     top: -10px;
     right: -10px;
     &:hover {
-        @apply shadow;
         top: -7px;
         right: -7px;
     }
 }
 
 .avatar {
-    @apply rounded-full object-cover flex flex-shrink-0 shadow;
+    @apply rounded-full object-cover flex flex-shrink-0;
     min-width: 160px;
     min-height: 160px;
     max-width: 160px;
@@ -213,7 +212,6 @@ h1 {
 }
 .carousel__next,
 .carousel__prev {
-    @apply shadow-xl;
     background: white !important;
     border-radius: 8px !important;
     border: 1px solid #ccc !important;
@@ -228,7 +226,7 @@ h1 {
 $img-h: 250px;
 $img-w: calc($img-h * 0.7);
 .thumbnail {
-    @apply object-cover shadow cursor-pointer;
+    @apply object-cover cursor-pointer;
     height: $img-h;
     width: $img-w;
     &-title {

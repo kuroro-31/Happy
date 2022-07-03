@@ -13,7 +13,7 @@
           <img src="/img/thumbnail.jpeg" alt="thumbnail" class="">
         @else
           <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
-            class="rounded-full h-10 w-10 object-cover mr-3 shadow-lg border border-emerald-50">
+            class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
         @endempty
 
         <div class="flex flex-col max-w-lg ml-16">
@@ -70,7 +70,7 @@
         <div style="max-height: 600px" class="w-full overflow-y-auto">
           @foreach ($chapters as $chapter)
             <div
-              class="cursor-pointer shadow mb-2 p-4 rounded-lg bg-white flex items-center justify-between w-full overflow-hidden">
+              class="cursor-pointer  mb-2 p-4 rounded-lg bg-white flex items-center justify-between w-full overflow-hidden">
               <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
                 class="hover:text-primary flex items-center w-full">
                 <div class="flex items-center pr-4">
