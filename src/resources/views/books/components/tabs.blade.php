@@ -44,19 +44,8 @@
     </div>
     <div class="">マイページ</div>
   </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
-    aria-current="page">
-    <div class="flex p-2 rounded bg-ff9500 bg-opacity-30 text-ff9500 mr-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
-        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    </div>
-    <div class="">自分の作品</div>
-  </a>
-  <a href="/" class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded"
-    aria-current="page">
+  <a href="{{ route('users.likes', ['username' => Auth::user()->username]) }}"
+    class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded" aria-current="page">
     <div class="flex p-2 rounded bg-ff2d55 bg-opacity-30 text-ff2d55 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="flex flex-shrink-0 h-5 w-5 text-bold" fill="none"
         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

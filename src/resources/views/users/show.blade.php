@@ -7,15 +7,16 @@
   <div class="">
     @include('users.components.user')
   </div>
-  <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
-    <div class="w-1/5">
+  <div class="flex max-w-5xl w-full mx-auto px-8 md:px-0 justify-center">
+
+    <div class="w-full md:w-1/5 mb-4">
       @include('users.components.tabs', [
           'hasBooks' => true,
           'hasLikes' => false,
           'about' => false,
       ])
     </div>
-    <div class="py-8 w-4/5">
+    <div class="w-full md:w-4/5 rounded-lg md:ml-8 bg-white dark:bg-dark-1 p-6 flex flex-wrap justify-start">
       @if ($books->count())
         @foreach ($books as $book)
           @include('books.components.card')
