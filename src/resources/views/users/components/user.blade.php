@@ -1,4 +1,4 @@
-<div class="max-w-4xl mx-auto">
+<div class="max-w-5xl mx-auto mb-8">
   <div class="relative">
     @empty($user->thumbnail)
       <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded min-h-40 min-w-40 flex flex-shrink-0">
