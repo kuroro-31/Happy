@@ -11,7 +11,7 @@
             <ul class="flex items-center">
               @guest
                 <li>
-                  <a href="/login" class="btn-border">ログイン</a>
+                  <a href="/login" class="text-white">ログイン</a>
                 </li>
               @endguest
               @auth
