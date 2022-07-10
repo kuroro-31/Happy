@@ -3,7 +3,7 @@
 @section('title', $tag->hashtag)
 
 @section('content')
-  @include('patials._nav')
+  @include('_patials._nav')
   <div class="tag-hero">
     <div class="z-30 absolute text-white font-semibold text-2xl flex justify-center">
       <h2>{{ $tag->hashtag }}</h2>
@@ -26,7 +26,7 @@
     </div>
     <div class="md:w-3/5 py-8">
       @foreach ($tag->books as $book)
-        @include('books.components.card')
+        @include('books._patials.card')
       @endforeach
     </div>
 

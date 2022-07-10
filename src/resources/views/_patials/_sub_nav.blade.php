@@ -11,15 +11,15 @@
             <ul class="flex items-center">
               @guest
                 <li>
-                  <a href="/login" class="btn-border">ログイン</a>
+                  <a href="/login" class="text-white">ログイン</a>
                 </li>
               @endguest
               @auth
                 {{-- <li class="mr-6">
                   <create-modal>
-                    @include('patials._error_card_list')
+                    @include('_patials._error_card_list')
                     <form method="POST" action="{{ route('book.store') }}">
-                      @include('books.components.form')
+                      @include('books._patials.form')
                       <button type="submit" class="btn-primary justify-end">投稿する</button>
                     </form>
                   </create-modal>

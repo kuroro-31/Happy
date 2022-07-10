@@ -3,7 +3,7 @@
 @section('title', '記事一覧')
 
 @section('content')
-  @include('patials._sub_nav')
+  @include('_patials._sub_nav')
   <div class="w-full mx-auto">
     <div class="st-show">
       <img class="st-show-bg-img" src="/img/manga.jpeg" alt="">
@@ -17,7 +17,7 @@
   <div class="flex w-full mx-auto justify-center">
     <div class="container flex flex-col md:flex-row mx-auto p-4 lg:p-8 my-8">
       <div class="w-full md:w-1/5 mb-4">
-        @include('books.components.tabs')
+        @include('books._patials.tabs')
       </div>
 
       <div class="w-full md:w-4/5 rounded-lg md:ml-8">

@@ -3,11 +3,10 @@
 @section('title', $chapter->name)
 
 @section('content')
-  @include('patials._nav')
+  @include('_patials._nav')
 
   <div class="my-8 flex flex-col mx-auto max-w-md">
-    <a href="/books/{{ $book->id }}"
-      class=" text-xs cursor-pointer rounded bg-white border border-white hover:border-primary hover:text-primary p-4 flex items-center">
+    <a href="/books/{{ $book->id }}" class="inline-block text-xs cursor-pointer hover:text-primary mb-8">
       本のトップへ
     </a>
     <div class="mb-4 text-3xl font-semibold">{{ $chapter->name }}</div>

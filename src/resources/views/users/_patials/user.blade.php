@@ -1,5 +1,5 @@
 <div class="max-w-5xl mx-auto mb-8">
-  <div class="relative">
+  <div class="relative z-auto">
     @empty($user->thumbnail)
       <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded min-h-40 min-w-40 flex flex-shrink-0">
     @else
@@ -12,20 +12,20 @@
     @endempty
     @if (Auth::id() === $user->id)
       <edit-user-modal class="edit-user-modal">
-        @include('patials._error_card_list')
+        @include('_patials._error_card_list')
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form id="submit-form" method="POST" action="{{ route('users.update', ['username' => $user->username]) }}"
           enctype="multipart/form-data">
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
-          @include('users.components.form')
+          @include('users._patials.form')
           <button id="submit-btn" type="submit" class="btn-primary w-full py-4">更新する</button>
         </form>
       </edit-user-modal>
     @endif
   </div>
   <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
-    <div class="text-dark z-30">
+    <div class="text-dark z-10">
       @empty($user->avatar)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="avatar">
       @else

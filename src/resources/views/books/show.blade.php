@@ -3,7 +3,7 @@
 @section('title', $book->title)
 
 @section('content')
-  @include('patials._sub_nav')
+  @include('_patials._sub_nav')
   <div class="w-full mx-auto">
     <div class="book-show">
       <img class="book-show-bg-img" src="/img/thumbnail.jpeg" alt="">
@@ -27,11 +27,14 @@
             endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true' class="text-white">
           </book-like>
 
-          <div class="my-8 flex">
-            <a href="/books/{{ $book->id }}/chapters/1"
-              class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
-            </a>
-          </div>
+          @if (!empty($chapters))
+            <div class="mt-8 mb-4 flex">
+              <a href="/books/{{ $book->id }}/chapters/1"
+                class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
+              </a>
+            </div>
+          @endif
+
           @if ($book->tags)
             @foreach ($book->tags as $tag)
               @if ($loop->first)
@@ -39,7 +42,7 @@
                   <div class="">
               @endif
               <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
-                class="inline-block text-xs btn-border p-1.5 px-2 m-1">
+                class="inline-block text-xs border border-white text-white rounded-full p-1.5 px-2 m-1">
                 {{ $tag->hashtag }}
               </a>
               @if ($loop->last)
@@ -111,5 +114,5 @@
 @endsection
 
 @section('scripts')
-  @include('patials._submit')
+  @include('_patials._submit')
 @endsection

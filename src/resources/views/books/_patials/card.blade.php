@@ -1,4 +1,4 @@
-<div class="ml-auto p-4">
+<div class="p-4">
   {{-- @empty($book->thumbnail)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
           class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
@@ -15,12 +15,12 @@
   @if (Auth::id() === $book->user_id)
     <div class="flex items-center">
       <edit-modal class="mr-2">
-        @include('patials._error_card_list')
+        @include('_patials._error_card_list')
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form id="submit-form" method="POST" action="{{ route('book.update', ['book' => $book->id]) }}">
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
-          @include('books.components.form')
+          @include('books._patials.form')
           <button id="submit-btn" type="submit" class="btn-primary">更新する</button>
         </form>
       </edit-modal>

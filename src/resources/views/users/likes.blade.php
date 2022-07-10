@@ -3,13 +3,13 @@
 @section('title', $user->name . 'のいいねした記事')
 
 @section('content')
-  @include('patials._nav')
+  @include('_patials._nav')
   <div class="">
-    @include('users.components.user')
+    @include('users._patials.user')
   </div>
   <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
     <div class="py-8 w-full">
-      @include('users.components.tabs', [
+      @include('users._patials.tabs', [
           'hasBooks' => false,
           'hasLikes' => true,
           'about' => false,
@@ -17,7 +17,7 @@
 
       @if ($books->count())
         @foreach ($books as $book)
-          @include('books.components.card')
+          @include('books._patials.card')
         @endforeach
       @else
         <div>いいねはありません</div>

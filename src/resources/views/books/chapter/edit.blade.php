@@ -3,7 +3,7 @@
 @section('title', $chapter->name)
 
 @section('content')
-  @include('patials._nav')
+  @include('_patials._nav')
 
   <div class="max-w-md flex flex-col mx-auto container">
     <update-chapter :id='@json($chapter->id)' :name='@json($chapter->name ?? old('name'))'
