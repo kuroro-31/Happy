@@ -5,11 +5,11 @@
 @section('content')
   @include('_patials._nav')
   <div class="">
-    @include('users.__patials.user')
+    @include('users._patials.user')
   </div>
   <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
     <div class="py-8 w-full">
-      @include('users.__patials.tabs', [
+      @include('users._patials.tabs', [
           'hasBooks' => false,
           'hasLikes' => false,
           'about' => false,
@@ -18,7 +18,7 @@
       <follow-modal :user-name='@json($user->name)'>
         @if ($followings->count())
           @foreach ($followings as $person)
-            @include('users.__patials.person')
+            @include('users._patials.person')
           @endforeach
         @else
           <p>フォローしている人はいません</p>
