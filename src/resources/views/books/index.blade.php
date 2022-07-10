@@ -3,7 +3,7 @@
 @section('title', '記事一覧')
 
 @section('content')
-  @include('patials._sub_nav')
+  @include('_patials._sub_nav')
   <div class="w-full mx-auto">
     <div class="st-show">
       <img class="st-show-bg-img" src="/img/manga.jpeg" alt="">

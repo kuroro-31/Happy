@@ -3,7 +3,7 @@
 @section('title', $chapter->name)
 
 @section('content')
-  @include('patials._nav')
+  @include('_patials._nav')
 
   <div class="my-8 flex flex-col mx-auto max-w-md">
     <a href="/books/{{ $book->id }}"

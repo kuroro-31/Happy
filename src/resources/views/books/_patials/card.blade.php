@@ -15,12 +15,12 @@
   @if (Auth::id() === $book->user_id)
     <div class="flex items-center">
       <edit-modal class="mr-2">
-        @include('patials._error_card_list')
+        @include('_patials._error_card_list')
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form id="submit-form" method="POST" action="{{ route('book.update', ['book' => $book->id]) }}">
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
-          @include('books._patials.form')
+          @include('books.__patials.form')
           <button id="submit-btn" type="submit" class="btn-primary">更新する</button>
         </form>
       </edit-modal>

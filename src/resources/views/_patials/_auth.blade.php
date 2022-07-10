@@ -1,6 +1,6 @@
 <auth-modal>
   <template #login>
-    @include('patials._error_card_list')
+    @include('_patials._error_card_list')
     <form method="POST" action="{{ route('login') }}">
       @csrf
       <div class="w-full mb-3">
@@ -21,7 +21,7 @@
   </template>
 
   <template #register>
-    @include('patials._error_card_list')
+    @include('_patials._error_card_list')
     <form method="POST" action="{{ route('register') }}">
       @csrf
       <div class="w-full mb-3">
