@@ -5,11 +5,11 @@
 @section('content')
   @include('patials._nav')
   <div class="">
-    @include('users.components.user')
+    @include('users._patials.user')
   </div>
   <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
     <div class="py-8 w-full">
-      @include('users.components.tabs', [
+      @include('users._patials.tabs', [
           'hasBooks' => false,
           'hasLikes' => false,
           'about' => true,
