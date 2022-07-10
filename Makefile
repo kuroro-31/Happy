@@ -47,6 +47,8 @@ ps:
 	docker compose ps
 logs:
 	docker compose logs
+master:
+	git fetch && git pull origin master && git push
 logs-watch:
 	docker compose logs --follow
 log-web:
