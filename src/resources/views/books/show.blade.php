@@ -73,9 +73,9 @@
         <div style="max-height: 600px" class="w-full overflow-y-auto">
           @foreach ($chapters as $chapter)
             <div
-              class="cursor-pointer  mb-2 p-4 rounded-lg bg-white flex items-center justify-between w-full overflow-hidden">
+              class="mb-2 p-4 rounded-lg bg-white dark:bg-dark-1 flex items-center justify-between w-full overflow-hidden">
               <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
-                class="hover:text-primary flex items-center w-full">
+                class="hover:text-primary flex items-center w-full cursor-pointer">
                 <div class="flex items-center pr-4">
                   <span class="">{{ $counts-- }}</span>
                   <span>話</span>

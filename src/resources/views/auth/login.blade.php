@@ -4,18 +4,20 @@
 
 @section('content')
   @include('_patials._nav')
-  <div class="max-w-md mx-auto p-8 bg-white rounded-lg ">
+  <div class="max-w-md mx-auto p-8 bg-white dark:bg-dark-1 rounded-lg">
     <h2 class="text-3xl font-semibold mb-4">Login</h2>
     <form id="submit-form" method="POST" action="{{ route('login') }}">
       @csrf
       @include('_patials._error_card_list')
       <div class="w-full mb-3">
         <div class="w-full mb-1 text-xs">メールアドレス</div>
-        <input class="w-full p-2 rounded border border-slate-300" type="text" name="email" required>
+        <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="text" name="email"
+          required>
       </div>
       <div class="w-full mb-3">
         <div class="w-full mb-1 text-xs">パスワード</div>
-        <input class="w-full p-2 rounded border border-slate-300" type="password" name="password" required>
+        <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="password"
+          name="password" required>
       </div>
       <input type="hidden" name="remember" value="on">
       <button id="submit-btn" type="submit"
