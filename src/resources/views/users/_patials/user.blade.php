@@ -1,12 +1,12 @@
 <div class="max-w-5xl mx-auto mb-8">
   <div class="relative z-auto">
     @empty($user->thumbnail)
-      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded min-h-40 min-w-40 flex flex-shrink-0">
+      <img src="{{ asset('/img/bg.jpeg') }}" alt="" class="rounded min-h-40 min-w-40 flex flex-shrink-0 w-full">
     @else
       <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
         <template #thumbnail>
           <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . $user->thumbnail) }}"
-            alt="profile_thumbnail" class="rounded min-h-40 min-w-40 flex flex-shrink-0">
+            alt="profile_thumbnail" class="rounded min-h-40 min-w-40 flex flex-shrink-0 w-full">
         </template>
       </thumbnail-zoom>
     @endempty
@@ -24,7 +24,7 @@
       </edit-user-modal>
     @endif
   </div>
-  <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-2 rounded-2xl pb-6">
+  <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-1 rounded-2xl pb-6">
     <div class="text-dark z-10">
       @empty($user->avatar)
         <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="avatar">
