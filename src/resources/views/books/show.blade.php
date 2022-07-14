@@ -30,7 +30,7 @@
           @if (!empty($chapters))
             <div class="mt-8 mb-4 flex">
               <a href="/books/{{ $book->id }}/chapters/1"
-                class="hover:text-primary bg-white dark:bg-dark-2 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
+                class="hover:text-primary bg-white dark:bg-dark-1 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
               </a>
             </div>
           @endif
