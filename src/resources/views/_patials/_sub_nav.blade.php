@@ -4,7 +4,7 @@
       <div class="relative flex items-center">
         <a href="/" class="text-white mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto">
           <span class="sr-only">Tailwind CSS home page</span>
-          <h1 class="text-2xl font-semibold">Starbooks</h1>
+          <h1 class="text-2xl font-semibold dark:text-white">Starbooks</h1>
         </a>
         <div class="hidden lg:flex items-center ml-auto">
           <nav class="text-sm">
