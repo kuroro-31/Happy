@@ -9,7 +9,7 @@
         <transition>
             <div
                 v-show="open"
-                class="absolute right-0 top-10 w-48 z-50 rounded-lg p-2 bg-white dark:bg-dark-2"
+                class="absolute right-0 top-10 w-48 z-50 rounded p-2 bg-white dark:bg-dark-1"
             >
                 <slot></slot>
             </div>

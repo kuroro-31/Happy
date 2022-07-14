@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2 mb-4">
+<div class="shadow w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2 mb-4">
   <a href="/"
     class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded {{ $books ? 'font-semibold bg-white-2 dark:bg-dark-2' : '' }}"
     aria-current="page">
@@ -33,7 +33,7 @@
 </div>
 
 @if (Auth::user())
-  <div class="w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2">
+  <div class="shadow w-full flex flex-col items-start justify-center bg-white dark:bg-dark-1 rounded p-2">
     <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
       class="w-full h-full flex items-center p-2 hover:bg-white-1 dark:hover:bg-dark-2 rounded" aria-current="page">
       <div class="flex p-2 rounded bg-4cd964 bg-opacity-30 text-4cd964 mr-2">
