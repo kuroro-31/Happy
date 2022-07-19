@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(100)->create();
+        \App\Models\User::factory(100)->create();
 
         $faker = Faker::create('en_US');
         for ($a = 1; $a < 100; $a++) {
@@ -26,12 +26,12 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        for ($b = 1; $b < 1000; $b++) {
-            \App\Models\Chapter::create([
-                'name' => $faker->text(15),
-                'body' => $faker->text(1000),
-                'book_id' => random_int(1, 100)
-            ]);
-        }
+        // for ($b = 1; $b < 1000; $b++) {
+        //     \App\Models\Chapter::create([
+        //         'name' => $faker->text(15),
+        //         'body' => $faker->text(1000),
+        //         'book_id' => random_int(1, 100)
+        //     ]);
+        // }
     }
 }
