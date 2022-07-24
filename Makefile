@@ -30,6 +30,7 @@ init:
 	docker compose exec app php artisan storage:link
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make migrate
+	cd src && npm i && npm run dev
 remake:
 	@make destroy
 	@make init
