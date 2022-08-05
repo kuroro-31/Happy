@@ -6,11 +6,11 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./infra/docker/php/Dockerfile
+      dockerfile: ./php/Dockerfile
       target: ${APP_BUILD_TARGET:-development}
     volumes:
       - type: bind
-        source: ./src
+        source: ../src
         target: /data
       - type: volume
         source: psysh-store
@@ -34,7 +34,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./infra/docker/nginx/Dockerfile
+      dockerfile: ./nginx/Dockerfile
     ports:
       - target: 80
         published: ${WEB_PUBLISHED_PORT:-80}
@@ -42,13 +42,13 @@ services:
         mode: host
     volumes:
       - type: bind
-        source: ./src
+        source: ../src
         target: /data
 
   db:
     build:
       context: .
-      dockerfile: ./infra/docker/mysql/Dockerfile
+      dockerfile: ./mysql/Dockerfile
     ports:
       - target: 3306
         published: ${DB_PUBLISHED_PORT:-3306}
