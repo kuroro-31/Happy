@@ -4,4 +4,4 @@ WORKDIR /data
 
 ENV TZ=UTC
 
-COPY /nginx/*.conf /etc/nginx/conf.d/
+COPY ./docker/nginx/*.conf /etc/nginx/conf.d/

@@ -36,11 +36,11 @@ RUN apt-get update \
 
 FROM base AS development
 
-COPY /php/php.development.ini /usr/local/etc/php/php.ini
+COPY ./docker/php/php.development.ini /usr/local/etc/php/php.ini
 
 FROM base AS deploy
 
-COPY /php/php.deploy.ini /usr/local/etc/php/php.ini
+COPY ./docker/php/php.deploy.ini /usr/local/etc/php/php.ini
 COPY ./src /data
 
 RUN composer install -q -n --no-ansi --no-dev --no-scripts --no-progress --prefer-dist \

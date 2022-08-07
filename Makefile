@@ -31,7 +31,6 @@ init:
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make cache
 	docker compose exec app php artisan migrate --seed
-	cd ../src && npm i && npm run dev
 remake:
 	@make destroy
 	@make init
