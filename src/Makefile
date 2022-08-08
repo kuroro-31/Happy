@@ -16,14 +16,9 @@ install-recommend-packages:
 	composer require --dev roave/security-advisories:dev-master
 	php artisan vendor:publish --provider="BeyondCode\DumpServer\DumpServerServiceProvider"
 	php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
-init:
-	docker compose up -d --build
-	composer install
-	cp .env.example .env
-	php artisan key:generate
-	php artisan storage:link
-	chmod -R 777 storage bootstrap/cache
-	@make fresh
+run:
+	npm i
+	npm run dev && npm run watch-poll
 migrate:
 	php artisan migrate
 fresh:
