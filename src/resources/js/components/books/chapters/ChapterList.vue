@@ -10,7 +10,7 @@
             v-model="form.name"
             class="w-full p-2 mr-4 rounded"
         />
-        <button id="submit-btn" type="submit" class="inline-block btn-primary">
+        <button id="submit-btn" type="submit" class="inline-block btn">
             追加する
         </button>
     </form>

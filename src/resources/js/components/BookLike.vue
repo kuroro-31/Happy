@@ -1,5 +1,5 @@
 <template>
-    <div @click="clickLike" class="btn">
+    <div @click="clickLike" class="book-like">
         <svg
             :class="[{ clicked: isLikedBy }, iconClass]"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.btn {
+.book-like {
     @apply flex items-center cursor-pointer text-gray;
 }
 

@@ -19,7 +19,7 @@
           {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
           @method('PATCH')
           @include('users._patials.form')
-          <button id="submit-btn" type="submit" class="btn-primary w-full py-4">更新する</button>
+          <button id="submit-btn" type="submit" class="btn w-full py-4">更新する</button>
         </form>
       </edit-user-modal>
     @endif

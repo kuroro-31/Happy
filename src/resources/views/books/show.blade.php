@@ -3,7 +3,7 @@
 @section('title', $book->title)
 
 @section('content')
-  @include('_patials._sub_nav')
+  @include('_patials._nav')
   <div class="w-full mx-auto">
     <div class="book-show">
       <img class="book-show-bg-img" src="/img/thumbnail.jpeg" alt="">
