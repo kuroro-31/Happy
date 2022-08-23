@@ -53,7 +53,9 @@
                 "peakchen90.vue-beautify",
                 "shenjiaolong.vue-helper",
                 "github.vscode-pull-request-github",
-                "pkief.material-icon-theme"
+                "pkief.material-icon-theme",
+                "zignd.html-css-class-completion",
+                "ms-ceintl.vscode-language-pack-ja"
             ]
         }
     },
