@@ -9,7 +9,7 @@
         <transition>
             <div
                 v-show="open"
-                class="absolute right-0 top-10 w-48 z-50 rounded p-2 bg-white dark:bg-dark-1"
+                class="dropdown absolute right-0 top-10 z-50 rounded p-2 bg-white dark:bg-dark-1"
             >
                 <slot></slot>
             </div>
@@ -25,3 +25,8 @@ export default {
     },
 };
 </script>
+<style lang="scss">
+.dropdown {
+    width: 250px;
+}
+</style>
