@@ -4,6 +4,7 @@
 
 @section('content')
     @include('_patials._nav')
+    @include('_patials._genre_nav')
     {{-- <div class="w-full mx-auto">
         <div class="st-show">
             <img class="st-show-bg-img" src="/img/manga.jpeg" alt="">
