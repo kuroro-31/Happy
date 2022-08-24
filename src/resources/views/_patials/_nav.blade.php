@@ -1,4 +1,4 @@
-<div class="bg-white-1 dark:bg-dark sticky top-0 z-40 w-full flex-none lg:z-20">
+<div class="bg-white-1 dark:bg-dark sticky top-0 z-40 w-full flex-none lg:z-20 border-b border-ddd dark:border-dark">
     <div class="max-w-8xl mx-auto">
         <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
             <div class="relative flex items-center">
@@ -67,7 +67,8 @@
                                     <header-user-modal>
                                         <template #avatar>
                                             @if (empty(Auth::user()->avatar))
-                                                <img src="{{ asset('/img/avatar.jpeg') }}" alt="" class="w-10 h-10  rounded-full">
+                                                <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
+                                                    class="w-10 h-10  rounded-full">
                                             @else
                                                 <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}"
                                                     alt="w-10 h-10  rounded-full" class="w-10 h-10  rounded-full">
@@ -93,6 +94,26 @@
                     </nav>
                     <theme-toggle></theme-toggle>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-white-1 dark:bg-dark w-full flex-none lg:z-20 border-b border-ddd dark:border-dark">
+    <div class="max-w-8xl mx-auto">
+        <div class="border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+            <div class="relative flex items-center">
+                <a href=""
+                    class="py-3 px-4 mr-4 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:font-semibold">TOP</a>
+                <a href=""
+                    class="py-3 px-4 mr-4 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:font-semibold">少年・青年</a>
+                <a href=""
+                    class="py-3 px-4 mr-4 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:font-semibold">少女・女性</a>
+                <a href=""
+                    class="py-3 px-4 mr-4 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:font-semibold">TL</a>
+                <a href=""
+                    class="py-3 px-4 mr-4 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:font-semibold">BL</a>
+                <a href=""
+                    class="py-3 px-4 mr-4 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:font-semibold">オトナ</a>
             </div>
         </div>
     </div>

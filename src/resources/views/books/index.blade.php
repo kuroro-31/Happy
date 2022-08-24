@@ -15,7 +15,7 @@
     </div> --}}
 
     <div class="flex w-full mx-auto justify-center">
-        <div class="container flex flex-col md:flex-row mx-auto p-4 lg:p-8 my-8">
+        <div class="flex flex-col md:flex-row mx-auto p-4 lg:p-8 my-8">
             <div class="w-full md:w-1/5 mb-4">
                 @include('books._patials.tabs')
             </div>
