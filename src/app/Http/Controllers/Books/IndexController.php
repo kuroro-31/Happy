@@ -17,7 +17,7 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         // $books = null;
-        $books = Book::orderBy('created_at')->paginate(20);
+        $books = Book::orderBy('created_at')->paginate(5);
         // $likeRankings = null;
 
         // if (Auth::user()){

@@ -224,8 +224,10 @@ h1 {
 //     display: none !important;
 // }
 
-$img-h: 250px;
-$img-w: calc($img-h * 0.7);
+// $img-h: 250px;
+// $img-w: calc($img-h * 0.7);
+$img-h: 200px;
+$img-w: 200px;
 .thumbnail {
     @apply object-cover cursor-pointer;
     height: $img-h;
