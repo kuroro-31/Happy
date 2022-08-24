@@ -41,6 +41,8 @@ module.exports = {
             't-d-color': '#B2B1B3',
             't-d-color-2': '#96969B',
             'red': '#DA463D',
+            'pink': '#DA4FA8',
+            'orange': '#F77777',
             'blue': '#4e86ff',
             'yellow': '#FFBD64',
             'purple': '#3f3cbb',
