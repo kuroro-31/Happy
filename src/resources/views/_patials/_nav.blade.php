@@ -46,7 +46,8 @@
                     </h1>
                 </a>
                 <div class="header-search-input relative flex items-center mx-auto">
-                    <input type="text" placeholder="検索" class="py-2 px-4 border border-ddd">
+                    <input type="text" placeholder="検索"
+                        class="py-2 px-4 border border-ddd dark:bg-dark-1 dark:border-dark">
                     <button class="absolute right-2">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
