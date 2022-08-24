@@ -68,15 +68,6 @@
                                 </li>
                             @endguest
                             @auth
-                                {{-- <li class="mr-6">
-                                    <create-modal>
-                                        @include('_patials._error_card_list')
-                                        <form method="POST" action="{{ route('book.store') }}">
-                                            @include('books._patials.form')
-                                            <button type="submit" class="btn justify-end">投稿する</button>
-                                        </form>
-                                    </create-modal>
-                                </li> --}}
                                 <li>
                                     <a href="" class="mr-8 hover:text-primary">ポイント</a>
                                 </li>
