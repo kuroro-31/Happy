@@ -85,13 +85,15 @@
                                     <header-user-modal>
                                         <template #avatar>
                                             @if (empty(Auth::user()->avatar))
-                                                <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
+                                                <img src="{{ asset('/img/noimage-user.svg') }}" alt=""
                                                     class="w-10 h-10  rounded-full">
                                             @else
                                                 <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}"
                                                     alt="w-10 h-10  rounded-full" class="w-10 h-10  rounded-full">
                                             @endif
                                         </template>
+
+                                        {{-- マイページ --}}
                                         <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -106,6 +108,8 @@
                                             </svg>
                                             <span class="pl-5">マイページ</span>
                                         </a>
+
+                                        {{-- 設定 --}}
                                         <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -123,11 +127,16 @@
                                             </svg>
                                             <span class="pl-5">設定</span>
                                         </a>
+
+                                        {{-- ダークモード --}}
                                         <div href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <theme-toggle></theme-toggle>
                                         </div>
+
                                         <div class="border-b border-ddd dark:border-dark my-1 w-full"></div>
+
+                                        {{-- ログアウト --}}
                                         <div>
                                             <button form="logout-button" type="submit"
                                                 class="flex items-center w-full text-left cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">

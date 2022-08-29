@@ -70,7 +70,7 @@
                                     <header-user-modal>
                                         <template #avatar>
                                             @if (empty(Auth::user()->avatar))
-                                                <img src="{{ asset('/img/avatar.jpeg') }}" alt=""
+                                                <img src="{{ asset('/img/noimage-user.svg') }}" alt=""
                                                     class="w-10 h-10  rounded-full">
                                             @else
                                                 <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}"
