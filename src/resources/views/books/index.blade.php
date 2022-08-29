@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Starbooks - 漫画プラットホーム')
+@section('title', '漫画プラットホーム - Starbooks')
 
 @section('content')
     @include('_patials._nav')
