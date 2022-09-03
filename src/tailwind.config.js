@@ -23,6 +23,7 @@ module.exports = {
             'ddd': '#ddd',
             'eee': '#eee',
             'gray': '#B0B3B8',
+            'gray-1': '#45494B',
             'gray-2': '#E3E6EA',
             'gray-3': '#cacccf',
             'border': '#9B99AF',

@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto mb-8">
+<div class="max-w-6xl mx-auto mb-8">
     <div class="relative z-auto">
         @empty($user->thumbnail)
             <img src="{{ asset('/img/bg.svg') }}" alt="" class="rounded flex flex-shrink-0 w-full object-cover"
@@ -25,8 +25,8 @@
             </edit-user-modal>
         @endif
     </div>
-    <div class="flex items-end -mt-16 px-16 bg-white dark:bg-dark-1 rounded-2xl pb-6">
-        <div class="text-dark z-10">
+    <div class="flex px-12 pb-6">
+        <div class="text-dark z-10 -mt-8">
             @empty($user->avatar)
                 <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="avatar">
             @else
@@ -38,10 +38,9 @@
             @endempty
         </div>
         <div class="w-full px-6 flex justify-between">
-            <div class="flex flex-col">
-                <div class="text-4xl font-semibold flex items-center">
-                    <span class="pr-2">{{ $user->name }}</span>
-
+            <div class="mt-4 flex flex-col">
+                <div class="flex items-center">
+                    <h3 class="font-semibold pr-2" style="font-size: 32px;">{{ $user->name }}</h3>
                     <div class="h-full flex items-center text-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -49,12 +48,13 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-
                 </div>
+                <div class="-mt-2 text-lg font-semibold text-gray-1"><span>@</span>{{ $user->username }}</div>
+
                 <div class="flex items-center text-sm pt-2">
                     <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
-                        <span class="font-semibold text-xl">{{ $user->count_followings }}</span>
-                        フォロー
+                        <span class="font-semibold text-lg">{{ $user->count_followings }}</span>
+                        <span class="text-gray-1 pl-1">フォロー</span>
                     </a>
                     {{-- <follow-modal :auth-user='@json(Auth::user())' :authorized='@json(Auth::check())'
             :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
@@ -62,8 +62,8 @@
           </follow-modal> --}}
                     {{-- フォロワー --}}
                     <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
-                        <span class="font-semibold text-xl">{{ $user->count_followers }}</span>
-                        フォロワー
+                        <span class="font-semibold text-lg">{{ $user->count_followers }}</span>
+                        <span class="text-gray-1 pl-1">フォロワー</span>
                     </a>
                 </div>
             </div>

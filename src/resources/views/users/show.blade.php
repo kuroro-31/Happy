@@ -5,7 +5,7 @@
 @section('content')
     @include('_patials._nav')
     @include('_patials._genre_nav')
-    <div class="">
+    <div class="bg-white dark:bg-dark-1">
         @include('users._patials.user')
     </div>
     <div class="flex max-w-5xl w-full mx-auto px-8 md:px-0 justify-center">
