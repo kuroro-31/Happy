@@ -1,4 +1,4 @@
-<div class="max-w-6xl mx-auto mb-8">
+<div class="max-w-6xl mx-auto">
     <div class="relative z-auto">
         @empty($user->thumbnail)
             <img src="{{ asset('/img/bg.svg') }}" alt="" class="rounded flex flex-shrink-0 w-full object-cover"
@@ -25,7 +25,7 @@
             </edit-user-modal>
         @endif
     </div>
-    <div class="flex px-12 pb-6">
+    <div class="flex mx-12 pb-4 border-b border-aaa">
         <div class="text-dark z-10 -mt-8">
             @empty($user->avatar)
                 <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="avatar">
@@ -49,12 +49,12 @@
                         </svg>
                     </div>
                 </div>
-                <div class="-mt-2 text-lg font-semibold text-gray-1"><span>@</span>{{ $user->username }}</div>
+                <div class="-mt-2 text-lg font-semibold text-t-color-3"><span>@</span>{{ $user->username }}</div>
 
                 <div class="flex items-center text-sm pt-2">
                     <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
                         <span class="font-semibold text-lg">{{ $user->count_followings }}</span>
-                        <span class="text-gray-1 pl-1">フォロー</span>
+                        <span class="text-t-color-3 pl-1">フォロー</span>
                     </a>
                     {{-- <follow-modal :auth-user='@json(Auth::user())' :authorized='@json(Auth::check())'
             :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
@@ -63,7 +63,7 @@
                     {{-- フォロワー --}}
                     <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
                         <span class="font-semibold text-lg">{{ $user->count_followers }}</span>
-                        <span class="text-gray-1 pl-1">フォロワー</span>
+                        <span class="text-t-color-3 pl-1">フォロワー</span>
                     </a>
                 </div>
             </div>
@@ -73,6 +73,19 @@
                     endpoint="{{ route('users.follow', ['username' => $user->username]) }}">
                 </follow-button>
             @endif
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-dark w-full mx-12 flex-none lg:z-20">
+        <div class="max-w-8xl mx-auto">
+            <div class="relative flex items-center">
+                <a href=""
+                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">作品</a>
+                <a href=""
+                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">本棚</a>
+                <a href=""
+                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">アカウントサービス</a>
+            </div>
         </div>
     </div>
 </div>
