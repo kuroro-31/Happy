@@ -2,7 +2,7 @@
     <div class="relative" @mouseleave="open = false">
         <button
             @mouseover="open = true"
-            class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto"
+            class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto shadow"
         >
             <slot name="avatar"></slot>
         </button>
