@@ -184,7 +184,7 @@ h1 {
 }
 
 .avatar {
-    @apply rounded-full object-cover flex flex-shrink-0;
+    @apply rounded-full object-cover flex flex-shrink-0 shadow;
     min-width: 170px;
     min-height: 170px;
     max-width: 170px;
