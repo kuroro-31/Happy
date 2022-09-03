@@ -2,9 +2,11 @@
     box-sizing: border-box !important;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap");
+
 body {
     @apply bg-white-1 dark:bg-dark text-t-color dark:text-t-d-color;
-    // font-family: "M PLUS 1 Code", sans-serif;
+    font-family: "Noto Sans JP";
     font-size: 14px;
 }
 
