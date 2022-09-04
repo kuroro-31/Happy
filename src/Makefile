@@ -43,7 +43,10 @@ cache:
 	@make optimize
 	@make optimize-clear
 	php artisan event:cache
+	php artisan cache:clear
+	php artisan config:clear
 	php artisan view:cache
+	php artisan route:cache
 	@make cache-clear
 cache-clear:
 	composer clear-cache
