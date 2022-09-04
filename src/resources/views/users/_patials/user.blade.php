@@ -50,7 +50,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="-mt-1 text-lg font-semibold text-t-color-3"><span>@</span>{{ $user->username }}</div>
+                <div class="text-lg font-semibold text-t-color-3"><span>@</span>{{ $user->username }}</div>
 
                 <div class="flex items-center text-sm pt-2">
                     <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
