@@ -158,13 +158,13 @@
 
 /* enter transitions */
 .modal-enter-active {
-    transition: ease 0.3s;
+    transition: opacity 0.3s ease 0.1s;
     .window {
         animation: slide 0.3s ease;
     }
 }
 .modal-leave-active {
-    transition: ease 0.5s;
+    transition: opacity 0.3s ease 0.1s;
     .window {
         transform: translateY(30px) !important;
     }
