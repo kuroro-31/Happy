@@ -77,8 +77,7 @@ seed:
 	docker compose exec app php artisan db:seed
 dacapo:
 	docker compose exec app php artisan dacapo
-rollback-test:
-	docker compose exec app php artisan migrate:fresh
+refresh:
 	docker compose exec app php artisan migrate:refresh
 tinker:
 	docker compose exec app php artisan tinker
