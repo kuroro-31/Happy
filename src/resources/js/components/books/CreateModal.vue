@@ -7,7 +7,7 @@
                 viewBox="0 0 200 200"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="shadow rounded-sm hover:border-2 hover:border-primary hover:border-opacity-30"
+                class="rounded-sm border-2 border-eee hover:border-ddd"
             >
                 <rect width="200" height="200" fill="white" />
                 <rect x="95" y="70" width="10" height="60" fill="#DDDDDD" />
