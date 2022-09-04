@@ -7,10 +7,7 @@
             <slot name="avatar"></slot>
         </button>
         <transition>
-            <div
-                v-show="open"
-                class="dropdown absolute right-0 top-10 z-50 rounded p-2 bg-white dark:bg-dark-1"
-            >
+            <div v-show="open" class="dropdown">
                 <slot></slot>
             </div>
         </transition>
@@ -27,6 +24,7 @@ export default {
 </script>
 <style lang="scss">
 .dropdown {
+    @apply absolute shadow-lg right-0 top-10 z-50 rounded p-2 bg-white dark:bg-dark-1;
     width: 250px;
 }
 </style>

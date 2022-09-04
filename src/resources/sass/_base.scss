@@ -34,7 +34,7 @@ h1 {
 }
 
 .profile-img {
-    @apply object-cover max-w-full min-w-full rounded;
+    @apply object-cover max-w-full min-w-full rounded-sm;
     @screen md {
         min-height: 250px;
         max-height: 250px;
@@ -54,14 +54,14 @@ h1 {
     border-radius: 3px;
 }
 .btn-sub {
-    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-white hover:bg-eee rounded py-2 px-4;
+    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-white hover:bg-eee rounded-sm py-2 px-4;
     // background: ;
     // &:hover {
     //     background: #e4e6eb;
     // }
 }
 .btn-danger {
-    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded py-2 px-6;
+    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded-sm py-2 px-6;
 }
 
 .top-hero {
@@ -149,7 +149,7 @@ h1 {
 }
 
 .window {
-    @apply absolute rounded p-4 bg-white dark:bg-dark-1;
+    @apply absolute rounded-sm p-4 bg-white dark:bg-dark-1;
     max-width: 600px;
     @screen lg {
         width: 600px;
@@ -174,7 +174,7 @@ h1 {
 }
 
 .close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer;
+    @apply absolute p-2 rounded-sm duration-300 cursor-pointer;
     color: var(--color);
     background-color: var(--bg);
     top: -10px;
@@ -186,7 +186,7 @@ h1 {
 }
 
 .avatar {
-    @apply rounded-full object-cover flex flex-shrink-0 shadow;
+    @apply rounded-full object-cover flex flex-shrink-0 border-4 border-white dark:border-dark;
     min-width: 170px;
     min-height: 170px;
     max-width: 170px;

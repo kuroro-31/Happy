@@ -26,7 +26,7 @@
             </edit-user-modal>
         @endif
     </div>
-    <div class="flex mx-12 pb-4 border-b border-aaa">
+    <div class="flex mx-12 pb-4 border-b border-ccc">
         <div class="text-dark z-10 -mt-8">
             @empty($user->avatar)
                 <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="avatar">
@@ -38,8 +38,8 @@
                 </avatar-zoom>
             @endempty
         </div>
-        <div class="w-full px-6 flex justify-between">
-            <div class="mt-4 flex flex-col">
+        <div class="w-full px-6 flex justify-between mt-4">
+            <div class="flex flex-col">
                 <div class="flex items-center">
                     <h3 class="font-semibold pr-2" style="font-size: 32px;">{{ $user->name }}</h3>
                     <div class="h-full flex items-center text-primary">
@@ -82,10 +82,12 @@
             <div class="relative flex items-center">
                 <a href=""
                     class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">作品</a>
-                <a href=""
-                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">本棚</a>
-                <a href=""
-                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">アカウントサービス</a>
+                @if (Auth::id() === $user->id)
+                    <a href=""
+                        class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">本棚</a>
+                    <a href=""
+                        class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">アカウントサービス</a>
+                @endif
             </div>
         </div>
     </div>

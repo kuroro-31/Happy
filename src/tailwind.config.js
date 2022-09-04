@@ -21,6 +21,8 @@ module.exports = {
             // 'primary': '#009FFF',
             'primary-light': '#9cc4ff',
             'aaa': '#aaa',
+            'bbb': '#bbb',
+            'ccc': '#ccc',
             'ddd': '#ddd',
             'eee': '#eee',
             '333': '#333',
