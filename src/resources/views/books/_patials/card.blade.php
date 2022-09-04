@@ -3,7 +3,7 @@
         <img src="{{ asset('/img/noimage-user.svg') }}" alt=""
           class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
       @else --}}
-    <a href="{{ route('book.show', ['book' => $book]) }}">
+    <a href="{{ route('book.show', ['book' => $book->code]) }}">
         <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail" class="thumbnail">
         {{-- @endempty --}}
         <span class="thumbnail-title">{{ $book->title }}</span>

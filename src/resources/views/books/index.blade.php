@@ -32,7 +32,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="pb-4">
-                                    <a href="{{ route('book.show', ['book' => $book]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -58,7 +58,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="pb-4">
-                                    <a href="{{ route('book.show', ['book' => $book]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -84,7 +84,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="pb-4">
-                                    <a href="{{ route('book.show', ['book' => $book]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -110,7 +110,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="pb-4">
-                                    <a href="{{ route('book.show', ['book' => $book]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
