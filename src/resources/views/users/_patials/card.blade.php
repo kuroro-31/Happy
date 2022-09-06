@@ -1,4 +1,4 @@
-<div class="ml-8">
+<div class="mr-auto">
     {{-- @empty($book->thumbnail)
         <img src="{{ asset('/img/noimage-user.svg') }}" alt=""
           class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
