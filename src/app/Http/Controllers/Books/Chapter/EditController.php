@@ -11,14 +11,11 @@ use Faker\Core\Number;
 class EditController extends Controller
 {
     /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * $chapterにはチャプターコードが入ってきてます
      */
     public function __invoke($book, $chapter)
     {
-        $chapter = Chapter::find($chapter);
+        $chapter = Chapter::where('code', $chapter)->first();
         return view('books.chapter.edit', compact('chapter'));
     }
 }

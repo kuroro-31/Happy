@@ -26,7 +26,7 @@ class StoreController extends Controller
         $book->user_id = $request->user()->id;
 
         do {
-            $code = Str::random(15);
+            $code = Str::random(30);
         } while (Book::where('code', $code)->exists());
         $book->code = $code;
         $book->save();

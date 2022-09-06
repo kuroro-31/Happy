@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 // Route::get('/posts', 'App\Http\Controllers\Api\Timeline\TimelineController');
 Route::post('/books/{book}/chapter', 'App\Http\Controllers\Books\Chapter\StoreController');
-Route::patch('/chapter/{chapter}', 'App\Http\Controllers\Books\Chapter\UpdateController');
+Route::patch('/books/{book}/{chapter}/edit', 'App\Http\Controllers\Books\Chapter\UpdateController');

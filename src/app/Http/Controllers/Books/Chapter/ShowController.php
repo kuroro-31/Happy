@@ -17,8 +17,8 @@ class ShowController extends Controller
      */
     public function __invoke($book, $chapter)
     {
-        $story = Chapter::find($chapter);
-        $book = Book::find($book);
+        $story = Chapter::where('code', $chapter)->first();
+        $book = Book::where('code', $book)->first();
         return view('books.chapter.show', [
             'book' => $book,
             'chapter' => $story,

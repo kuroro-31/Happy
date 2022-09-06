@@ -26,17 +26,16 @@
 
                     <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                        endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true'
-                        class="text-white">
+                        endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true' class="text-white">
                     </book-like>
 
-                    @if (!empty($chapters))
+                    {{-- @if (!empty($chapters))
                         <div class="mt-8 mb-4 flex">
-                            <a href="/books/{{ $book->id }}/chapters/1"
+                            <a href="/books/{{ $book->code }}/chapters/1"
                                 class="hover:text-primary bg-white dark:bg-dark-1 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
                             </a>
                         </div>
-                    @endif
+                    @endif --}}
 
                     @if ($book->tags)
                         @foreach ($book->tags as $tag)
@@ -77,7 +76,7 @@
                     @foreach ($chapters as $chapter)
                         <div
                             class="mb-2 p-4 rounded-lg bg-white dark:bg-dark-1 flex items-center justify-between w-full overflow-hidden">
-                            <a href="{{ route('book.chapter.show', ['book' => $book, 'chapter' => $chapter]) }}"
+                            <a href="{{ route('book.chapter.show', ['book' => $book->code, 'chapter' => $chapter->code]) }}"
                                 class="hover:text-primary flex items-center w-full cursor-pointer">
                                 <div class="flex items-center pr-4">
                                     <span class="">{{ $counts-- }}</span>
@@ -88,7 +87,7 @@
                             <div class="flex items-center">
                                 @if (Auth::id() === $book->user_id)
                                     <div class="flex items-center">
-                                        <a href="{{ route('book.chapter.edit', ['book' => $book, 'chapter' => $chapter]) }}"
+                                        <a href="{{ route('book.chapter.edit', ['book' => $book->code, 'chapter' => $chapter->code]) }}"
                                             class="mr-2">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
@@ -99,7 +98,7 @@
                                         </a>
                                         <delete-modal>
                                             <form method="POST"
-                                                action="{{ route('book.chapter.destroy', ['book' => $book, 'chapter' => $chapter]) }}"
+                                                action="{{ route('book.chapter.destroy', ['book' => $book->code, 'chapter' => $chapter->code]) }}"
                                                 class="p-2 rounded">
                                                 @csrf
                                                 @method('DELETE')
