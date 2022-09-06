@@ -49,7 +49,7 @@ module.exports = {
             // 't-color': '#455078',
             't-d-color': '#B2B1B3',
             't-d-color-2': '#96969B',
-            'red': '#DA463D',
+            'red': '#e12472',
             'pink': '#DA4FA8',
             'orange': '#F77777',
             'blue': '#4e86ff',
