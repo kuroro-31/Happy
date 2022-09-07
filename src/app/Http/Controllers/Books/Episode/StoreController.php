@@ -18,7 +18,6 @@ class StoreController extends Controller
      */
     public function __invoke(Request $request, episode $episode)
     {
-        $episode->name = $request->name;
         $episode->book_id = $request->book_id;
         do {
             $code = Str::random(30);
