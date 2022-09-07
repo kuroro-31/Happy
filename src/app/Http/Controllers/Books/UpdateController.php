@@ -17,9 +17,9 @@ class UpdateController extends Controller
     {
         $this->authorize('update', $book);
 
-        $book->fill($request->except('body'));
+        $book->fill($request->except('story'));
         $linkify = new \Misd\Linkify\Linkify();
-        $book->story = $linkify->process($request->body);
+        $book->story = $linkify->process($request->story);
 
         $book->tags()->detach();
         $request->tags->each(function ($tagName) use ($book) {

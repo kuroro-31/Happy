@@ -10,7 +10,7 @@
     </book-tags-input>
 </div>
 <div class="flex flex-col mb-4">
-    <label for="body" class="text-xs text-gray">あらすじ</label>
-    <textarea name="body" required class="dark:bg-dark-2 border border-slate-300 p-2 h-24" placeholder="投稿できるのは400文字までです"
+    <label for="story" class="text-xs text-gray">あらすじ</label>
+    <textarea name="story" required class="dark:bg-dark-2 border border-slate-300 p-2 h-24" placeholder="投稿できるのは400文字までです"
         maxlength="400">{{ $book->story ?? old('story') }}</textarea>
 </div>

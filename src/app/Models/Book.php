@@ -11,7 +11,7 @@ class Book extends Model
 {
     protected $fillable = [
         'title',
-        'body',
+        'story',
     ];
     public function user(): BelongsTo
     {
