@@ -28,10 +28,10 @@
                         <h3 class="text-xl font-semibold">ランキング</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
-                    <div class="w-full flex flex-wrap justify-between">
+                    <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="pb-4">
+                                <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
@@ -54,10 +54,10 @@
                         <h3 class="text-xl font-semibold">今日の新作</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
-                    <div class="w-full flex flex-wrap justify-between">
+                    <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="pb-4">
+                                <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
@@ -80,10 +80,10 @@
                         <h3 class="text-xl font-semibold">購読中の新作</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
-                    <div class="w-full flex flex-wrap justify-between">
+                    <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="pb-4">
+                                <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
@@ -106,10 +106,10 @@
                         <h3 class="text-xl font-semibold">あなたへのオススメ</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
-                    <div class="w-full flex flex-wrap justify-between">
+                    <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="pb-4">
+                                <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>

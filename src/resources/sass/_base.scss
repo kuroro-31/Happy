@@ -245,16 +245,7 @@ $img-w: 200px;
 }
 
 .book-show {
-    @apply w-full relative overflow-hidden flex items-center justify-center;
-    height: 500px;
-    &-bg {
-        @apply absolute w-full h-full;
-        background: rgba(0, 0, 0, 0.7);
-        &-img {
-            @apply w-full h-full object-cover;
-            filter: blur(10px);
-        }
-    }
+    @apply w-full h-full bg-white relative overflow-hidden flex items-center justify-center;
     &-contents {
         @apply z-10 absolute flex items-center justify-center mx-auto;
         img {

@@ -8,7 +8,7 @@
             type="text"
             placeholder="タイトル"
             v-model="form.name"
-            class="w-full p-2 mr-4 rounded"
+            class="w-full p-2 mr-4 rounded-[3px] border border-ccc"
         />
         <button id="submit-btn" type="submit" class="inline-block btn">
             追加する
@@ -45,8 +45,3 @@ export default {
     },
 };
 </script>
-<style lang="scss" scoped>
-input {
-    border: 1px solid #eee;
-}
-</style>
