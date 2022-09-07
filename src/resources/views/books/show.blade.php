@@ -3,12 +3,12 @@
 @section('title', $book->title)
 
 @section('content')
-    @include('_patials._nav')
+    <div class="block">@include('_patials._nav')</div>
     @include('_patials._genre_nav')
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:p-8 flex justify-between">
             {{-- 左サイドバー --}}
-            <div class="p-4 lg:max-w-[282px] lg:min-w-[282px]">
+            <div class="top-0 sticky lg:h-[500px] p-4 lg:max-w-[282px] lg:min-w-[282px]">
                 @empty($book->thumbnail)
                     <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
                 @else
@@ -52,240 +52,242 @@
                 @endif
             </div>
 
-            {{-- メインコンテンツ --}}
-            <div class="p-4 w-full">
-                <div class="w-full mx-auto flex flex-col">
+            <div class="w-full flex">
+                {{-- メインコンテンツ --}}
+                <div class="p-4 lg:w-3/5">
+                    <div class="w-full mx-auto flex flex-col">
 
-                    {{-- エピソード --}}
-                    <div class="w-full flex justify-between mb-2">
-                        <h3 class="text-lg font-semibold">エピソード</h3>
-                        @if (Auth::id() === $book->user_id)
-                            <episode-list :book='@json($book)'></episode-list>
-                        @else
-                            <div class="btn-border">1話を読む</div>
-                        @endif
-                    </div>
-                    <div class="w-full max-h-[500px] overflow-y-auto">
-                        @foreach ($episodes as $episode)
-                            <div
-                                class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                    class="flex items-center w-full cursor-pointer">
-                                    {{-- @empty($book->thumbnail) --}}
-                                    <img src="/img/bg.svg" alt="thumbnail"
-                                        class="w-[160px] h-[80px] object-cover flex-shrink-0">
-                                    {{-- @else
+                        {{-- エピソード --}}
+                        <div class="w-full flex justify-between mb-2">
+                            <h3 class="text-lg font-semibold">エピソード</h3>
+                            @if (Auth::id() === $book->user_id)
+                                <episode-list :book='@json($book)'></episode-list>
+                            @else
+                                <div class="btn-border">1話を読む</div>
+                            @endif
+                        </div>
+                        <div class="w-full max-h-[500px] overflow-y-auto">
+                            @foreach ($episodes as $episode)
+                                <div
+                                    class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
+                                    <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                        class="flex items-center w-full cursor-pointer">
+                                        {{-- @empty($book->thumbnail) --}}
+                                        <img src="/img/bg.svg" alt="thumbnail"
+                                            class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                        {{-- @else
                                             <img src="/img/{{ $book->thumbnail }}" alt=""
                                                 class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
                                         @endempty --}}
 
-                                    {{-- タイトル --}}
-                                    <div class="flex flex-col px-4">
-                                        {{-- 日付 --}}
-                                        <div class="text-666 text-xs">{{ $episode->created_at->format('Y/m/d') }}
-                                        </div>
+                                        {{-- タイトル --}}
+                                        <div class="flex flex-col px-4">
+                                            {{-- 日付 --}}
+                                            <div class="text-666 text-xs">{{ $episode->created_at->format('Y/m/d') }}
+                                            </div>
 
-                                        {{-- 話数 --}}
-                                        <div class="w-full truncate">
-                                            <span class="pr-3">第{{ $counts-- }}話</span>
-                                            {{ $book->title }}
-                                        </div>
+                                            {{-- 話数 --}}
+                                            <div class="w-full truncate">
+                                                <span class="pr-3">第{{ $counts-- }}話</span>
+                                                {{ $book->title }}
+                                            </div>
 
-                                        {{-- ラベル --}}
-                                        <div class="flex mt-1">
-                                            <span
-                                                class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
-                                            <span
-                                                class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">30pt</span>
+                                            {{-- ラベル --}}
+                                            <div class="flex mt-1">
+                                                <span
+                                                    class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
+                                                <span
+                                                    class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">30pt</span>
+                                            </div>
                                         </div>
+                                    </a>
+
+                                    {{-- 作者欄 --}}
+                                    <div class="flex items-center pr-4">
+                                        @if (Auth::id() === $book->user_id)
+                                            <div class="flex items-center">
+                                                <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                    class="mr-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg>
+                                                </a>
+                                                <delete-modal>
+                                                    <form method="POST"
+                                                        action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                        class="p-2 rounded">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn-danger">削除する</button>
+                                                    </form>
+                                                </delete-modal>
+                                            </div>
+                                        @endif
                                     </div>
-                                </a>
-
-                                {{-- 作者欄 --}}
-                                <div class="flex items-center pr-4">
-                                    @if (Auth::id() === $book->user_id)
-                                        <div class="flex items-center">
-                                            <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                                class="mr-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </a>
-                                            <delete-modal>
-                                                <form method="POST"
-                                                    action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                                    class="p-2 rounded">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn-danger">削除する</button>
-                                                </form>
-                                            </delete-modal>
-                                        </div>
-                                    @endif
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
+                            @endforeach
+                        </div>
 
-                    {{-- レビュー --}}
-                    <h3 class="text-lg font-semibold mt-8 mb-4">レビュー</h3>
-                    <div class="mb-2 px-2 pb-2 border-b border-ccc">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
-                                <div class="flex flex-col ml-2">
-                                    <span>ミランダカー</span>
-                                    <span class="text-xs text-666">2022/08/22</span>
+                        {{-- レビュー --}}
+                        <h3 class="text-lg font-semibold mt-8 mb-4">レビュー</h3>
+                        <div class="mb-2 px-2 pb-2 border-b border-ccc">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
+                                    <div class="flex flex-col ml-2">
+                                        <span>ミランダカー</span>
+                                        <span class="text-xs text-666">2022/08/22</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
-                                    fill="#FFA126" />
-                            </svg>
+                                <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
+                                        fill="#FFA126" />
+                                </svg>
 
+                            </div>
+                            <div class="p-4 text-666">
+                                とても良かったがエロが足りなかった。
+                            </div>
                         </div>
-                        <div class="p-4 text-666">
-                            とても良かったがエロが足りなかった。
-                        </div>
-                    </div>
-                    <div class="mb-2 px-2 pb-2 border-b border-ccc">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
-                                <div class="flex flex-col ml-2">
-                                    <span>ミランダカー</span>
-                                    <span class="text-xs text-666">2022/08/22</span>
+                        <div class="mb-2 px-2 pb-2 border-b border-ccc">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
+                                    <div class="flex flex-col ml-2">
+                                        <span>ミランダカー</span>
+                                        <span class="text-xs text-666">2022/08/22</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
-                                    fill="#FFA126" />
-                            </svg>
+                                <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
+                                        fill="#FFA126" />
+                                </svg>
 
+                            </div>
+                            <div class="p-4 text-666">
+                                とても良かったがエロが足りなかった。
+                            </div>
                         </div>
-                        <div class="p-4 text-666">
-                            とても良かったがエロが足りなかった。
-                        </div>
-                    </div>
-                    <div class="mb-2 px-2 pb-2 border-b border-ccc">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
-                                <div class="flex flex-col ml-2">
-                                    <span>ミランダカー</span>
-                                    <span class="text-xs text-666">2022/08/22</span>
+                        <div class="mb-2 px-2 pb-2 border-b border-ccc">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
+                                    <div class="flex flex-col ml-2">
+                                        <span>ミランダカー</span>
+                                        <span class="text-xs text-666">2022/08/22</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
-                                    fill="#FFA126" />
-                                <path
-                                    d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
-                                    fill="#FFA126" />
-                            </svg>
+                                <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
+                                        fill="#FFA126" />
+                                    <path
+                                        d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
+                                        fill="#FFA126" />
+                                </svg>
 
-                        </div>
-                        <div class="p-4 text-666">
-                            とても良かったがエロが足りなかった。
+                            </div>
+                            <div class="p-4 text-666">
+                                とても良かったがエロが足りなかった。
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- 右サイドバー --}}
-            <div class="p-4 lg:max-w-[282px] lg:min-w-[282px]">
+                {{-- 右サイドバー --}}
+                <div class="p-4 lg:w-2/5">
 
-                {{-- あらすじ --}}
-                <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
-                    <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
-                    <span class="px-2">{!! nl2br($book->body) !!}</span>
-                </div>
-
-                {{-- 作品情報 --}}
-                <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
-                    <h3 class="text-lg font-semibold mb-4">作品情報</h3>
-                    <div class="w-full flex items-center mb-2 px-2">
-                        <div class="w-1/2">原作</div>
-                        <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
-                            class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
+                    {{-- あらすじ --}}
+                    <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
+                        <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
+                        <span class="px-2">{!! nl2br($book->body) !!}</span>
                     </div>
 
-                    {{-- 漫画 --}}
-                    <div class="w-full flex items-center mb-2 px-2">
-                        <div class="w-1/2">漫画</div>
-                        <div class="w-1/2">新垣 結衣</div>
-                    </div>
+                    {{-- 作品情報 --}}
+                    <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
+                        <h3 class="text-lg font-semibold mb-4">作品情報</h3>
+                        <div class="w-full flex items-center mb-2 px-2">
+                            <div class="w-1/2">原作</div>
+                            <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
+                                class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
+                        </div>
 
-                    {{-- アシスタント --}}
-                    <div class="w-full flex items-start mb-8 px-2">
-                        <div class="w-1/2">アシスタント</div>
-                        <ul class="w-1/2 flex flex-col">
-                            <li class="mb-1">新垣 結衣</li>
-                            <li class="mb-1">新垣 結衣</li>
-                            <li class="mb-1">新垣 結衣</li>
-                            <li class="mb-1">新垣 結衣</li>
-                            <li class="mb-1">新垣 結衣</li>
-                        </ul>
-                    </div>
+                        {{-- 漫画 --}}
+                        <div class="w-full flex items-center mb-2 px-2">
+                            <div class="w-1/2">漫画</div>
+                            <div class="w-1/2">新垣 結衣</div>
+                        </div>
 
-                    {{-- カテゴリー --}}
-                    <div class="w-full flex items-center mb-2 px-2">
-                        <div class="w-1/2">カテゴリー</div>
-                        <div class="w-1/2">少年漫画</div>
-                    </div>
+                        {{-- アシスタント --}}
+                        <div class="w-full flex items-start mb-8 px-2">
+                            <div class="w-1/2">アシスタント</div>
+                            <ul class="w-1/2 flex flex-col">
+                                <li class="mb-1">新垣 結衣</li>
+                                <li class="mb-1">新垣 結衣</li>
+                                <li class="mb-1">新垣 結衣</li>
+                                <li class="mb-1">新垣 結衣</li>
+                                <li class="mb-1">新垣 結衣</li>
+                            </ul>
+                        </div>
 
-                    {{-- ジャンル --}}
-                    <div class="w-full flex items-start px-2">
-                        <div class="w-1/2">ジャンル</div>
-                        <ul class="w-1/2 flex flex-col">
-                            <li class="mb-1">アドベンチャー</li>
-                            <li class="mb-1">海賊</li>
-                            <li class="mb-1">海</li>
-                            <li class="mb-1">冒険</li>
-                            <li class="mb-1">お宝</li>
-                        </ul>
+                        {{-- カテゴリー --}}
+                        <div class="w-full flex items-center mb-2 px-2">
+                            <div class="w-1/2">カテゴリー</div>
+                            <div class="w-1/2">少年漫画</div>
+                        </div>
+
+                        {{-- ジャンル --}}
+                        <div class="w-full flex items-start px-2">
+                            <div class="w-1/2">ジャンル</div>
+                            <ul class="w-1/2 flex flex-col">
+                                <li class="mb-1">アドベンチャー</li>
+                                <li class="mb-1">海賊</li>
+                                <li class="mb-1">海</li>
+                                <li class="mb-1">冒険</li>
+                                <li class="mb-1">お宝</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
