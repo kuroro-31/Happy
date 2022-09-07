@@ -1,13 +1,11 @@
 import ToastModal from "../components/atoms/ToastModal";
 import AuthModal from "../components/auth/AuthModal";
 import BookLike from "../components/BookLike";
-import BestSeller from "../components/books/BestSeller";
 import ChapterList from "../components/books/chapters/ChapterList";
 import UpdateChapter from "../components/books/chapters/UpdateChapter";
 import CreateModal from "../components/books/CreateModal";
 import DeleteModal from "../components/books/DeleteModal";
 import EditModal from "../components/books/EditModal";
-import RankingItems from "../components/books/RankingItems";
 import BookTagsInput from "../components/BookTagsInput";
 import CountAnimation from "../components/CountAnimation";
 import FollowButton from "../components/FollowButton";
@@ -24,8 +22,6 @@ export default {
     UpdateChapter,
     ChapterList,
     ThumbnailZoom,
-    BestSeller,
-    RankingItems,
     FollowModal,
     AvatarZoom,
     AuthModal,
