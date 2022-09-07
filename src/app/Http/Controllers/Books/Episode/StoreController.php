@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Books\Chapter;
+namespace App\Http\Controllers\Books\Episode;
 
 use App\Http\Controllers\Controller;
-use App\Models\Chapter;
+use App\Models\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -16,19 +16,19 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, Chapter $chapter)
+    public function __invoke(Request $request, episode $episode)
     {
-        $chapter->name = $request->name;
-        $chapter->book_id = $request->book_id;
+        $episode->name = $request->name;
+        $episode->book_id = $request->book_id;
         do {
             $code = Str::random(30);
-        } while (Chapter::where('code', $code)->exists());
-        $chapter->code = $code;
-        $chapter->save();
+        } while (episode::where('code', $code)->exists());
+        $episode->code = $code;
+        $episode->save();
 
         // 作成後のページ遷移に必要なのでidを渡す
         return response()->json([
-            'chapter_code' => $chapter->code,
+            'episode_code' => $episode->code,
         ]);
     }
 }

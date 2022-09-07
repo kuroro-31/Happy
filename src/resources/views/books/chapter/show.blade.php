@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $chapter->name)
+@section('title', $episode->name)
 
 @section('content')
     @include('_patials._nav')
@@ -9,13 +9,13 @@
         <a href="/books/{{ $book->code }}" class="inline-block text-xs cursor-pointer hover:text-primary mb-8">
             本のトップへ
         </a>
-        <div class="mb-4 text-3xl font-semibold">{{ $chapter->name }}</div>
+        <div class="mb-4 text-3xl font-semibold">{{ $episode->name }}</div>
         <div class="p-8 bg-white dark:bg-dark-1 rounded-lg whitespace-pre-line text-lg">
-            {!! nl2br(e($chapter->body)) !!}
+            {!! nl2br(e($episode->body)) !!}
         </div>
     </div>
     <div class="max-w-lg mx-auto flex items-center justify-between mb-8">
-        {{-- <a href="/books/{{ $book->code }}/{{ $chapter->id - 1 }}"
+        {{-- <a href="/books/{{ $book->code }}/{{ $episode->id - 1 }}"
             class=" text-xs cursor-pointer rounded bg-white dark:bg-dark-1 border border-white dark:border-dark-2 hover:border-primary hover:text-primary p-4 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
@@ -24,7 +24,7 @@
             </svg>
             <span class="pl-8">前の話へ</span>
         </a>
-        <a href="/books/{{ $book->code }}/{{ $chapter->id + 1 }}"
+        <a href="/books/{{ $book->code }}/{{ $episode->id + 1 }}"
             class=" text-xs cursor-pointer rounded bg-white dark:bg-dark-1 border border-white dark:border-dark-2 hover:border-primary hover:text-primary p-4 flex items-center">
             <span class="pr-8">次の話へ</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

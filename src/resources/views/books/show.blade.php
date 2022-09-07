@@ -54,88 +54,86 @@
 
             {{-- メインコンテンツ --}}
             <div class="p-4 w-full">
-                @if (!empty($chapters))
-                    <div class="w-full mx-auto flex flex-col">
+                <div class="w-full mx-auto flex flex-col">
 
-                        {{-- エピソード --}}
-                        <div class="w-full flex justify-between mb-2">
-                            <h3 class="text-lg font-semibold">エピソード</h3>
-                            @if (Auth::id() === $book->user_id)
-                                <chapter-list :book='@json($book)'></chapter-list>
-                            @else
-                                <div class="btn-border">1話を読む</div>
-                            @endif
-                        </div>
-                        <div class="w-full max-h-[500px] overflow-y-auto">
-                            @foreach ($chapters as $chapter)
-                                <div
-                                    class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                    <a href="{{ route('book.chapter.show', ['book' => $book->code, 'chapter' => $chapter->code]) }}"
-                                        class="flex items-center w-full cursor-pointer">
-                                        {{-- @empty($book->thumbnail) --}}
-                                        <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[160px] h-[80px] object-cover flex-shrink-0">
-                                        {{-- @else
+                    {{-- エピソード --}}
+                    <div class="w-full flex justify-between mb-2">
+                        <h3 class="text-lg font-semibold">エピソード</h3>
+                        @if (Auth::id() === $book->user_id)
+                            <episode-list :book='@json($book)'></episode-list>
+                        @else
+                            <div class="btn-border">1話を読む</div>
+                        @endif
+                    </div>
+                    <div class="w-full max-h-[500px] overflow-y-auto">
+                        @foreach ($episodes as $episode)
+                            <div
+                                class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
+                                <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                    class="flex items-center w-full cursor-pointer">
+                                    {{-- @empty($book->thumbnail) --}}
+                                    <img src="/img/bg.svg" alt="thumbnail"
+                                        class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                    {{-- @else
                                             <img src="/img/{{ $book->thumbnail }}" alt=""
                                                 class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
                                         @endempty --}}
 
-                                        {{-- タイトル --}}
-                                        <div class="flex flex-col px-4">
-                                            {{-- 日付 --}}
-                                            <div class="text-666 text-xs">{{ $chapter->created_at->format('Y/m/d') }}
-                                            </div>
-
-                                            {{-- 話数 --}}
-                                            <div class="w-full truncate">
-                                                <span class="pr-3">第{{ $counts-- }}話</span>
-                                                {{ $book->title }}
-                                            </div>
-
-                                            {{-- ラベル --}}
-                                            <div class="flex mt-1">
-                                                <span
-                                                    class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
-                                                <span
-                                                    class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">30pt</span>
-                                            </div>
+                                    {{-- タイトル --}}
+                                    <div class="flex flex-col px-4">
+                                        {{-- 日付 --}}
+                                        <div class="text-666 text-xs">{{ $episode->created_at->format('Y/m/d') }}
                                         </div>
-                                    </a>
 
-                                    {{-- 作者欄 --}}
-                                    <div class="flex items-center pr-4">
-                                        @if (Auth::id() === $book->user_id)
-                                            <div class="flex items-center">
-                                                <a href="{{ route('book.chapter.edit', ['book' => $book->code, 'chapter' => $chapter->code]) }}"
-                                                    class="mr-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                    </svg>
-                                                </a>
-                                                <delete-modal>
-                                                    <form method="POST"
-                                                        action="{{ route('book.chapter.destroy', ['book' => $book->code, 'chapter' => $chapter->code]) }}"
-                                                        class="p-2 rounded">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn-danger">削除する</button>
-                                                    </form>
-                                                </delete-modal>
-                                            </div>
-                                        @endif
+                                        {{-- 話数 --}}
+                                        <div class="w-full truncate">
+                                            <span class="pr-3">第{{ $counts-- }}話</span>
+                                            {{ $book->title }}
+                                        </div>
+
+                                        {{-- ラベル --}}
+                                        <div class="flex mt-1">
+                                            <span
+                                                class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
+                                            <span
+                                                class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">30pt</span>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
+                                </a>
 
-                        {{-- レビュー --}}
-                        <h3 class="text-lg font-semibold mt-8 mb-4">レビュー</h3>
-                        <div class=""></div>
+                                {{-- 作者欄 --}}
+                                <div class="flex items-center pr-4">
+                                    @if (Auth::id() === $book->user_id)
+                                        <div class="flex items-center">
+                                            <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                class="mr-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg>
+                                            </a>
+                                            <delete-modal>
+                                                <form method="POST"
+                                                    action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                    class="p-2 rounded">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn-danger">削除する</button>
+                                                </form>
+                                            </delete-modal>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                @endif
+
+                    {{-- レビュー --}}
+                    <h3 class="text-lg font-semibold mt-8 mb-4">レビュー</h3>
+                    <div class=""></div>
+                </div>
             </div>
 
             {{-- 右サイドバー --}}
@@ -144,7 +142,7 @@
                 {{-- あらすじ --}}
                 <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
                     <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
-                    <span class="px-2">{!! $book->body !!}</span>
+                    <span class="px-2">{!! nl2br($book->body) !!}</span>
                 </div>
 
                 {{-- 作品情報 --}}
@@ -152,7 +150,8 @@
                     <h3 class="text-lg font-semibold mb-4">作品情報</h3>
                     <div class="w-full flex items-center mb-2 px-2">
                         <div class="w-1/2">原作</div>
-                        <div class="w-1/2">新垣 結衣</div>
+                        <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
+                            class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
                     </div>
 
                     {{-- 漫画 --}}
@@ -221,9 +220,9 @@
                             class="text-white">
                         </book-like>
 
-                        {{-- @if (!empty($chapters))
+                        {{-- @if (!empty($episodes))
                         <div class="mt-8 mb-4 flex">
-                            <a href="/books/{{ $book->code }}/chapters/1"
+                            <a href="/books/{{ $book->code }}/episodes/1"
                                 class="hover:text-primary bg-white dark:bg-dark-1 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
                             </a>
                         </div>

@@ -31,9 +31,9 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // チャプター
-        Route::get('/{book}/{chapter}', 'App\Http\Controllers\Books\Chapter\ShowController')->name('chapter.show');
-        Route::get('/{book}/{chapter}/edit', 'App\Http\Controllers\Books\Chapter\EditController')->name('chapter.edit');
-        Route::delete('/{book}', 'App\Http\Controllers\Books\Chapter\DestroyController')->name('chapter.destroy');
+        Route::get('/{book}/{episode}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
+        Route::get('/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\EditController')->name('episode.edit');
+        Route::delete('/{book}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
     });
     Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Chapter extends Model
+class Episode extends Model
 {
     protected $fillable = [
         'title' => 'required|string|max:50',

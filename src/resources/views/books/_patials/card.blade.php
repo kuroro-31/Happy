@@ -26,7 +26,7 @@
                 </form>
             </edit-modal>
             <delete-modal>
-                <form method="POST" action="{{ route('book.chapter.destroy', ['book' => $book->id]) }}"
+                <form method="POST" action="{{ route('book.episode.destroy', ['book' => $book->id]) }}"
                     class="p-2 rounded">
                     @csrf
                     @method('DELETE')

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Books\Chapter;
+namespace App\Http\Controllers\Books\Episode;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Chapter;
+use App\Models\Episode;
 use App\Models\Book;
 
 class ShowController extends Controller
@@ -15,13 +15,13 @@ class ShowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($book, $chapter)
+    public function __invoke($book, $episode)
     {
-        $story = Chapter::where('code', $chapter)->first();
+        $story = episode::where('code', $episode)->first();
         $book = Book::where('code', $book)->first();
-        return view('books.chapter.show', [
+        return view('books.episode.show', [
             'book' => $book,
-            'chapter' => $story,
+            'episode' => $story,
         ]);
     }
 }

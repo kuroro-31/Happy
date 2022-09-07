@@ -109,7 +109,7 @@ export default {
     methods: {
         async update() {
             await axios
-                .patch(`/api/chapter/${this.id}`, this.form)
+                .patch(`/api/episode/${this.id}`, this.form)
                 .then(() => {
                     this.success = true;
                     setTimeout(() => (this.success = false), 3000);

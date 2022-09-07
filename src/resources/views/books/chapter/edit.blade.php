@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $chapter->name)
+@section('title', $episode->name)
 
 @section('content')
   @include('_patials._nav')
@@ -9,8 +9,8 @@
     <a href="{{ URL::previous() }}" class="inline-block text-xs cursor-pointer hover:text-primary mb-8">
       本のトップへ
     </a>
-    <update-chapter :id='@json($chapter->id)' :name='@json($chapter->name ?? old('name'))'
-      :body='@json($chapter->body ?? old('body'))'>
-    </update-chapter>
+    <update-episode :id='@json($episode->id)' :name='@json($episode->name ?? old('name'))'
+      :body='@json($episode->body ?? old('body'))'>
+    </update-episode>
   </div>
 @endsection

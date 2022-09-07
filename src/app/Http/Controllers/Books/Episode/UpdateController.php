@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Books\Chapter;
+namespace App\Http\Controllers\Books\Episode;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Chapter;
+use App\Models\Episode;
 
 class UpdateController extends Controller
 {
@@ -21,9 +21,9 @@ class UpdateController extends Controller
             'body' => $request->body,
             // 'book_id' => $request->book_id
         ];
-        Chapter::where('id', $id)->update($update);
+        Episode::where('id', $id)->update($update);
         // return response()->json([
-        //     'id' => $chapter->id,
+        //     'id' => $episode->id,
         // ]);
     }
 }

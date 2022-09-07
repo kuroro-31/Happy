@@ -18,9 +18,9 @@ class Book extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function chapters(): HasMany
+    public function episodes(): HasMany
     {
-        return $this->hasMany('App\Models\Chapter');
+        return $this->hasMany('App\Models\Episode');
     }
 
     public function likes(): BelongsToMany

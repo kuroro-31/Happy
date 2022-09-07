@@ -1,5 +1,5 @@
 <template>
-    <form id="submit-form" @submit.prevent="addChapter">
+    <form id="submit-form" @submit.prevent="addEpisode">
         <button id="submit-btn" type="submit" class="inline-block btn">
             エピソードを追加する
         </button>
@@ -21,11 +21,11 @@ export default {
         },
     },
     methods: {
-        async addChapter() {
+        async addEpisode() {
             await axios
-                .post(`/api/books/${this.book.code}/chapter`, this.form)
+                .post(`/api/books/${this.book.code}/episode`, this.form)
                 .then(({ data }) => {
-                    window.location = `/books/${this.book.code}/${data.chapter_code}/edit`;
+                    window.location = `/books/${this.book.code}/${data.episode_code}/edit`;
                 })
                 .catch((err) => {
                     console.log(err);

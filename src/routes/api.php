@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 // Route::get('/posts', 'App\Http\Controllers\Api\Timeline\TimelineController');
-Route::post('/books/{book}/chapter', 'App\Http\Controllers\Books\Chapter\StoreController');
-Route::patch('/books/{book}/{chapter}/edit', 'App\Http\Controllers\Books\Chapter\UpdateController');
+Route::post('/books/{book}/episode', 'App\Http\Controllers\Books\Episode\StoreController');
+Route::patch('/books/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\UpdateController');
