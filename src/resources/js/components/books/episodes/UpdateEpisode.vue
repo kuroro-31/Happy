@@ -34,7 +34,7 @@
                 minlength="1000"
                 v-model.trim="body"
                 placeholder="本文"
-                class="w-full p-4 bg-white whitespace-pre-line rounded w-full h-full text-lg leading-9"
+                class="w-full p-4 bg-white whitespace-pre-line rounded h-full text-lg leading-9"
             ></textarea>
             <p v-if="body" class="w-full flex items-center justify-end mt-2">
                 <svg
