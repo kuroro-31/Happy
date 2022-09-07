@@ -29,7 +29,7 @@
         <div class="w-1/4 font-semibold mb-2">ニックネーム</div>
         <div class="w-3/4 pl-4">
             <input type="text" name="name" value="{{ $user->name ?? old('name') }}"
-                class="w-full p-2 bg-gray-2 dark:bg-dark rounded">
+                class="w-full p-2 bg-white-1 dark:bg-dark-2 rounded">
         </div>
     </div>
 
