@@ -106,9 +106,56 @@
 
             {{-- 右サイドバー --}}
             <div class="p-4 lg:max-w-[282px] lg:min-w-[282px]">
-                <div class="flex flex-col mb-4">
-                    <h3 class="text-lg font-semibold mb-2">あらすじ</h3>
+
+                {{-- あらすじ --}}
+                <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
+                    <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
                     <span>{!! $book->body !!}</span>
+                </div>
+
+                {{-- 作品情報 --}}
+                <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
+                    <h3 class="text-lg font-semibold mb-4">作品情報</h3>
+                    <div class="w-full flex items-center mb-2">
+                        <div class="w-1/2 font-semibold">原作</div>
+                        <div class="w-1/2">新垣 結衣</div>
+                    </div>
+
+                    {{-- 漫画 --}}
+                    <div class="w-full flex items-center mb-2">
+                        <div class="w-1/2 font-semibold">漫画</div>
+                        <div class="w-1/2">新垣 結衣</div>
+                    </div>
+
+                    {{-- アシスタント --}}
+                    <div class="w-full flex items-start mb-8">
+                        <div class="w-1/2 font-semibold">アシスタント</div>
+                        <ul class="w-1/2 flex flex-col">
+                            <li class="mb-1">新垣 結衣</li>
+                            <li class="mb-1">新垣 結衣</li>
+                            <li class="mb-1">新垣 結衣</li>
+                            <li class="mb-1">新垣 結衣</li>
+                            <li class="mb-1">新垣 結衣</li>
+                        </ul>
+                    </div>
+
+                    {{-- カテゴリー --}}
+                    <div class="w-full flex items-center mb-2">
+                        <div class="w-1/2 font-semibold">カテゴリー</div>
+                        <div class="w-1/2">少年漫画</div>
+                    </div>
+
+                    {{-- ジャンル --}}
+                    <div class="w-full flex items-start">
+                        <div class="w-1/2 font-semibold">ジャンル</div>
+                        <ul class="w-1/2 flex flex-col">
+                            <li class="mb-1">アドベンチャー</li>
+                            <li class="mb-1">海賊</li>
+                            <li class="mb-1">海</li>
+                            <li class="mb-1">冒険</li>
+                            <li class="mb-1">お宝</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
