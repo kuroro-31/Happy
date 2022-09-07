@@ -40,13 +40,13 @@
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
-                    <div class="w-full flex flex-col mt-4 px-2">
+                    <div class="w-full flex flex-col mt-6 px-2">
                         <button class="btn-border mb-2">本棚に追加する</button>
                         <button class="btn-primary">全話をまとめて購入</button>
                     </div>
                 @else
                     {{-- 作者だったら --}}
-                    <div class="mt-4 px-2 w-full">
+                    <div class="mt-6 px-2 w-full">
                         <button class="btn-border w-full">作品情報を編集する</button>
                     </div>
                 @endif
@@ -238,13 +238,13 @@
             <div class="p-4 lg:max-w-[282px] lg:min-w-[282px]">
 
                 {{-- あらすじ --}}
-                <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
+                <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
                     <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
                     <span class="px-2">{!! nl2br($book->body) !!}</span>
                 </div>
 
                 {{-- 作品情報 --}}
-                <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
+                <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
                     <h3 class="text-lg font-semibold mb-4">作品情報</h3>
                     <div class="w-full flex items-center mb-2 px-2">
                         <div class="w-1/2">原作</div>
