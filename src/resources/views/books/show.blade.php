@@ -15,8 +15,8 @@
                     <img src="/img/{{ $book->thumbnail }}" alt=""
                         class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
                 @endempty
-                <h2 class="text-2xl font-semibold my-2">{{ $book->title }}</h2>
-                <div class="flex items-center">
+                <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
+                <div class="flex items-center px-2">
                     <span class="text-3xl pr-4">4.9</span>
                     <svg width="85" height="17" viewBox="0 0 85 17" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -40,13 +40,15 @@
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
-                    <div class="w-full flex flex-col mt-4">
+                    <div class="w-full flex flex-col mt-4 px-2">
                         <button class="btn-border mb-2">本棚に追加する</button>
                         <button class="btn-primary">全話をまとめて購入</button>
                     </div>
                 @else
                     {{-- 作者だったら --}}
-                    <button class="btn-border mt-4 w-full">作品情報を編集する</button>
+                    <div class="mt-4 px-2 w-full">
+                        <button class="btn-border w-full">作品情報を編集する</button>
+                    </div>
                 @endif
             </div>
 
@@ -56,7 +58,7 @@
                     <div class="w-full mx-auto flex flex-col">
 
                         {{-- エピソード --}}
-                        <div class="w-full flex justify-between">
+                        <div class="w-full flex justify-between mb-2">
                             <h3 class="text-lg font-semibold">エピソード</h3>
                             @if (Auth::id() === $book->user_id)
                                 <chapter-list :book='@json($book)'></chapter-list>
@@ -142,25 +144,25 @@
                 {{-- あらすじ --}}
                 <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
                     <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
-                    <span>{!! $book->body !!}</span>
+                    <span class="px-2">{!! $book->body !!}</span>
                 </div>
 
                 {{-- 作品情報 --}}
                 <div class="flex flex-col mb-4 pb-4 border-b border-ccc">
                     <h3 class="text-lg font-semibold mb-4">作品情報</h3>
-                    <div class="w-full flex items-center mb-2">
+                    <div class="w-full flex items-center mb-2 px-2">
                         <div class="w-1/2">原作</div>
                         <div class="w-1/2">新垣 結衣</div>
                     </div>
 
                     {{-- 漫画 --}}
-                    <div class="w-full flex items-center mb-2">
+                    <div class="w-full flex items-center mb-2 px-2">
                         <div class="w-1/2">漫画</div>
                         <div class="w-1/2">新垣 結衣</div>
                     </div>
 
                     {{-- アシスタント --}}
-                    <div class="w-full flex items-start mb-8">
+                    <div class="w-full flex items-start mb-8 px-2">
                         <div class="w-1/2">アシスタント</div>
                         <ul class="w-1/2 flex flex-col">
                             <li class="mb-1">新垣 結衣</li>
@@ -172,13 +174,13 @@
                     </div>
 
                     {{-- カテゴリー --}}
-                    <div class="w-full flex items-center mb-2">
+                    <div class="w-full flex items-center mb-2 px-2">
                         <div class="w-1/2">カテゴリー</div>
                         <div class="w-1/2">少年漫画</div>
                     </div>
 
                     {{-- ジャンル --}}
-                    <div class="w-full flex items-start">
+                    <div class="w-full flex items-start px-2">
                         <div class="w-1/2">ジャンル</div>
                         <ul class="w-1/2 flex flex-col">
                             <li class="mb-1">アドベンチャー</li>
