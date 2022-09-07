@@ -279,7 +279,7 @@ $img-w: 200px;
 
 button:disabled,
 button[disabled] {
-    @apply cursor-not-allowed duration-200 shadow-none;
+    @apply cursor-not-allowed duration-200 shadow-none border-none;
     background-color: #eee !important;
     color: white !important;
 }
