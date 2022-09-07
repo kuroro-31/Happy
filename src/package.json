@@ -32,9 +32,5 @@
         "vue": "^3.2.33",
         "vue-loader": "^17.0.0",
         "vuex": "^4.0.2"
-    },
-    "dependencies": {
-        "vue-observe-visibility": "^1.0.0",
-        "vue3-carousel": "^0.1.40"
     }
 }
