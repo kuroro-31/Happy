@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('title');
-            $table->text('body', 400);
+            $table->text('story', 400)->nullable();
             $table->string('thumbnail')->nullable();
             $table->unsignedbigInteger('user_id');
             $table->timestamps();

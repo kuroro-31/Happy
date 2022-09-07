@@ -19,10 +19,10 @@ class StoreController extends Controller
     {
         $this->authorize('create', $book);
 
-        $book->fill($request->except('body'));
+        $book->fill($request->except('story'));
 
         $linkify = new \Misd\Linkify\Linkify();
-        $book->body = $linkify->process($request->body);
+        $book->story = $linkify->process($request->story);
         $book->user_id = $request->user()->id;
 
         do {

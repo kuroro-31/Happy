@@ -36,7 +36,7 @@
         </div>
     @endif
     {{-- <div class="card-body">
-    {!! nl2br(e(Markdown::parse($book->body))) !!}
+    {!! nl2br(e(Markdown::parse($book->story))) !!}
   </div> --}}
     @if ($book->tags)
         @foreach ($book->tags as $tag)

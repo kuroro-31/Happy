@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         for ($a = 1; $a < 100; $a++) {
             $book->title = $faker->text(15);
             $book->code = $code;
-            $book->body = $faker->sentence;
+            $book->story = $faker->sentence;
             $book->user_id = random_int(1, 100);
             $book->save();
         }

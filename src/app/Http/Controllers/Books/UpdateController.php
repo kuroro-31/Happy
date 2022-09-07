@@ -16,10 +16,10 @@ class UpdateController extends Controller
     public function __invoke(BookRequest $request, Book $book)
     {
         $this->authorize('update', $book);
-        
+
         $book->fill($request->except('body'));
         $linkify = new \Misd\Linkify\Linkify();
-        $book->body = $linkify->process($request->body);
+        $book->story = $linkify->process($request->body);
 
         $book->tags()->detach();
         $request->tags->each(function ($tagName) use ($book) {

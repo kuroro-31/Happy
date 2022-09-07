@@ -25,18 +25,8 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
-
-
-
-
-
-
-
-
-
-
             'title' => 'required|max:50',
-            'body' => 'required|max:500',
+            'story' => 'required|max:500',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
@@ -46,7 +36,7 @@ class BookRequest extends FormRequest
     {
         return [
             'title' => 'タイトル',
-            'body' => '本文',
+            'story' => '本文',
             'tags' => 'タグ',
         ];
     }

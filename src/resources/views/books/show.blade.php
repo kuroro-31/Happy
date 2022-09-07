@@ -241,7 +241,7 @@
                     {{-- あらすじ --}}
                     <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
                         <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
-                        <span class="px-2">{!! nl2br($book->body) !!}</span>
+                        <span class="px-2">{!! nl2br($book->story) !!}</span>
                     </div>
 
                     {{-- 作品情報 --}}
