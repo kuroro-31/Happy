@@ -12,6 +12,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        // 自分
         User::create([
             'name' => env('TEST_USERNAME'),
             'username' => env('TEST_USER_CODENAME'),
@@ -19,6 +20,7 @@ class UserSeeder extends Seeder
             'password' => env('TEST_USER_PASSWORD'),
         ]);
 
+        // サンプル
         User::factory(500)->create();
     }
 }
