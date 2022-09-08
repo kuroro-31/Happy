@@ -124,16 +124,16 @@ h1 {
 }
 
 .tag-hero {
-    @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
+    @apply relative flex w-full mx-auto justify-center items-center overflow-hidden;
     &-img {
-        @apply max-w-4xl w-full relative rounded;
-        img {
-            @apply w-full mx-auto object-cover rounded;
-            max-height: 200px;
-        }
+        @apply w-full relative lg:h-[400px];
         &-bg {
-            @apply absolute top-0 right-0 left-0 bottom-0 w-full h-full rounded;
-            background: rgba(#5367ed, 0.5);
+            @apply absolute top-0 right-0 left-0 bottom-0 mx-[-200px] px-[200px] overflow-hidden;
+            border-bottom-left-radius: 2000px 400px;
+            border-bottom-right-radius: 2000px 400px;
+            img {
+                @apply min-w-[2000px] min-h-[1000px] absolute top-0 right-0 left-0 bottom-0 w-full h-full object-cover;
+            }
         }
     }
 }
