@@ -10,7 +10,10 @@
             {{-- 左サイドバー --}}
             <div class="top-0 sticky lg:h-[500px] p-4 lg:max-w-[282px] lg:min-w-[282px]">
                 @empty($book->thumbnail)
-                    <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                    <img src="/img/bg.svg" alt="thumbnail"
+                        class="block dark:hidden w-[250px] h-[250px] object-cover flex-shrink-0">
+                    <img src="/img/bg-dark.svg" alt="thumbnail"
+                        class="hidden dark:block w-[250px] h-[250px] object-cover flex-shrink-0">
                 @else
                     <img src="/img/{{ $book->thumbnail }}" alt=""
                         class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
@@ -81,24 +84,29 @@
                                         @endempty --}}
 
                                         {{-- タイトル --}}
-                                        <div class="flex flex-col px-4">
+                                        <div class="w-full flex flex-col px-4">
                                             {{-- 日付 --}}
                                             <div class="text-666 text-xs">{{ $episode->created_at->format('Y/m/d') }}
                                             </div>
 
-                                            {{-- 話数 --}}
-                                            <div class="w-full truncate">
-                                                <span class="pr-3">第{{ $counts-- }}話</span>
-                                                {{ $book->title }}
+
+                                            <div class="w-full flex justify-between items-center">
+                                                {{-- 話数 --}}
+                                                <span class="">第{{ $counts-- }}話</span>
+                                                {{-- 値段 --}}
+                                                <div class="flex items-center ml-4">
+                                                    @if ($episode->is_free)
+                                                        <span
+                                                            class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
+                                                    @else
+                                                        <span
+                                                            class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">{{ $episode->price }}
+                                                            pt</span>
+                                                    @endif
+                                                </div>
                                             </div>
 
-                                            {{-- ラベル --}}
-                                            <div class="flex mt-1">
-                                                <span
-                                                    class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
-                                                <span
-                                                    class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">30pt</span>
-                                            </div>
+                                            <div class="flex mt-1"></div>
                                         </div>
                                     </a>
 
@@ -247,29 +255,37 @@
                     {{-- 作品情報 --}}
                     <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
                         <h3 class="text-lg font-semibold mb-4">作品情報</h3>
-                        <div class="w-full flex items-center mb-2 px-2">
-                            <div class="w-1/2">原作</div>
-                            <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
-                                class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
-                        </div>
+
+                        {{-- 原作 --}}
+                        @if (!empty($book->author))
+                            <div class="w-full flex items-center mb-2 px-2">
+                                <div class="w-1/2">原作</div>
+                                <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
+                                    class="w-1/2 hover:text-primary">{{ $book->author }}</a>
+                            </div>
+                        @endif
 
                         {{-- 漫画 --}}
-                        <div class="w-full flex items-center mb-2 px-2">
-                            <div class="w-1/2">漫画</div>
-                            <div class="w-1/2">新垣 結衣</div>
-                        </div>
+                        @if (!empty($book->manga_artist))
+                            <div class="w-full flex items-center mb-2 px-2">
+                                <div class="w-1/2">漫画</div>
+                                <a href="" class="w-1/2 hover:text-primary">{{ $book->manga_artist }}</a>
+                            </div>
+                        @endif
 
                         {{-- アシスタント --}}
-                        <div class="w-full flex items-start mb-8 px-2">
-                            <div class="w-1/2">アシスタント</div>
-                            <ul class="w-1/2 flex flex-col">
-                                <li class="mb-1">新垣 結衣</li>
-                                <li class="mb-1">新垣 結衣</li>
-                                <li class="mb-1">新垣 結衣</li>
-                                <li class="mb-1">新垣 結衣</li>
-                                <li class="mb-1">新垣 結衣</li>
-                            </ul>
-                        </div>
+                        @if (!empty($book->assistant))
+                            <div class="w-full flex items-start mb-8 px-2">
+                                <div class="w-1/2">アシスタント</div>
+                                <ul class="w-1/2 flex flex-col">
+                                    <li class="mb-1">新垣 結衣</li>
+                                    <li class="mb-1">新垣 結衣</li>
+                                    <li class="mb-1">新垣 結衣</li>
+                                    <li class="mb-1">新垣 結衣</li>
+                                    <li class="mb-1">新垣 結衣</li>
+                                </ul>
+                            </div>
+                        @endif
 
                         {{-- カテゴリー --}}
                         <div class="w-full flex items-center mb-2 px-2">

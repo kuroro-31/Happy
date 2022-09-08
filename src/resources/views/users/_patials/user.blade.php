@@ -1,8 +1,10 @@
 <div class="max-w-6xl mx-auto">
     <div class="relative z-auto">
         @empty($user->thumbnail)
-            <img src="{{ asset('/img/bg.svg') }}" alt="" class="rounded flex flex-shrink-0 w-full object-cover"
-                style="height: 300px;">
+            <img src="/img/bg.svg" alt=""
+                class="dark:hidden lg:h-[300px] rounded flex flex-shrink-0 w-full object-cover">
+            <img src="/img/bg-dark.svg" alt=""
+                class="hidden dark:flex lg:h-[300px] rounded flex-shrink-0 w-full object-cover">
         @else
             <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
                 <template #thumbnail>

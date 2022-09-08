@@ -26,7 +26,7 @@ fresh:
 refresh:
 	php artisan migrate:refresh --seed
 seed:
-	php artisan migrate:refresh
+	php artisan migrate:fresh
 	php artisan db:seed --class UserSeeder
 	php artisan db:seed --class BookSeeder
 dacapo:
