@@ -1,6 +1,8 @@
+import BasicModal from "../components/atoms/BasicModal.vue";
 import ToastModal from "../components/atoms/ToastModal";
 import AuthModal from "../components/auth/AuthModal";
 import BookLike from "../components/BookLike";
+import BookEditModal from "../components/books/BookEditModal";
 import CreateModal from "../components/books/CreateModal";
 import DeleteModal from "../components/books/DeleteModal";
 import EditModal from "../components/books/EditModal";
@@ -17,7 +19,10 @@ import AvatarZoom from "../components/users/AvatarZoom";
 import EditUserModal from "../components/users/EditUserModal";
 import FollowModal from "../components/users/FollowModal";
 import ThumbnailZoom from "../components/users/ThumbnailZoom";
+
 export default {
+    BasicModal,
+    BookEditModal,
     ToastModal,
     UpdateEpisode,
     EpisodeList,

@@ -144,12 +144,12 @@ h1 {
 }
 
 .overlay {
-    @apply fixed top-0 left-0 flex items-center justify-center bg-dark-blue bg-opacity-30 dark:bg-dark dark:bg-opacity-70 w-full h-full;
+    @apply fixed top-0 left-0 flex bg-[#0A2140] bg-opacity-50 items-center justify-center w-full h-full;
     z-index: 9999 !important;
 }
 
 .window {
-    @apply absolute rounded-sm p-4 bg-white dark:bg-dark-1;
+    @apply absolute rounded-sm bg-white dark:bg-dark-1;
     max-width: 600px;
     @screen lg {
         width: 600px;

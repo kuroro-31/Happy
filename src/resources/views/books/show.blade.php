@@ -3,7 +3,7 @@
 @section('title', $book->title)
 
 @section('content')
-    <div class="block">@include('_patials._nav')</div>
+    @include('_patials._nav')
     @include('_patials._genre_nav')
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:p-8 flex justify-between">
@@ -50,7 +50,20 @@
                 @else
                     {{-- 作者だったら --}}
                     <div class="mt-6 px-2 w-full">
-                        <button class="btn-border w-full">作品情報を編集する</button>
+                        <book-edit-modal>
+                            <template #trigger>作品内容を更新する</template>
+                            <template #header>作品内容の更新</template>
+                            @include('_patials._error_card_list')
+                            {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
+                            <form id="submit-form" method="POST"
+                                action="{{ route('book.update', ['book' => $book->id]) }}">
+                                @csrf
+                                {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
+                                @method('PATCH')
+                                @include('books._patials.form')
+                                <button id="submit-btn" type="submit" class="btn">更新する</button>
+                            </form>
+                        </book-edit-modal>
                     </div>
                 @endif
             </div>
