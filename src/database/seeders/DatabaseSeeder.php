@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(Book $book)
     {
-        \App\Models\User::factory(100)->create();
+        User::factory(100)->create();
 
         $faker = Faker::create('en_US');
         do {
