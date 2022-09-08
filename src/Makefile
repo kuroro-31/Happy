@@ -28,6 +28,7 @@ refresh:
 seed:
 	php artisan migrate:refresh
 	php artisan db:seed --class UserSeeder
+	php artisan db:seed --class BookSeeder
 dacapo:
 	php artisan dacapo
 tinker:
