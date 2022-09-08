@@ -61,7 +61,7 @@
                                 {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                                 @method('PATCH')
                                 @include('books._patials.form')
-                                <button id="submit-btn" type="submit" class="btn">更新する</button>
+                                <div class="w-full flex justify-end"><button id="submit-btn" type="submit" class="btn">更新する</button></div>
                             </form>
                         </book-edit-modal>
                     </div>

@@ -28,6 +28,6 @@ class UpdateController extends Controller
         });
         $book->save();
 
-        return redirect()->route('book.index');
+        return back();
     }
 }
