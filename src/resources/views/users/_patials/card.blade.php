@@ -1,4 +1,4 @@
-<div class="mr-auto">
+<div class="mr-auto mb-4">
     <a href="{{ route('book.show', ['book' => $book->code]) }}">
         @empty($book->thumbnail)
             <img src="{{ asset('/img/bg.svg') }}" alt="" class="h-[200px] w-[200px] object-cover flex-shrink-0">

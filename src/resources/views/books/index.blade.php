@@ -24,7 +24,7 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-                    <div class="w-full flex justify-between mb-3">
+                    <div class="w-full flex justify-between mb-4">
                         <h3 class="text-xl font-semibold">ランキング</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
@@ -50,7 +50,7 @@
 
                 {{-- 今日の新作 --}}
                 <div class="w-full flex flex-col mb-4">
-                    <div class="w-full flex justify-between mb-3">
+                    <div class="w-full flex justify-between mb-4">
                         <h3 class="text-xl font-semibold">今日の新作</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
@@ -76,7 +76,7 @@
 
                 {{-- 購読中の新作 --}}
                 <div class="w-full flex flex-col mb-4">
-                    <div class="w-full flex justify-between mb-3">
+                    <div class="w-full flex justify-between mb-4">
                         <h3 class="text-xl font-semibold">購読中の新作</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>
@@ -102,7 +102,7 @@
 
                 {{-- あなたへのオススメ --}}
                 <div class="w-full flex flex-col">
-                    <div class="w-full flex justify-between mb-3">
+                    <div class="w-full flex justify-between mb-4">
                         <h3 class="text-xl font-semibold">あなたへのオススメ</h3>
                         <a href="" class="font-semibold hover:text-primary">もっと見る</a>
                     </div>

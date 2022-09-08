@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title'); // 作品名
             $table->string('author'); // 原作者
             $table->string('manga_artist'); // 漫画家
+            $table->integer('rate')->nullable(); // 評価
             $table->json('assistant')->nullable(); // 漫画家
             $table->text('story', 400)->nullable(); // あらすじ
             $table->string('thumbnail')->nullable(); // 作品サムネイル

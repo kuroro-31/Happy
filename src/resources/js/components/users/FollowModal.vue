@@ -2,7 +2,7 @@
     <div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="close">
-                <div class="window">
+                <div class="window p-6">
                     <slot></slot>
                 </div>
             </div>

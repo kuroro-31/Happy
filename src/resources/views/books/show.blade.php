@@ -6,9 +6,9 @@
     @include('_patials._nav')
     @include('_patials._genre_nav')
     <div class="w-full h-full bg-white dark:bg-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:p-8 flex justify-between">
+        <div class="max-w-7xl mx-auto md:py-12 flex justify-between">
             {{-- 左サイドバー --}}
-            <div class="top-0 sticky lg:h-[500px] p-4 lg:max-w-[282px] lg:min-w-[282px]">
+            <div class="top-0 sticky lg:h-[500px] pb-4 pr-4 lg:max-w-[266px] lg:min-w-[266px]">
                 @empty($book->thumbnail)
                     <img src="/img/bg.svg" alt="thumbnail"
                         class="block dark:hidden w-[250px] h-[250px] object-cover flex-shrink-0">
@@ -19,33 +19,12 @@
                         class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
                 @endempty
                 <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
-                <div class="flex items-center px-2">
-                    <span class="text-3xl pr-4">4.9</span>
-                    <svg width="85" height="17" viewBox="0 0 85 17" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.5 0L10.4084 5.87336L16.584 5.87336L11.5878 9.50329L13.4962 15.3766L8.5 11.7467L3.50383 15.3766L5.41219 9.50329L0.416019 5.87336L6.59163 5.87336L8.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M25.5 0L27.4084 5.87336L33.584 5.87336L28.5878 9.50329L30.4962 15.3766L25.5 11.7467L20.5038 15.3766L22.4122 9.50329L17.416 5.87336L23.5916 5.87336L25.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M42.5 0L44.4084 5.87336L50.584 5.87336L45.5878 9.50329L47.4962 15.3766L42.5 11.7467L37.5038 15.3766L39.4122 9.50329L34.416 5.87336L40.5916 5.87336L42.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M59.5 0L61.4084 5.87336L67.584 5.87336L62.5878 9.50329L64.4962 15.3766L59.5 11.7467L54.5038 15.3766L56.4122 9.50329L51.416 5.87336L57.5916 5.87336L59.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M76.5 0L78.4084 5.87336L84.584 5.87336L79.5878 9.50329L81.4962 15.3766L76.5 11.7467L71.5038 15.3766L73.4122 9.50329L68.416 5.87336L74.5916 5.87336L76.5 0Z"
-                            fill="#FFA126" />
-                    </svg>
-                </div>
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
                     <div class="w-full flex flex-col mt-6 px-2">
-                        <button class="btn-border mb-2">本棚に追加する</button>
-                        <button class="btn-primary">全話をまとめて購入</button>
+                        <button class="btn-border py-3 mb-2">本棚に追加する</button>
+                        <button class="btn-primary py-3">全話をまとめて購入</button>
                     </div>
                 @else
                     {{-- 作者だったら --}}
@@ -61,7 +40,8 @@
                                 {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                                 @method('PATCH')
                                 @include('books._patials.form')
-                                <div class="w-full flex justify-end"><button id="submit-btn" type="submit" class="btn">更新する</button></div>
+                                <div class="w-full flex justify-end"><button id="submit-btn" type="submit"
+                                        class="btn">更新する</button></div>
                             </form>
                         </book-edit-modal>
                     </div>
@@ -70,7 +50,7 @@
 
             <div class="w-full flex">
                 {{-- メインコンテンツ --}}
-                <div class="p-4 lg:w-3/5">
+                <div class="px-6 lg:w-3/5">
                     <div class="w-full mx-auto flex flex-col">
 
                         {{-- エピソード --}}
@@ -257,77 +237,118 @@
                 </div>
 
                 {{-- 右サイドバー --}}
-                <div class="p-4 lg:w-2/5">
+                <div class="pl-4 lg:w-2/5">
 
                     {{-- あらすじ --}}
                     <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
                         <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
-                        <span class="px-2">{!! nl2br($book->story) !!}</span>
+                        <span class="pl-2">{!! nl2br($book->story) !!}</span>
                     </div>
 
                     {{-- 作品情報 --}}
                     <div class="flex flex-col mb-6 pb-6 border-b border-ccc">
                         <h3 class="text-lg font-semibold mb-4">作品情報</h3>
 
+                        {{-- 評価 --}}
+                        @empty(!$book->rate)
+                            <div class="w-full flex items-center mb-4 pl-2">
+                                <div class="w-1/2 hover:text-primary">評価</div>
+                                <div class="w-1/2 flex items-center">
+                                    <span class="text-3xl pr-4">{{ $book->rate }}</span>
+                                    <svg width="85" height="17" viewBox="0 0 85 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.5 0L10.4084 5.87336L16.584 5.87336L11.5878 9.50329L13.4962 15.3766L8.5 11.7467L3.50383 15.3766L5.41219 9.50329L0.416019 5.87336L6.59163 5.87336L8.5 0Z"
+                                            fill="#FFA126" />
+                                        <path
+                                            d="M25.5 0L27.4084 5.87336L33.584 5.87336L28.5878 9.50329L30.4962 15.3766L25.5 11.7467L20.5038 15.3766L22.4122 9.50329L17.416 5.87336L23.5916 5.87336L25.5 0Z"
+                                            fill="#FFA126" />
+                                        <path
+                                            d="M42.5 0L44.4084 5.87336L50.584 5.87336L45.5878 9.50329L47.4962 15.3766L42.5 11.7467L37.5038 15.3766L39.4122 9.50329L34.416 5.87336L40.5916 5.87336L42.5 0Z"
+                                            fill="#FFA126" />
+                                        <path
+                                            d="M59.5 0L61.4084 5.87336L67.584 5.87336L62.5878 9.50329L64.4962 15.3766L59.5 11.7467L54.5038 15.3766L56.4122 9.50329L51.416 5.87336L57.5916 5.87336L59.5 0Z"
+                                            fill="#FFA126" />
+                                        <path
+                                            d="M76.5 0L78.4084 5.87336L84.584 5.87336L79.5878 9.50329L81.4962 15.3766L76.5 11.7467L71.5038 15.3766L73.4122 9.50329L68.416 5.87336L74.5916 5.87336L76.5 0Z"
+                                            fill="#FFA126" />
+                                    </svg>
+                                </div>
+                            </div>
+                        @endempty
+
                         {{-- 原作 --}}
-                        @if (!empty($book->author))
-                            <div class="w-full flex items-center mb-2 px-2">
+                        @empty(!$book->author)
+                            <div class="w-full flex items-center mb-4 pl-2">
                                 <div class="w-1/2">原作</div>
                                 <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
                                     class="w-1/2 hover:text-primary">{{ $book->author }}</a>
                             </div>
-                        @endif
+                        @endempty
 
                         {{-- 漫画 --}}
-                        @if (!empty($book->manga_artist))
-                            <div class="w-full flex items-center mb-2 px-2">
+                        @empty(!$book->manga_artist)
+                            <div class="w-full flex items-center mb-4 pl-2">
                                 <div class="w-1/2">漫画</div>
                                 <a href="" class="w-1/2 hover:text-primary">{{ $book->manga_artist }}</a>
                             </div>
-                        @endif
+                        @endempty
 
                         {{-- アシスタント --}}
-                        @if (!empty($book->assistant))
-                            <div class="w-full flex items-start mb-8 px-2">
+                        @empty(!$book->assistant)
+                            <div class="w-full flex items-start mb-4 pl-2">
                                 <div class="w-1/2">アシスタント</div>
                                 <ul class="w-1/2 flex flex-col">
-                                    <li class="mb-1">新垣 結衣</li>
-                                    <li class="mb-1">新垣 結衣</li>
-                                    <li class="mb-1">新垣 結衣</li>
-                                    <li class="mb-1">新垣 結衣</li>
-                                    <li class="mb-1">新垣 結衣</li>
+                                    @foreach ($book->assistant as $assistant)
+                                        @if ($loop->first)
+                                        @endif
+                                        <li class="mb-1">
+                                            <a href="" class="hover:text-primary">
+                                                {{ $assistant->name }}
+                                            </a>
+                                        </li>
+                                        @if ($loop->last)
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
-                        @endif
+                        @endempty
 
                         {{-- カテゴリー --}}
-                        <div class="w-full flex items-center mb-2 px-2">
-                            <div class="w-1/2">カテゴリー</div>
-                            <div class="w-1/2">少年漫画</div>
-                        </div>
+                        @empty(!$book->category)
+                            <div class="w-full flex items-center mb-4 pl-2">
+                                <div class="w-1/2">カテゴリー</div>
+                                <div class="w-1/2">{{ $book->category }}</div>
+                            </div>
+                        @endempty
 
-                        {{-- ジャンル --}}
-                        <div class="w-full flex items-start px-2">
-                            <div class="w-1/2">ジャンル</div>
-                            <ul class="w-1/2 flex flex-col">
-                                <li class="mb-1">アドベンチャー</li>
-                                <li class="mb-1">海賊</li>
-                                <li class="mb-1">海</li>
-                                <li class="mb-1">冒険</li>
-                                <li class="mb-1">お宝</li>
-                            </ul>
-                        </div>
+                        {{-- タグ --}}
+                        @empty(!$book->tags)
+                            <div class="w-full flex items-start pl-2">
+                                <div class="w-1/2">タグ</div>
+                                <div class="w-1/2 flex flex-wrap items-center">
+                                    @foreach ($book->tags as $tag)
+                                        @if ($loop->first)
+                                        @endif
+                                        <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
+                                            class="inline-block mr-2 mb-2 text-xs text-666 rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
+                                            {{ $tag->hashtag }}
+                                        </a>
+                                        @if ($loop->last)
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endempty
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-
         <div class="w-full mx-auto">
             <div class="book-show">
                 <div class="book-show-contents">
+                    {{-- サムネイル --}}
                     @empty($book->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="">
                     @else
@@ -348,38 +369,10 @@
                             endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true'
                             class="text-white">
                         </book-like>
-
-                        {{-- @if (!empty($episodes))
-                        <div class="mt-8 mb-4 flex">
-                            <a href="/books/{{ $book->code }}/episodes/1"
-                                class="hover:text-primary bg-white dark:bg-dark-1 rounded px-6 py-2 w-full text-center cursor-pointer font-semibold">1話を読む
-                            </a>
-                        </div>
-                    @endif --}}
-
-                        @if ($book->tags)
-                            @foreach ($book->tags as $tag)
-                                @if ($loop->first)
-                                    <div class="">
-                                        <div class="">
-                                @endif
-                                <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
-                                    class="inline-block text-xs border border-white text-white rounded-full p-1.5 px-2 m-1">
-                                    {{ $tag->hashtag }}
-                                </a>
-                                @if ($loop->last)
                     </div>
                 </div>
-                @endif
-                @endforeach
-                @endif
             </div>
-
         </div>
-    </div>
-    </div>
-
-
     </div>
 @endsection
 
