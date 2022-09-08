@@ -33,7 +33,7 @@
                             @foreach ($books as $book)
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -59,7 +59,7 @@
                             @foreach ($books as $book)
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -85,7 +85,7 @@
                             @foreach ($books as $book)
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -111,7 +111,7 @@
                             @foreach ($books as $book)
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="https://placehold.jp/200x200.png" alt="thumbnail" class="thumbnail">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="thumbnail">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
