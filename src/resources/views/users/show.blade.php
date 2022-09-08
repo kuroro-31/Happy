@@ -4,7 +4,7 @@
 
 @section('content')
     @include('_patials._nav')
-    <div class="bg-white dark:bg-dark-1">
+    <div class="bg-white dark:bg-dark">
         @include('users._patials.user')
     </div>
     <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
@@ -28,8 +28,6 @@
                     @endforeach
                 @endif
             </div>
-
-            {{ $books->links() }}
         </div>
     </div>
 @endsection

@@ -16,8 +16,7 @@ class ShowController extends Controller
     public function __invoke(string $username)
     {
         $user = User::where('username', $username)->first();
-
-        $books = $user->books()->latest()->paginate(20);
+        $books = $user->books()->latest()->get();
 
         return view('users.show', compact('user', 'books'));
     }
