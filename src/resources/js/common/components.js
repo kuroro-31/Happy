@@ -1,4 +1,5 @@
 import BasicModal from "../components/atoms/BasicModal.vue";
+import BookTab from "../components/atoms/BookTab.vue";
 import ToastModal from "../components/atoms/ToastModal";
 import AuthModal from "../components/auth/AuthModal";
 import BookLike from "../components/BookLike";
@@ -22,6 +23,7 @@ import ThumbnailZoom from "../components/users/ThumbnailZoom";
 
 export default {
     BasicModal,
+    BookTab,
     BookEditModal,
     ToastModal,
     UpdateEpisode,

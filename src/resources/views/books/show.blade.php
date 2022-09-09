@@ -18,7 +18,34 @@
                     <img src="/img/{{ $book->thumbnail }}" alt=""
                         class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
                 @endempty
+
+                {{-- 作品タイトル --}}
                 <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
+
+                {{-- 評価 --}}
+                {{-- @empty(!$book->rate) --}}
+                <div class="w-full flex items-center px-2 mb-4">
+                    <span class="text-3xl pr-4">4.8{{ $book->rate }}</span>
+                    <svg width="85" height="17" viewBox="0 0 85 17" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.5 0L10.4084 5.87336L16.584 5.87336L11.5878 9.50329L13.4962 15.3766L8.5 11.7467L3.50383 15.3766L5.41219 9.50329L0.416019 5.87336L6.59163 5.87336L8.5 0Z"
+                            fill="#FFA126" />
+                        <path
+                            d="M25.5 0L27.4084 5.87336L33.584 5.87336L28.5878 9.50329L30.4962 15.3766L25.5 11.7467L20.5038 15.3766L22.4122 9.50329L17.416 5.87336L23.5916 5.87336L25.5 0Z"
+                            fill="#FFA126" />
+                        <path
+                            d="M42.5 0L44.4084 5.87336L50.584 5.87336L45.5878 9.50329L47.4962 15.3766L42.5 11.7467L37.5038 15.3766L39.4122 9.50329L34.416 5.87336L40.5916 5.87336L42.5 0Z"
+                            fill="#FFA126" />
+                        <path
+                            d="M59.5 0L61.4084 5.87336L67.584 5.87336L62.5878 9.50329L64.4962 15.3766L59.5 11.7467L54.5038 15.3766L56.4122 9.50329L51.416 5.87336L57.5916 5.87336L59.5 0Z"
+                            fill="#FFA126" />
+                        <path
+                            d="M76.5 0L78.4084 5.87336L84.584 5.87336L79.5878 9.50329L81.4962 15.3766L76.5 11.7467L71.5038 15.3766L73.4122 9.50329L68.416 5.87336L74.5916 5.87336L76.5 0Z"
+                            fill="#FFA126" />
+                    </svg>
+                </div>
+                {{-- @endempty --}}
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
@@ -51,12 +78,9 @@
             <div class="w-full flex">
                 {{-- メインコンテンツ --}}
                 <div class="px-6 lg:w-2/3">
-                    <div class="w-full mx-auto flex flex-col">
-
-                        {{-- エピソード --}}
-                        <div class="flex flex-col mb-8 pb-8">
-                            <div class="w-full flex justify-between mb-2">
-                                <h3 class="text-lg font-semibold">エピソード</h3>
+                    <book-tab>
+                        <template #episode>
+                            <div class="w-full flex justify-end mb-2">
                                 @if (Auth::id() === $book->user_id)
                                     <episode-list :book='@json($book)'></episode-list>
                                 @else
@@ -132,45 +156,11 @@
                                     </div>
                                 @endforeach
                             </div>
-                        </div>
-
-                        {{-- あらすじ --}}
-                        <div class="flex flex-col mb-8 pb-8">
-                            <h3 class="text-lg font-semibold mb-4">あらすじ</h3>
-                            <span class="pl-2">{!! nl2br($book->story) !!}</span>
-                        </div>
-
-                        {{-- 作品情報 --}}
-                        <div class="flex flex-col mb-8 pb-8">
-                            <h3 class="text-lg font-semibold mb-4">作品情報</h3>
-
-                            {{-- 評価 --}}
-                            @empty(!$book->rate)
-                                <div class="w-full flex items-center mb-4 pl-2">
-                                    <div class="w-1/2 hover:text-primary">評価</div>
-                                    <div class="w-1/2 flex items-center">
-                                        <span class="text-3xl pr-4">{{ $book->rate }}</span>
-                                        <svg width="85" height="17" viewBox="0 0 85 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M8.5 0L10.4084 5.87336L16.584 5.87336L11.5878 9.50329L13.4962 15.3766L8.5 11.7467L3.50383 15.3766L5.41219 9.50329L0.416019 5.87336L6.59163 5.87336L8.5 0Z"
-                                                fill="#FFA126" />
-                                            <path
-                                                d="M25.5 0L27.4084 5.87336L33.584 5.87336L28.5878 9.50329L30.4962 15.3766L25.5 11.7467L20.5038 15.3766L22.4122 9.50329L17.416 5.87336L23.5916 5.87336L25.5 0Z"
-                                                fill="#FFA126" />
-                                            <path
-                                                d="M42.5 0L44.4084 5.87336L50.584 5.87336L45.5878 9.50329L47.4962 15.3766L42.5 11.7467L37.5038 15.3766L39.4122 9.50329L34.416 5.87336L40.5916 5.87336L42.5 0Z"
-                                                fill="#FFA126" />
-                                            <path
-                                                d="M59.5 0L61.4084 5.87336L67.584 5.87336L62.5878 9.50329L64.4962 15.3766L59.5 11.7467L54.5038 15.3766L56.4122 9.50329L51.416 5.87336L57.5916 5.87336L59.5 0Z"
-                                                fill="#FFA126" />
-                                            <path
-                                                d="M76.5 0L78.4084 5.87336L84.584 5.87336L79.5878 9.50329L81.4962 15.3766L76.5 11.7467L71.5038 15.3766L73.4122 9.50329L68.416 5.87336L74.5916 5.87336L76.5 0Z"
-                                                fill="#FFA126" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            @endempty
+                        </template>
+                        <template #story>
+                            {!! nl2br($book->story) !!}
+                        </template>
+                        <template #info>
 
                             {{-- 原作 --}}
                             @empty(!$book->author)
@@ -235,10 +225,13 @@
                                     </div>
                                 </div>
                             @endempty
-                        </div>
+                        </template>
+                    </book-tab>
 
+
+                    <div class="w-full mx-auto flex flex-col">
                         {{-- レビュー --}}
-                        <div class="flex flex-col mb-8 pb-8">
+                        {{-- <div class="flex flex-col mb-8 pb-8">
                             <h3 class="text-lg font-semibold mb-4">レビュー</h3>
                             <div class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
                                 <div class="flex items-center justify-between">
@@ -339,7 +332,7 @@
                                     とても良かったがエロが足りなかった。
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -396,8 +389,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    @include('_patials._submit')
 @endsection
