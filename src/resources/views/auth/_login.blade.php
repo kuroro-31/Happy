@@ -4,7 +4,6 @@
     @include('_patials._error_card_list')
     <form id="submit-form" method="POST" action="{{ route('login') }}">
         @csrf
-        @include('_patials._error_card_list')
         <div class="w-full mb-3">
             <div class="w-full mb-1 text-xs">メールアドレス</div>
             <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="text"
@@ -24,3 +23,7 @@
         <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
     </div>
 </book-edit-modal>
+
+@section('scripts')
+    @include('_patials._submit')
+@endsection

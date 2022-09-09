@@ -6,7 +6,7 @@
     @include('_patials._transparent_nav')
     <div class="tag-hero">
         <div class="z-30 absolute text-white font-semibold flex flex-col items-center justify-center">
-            <h2 class="text-5xl my-4">{{ $tag->hashtag }}</h2>
+            <h2 class="text-4xl my-4">{{ $tag->hashtag }}</h2>
             <span class="inline-block text-2xl">
                 {{ $tag->books->count() }}件
             </span>
