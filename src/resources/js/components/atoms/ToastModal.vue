@@ -3,7 +3,7 @@
         <transition name="toast">
             <div
                 :class="[
-                    success || error
+                    is_show
                         ? 'block toast-enter-active'
                         : 'toast-leave-to toast-leave-active',
                 ]"
@@ -49,11 +49,10 @@
                             </svg>
                         </template>
                     </div>
-                    <div class="mr-4 font-bold text-sm">
-                        <template v-if="success">保存しました</template>
-                        <template v-else-if="error">失敗しました</template>
+                    <div class="mx-4 font-bold text-sm">
+                        {{ message }}
                     </div>
-                    <div class="cursor-pointer" @click="show = !show">
+                    <div class="cursor-pointer" @click="show = false">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5"
@@ -76,9 +75,7 @@
 <script>
 export default {
     data() {
-        return {
-            show: false,
-        };
+        show: false;
     },
     props: {
         error: {
@@ -87,16 +84,33 @@ export default {
         success: {
             type: Boolean,
         },
+        message: {
+            type: String,
+        },
+    },
+    computed: {
+        is_show() {
+            if (this.error || this.success) return true;
+            return false;
+        },
+    },
+    watch: {
+        show: {
+            // eslint-disable-next-line
+            handler: _.debounce(function () {
+                this.show = false;
+            }, 2000), // 2秒後にtoastを閉じる
+            deep: true,
+        },
     },
 };
 </script>
 <style lang="scss" scoped>
 .toast {
-    @apply ml-auto  flex items-center w-full justify-between p-4;
-    max-width: 300px;
+    @apply ml-auto max-w-[400px] flex items-center w-full justify-between p-4 shadow-lg;
     background: #fff;
     &-wrapper {
-        @apply fixed w-full;
+        @apply fixed w-full z-50;
         bottom: 20px;
         right: 20px;
     }

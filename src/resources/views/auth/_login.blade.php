@@ -1,7 +1,6 @@
 <book-edit-modal>
     <template #trigger>ログイン</template>
     <template #header>ログイン</template>
-    @include('_patials._error_card_list')
     <form id="submit-form" method="POST" action="{{ route('login') }}">
         @csrf
         <div class="w-full mb-3">
