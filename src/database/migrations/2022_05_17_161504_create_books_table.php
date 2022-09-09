@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique(); // 識別コード
             $table->string('title'); // 作品名
-            $table->string('author'); // 原作者
-            $table->string('manga_artist'); // 漫画家
+            $table->string('author')->nullable(); // 原作者
+            $table->string('manga_artist')->nullable(); // 漫画家
             $table->integer('rate')->nullable(); // 評価
             $table->json('assistant')->nullable(); // 漫画家
             $table->text('story', 400)->nullable(); // あらすじ

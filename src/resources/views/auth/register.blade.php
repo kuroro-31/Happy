@@ -22,7 +22,7 @@
             </div>
             <div class="w-full mb-3">
                 <div class="w-full mb-1 text-xs">メールアドレス</div>
-                <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="text"
+                <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="email"
                     name="email" required>
             </div>
             <div class="w-full mb-3">

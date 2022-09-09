@@ -64,9 +64,7 @@
                     <nav class="text-sm">
                         <ul class="flex items-center">
                             @guest
-                                <li>
-                                    <a href="/login" class="btn-border">ログイン</a>
-                                </li>
+                                <li>@include('auth._login')</li>
                             @endguest
                             @auth
                                 <li>
