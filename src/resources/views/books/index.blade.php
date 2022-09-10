@@ -33,7 +33,8 @@
                             @foreach ($books as $book)
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                                        <img src="/img/bg.svg" alt="thumbnail"
+                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -60,7 +61,7 @@
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -87,7 +88,7 @@
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -114,7 +115,7 @@
                                 <div class="mr-auto pb-4">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 

@@ -88,7 +88,7 @@
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
                                     <div
-                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 rounded-[3px] border-dotted border-2 border-ccc">
+                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 rounded-[3px] border-dotted border-2 border-ccc hover:border-aaa">
                                         <episode-list :book='@json($book)'>
                                             エピソードを追加する
                                         </episode-list>

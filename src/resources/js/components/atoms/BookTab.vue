@@ -47,7 +47,7 @@ export default {
     }
   }
   .tabContents {
-    @apply w-full p-4;
+    @apply w-full p-6;
   }
 }
 </style>
