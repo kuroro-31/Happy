@@ -20,6 +20,18 @@
         placeholder="" value="{{ $book->assistant ?? old('assistant') }}" maxlength="30">
 </div>
 <div class="mb-4">
+    <label for="thumbnail" class="text-xs text-666">サムネイル</label>
+    <div class="flex flex-col items-center">
+        @empty($book->thumbnail)
+            <img src="{{ asset('/img/bg.svg') }}" alt="" class="w-[200px] h-[200px] object-cover">
+        @else
+            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="book thumbnail"
+                class="w-[100px] h-[100px] object-cover">
+        @endempty
+        <input type="file" name="thumbnail" class="my-2 dark:text-gray">
+    </div>
+</div>
+<div class="mb-4">
     <label for="tag" class="text-xs text-666">タグ</label>
     <book-tags-input :initial-tags='@json($tagNames ?? [])' :autocomplete-items='@json($allTagNames ?? [])'>
     </book-tags-input>

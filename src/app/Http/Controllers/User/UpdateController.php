@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 // use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -21,18 +20,17 @@ class UpdateController extends Controller
         $user = Auth::user();
         $user->name = $request->name;
         $user->username = $request->username;
-        $linkify = new \Misd\Linkify\Linkify();
-        $user->body = $linkify->process($request->body);
+        $user->body = $request->body;
         $user->website = $request->website;
 
-        if($request->has('avatar')) {
+        if ($request->has('avatar')) {
             $image = $request->file('avatar');
             $filename = $image->getClientOriginalName();
             $image->move(public_path('img/users/avatar'), $filename);
             $user->avatar = $request->file('avatar')->getClientOriginalName();
         }
 
-        if($request->has('thumbnail')) {
+        if ($request->has('thumbnail')) {
             $image = $request->file('thumbnail');
             $filename = $image->getClientOriginalName();
             $image->move(public_path('img/users/thumbnail'), $filename);

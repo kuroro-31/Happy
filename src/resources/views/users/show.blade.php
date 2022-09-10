@@ -15,9 +15,10 @@
                         <create-modal>
                             <template #header>新しく作品を投稿する</template>
                             @include('_patials._error_card_list')
-                            <form method="POST" action="{{ route('book.store') }}">
+                            <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
                                 @include('books._patials.form')
-                                <div class="w-full flex justify-end"><button id="submit-btn" type="submit" class="btn">投稿する</button></div>
+                                <div class="w-full flex justify-end"><button id="submit-btn" type="submit"
+                                        class="btn">投稿する</button></div>
                             </form>
                         </create-modal>
                     </div>

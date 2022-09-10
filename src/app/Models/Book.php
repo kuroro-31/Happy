@@ -11,7 +11,12 @@ class Book extends Model
 {
     protected $fillable = [
         'title',
+        'code',
+        'author',
+        'manga_artist',
+        'assistant',
         'story',
+        'thumbnail',
     ];
     public function user(): BelongsTo
     {

@@ -1,13 +1,13 @@
 <div class="p-4">
-    {{-- @empty($book->thumbnail)
-        <img src="{{ asset('/img/noimage-user.svg') }}" alt=""
-          class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
-      @else --}}
-    <a href="{{ route('book.show', ['book' => $book->code]) }}">
-        <img src="https://i.gyazo.com/2937170ce6807fe65d5f035f76023ad6.jpg" alt="thumbnail" class="thumbnail">
-        {{-- @endempty --}}
-        <span class="thumbnail-title">{{ $book->title }}</span>
-    </a>
+    @empty($book->thumbnail)
+        <img src="{{ asset('/img/bg.svg') }}" alt="" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+    @else
+        <a href="{{ route('book.show', ['book' => $book->code]) }}">
+            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+            {{-- @endempty --}}
+            <span class="thumbnail-title">{{ $book->title }}</span>
+        </a>
+    @endempty
     {{-- <span class="text-gray text-xs font-semibold">
     {{ $book->created_at->format('Y/m/d H:i') }}
   </span> --}}

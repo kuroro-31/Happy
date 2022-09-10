@@ -41,7 +41,7 @@
                         </button>
                         <div class="title"><slot name="header"></slot></div>
                     </div>
-                    <div class="p-6"><slot></slot></div>
+                    <div class="p-6 max-h-[60vh] overflow-y-auto scroll-none"><slot></slot></div>
                 </div>
             </div>
         </transition>

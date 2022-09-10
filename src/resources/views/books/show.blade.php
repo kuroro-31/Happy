@@ -15,8 +15,8 @@
                     <img src="/img/bg-dark.svg" alt="thumbnail"
                         class="hidden dark:block w-[250px] h-[250px] object-cover flex-shrink-0">
                 @else
-                    <img src="/img/{{ $book->thumbnail }}" alt=""
-                        class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
+                    <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="book thumbnail"
+                        class="w-[250px] h-[250px] object-cover flex-shrink-0">
                 @endempty
 
                 {{-- 作品タイトル --}}
@@ -61,7 +61,7 @@
                             <template #header>作品内容の更新</template>
                             @include('_patials._error_card_list')
                             {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-                            <form id="submit-form" method="POST"
+                            <form id="submit-form" method="POST" enctype="multipart/form-data"
                                 action="{{ route('book.update', ['book' => $book->id]) }}">
                                 @csrf
                                 {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
@@ -93,13 +93,13 @@
                                         class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                                         <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
                                             class="flex items-center w-full cursor-pointer">
-                                            {{-- @empty($book->thumbnail) --}}
-                                            <img src="/img/bg.svg" alt="thumbnail"
-                                                class="w-[160px] h-[80px] object-cover flex-shrink-0">
-                                            {{-- @else
-                                            <img src="/img/{{ $book->thumbnail }}" alt=""
-                                                class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
-                                        @endempty --}}
+                                            @empty($book->thumbnail)
+                                                <img src="/img/bg.svg" alt="thumbnail"
+                                                    class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                            @else
+                                                <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
+                                                    class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                            @endempty
 
                                             {{-- タイトル --}}
                                             <div class="w-full flex flex-col px-4">
@@ -350,7 +350,7 @@
                                         class="hidden dark:block w-[200px] h-[200px] object-cover flex-shrink-0">
                                 @else
                                     <img src="/img/{{ $book->thumbnail }}" alt=""
-                                        class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
+                                        class="thumbnail">
                                 @endempty
                                 <h2 class="text-lg font-semibold my-2 px-2">{{ $book->title }}</h2>
                             </div>
@@ -365,10 +365,9 @@
                 <div class="book-show-contents">
                     {{-- サムネイル --}}
                     @empty($book->thumbnail)
-                        <img src="/img/bg.svg" alt="thumbnail" class="">
+                        <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
                     @else
-                        <img src="/img/{{ $book->thumbnail }}" alt=""
-                            class="rounded-full h-10 w-10 object-cover mr-3 -lg border border-emerald-50">
+                        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="" class="w-[250px] h-[250px] object-cover flex-shrink-0">
                     @endempty
 
                     <div class="flex flex-col max-w-lg ml-16">
