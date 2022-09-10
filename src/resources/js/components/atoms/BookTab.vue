@@ -38,7 +38,7 @@ export default {
 .tab {
   @apply w-full;
   .tabMenu {
-    @apply flex top-0 sticky h-[40px] bg-white;
+    @apply flex bg-white;
     li {
       @apply w-auto cursor-pointer py-2 px-4 border-b border-ddd;
       &.active {

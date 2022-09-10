@@ -87,7 +87,7 @@
                                     <div class="btn-border">1話を読む</div>
                                 @endif
                             </div>
-                            <div class="w-full max-h-[500px] overflow-y-auto">
+                            <div class="w-full max-h-[970px] overflow-y-auto">
                                 @foreach ($episodes as $episode)
                                     <div
                                         class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
@@ -339,7 +339,7 @@
                 {{-- 右サイドバー --}}
                 <div class="pl-4 lg:w-1/3">
                     {{-- こんな作品はいかがですか？ --}}
-                    <div class="flex flex-col mb-8 pb-8">
+                    {{-- <div class="flex flex-col mb-8 pb-8">
                         <h3 class="text-lg font-semibold">オススメの作品</h3>
                         <div class="p-8">
                             <div class="w-full flex flex-col">
@@ -355,7 +355,7 @@
                                 <h2 class="text-lg font-semibold my-2 px-2">{{ $book->title }}</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

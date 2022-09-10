@@ -2,7 +2,7 @@
     <div class="relative z-auto">
         @empty($user->thumbnail)
             <img src="/img/bg.svg" alt=""
-                class="dark:hidden lg:h-[300px] rounded flex flex-shrink-0 w-full object-cover">
+                class="dark:hidden lg:h-[300px] rounded-b flex flex-shrink-0 w-full object-cover">
             <img src="/img/bg-dark.svg" alt=""
                 class="hidden dark:flex lg:h-[300px] rounded flex-shrink-0 w-full object-cover">
         @else
