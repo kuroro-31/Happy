@@ -102,7 +102,7 @@ export default {
 
 /* enter transitions */
 .toast-enter-active {
-  animation: wobble 0.2s ease;
+  animation: wobble 0.3s ease;
 }
 /* leave transitions */
 .toast-leave-to {
@@ -110,7 +110,7 @@ export default {
   transform: translateY(60px) !important;
 }
 .toast-leave-active {
-  transition: all 0.3s ease !important;
+  transition: all 0.2s ease !important;
 }
 
 @keyframes wobble {
