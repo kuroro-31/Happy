@@ -1,8 +1,9 @@
 @if ($errors->any())
-    <ul class="my-4">
+    <ul class="absolute">
         @foreach ($errors->all() as $error)
             <li class="mb-4">
-                <toast-modal :error="true" :message='@json($error)'></toast-modal>
+                <toast-modal :error="true" :success="false" :message='@json($error)'>
+                </toast-modal>
             </li>
         @endforeach
     </ul>
