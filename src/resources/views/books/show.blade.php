@@ -81,13 +81,19 @@
                     <book-tab>
                         <template #episode>
                             <div class="w-full flex justify-end mb-2">
-                                @if (Auth::id() === $book->user_id)
-                                    <episode-list :book='@json($book)'></episode-list>
-                                @else
+                                @if (Auth::id() !== $book->user_id)
                                     <div class="btn-border">1話を読む</div>
                                 @endif
                             </div>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
+                                @if (Auth::id() === $book->user_id)
+                                    <div
+                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 rounded-[3px] border-dotted border-2 border-ccc">
+                                        <episode-list :book='@json($book)'>
+                                            エピソードを追加する
+                                        </episode-list>
+                                    </div>
+                                @endif
                                 @foreach ($episodes as $episode)
                                     <div
                                         class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
@@ -367,7 +373,8 @@
                     @empty($book->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
                     @else
-                        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
+                            class="w-[250px] h-[250px] object-cover flex-shrink-0">
                     @endempty
 
                     <div class="flex flex-col max-w-lg ml-16">

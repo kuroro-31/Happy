@@ -47,7 +47,7 @@ export default {
     }
   }
   .tabContents {
-    @apply w-full px-4 py-8;
+    @apply w-full p-4;
   }
 }
 </style>
