@@ -40,9 +40,6 @@
         </form>
         <a href="/login" class="w-full text-right text-xs cursor-pointer">またはログイン</a>
     </div>
-
-    <script></script>
-
 @endsection
 
 @section('scripts')
