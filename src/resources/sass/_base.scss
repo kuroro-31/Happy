@@ -276,3 +276,17 @@ $img-w: 200px;
         }
     }
 }
+
+button:disabled,
+button[disabled] {
+    @apply cursor-not-allowed duration-200 shadow-none border-none;
+    background-color: #eee !important;
+    color: white !important;
+}
+
+.header-search-input {
+    input {
+        width: 500px;
+        border-radius: 3px;
+    }
+}
