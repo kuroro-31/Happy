@@ -294,3 +294,28 @@ button[disabled] {
         border-radius: 3px;
     }
 }
+
+.list-item {
+    @apply relative mb-4 list-none;
+    width: calc(20% - 10px);
+    margin-right: 5px;
+    margin-left: 5px;
+    &-img {
+        @apply w-[200px] h-[200px] object-cover flex-shrink-0;
+        @media screen and (min-width: 1600px) {
+            @apply w-[230px] h-[230px];
+        }
+        @media screen and (min-width: 1700px) {
+            @apply w-[240px] h-[240px];
+        }
+        @media screen and (min-width: 1800px) {
+            @apply w-[250px] h-[250px];
+        }
+        @media screen and (min-width: 1900px) {
+            @apply w-[260px] h-[260px];
+        }
+        @media screen and (min-width: 2000px) {
+            @apply w-[270px] h-[270px];
+        }
+    }
+}

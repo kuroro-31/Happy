@@ -31,10 +31,9 @@
                     <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="mr-auto pb-4">
+                                <div class="list-item">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -58,10 +57,9 @@
                     <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="mr-auto pb-4">
+                                <div class="list-item">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -85,10 +83,9 @@
                     <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="mr-auto pb-4">
+                                <div class="list-item">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
@@ -112,10 +109,10 @@
                     <div class="w-full flex flex-wrap justify-start">
                         @if (!empty($books))
                             @foreach ($books as $book)
-                                <div class="mr-auto pb-4">
+                                <div class="list-item">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail"
-                                            class="w-[200px] h-[200px] object-cover flex-shrink-0">
+                                            class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
