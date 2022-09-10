@@ -87,7 +87,7 @@
                                     <div class="btn-border">1話を読む</div>
                                 @endif
                             </div>
-                            <div class="w-full max-h-[970px] overflow-y-auto">
+                            <div class="w-full max-h-[970px] overflow-y-auto scroll-none">
                                 @foreach ($episodes as $episode)
                                     <div
                                         class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">

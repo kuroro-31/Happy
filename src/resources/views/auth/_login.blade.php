@@ -5,12 +5,12 @@
         @csrf
         <div class="w-full mb-3">
             <div class="w-full mb-1 text-xs">メールアドレス</div>
-            <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="text"
+            <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="text"
                 name="email" required>
         </div>
         <div class="w-full mb-3">
             <div class="w-full mb-1 text-xs">パスワード</div>
-            <input class="w-full p-2 rounded border border-slate-300 dark:border-dark dark:bg-dark-2" type="password"
+            <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="password"
                 name="password" required>
         </div>
         <input type="hidden" name="remember" value="on">

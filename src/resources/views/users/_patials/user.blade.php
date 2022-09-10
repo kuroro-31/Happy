@@ -14,10 +14,11 @@
             </thumbnail-zoom>
         @endempty
         @if (Auth::id() === $user->id)
-            <edit-user-modal class="edit-user-modal">
-                @include('_patials._error_card_list')
+            <edit-user-modal>
+                <template #trigger>プロフィールを編集</template>
+                <template #header>プロフィールの更新</template>
                 {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-                <form id="submit-form" method="POST"
+                <form id="submit-form" class="scroll-none overflow-y-auto max-h-[80vh]" method="POST"
                     action="{{ route('users.update', ['username' => $user->username]) }}" enctype="multipart/form-data">
                     @csrf
                     {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
