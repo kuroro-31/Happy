@@ -8,6 +8,7 @@ import CreateModal from "../components/books/CreateModal";
 import DeleteModal from "../components/books/DeleteModal";
 import EditModal from "../components/books/EditModal";
 import EpisodeList from "../components/books/episodes/EpisodeList";
+import EpisodeScreen from "../components/books/episodes/EpisodeScreen";
 import UpdateEpisode from "../components/books/episodes/UpdateEpisode";
 import BookTagsInput from "../components/BookTagsInput";
 import CountAnimation from "../components/CountAnimation";
@@ -26,6 +27,7 @@ export default {
     BookTab,
     BookEditModal,
     ToastModal,
+    EpisodeScreen,
     UpdateEpisode,
     EpisodeList,
     ThumbnailZoom,

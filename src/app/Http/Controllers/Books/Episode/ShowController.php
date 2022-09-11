@@ -17,11 +17,16 @@ class ShowController extends Controller
      */
     public function __invoke($book, $episode)
     {
-        $story = episode::where('code', $episode)->first();
         $book = Book::where('code', $book)->first();
+        $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
+        $story = episode::where('code', $episode)->first();
+        $counts = count($episodes); // 話数の番号
+
         return view('books.episode.show', [
             'book' => $book,
+            'episodes' => $episodes,
             'episode' => $story,
+            'counts' => $counts,
         ]);
     }
 }
