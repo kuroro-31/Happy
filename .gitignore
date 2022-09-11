@@ -11,3 +11,4 @@ src/public/img/users/thumbnail/*
 src/public/img/book/thumbnail/*
 src/package-lock.json
 src/package-lock.json
+src/composer.lock
