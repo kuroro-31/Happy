@@ -3,19 +3,21 @@
 @section('title', $episode->name)
 
 @section('content')
-    @include('_patials._nav')
+    <div class="w-screen h-screen overflow-x-hidden overflow-y-auto scroll-none">
+        @include('_patials._episode_nav')
 
-    <div class="my-8 flex flex-col mx-auto max-w-lg">
-        <a href="/books/{{ $book->code }}" class="inline-block text-xs cursor-pointer hover:text-primary mb-8">
-            本のトップへ
-        </a>
-        <div class="mb-4 text-3xl font-semibold">{{ $episode->name }}</div>
-        <div class="p-8 bg-white dark:bg-dark-1 rounded-lg whitespace-pre-line text-lg">
-            {!! nl2br(e($episode->body)) !!}
-        </div>
-    </div>
-    <div class="max-w-lg mx-auto flex items-center justify-between mb-8">
-        {{-- <a href="/books/{{ $book->code }}/{{ $episode->id - 1 }}"
+        <div class="mt-[60px]">
+            <div class="my-8 flex flex-col mx-auto max-w-lg">
+                <a href="/books/{{ $book->code }}" class="inline-block text-xs cursor-pointer hover:text-primary mb-8">
+                    本のトップへ
+                </a>
+                <div class="mb-4 text-3xl font-semibold">{{ $episode->name }}</div>
+                <div class="p-8 bg-white dark:bg-dark-1 rounded-lg whitespace-pre-line text-lg">
+                    {!! nl2br(e($episode->body)) !!}
+                </div>
+            </div>
+            <div class="max-w-lg mx-auto flex items-center justify-between mb-8">
+                {{-- <a href="/books/{{ $book->code }}/{{ $episode->id - 1 }}"
             class=" text-xs cursor-pointer rounded bg-white dark:bg-dark-1 border border-white dark:border-dark-2 hover:border-primary hover:text-primary p-4 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
@@ -33,5 +35,7 @@
                     clip-rule="evenodd" />
             </svg>
         </a> --}}
+            </div>
+        </div>
     </div>
 @endsection
