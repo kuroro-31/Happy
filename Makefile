@@ -24,6 +24,8 @@ install-recommend-packages:
 	docker compose exec app php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 init:
 	docker compose up -d --build
+	docker compose exec app composer self-update
+	docker compose exec app composer update
 	docker compose exec app composer install
 	docker compose exec app cp .env.example .env
 	docker compose exec app php artisan key:generate
@@ -102,6 +104,12 @@ sql:
 	docker compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
 	docker compose exec redis redis-cli
+composer-clear:
+	docker compose exec app rm -Rf vendor/
+	docker compose exec app rm composer.lock
+	docker compose exec app composer self-update
+	docker compose exec app composer update
+	docker compose exec app composer install
 reset:
 	rm -rf node_modules
 	rm package-lock.json
