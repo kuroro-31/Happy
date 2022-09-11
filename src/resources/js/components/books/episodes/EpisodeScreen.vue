@@ -1,12 +1,10 @@
 <template>
-    <div class="w-screen h-screen bg-dark">
-        <div
-            class="w-screen overflow-x-auto h-[800px] bg-dark-2 flex flex-row-reverse justify-start"
-        >
+    <div class="screen">
+        <div class="images">
             <img
                 v-for="img in images"
                 :key="img"
-                class="episode-img"
+                class="image"
                 :src="img"
                 alt="1"
             />
@@ -38,13 +36,19 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.episode-img {
-    @apply w-full h-full object-contain;
+.screen {
+    @apply w-screen h-screen bg-dark;
 }
-.episode-img:nth-child(odd) {
-    @apply mr-auto;
+.images {
+    @apply snap-x snap-mandatory w-screen h-full overflow-x-scroll bg-dark-2 flex flex-row-reverse justify-start;
 }
-.episode-img:nth-child(even) {
-    @apply ml-auto;
+.image {
+    @apply snap-always snap-start h-full object-contain;
+    &:nth-child(odd) {
+        @apply mr-auto;
+    }
+    &:nth-child(even) {
+        @apply ml-auto;
+    }
 }
 </style>
