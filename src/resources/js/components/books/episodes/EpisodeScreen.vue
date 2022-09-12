@@ -1,14 +1,20 @@
 <template>
     <div class="flex flex-col">
-        <div class="screen scroll-none">
+        <div id="screen" class="screen">
             <div v-for="i in setImages" :key="i" class="images">
                 <img class="image image-right" :src="i[0]" alt="image" />
                 <img class="image image-left" :src="i[1]" alt="image" />
             </div>
         </div>
         <div class="btns">
-            <button class="btn-prev">戻る</button>
-            <button class="btn-next">次へ</button>
+            <button
+                class="btn-prev"
+                @click="scroll_prev"
+                v-on:keydown="scroll_prev"
+            >
+                戻る
+            </button>
+            <button class="btn-next" @click="scroll_next">次へ</button>
         </div>
     </div>
 </template>
@@ -35,8 +41,22 @@ export default {
             setImages: [],
         };
     },
+    methods: {
+        scroll_prev() {
+            let window_width = window.innerWidth;
+            let content = document.querySelector(".screen");
+            content.scrollLeft -= window_width;
+        },
+        scroll_next() {
+            let window_width = window.innerWidth;
+            let content = document.querySelector(".screen");
+            content.scrollLeft += window_width;
+        },
+    },
     mounted() {
         let all = this.images;
+        let window_width = window.innerWidth;
+        let content = document.querySelector(".screen");
 
         // 2枚ずつに分け、スライド用の配列を作成
         const sliceByNumber = (all, number) => {
@@ -47,33 +67,31 @@ export default {
         };
         this.setImages = sliceByNumber(all, 2);
 
-        window.onload = function () {
-            let window_width = window.innerWidth;
-            let page_half_width = window_width / 2;
-
-            let margin = page_half_width / 10;
-            let page_width = page_half_width / 9;
-
-            let right_img = document.querySelector(".image-right");
-            let left_img = document.querySelector(".image-left");
-
-            right_img.style.marginRight = margin;
-            right_img.style.width = page_width;
-            left_img.style.marginLeft = margin;
-            left_img.style.width = page_width;
+        // キーボードキーでスライド移動
+        document.onkeydown = function (e) {
+            var keyCode = false;
+            if (e) event = e;
+            if (event) {
+                if (event.keyCode == 37) {
+                    content.scrollLeft -= window_width;
+                }
+                if (event.keyCode == 39) {
+                    content.scrollLeft += window_width;
+                }
+            }
         };
     },
 };
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply snap-x snap-mandatory max-h-[80vh] flex flex-row-reverse scroll-auto overflow-scroll;
+    @apply snap-x snap-mandatory max-h-[85vh] flex flex-row-reverse scroll-auto overflow-scroll;
     -webkit-overflow-scrolling: touch !important;
 }
 .images {
     @apply snap-always snap-start bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse;
 }
 .image {
-    @apply max-w-[50vw] max-h-[80vh] object-contain;
+    @apply max-w-[50vw] max-h-[85vh] object-contain;
 }
 </style>
