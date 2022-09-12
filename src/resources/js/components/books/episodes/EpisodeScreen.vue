@@ -102,18 +102,14 @@ export default {
         this.setImages = sliceByNumber(all, 2);
 
         // キーボードキーでスライド移動
-        document.onkeydown = function (e) {
-            var keyCode = false;
-            if (e) event = e;
-            if (event) {
-                if (event.keyCode == 37) {
-                    content.scrollLeft -= window_width;
-                }
-                if (event.keyCode == 39) {
-                    content.scrollLeft += window_width;
-                }
+        window.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight") {
+                content.scrollLeft += window_width;
             }
-        };
+            if (event.key === "ArrowLeft") {
+                content.scrollLeft -= window_width;
+            }
+        });
     },
 };
 </script>
