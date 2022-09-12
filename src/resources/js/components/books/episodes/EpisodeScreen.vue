@@ -47,74 +47,33 @@ export default {
         };
         this.setImages = sliceByNumber(all, 2);
 
-        class Carousel {
-            // 初期化
-            constructor(query) {
-                this.$elm = document.querySelector(query);
-
-                this.maxIndex = Math.round(
-                    this.$elm.scrollHeight / this.$elm.clientHeight
-                );
-            }
-
-            // 今の index を取得
-            get index() {
-                var index = Math.round(
-                    this.$elm.scrollHeight / this.$elm.clientHeight
-                );
-                return index;
-            }
-
-            // 指定した場所に移動
-            goto(index) {
-                var i = (index + this.maxIndex) % this.maxIndex;
-                this.$elm.children[i].scrollIntoView();
-            }
-
-            // 次へ
-            next() {
-                this.goto(this.index + 1);
-            }
-
-            // 前へ
-            prev() {
-                this.goto(this.index - 1);
-            }
-        }
-
         window.onload = function () {
-            // カルーセルを生成
-            var carousel = new Carousel(".screen");
+            let window_width = window.innerWidth;
+            let page_half_width = window_width / 2;
 
-            // ボタンのセットアップ
-            var $btnPrev = document.querySelector(".btn-prev");
-            var $btnNext = document.querySelector(".btn-next");
+            let margin = page_half_width / 10;
+            let page_width = page_half_width / 9;
 
-            $btnPrev.onclick = () => {
-                carousel.prev();
-            };
-            $btnNext.onclick = () => {
-                carousel.next();
-            };
+            let right_img = document.querySelector(".image-right");
+            let left_img = document.querySelector(".image-left");
+
+            right_img.style.marginRight = margin;
+            right_img.style.width = page_width;
+            left_img.style.marginLeft = margin;
+            left_img.style.width = page_width;
         };
     },
 };
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply bg-pink snap-y snap-mandatory max-h-[80vh] flex flex-col scroll-auto overflow-scroll;
+    @apply snap-x snap-mandatory max-h-[80vh] flex flex-row-reverse scroll-auto overflow-scroll;
     -webkit-overflow-scrolling: touch !important;
 }
 .images {
-    @apply bg-dark-1 snap-always snap-start h-full flex flex-row-reverse w-full justify-center;
+    @apply snap-always snap-start bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse;
 }
 .image {
-    @apply h-[80vh] object-contain;
-    // &-right {
-    //     @apply mr-auto;
-    // }
-    // &-left {
-    //     @apply ml-auto;
-    // }
+    @apply max-w-[50vw] max-h-[80vh] object-contain;
 }
 </style>
