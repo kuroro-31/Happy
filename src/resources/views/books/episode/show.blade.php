@@ -5,6 +5,7 @@
 @section('content')
     @include('_patials._episode_nav')
 
+    {{-- エピソードスクリーン --}}
     <episode-screen></episode-screen>
 
     <div class="w-full h-full bg-white dark:bg-dark">

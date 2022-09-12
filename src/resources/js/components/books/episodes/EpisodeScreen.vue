@@ -1,13 +1,14 @@
 <template>
-    <div class="screen">
-        <div class="images">
-            <img
-                v-for="img in images"
-                :key="img"
-                class="image"
-                :src="img"
-                alt="1"
-            />
+    <div class="flex flex-col">
+        <div class="screen scroll-none">
+            <div v-for="i in setImages" :key="i" class="images">
+                <img class="image image-right" :src="i[0]" alt="image" />
+                <img class="image image-left" :src="i[1]" alt="image" />
+            </div>
+        </div>
+        <div class="btns">
+            <button class="btn-prev">戻る</button>
+            <button class="btn-next">次へ</button>
         </div>
     </div>
 </template>
@@ -31,24 +32,89 @@ export default {
                 "https://i.gyazo.com/407daa9b6f6ad104279e082f7dd73c23.png",
                 "https://i.gyazo.com/1e03ad7f6934a35224f5ad78f9bf0f45.png",
             ],
+            setImages: [],
+        };
+    },
+    mounted() {
+        let all = this.images;
+
+        // 2枚ずつに分け、スライド用の配列を作成
+        const sliceByNumber = (all, number) => {
+            const length = Math.ceil(all.length / number);
+            return new Array(length)
+                .fill()
+                .map((_, i) => all.slice(i * number, (i + 1) * number));
+        };
+        this.setImages = sliceByNumber(all, 2);
+
+        class Carousel {
+            // 初期化
+            constructor(query) {
+                this.$elm = document.querySelector(query);
+
+                this.maxIndex = Math.round(
+                    this.$elm.scrollHeight / this.$elm.clientHeight
+                );
+            }
+
+            // 今の index を取得
+            get index() {
+                var index = Math.round(
+                    this.$elm.scrollHeight / this.$elm.clientHeight
+                );
+                return index;
+            }
+
+            // 指定した場所に移動
+            goto(index) {
+                var i = (index + this.maxIndex) % this.maxIndex;
+                this.$elm.children[i].scrollIntoView();
+            }
+
+            // 次へ
+            next() {
+                this.goto(this.index + 1);
+            }
+
+            // 前へ
+            prev() {
+                this.goto(this.index - 1);
+            }
+        }
+
+        window.onload = function () {
+            // カルーセルを生成
+            var carousel = new Carousel(".screen");
+
+            // ボタンのセットアップ
+            var $btnPrev = document.querySelector(".btn-prev");
+            var $btnNext = document.querySelector(".btn-next");
+
+            $btnPrev.onclick = () => {
+                carousel.prev();
+            };
+            $btnNext.onclick = () => {
+                carousel.next();
+            };
         };
     },
 };
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply w-screen h-screen bg-dark;
+    @apply bg-pink snap-y snap-mandatory max-h-[80vh] flex flex-col scroll-auto overflow-scroll;
+    -webkit-overflow-scrolling: touch !important;
 }
 .images {
-    @apply snap-x snap-mandatory w-screen h-full overflow-x-scroll bg-dark-2 flex flex-row-reverse justify-start;
+    @apply bg-dark-1 snap-always snap-start h-full flex flex-row-reverse w-full justify-center;
 }
 .image {
-    @apply snap-always snap-start h-full object-contain;
-    &:nth-child(odd) {
-        @apply mr-auto;
-    }
-    &:nth-child(even) {
-        @apply ml-auto;
-    }
+    @apply h-[80vh] object-contain;
+    // &-right {
+    //     @apply mr-auto;
+    // }
+    // &-left {
+    //     @apply ml-auto;
+    // }
 }
 </style>
