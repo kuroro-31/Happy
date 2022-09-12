@@ -1,21 +1,55 @@
 <template>
-    <div class="flex flex-col">
+    <div class="relative flex flex-col">
         <div id="screen" class="screen scroll-none">
             <div v-for="i in setImages" :key="i" class="images">
                 <img class="image image-right" :src="i[0]" alt="image" />
                 <img class="image image-left" :src="i[1]" alt="image" />
             </div>
         </div>
-        <div class="btns">
-            <button
-                class="btn-prev"
-                @click="scroll_prev"
-                v-on:keydown="scroll_prev"
+        <button
+            class="btn-prev"
+            @click="scroll_prev"
+            v-on:keydown="scroll_prev"
+        >
+            <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
             >
-                戻る
-            </button>
-            <button class="btn-next" @click="scroll_next">次へ</button>
-        </div>
+                <path
+                    d="M15 19.92L8.47997 13.4C7.70997 12.63 7.70997 11.37 8.47997 10.6L15 4.08002"
+                    stroke="#eee"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+        </button>
+        <button
+            class="btn-next"
+            @click="scroll_next"
+            v-on:keydown="scroll_next"
+        >
+            <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
+                    stroke="#eee"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+        </button>
     </div>
 </template>
 <script>
@@ -85,13 +119,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply max-h-[85vh] flex flex-row-reverse overflow-hidden;
+    @apply max-h-[100vh] flex flex-row-reverse overflow-hidden duration-300;
     -webkit-overflow-scrolling: touch !important;
 }
 .images {
-    @apply bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse;
+    @apply bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
 }
 .image {
-    @apply max-w-[50vw] max-h-[85vh] object-contain;
+    @apply max-w-[50vw] max-h-[100vh] object-contain duration-300;
+}
+.btn-prev {
+    @apply absolute left-0 top-0 bottom-0 h-full flex items-center pl-12 pr-48 duration-300;
+}
+.btn-next {
+    @apply absolute right-0 top-0 bottom-0 h-full flex items-center pr-12 pl-48 duration-300;
 }
 </style>
