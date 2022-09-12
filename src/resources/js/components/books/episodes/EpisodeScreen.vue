@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col">
-        <div id="screen" class="screen">
+        <div id="screen" class="screen scroll-none">
             <div v-for="i in setImages" :key="i" class="images">
                 <img class="image image-right" :src="i[0]" alt="image" />
                 <img class="image image-left" :src="i[1]" alt="image" />
@@ -85,11 +85,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply snap-x snap-mandatory max-h-[85vh] flex flex-row-reverse scroll-auto overflow-scroll;
+    @apply max-h-[85vh] flex flex-row-reverse overflow-hidden;
     -webkit-overflow-scrolling: touch !important;
 }
 .images {
-    @apply snap-always snap-start bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse;
+    @apply bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse;
 }
 .image {
     @apply max-w-[50vw] max-h-[85vh] object-contain;
