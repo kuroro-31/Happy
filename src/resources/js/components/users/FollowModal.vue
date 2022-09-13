@@ -1,6 +1,6 @@
 <template>
     <div @click.self="close">
-        <button @click="open = true" class="w-full btn-border">
+        <button @click="open = true">
             <slot name="trigger"></slot>
         </button>
         <transition name="modal" appear>
