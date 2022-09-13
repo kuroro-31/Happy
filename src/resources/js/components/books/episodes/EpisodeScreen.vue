@@ -1,55 +1,151 @@
 <template>
     <div class="relative flex flex-col">
-        <div id="screen" class="screen scroll-none">
+        <!-- 1段目 -->
+        <div class="screen scroll-none" :class="isFullScreen">
             <div v-for="i in setImages" :key="i" class="images">
-                <img class="image image-right" :src="i[0]" alt="image" />
-                <img class="image image-left" :src="i[1]" alt="image" />
+                <img
+                    :class="isFullScreen"
+                    class="image image-right"
+                    :src="i[0]"
+                    alt="image"
+                />
+                <img
+                    :class="isFullScreen"
+                    class="image image-left"
+                    :src="i[1]"
+                    alt="image"
+                />
             </div>
+            <button
+                :class="isFullScreen"
+                class="btn-next"
+                @click="scroll_next"
+                @keydown="scroll_next"
+            >
+                <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M15 19.92L8.47997 13.4C7.70997 12.63 7.70997 11.37 8.47997 10.6L15 4.08002"
+                        stroke="#eee"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button
+                :class="isFullScreen"
+                class="btn-prev"
+                @click="scroll_prev"
+                @keydown="scroll_prev"
+            >
+                <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
+                        stroke="#eee"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
         </div>
-        <button
-            class="btn-prev"
-            @click="scroll_prev"
-            v-on:keydown="scroll_prev"
-        >
-            <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M15 19.92L8.47997 13.4C7.70997 12.63 7.70997 11.37 8.47997 10.6L15 4.08002"
-                    stroke="#eee"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-            </svg>
-        </button>
-        <button
-            class="btn-next"
-            @click="scroll_next"
-            v-on:keydown="scroll_next"
-        >
-            <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
-                    stroke="#eee"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-            </svg>
-        </button>
+
+        <!-- 2段目 -->
+        <div class="w-full bg-333 p-4 flex justify-between">
+            <div class="">レビューを書く</div>
+            <div class="flex text-ccc">
+                <div
+                    v-if="!fullScreen"
+                    @click="fullScreen = true"
+                    class="cursor-pointer flex items-center"
+                >
+                    <svg
+                        x="0px"
+                        y="0px"
+                        width="18px"
+                        height="18px"
+                        viewBox="-909 226 100 100"
+                        style="enable-background: new -909 226 100 100"
+                        xml:space="preserve"
+                    >
+                        <g>
+                            <path
+                                d="M-902.5,259.5L-902.5,259.5c1.4,0,2.5-1.1,2.5-2.5v-22h22c1.4,0,2.5-1.1,2.5-2.5l0,0c0-1.4-1.1-2.5-2.5-2.5h-24.5
+		c-1.4,0-2.5,1.1-2.5,2.5V257C-905,258.4-903.9,259.5-902.5,259.5z"
+                                fill="#ccc"
+                                stroke="#ccc"
+                            />
+                            <path
+                                d="M-818,317h-22c-1.4,0-2.5,1.1-2.5,2.5l0,0c0,1.4,1.1,2.5,2.5,2.5h24.5c1.4,0,2.5-1.1,2.5-2.5V295c0-1.4-1.1-2.5-2.5-2.5
+		l0,0c-1.4,0-2.5,1.1-2.5,2.5V317z"
+                                fill="#ccc"
+                                stroke="#ccc"
+                            />
+                            <path
+                                d="M-842.5,232.5L-842.5,232.5c0,1.4,1.1,2.5,2.5,2.5h22v22c0,1.4,1.1,2.5,2.5,2.5l0,0c1.4,0,2.5-1.1,2.5-2.5v-24.5
+		c0-1.4-1.1-2.5-2.5-2.5H-840C-841.4,230-842.5,231.1-842.5,232.5z"
+                                fill="#ccc"
+                                stroke="#ccc"
+                            />
+                            <path
+                                d="M-902.5,292.5L-902.5,292.5c-1.4,0-2.5,1.1-2.5,2.5v24.5c0,1.4,1.1,2.5,2.5,2.5h24.5c1.4,0,2.5-1.1,2.5-2.5l0,0
+		c0-1.4-1.1-2.5-2.5-2.5h-22v-22C-900,293.6-901.1,292.5-902.5,292.5z"
+                                fill="#ccc"
+                                stroke="#ccc"
+                            />
+                        </g>
+                    </svg>
+                    <span class="pl-4 text-sm">拡大</span>
+                </div>
+                <div
+                    v-if="fullScreen"
+                    @keydown.esc="fullScreen = false"
+                    @click="fullScreen = false"
+                    class="cursor-pointer flex items-center"
+                >
+                    <svg
+                        x="0px"
+                        y="0px"
+                        width="20px"
+                        height="20px"
+                        viewBox="0 0 64 64"
+                        enable-background="new 0 0 64 64"
+                        xml:space="preserve"
+                    >
+                        <g>
+                            <polygon
+                                points="1.707,36.293 0.293,37.707 26.293,63.707 27.707,62.293 15.414,50 28,37.414 28,46 30,46 30,35 29,34 18,34 18,36
+		26.586,36 14,48.586 	"
+                                fill="#ccc"
+                                stroke="#ccc"
+                            />
+                            <polygon
+                                points="34,18 34,29 35,30 46,30 46,28 37.414,28 50,15.414 62.293,27.707 63.707,26.293 37.707,0.293 36.293,1.707
+		48.586,14 36,26.586 36,18 	"
+                                fill="#ccc"
+                                stroke="#ccc"
+                            />
+                        </g>
+                    </svg>
+                    <span class="pl-4 text-sm">通常</span>
+                </div>
+            </div>
+            <div>SNSシェア</div>
+        </div>
     </div>
 </template>
 <script>
@@ -73,24 +169,46 @@ export default {
                 "https://i.gyazo.com/1e03ad7f6934a35224f5ad78f9bf0f45.png",
             ],
             setImages: [],
+            fullScreen: false,
         };
     },
+    computed: {
+        isFullScreen() {
+            return this.fullScreen ? "max-h-[100vh]" : "max-h-[85vh]";
+        },
+        isNormalScreen() {
+            return this.fullScreen ? "max-h-[85vh]" : "max-h-[100vh]";
+        },
+    },
     methods: {
-        scroll_prev() {
+        scroll_next() {
             let window_width = window.innerWidth;
             let content = document.querySelector(".screen");
             content.scrollLeft -= window_width;
         },
-        scroll_next() {
+        scroll_prev() {
             let window_width = window.innerWidth;
             let content = document.querySelector(".screen");
             content.scrollLeft += window_width;
         },
+        // フルスクリーン解除
+        clear_fullscreen() {
+            this.fullScreen = false;
+        },
+    },
+    created() {
+        // escでフルスクリーン解除メソッドを呼ぶ
+        let that = this;
+        document.addEventListener("keyup", function (evt) {
+            if (evt.keyCode === 27) {
+                that.clear_fullscreen();
+            }
+        });
     },
     mounted() {
-        let all = this.images;
-        let window_width = window.innerWidth;
-        let content = document.querySelector(".screen");
+        const all = this.images;
+        const window_width = window.innerWidth;
+        const content = document.querySelector(".screen");
 
         // 2枚ずつに分け、スライド用の配列を作成
         const sliceByNumber = (all, number) => {
@@ -101,33 +219,36 @@ export default {
         };
         this.setImages = sliceByNumber(all, 2);
 
+        // ロード時のイベント
+        window.onload = function () {};
+
         // キーボードキーでスライド移動
-        window.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowRight") {
+        document.onkeydown = function (e) {
+            if (e.key === "ArrowRight") {
                 content.scrollLeft += window_width;
             }
-            if (event.key === "ArrowLeft") {
+            if (e.key === "ArrowLeft") {
                 content.scrollLeft -= window_width;
             }
-        });
+        };
     },
 };
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply max-h-[100vh] flex flex-row-reverse overflow-hidden duration-300;
+    @apply flex flex-row-reverse overflow-hidden duration-300;
     -webkit-overflow-scrolling: touch !important;
 }
 .images {
-    @apply bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
+    @apply bg-333 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
 }
 .image {
-    @apply max-w-[50vw] max-h-[100vh] object-contain duration-300;
-}
-.btn-prev {
-    @apply absolute left-0 top-0 bottom-0 h-full flex items-center pl-12 pr-48 duration-300;
+    @apply max-w-[50vw] object-contain duration-300;
 }
 .btn-next {
-    @apply absolute right-0 top-0 bottom-0 h-full flex items-center pr-12 pl-48 duration-300;
+    @apply absolute opacity-0 hover:opacity-100 left-0 top-0 bottom-0 outline-none flex items-center pl-12 pr-96;
+}
+.btn-prev {
+    @apply absolute opacity-0 hover:opacity-100 right-0 top-0 bottom-0 outline-none flex items-center pr-12 pl-96;
 }
 </style>
