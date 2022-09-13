@@ -149,27 +149,36 @@
                                                         </svg>
                                                     </div>
                                                 </template>
-                                                <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                                    class="mr-2">
+                                                {{-- <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                    class="">
                                                     <svg class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
                                                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                     </svg>
-                                                </a>
-                                                <delete-modal>
-                                                    <template #trigger>エピソードを削除する</template>
-                                                    <form method="POST"
-                                                        action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                                        class="p-2 rounded">
-                                                        @csrf
-                                                        @method('DELETE')
+                                                </a> --}}
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="inline-block whitespace-nowrap cursor-pointer hover:text-primary mb-2">編集する</span>
+                                                    <delete-modal>
+                                                        <template #trigger>
+                                                            <span
+                                                                class="whitespace-nowrap cursor-pointer hover:text-primary">削除する</span>
+                                                        </template>
+                                                        <template #header>エピソードの削除</template>
+                                                        <form method="POST"
+                                                            action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                            class="p-2 rounded">
+                                                            @csrf
+                                                            @method('DELETE')
 
-                                                        <span>本当に削除してよろしいですか？</span>
-                                                        <span>一度削除したら戻すことができません。</span>
-                                                        <button type="submit" class="btn-danger mt-4">削除する</button>
-                                                    </form>
-                                                </delete-modal>
+                                                            <span>本当に削除してよろしいですか？</span>
+                                                            <span>一度削除したら戻すことができません。</span>
+                                                            <button type="submit" class="btn-danger mt-4">削除する</button>
+                                                        </form>
+                                                    </delete-modal>
+                                                </div>
+
                                             </hover-menu>
                                         @endif
                                     </div>

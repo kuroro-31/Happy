@@ -22,7 +22,7 @@ export default {
     },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .dropdown {
     @apply absolute shadow-lg right-0 top-10 z-[999] rounded p-2 bg-white dark:bg-dark-1;
     width: 250px;

@@ -1,11 +1,8 @@
 <template>
     <div class="absolute right-0 top-0" @mouseleave="open = false">
-        <button
-            @mouseover="open = true"
-            class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto shadow"
-        >
+        <div @mouseover="open = true" class="">
             <slot name="avatar"></slot>
-        </button>
+        </div>
         <transition>
             <div v-show="open" class="dropdown">
                 <slot></slot>
@@ -24,7 +21,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .dropdown {
-    @apply absolute shadow-lg right-0 top-0 z-[999] rounded p-2 bg-white dark:bg-dark-1;
-    width: 250px;
+    @apply absolute p-4 shadow-lg right-0 top-0 rounded bg-white dark:bg-dark-1;
 }
 </style>
