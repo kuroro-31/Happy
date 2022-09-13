@@ -219,9 +219,6 @@ export default {
         };
         this.setImages = sliceByNumber(all, 2);
 
-        // ロード時のイベント
-        window.onload = function () {};
-
         // キーボードキーでスライド移動
         document.onkeydown = function (e) {
             if (e.key === "ArrowRight") {
@@ -231,6 +228,9 @@ export default {
                 content.scrollLeft -= window_width;
             }
         };
+
+        // ロード時のイベント
+        window.onload = function () {};
     },
 };
 </script>
