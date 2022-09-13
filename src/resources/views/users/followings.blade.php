@@ -16,6 +16,7 @@
             ]) --}}
 
             <follow-modal :user-name='@json($user->name)'>
+                <template #header>{{ $user->name }}さんのフォロー</template>
                 @if ($followings->count())
                     @foreach ($followings as $person)
                         @include('users._patials.person')

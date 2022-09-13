@@ -228,9 +228,6 @@ export default {
                 content.scrollLeft -= window_width;
             }
         };
-
-        // ロード時のイベント
-        window.onload = function () {};
     },
 };
 </script>
