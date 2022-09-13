@@ -1,25 +1,29 @@
 <template>
     <div @click.self="open = false">
-        <svg
-            @click="open = true"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 cursor-pointer hover:text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-            />
-        </svg>
+        <button @click="open = true" class="">
+            <slot name="trigger"></slot>
+        </button>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div class="window">
-                    <div class="">本当に削除してよろしいですか？</div>
-                    <slot></slot>
+                    <div class="header">
+                        <button class="close" @click="open = false">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="#333"
+                            >
+                                <path
+                                    d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+                                ></path>
+                            </svg>
+                        </button>
+                        <div class="title"><slot name="header"></slot></div>
+                    </div>
+                    <div class="p-6 max-h-[60vh] overflow-y-auto scroll-none">
+                        <slot></slot>
+                    </div>
                 </div>
             </div>
         </transition>
@@ -34,3 +38,51 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.header {
+    @apply relative min-h-[30px] bg-[#F2F2F2] text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
+}
+.title {
+    @apply text-[#5A5777];
+    animation: slide-in 0.3s;
+}
+.close {
+    @apply absolute text-666 bg-white p-2 rounded duration-300 cursor-pointer shadow;
+    top: -10px;
+    right: -10px;
+    &:hover {
+        @apply shadow-lg;
+        top: -7px;
+        right: -7px;
+    }
+}
+@keyframes bounce-in {
+    // 0% {
+    //   transform: scale(0);
+    // }
+    // 50% {
+    //   transform: scale(1.1);
+    // }
+    // 100% {
+    //   transform: scale(1);
+    // }
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slide-in {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+</style>

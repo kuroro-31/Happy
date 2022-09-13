@@ -2,7 +2,6 @@
     <div @click="clickLike" class="book-like">
         <svg
             :class="[{ clicked: isLikedBy }, iconClass]"
-            xmlns="http://www.w3.org/2000/svg"
             class="mr-2"
             viewBox="0 0 20 20"
             fill="currentColor"

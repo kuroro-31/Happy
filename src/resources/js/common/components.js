@@ -13,8 +13,8 @@ import UpdateEpisode from "../components/books/episodes/UpdateEpisode";
 import BookTagsInput from "../components/BookTagsInput";
 import CountAnimation from "../components/CountAnimation";
 import FollowButton from "../components/FollowButton";
-import HeaderNav from "../components/HeaderNav";
 import HeaderUserModal from "../components/HeaderUserModal";
+import HoverMenu from "../components/HoverMenu";
 import Modal from "../components/Modal";
 import ThemeToggle from "../components/ThemeToggle";
 import AvatarZoom from "../components/users/AvatarZoom";
@@ -35,6 +35,7 @@ export default {
     AvatarZoom,
     AuthModal,
     DeleteModal,
+    HoverMenu,
     CreateModal,
     CountAnimation,
     HeaderUserModal,
@@ -44,6 +45,5 @@ export default {
     BookLike,
     BookTagsInput,
     FollowButton,
-    HeaderNav,
     Modal,
 };

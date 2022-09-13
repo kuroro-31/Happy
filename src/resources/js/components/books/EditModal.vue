@@ -2,7 +2,6 @@
     <div @click.self="open = false">
         <svg
             @click="open = true"
-            xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5 cursor-pointer hover:text-primary"
             fill="none"
             viewBox="0 0 24 24"

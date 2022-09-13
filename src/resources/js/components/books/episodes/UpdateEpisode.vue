@@ -13,7 +13,6 @@
             <p v-if="name" class="w-full flex items-center justify-end mt-2">
                 <svg
                     v-if="name.length <= 30 && name.length >= 5"
-                    xmlns="http://www.w3.org/2000/svg"
                     class="slide-animation h-5 w-5 text-primary mr-1"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -39,7 +38,6 @@
             <p v-if="body" class="w-full flex items-center justify-end mt-2">
                 <svg
                     v-if="body.length >= 1000"
-                    xmlns="http://www.w3.org/2000/svg"
                     class="slide-animation h-5 w-5 text-primary mr-1"
                     viewBox="0 0 20 20"
                     fill="currentColor"

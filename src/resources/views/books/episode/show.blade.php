@@ -29,8 +29,7 @@
                 {{-- @empty(!$book->rate) --}}
                 <div class="w-full flex items-center px-2 mb-4">
                     <span class="text-3xl pr-4">4.8{{ $book->rate }}</span>
-                    <svg width="85" height="17" viewBox="0 0 85 17" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg width="85" height="17" viewBox="0 0 85 17" fill="none">
                         <path
                             d="M8.5 0L10.4084 5.87336L16.584 5.87336L11.5878 9.50329L13.4962 15.3766L8.5 11.7467L3.50383 15.3766L5.41219 9.50329L0.416019 5.87336L6.59163 5.87336L8.5 0Z"
                             fill="#FFA126" />
@@ -99,7 +98,7 @@
                                 @endif
                                 @foreach ($episodes as $episode)
                                     <div
-                                        class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
+                                        class="relative hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                                         <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
@@ -138,30 +137,41 @@
                                         </a>
 
                                         {{-- 作者欄 --}}
-                                        <div class="flex items-center pr-4">
-                                            @if (Auth::id() === $book->user_id)
-                                                <div class="flex items-center">
-                                                    <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                                        class="mr-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                            class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
-                                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        @if (Auth::id() === $book->user_id)
+                                            <hover-menu>
+                                                <template #avatar>
+                                                    <div class="flex p-1 hover:bg-ddd rounded-full cursor-pointer">
+                                                        <svg width="24" height="24" class="flex-shrink-0"
+                                                            style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                                            <path
+                                                                d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+                                                            </path>
                                                         </svg>
-                                                    </a>
-                                                    <delete-modal>
-                                                        <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
-                                                            class="p-2 rounded">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn-danger">削除する</button>
-                                                        </form>
-                                                    </delete-modal>
-                                                </div>
-                                            @endif
-                                        </div>
+                                                    </div>
+                                                </template>
+                                                <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                    class="mr-2">
+                                                    <svg class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg>
+                                                </a>
+                                                <delete-modal>
+                                                    <template #trigger>エピソードを削除する</template>
+                                                    <form method="POST"
+                                                        action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                        class="p-2 rounded">
+                                                        @csrf
+                                                        @method('DELETE')
+
+                                                        <span>本当に削除してよろしいですか？</span>
+                                                        <span>一度削除したら戻すことができません。</span>
+                                                        <button type="submit" class="btn-danger mt-4">削除する</button>
+                                                    </form>
+                                                </delete-modal>
+                                            </hover-menu>
+                                        @endif
                                     </div>
                                 @endforeach
                             </div>
@@ -252,7 +262,7 @@
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        >
                                         <path
                                             d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
                                             fill="#FFA126" />
@@ -285,7 +295,7 @@
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        >
                                         <path
                                             d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
                                             fill="#FFA126" />
@@ -318,7 +328,7 @@
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        >
                                         <path
                                             d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
                                             fill="#FFA126" />
