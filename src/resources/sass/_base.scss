@@ -191,14 +191,16 @@ img {
 }
 
 .close {
-    @apply absolute p-2 rounded-sm duration-300 cursor-pointer;
-    color: var(--color);
-    background-color: var(--bg);
+    @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-1 p-2 rounded duration-300 cursor-pointer shadow;
     top: -10px;
     right: -10px;
     &:hover {
+        @apply shadow-lg;
         top: -7px;
         right: -7px;
+    }
+    svg {
+        @apply dark:fill-ddd;
     }
 }
 
@@ -323,4 +325,13 @@ button[disabled] {
             @apply w-[270px] h-[270px];
         }
     }
+}
+
+.ti-input {
+    @apply dark:bg-dark;
+    border: none !important;
+}
+.ti-valid,
+.ti-new-tag-input {
+    @apply dark:bg-dark;
 }

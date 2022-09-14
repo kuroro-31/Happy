@@ -77,19 +77,6 @@
     }
 }
 
-.close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer shadow-lg;
-    color: var(--color);
-    background-color: var(--bg);
-    top: -10px;
-    right: -10px;
-    &:hover {
-        @apply shadow;
-        top: -7px;
-        right: -7px;
-    }
-}
-
 // オーバーレイのトランジション
 .modal-enter-active,
 .modal-leave-active {

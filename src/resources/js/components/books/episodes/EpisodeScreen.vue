@@ -53,7 +53,7 @@
         </div>
 
         <!-- 2段目 -->
-        <div class="w-full bg-333 p-4 flex justify-between">
+        <div class="w-full bg-dark-1 p-4 flex justify-between">
             <div class="">レビューを書く</div>
             <div class="flex text-ccc">
                 <div
@@ -225,7 +225,7 @@ export default {
     -webkit-overflow-scrolling: touch !important;
 }
 .images {
-    @apply bg-333 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
+    @apply bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
 }
 .image {
     @apply max-w-[50vw] object-contain duration-300;

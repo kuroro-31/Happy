@@ -21,7 +21,7 @@
                         </button>
                         <div class="title"><slot name="header"></slot></div>
                     </div>
-                    <div class="p-6 max-h-[60vh] overflow-y-auto scroll-none">
+                    <div class="p-6 max-h-[60vh] overflow-y-scroll scroll-none">
                         <slot></slot>
                     </div>
                 </div>
@@ -40,21 +40,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-    @apply relative min-h-[30px] bg-[#F2F2F2] text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
+    @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
 }
 .title {
-    @apply text-[#5A5777];
+    @apply text-[#5A5777] dark:text-ddd;
     animation: slide-in 0.3s;
-}
-.close {
-    @apply absolute text-666 bg-white p-2 rounded duration-300 cursor-pointer shadow;
-    top: -10px;
-    right: -10px;
-    &:hover {
-        @apply shadow-lg;
-        top: -7px;
-        right: -7px;
-    }
 }
 @keyframes bounce-in {
     // 0% {

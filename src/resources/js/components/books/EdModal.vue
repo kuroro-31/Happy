@@ -39,17 +39,6 @@ export default {
         max-width: 90%;
     }
 }
-.close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer;
-    color: var(--color);
-    background-color: var(--bg);
-    top: -10px;
-    right: -10px;
-    &:hover {
-        top: -7px;
-        right: -7px;
-    }
-}
 // オーバーレイのトランジション
 .modal-enter-active,
 .modal-leave-active {

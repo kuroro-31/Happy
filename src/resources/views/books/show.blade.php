@@ -87,7 +87,7 @@
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
                                     <div
-                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 rounded-[3px] border-dotted border-2 border-ccc hover:border-aaa">
+                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa  dark:border-dark-1">
                                         <episode-list :book='@json($book)'>
                                             エピソードを追加する
                                         </episode-list>
@@ -95,7 +95,7 @@
                                 @endif
                                 @foreach ($episodes as $episode)
                                     <div
-                                        class="hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
+                                        class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                                         <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
@@ -221,7 +221,7 @@
                                             @if ($loop->first)
                                             @endif
                                             <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
-                                                class="inline-block mr-2 mb-2 text-xs text-666 rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
+                                                class="inline-block mr-2 mb-2 text-xs text-666 dark:text-ddd rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
                                                 {{ $tag->hashtag }}
                                             </a>
                                             @if ($loop->last)
@@ -244,7 +244,7 @@
                                         <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
                                         <div class="flex flex-col ml-2">
                                             <span>ミランダカー</span>
-                                            <span class="text-xs text-666">2022/08/22</span>
+                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
@@ -277,7 +277,7 @@
                                         <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
                                         <div class="flex flex-col ml-2">
                                             <span>ミランダカー</span>
-                                            <span class="text-xs text-666">2022/08/22</span>
+                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
@@ -310,7 +310,7 @@
                                         <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
                                         <div class="flex flex-col ml-2">
                                             <span>ミランダカー</span>
-                                            <span class="text-xs text-666">2022/08/22</span>
+                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"

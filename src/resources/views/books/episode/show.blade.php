@@ -244,7 +244,7 @@
                                             @if ($loop->first)
                                             @endif
                                             <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
-                                                class="inline-block mr-2 mb-2 text-xs text-666 rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
+                                                class="inline-block mr-2 mb-2 text-xs text-666 dark:text-ddd rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
                                                 {{ $tag->hashtag }}
                                             </a>
                                             @if ($loop->last)
@@ -267,7 +267,7 @@
                                         <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
                                         <div class="flex flex-col ml-2">
                                             <span>ミランダカー</span>
-                                            <span class="text-xs text-666">2022/08/22</span>
+                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
@@ -300,7 +300,7 @@
                                         <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
                                         <div class="flex flex-col ml-2">
                                             <span>ミランダカー</span>
-                                            <span class="text-xs text-666">2022/08/22</span>
+                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
@@ -333,7 +333,7 @@
                                         <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
                                         <div class="flex flex-col ml-2">
                                             <span>ミランダカー</span>
-                                            <span class="text-xs text-666">2022/08/22</span>
+                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
                                         </div>
                                     </div>
                                     <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
