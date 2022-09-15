@@ -32,7 +32,8 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="list-item">
-                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->code]) }}" target="_blank"
+                                        rel="noopener noreferrer">
                                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -111,8 +112,7 @@
                             @foreach ($books as $book)
                                 <div class="list-item">
                                     <a href="{{ route('book.show', ['book' => $book->code]) }}">
-                                        <img src="/img/bg.svg" alt="thumbnail"
-                                            class="list-item-img">
+                                        <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
 
