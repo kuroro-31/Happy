@@ -43,7 +43,7 @@ export default {
     @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
 }
 .title {
-    @apply text-[#5A5777];
+    @apply text-[#5A5777] dark:text-ddd;
     animation: slide-in 0.3s;
 }
 @keyframes bounce-in {
