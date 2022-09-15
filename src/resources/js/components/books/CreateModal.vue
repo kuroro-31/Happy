@@ -1,7 +1,7 @@
 <template>
     <div @click.self="open = false" class="list-item">
         <div @click="open = true" class="flex flex-col cursor-pointer">
-            <svg
+            <!-- <svg
                 width="200"
                 height="200"
                 viewBox="0 0 200 200"
@@ -18,7 +18,35 @@
                     transform="rotate(-90 70 105)"
                     fill="#D9D9D9"
                 />
-            </svg>
+            </svg> -->
+            <div
+                class="circle bg-white dark:bg-dark-1 rounded-[3px] w-[200px] min-w-[200px] max-w-[200px] h-[200px] min-h-200[px] max-h-[200px] flex items-center justify-center"
+            >
+                <div
+                    class="dotted flex items-center justify-center rounded-full h-[100px] w-[100px] border-4 border-dotted border-ccc"
+                >
+                    <div
+                        class="bg-primary rounded-full h-[60px] w-[60px] flex items-center justify-center"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 60 60"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <rect x="25" width="10" height="60" fill="white" />
+                            <rect
+                                y="35"
+                                width="10"
+                                height="60"
+                                transform="rotate(-90 0 35)"
+                                fill="white"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </div>
             <span class="mt-2">新しく作品を追加する</span>
         </div>
         <transition name="modal" appear>
@@ -64,6 +92,17 @@ export default {
     @apply text-[#5A5777] dark:text-ddd;
     animation: slide-in 0.3s;
 }
+.circle {
+    &:hover {
+        .dotted {
+            animation: r1 3s linear infinite;
+            svg {
+                animation: l1 3s linear infinite;
+            }
+        }
+    }
+}
+
 @keyframes bounce-in {
     // 0% {
     //   transform: scale(0);
@@ -91,6 +130,22 @@ export default {
     100% {
         transform: translateX(0px);
         opacity: 1;
+    }
+}
+@keyframes r1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes l1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
     }
 }
 </style>

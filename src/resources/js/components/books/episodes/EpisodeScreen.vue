@@ -53,7 +53,7 @@
         </div>
 
         <!-- 2段目 -->
-        <div class="w-full bg-dark-1 p-4 flex justify-between">
+        <div class="w-full bg-dark-1 px-4 py-2 flex justify-between">
             <div class="">レビューを書く</div>
             <div class="flex text-ccc">
                 <div
@@ -93,7 +93,7 @@
                             />
                         </g>
                     </svg>
-                    <span class="pl-4 text-sm">拡大</span>
+                    <span class="pl-2 text-xs">拡大</span>
                 </div>
                 <div
                     v-if="fullScreen"
@@ -123,7 +123,7 @@
                             />
                         </g>
                     </svg>
-                    <span class="pl-4 text-sm">通常</span>
+                    <span class="pl-2 text-xs">通常</span>
                 </div>
             </div>
             <div>SNSシェア</div>
@@ -225,21 +225,21 @@ export default {
     @apply max-w-[50vw] object-contain duration-300;
 }
 .btn-next {
-    @apply absolute z-10 left-0 top-0 bottom-0 outline-none flex items-center pl-12 pr-96;
+    @apply absolute z-10 left-0 top-0 bottom-0 outline-none flex items-center pl-4 pr-96;
     &:hover {
         svg {
             path {
-                stroke: white !important;
+                stroke: #ccc !important;
             }
         }
     }
 }
 .btn-prev {
-    @apply absolute z-10 right-0 top-0 bottom-0 outline-none flex items-center pr-12 pl-96;
+    @apply absolute z-10 right-0 top-0 bottom-0 outline-none flex items-center pr-4 pl-96;
     &:hover {
         svg {
             path {
-                stroke: white !important;
+                stroke: #ccc !important;
             }
         }
     }
