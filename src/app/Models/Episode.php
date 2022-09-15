@@ -16,4 +16,9 @@ class Episode extends Model
     {
         return $this->belongsTo('App\Models\Book');
     }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }
