@@ -181,9 +181,6 @@ img {
         img {
             @apply rounded;
         }
-        @screen lg {
-            width: 600px;
-        }
         @media screen and (max-width: 767px) {
             max-width: 90%;
         }
