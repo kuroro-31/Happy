@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 // Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
 // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
+
+
 /*
 |--------------------------------------------------------------------------
 | Books Routes
 |--------------------------------------------------------------------------
 | 投稿
 */
+
 Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index');
 Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
@@ -34,12 +37,15 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::get('/{book}/{episode}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
         Route::get('/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\EditController')->name('episode.edit');
         Route::delete('/{book}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
+        // コメント
+        Route::post('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->name('episode.comment.store');
+        Route::delete('/{book_id}/{episode_id}/{comment_id}', 'App\Http\Controllers\Books\Episode\Comment\DestroyController')->name('episode.comment.destroy');
     });
     Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });
-
 // タグ
 Route::get('/tags/{name}', 'App\Http\Controllers\TagController')->name('tags.show');
+
 
 
 /*
@@ -48,6 +54,7 @@ Route::get('/tags/{name}', 'App\Http\Controllers\TagController')->name('tags.sho
 |--------------------------------------------------------------------------
 | ユーザー
 */
+
 Route::middleware('auth')->group(function () {
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');

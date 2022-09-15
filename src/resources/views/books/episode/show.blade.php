@@ -25,15 +25,23 @@
                 {{-- 作品タイトル --}}
                 <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
 
-                {{-- お気に入り数と閲覧数 --}}
+                {{-- 再生数 --}}
                 {{-- @empty(!$book) --}}
+                <div class="w-full flex items-center px-2 mb-2">
+                    <div class="flex items-center">
+                        <span class="text-666 text-lg">1,322,200</span>
+                        <span class=" text-aaa pl-2">回再生</span>
+                    </div>
+                </div>
+                {{-- @endempty --}}
+
+                {{-- お気に入り --}}
                 <div class="w-full flex items-center px-2 mb-4">
                     <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
                         endpoint="{{ route('book.like', ['book' => $book]) }}">
                     </book-like>
                 </div>
-                {{-- @endempty --}}
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
@@ -239,109 +247,65 @@
 
 
                     <div class="w-full mx-auto flex flex-col">
-                        {{-- レビュー --}}
-                        {{-- <div class="flex flex-col mb-8 pb-8">
-                            <h3 class="text-lg font-semibold mb-4">レビュー</h3>
-                            <div class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
-                                        <div class="flex flex-col ml-2">
-                                            <span>ミランダカー</span>
-                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
+                        {{-- コメント --}}
+                        <div class="flex flex-col mb-8 pb-8">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold mb-4">エピソードへの応援コメント</h3>
+                                <comment-post-modal>
+                                    <template #trigger>コメントをする</template>
+                                    <template #header>コメントを投稿する</template>
+                                    <form id="submit-form" method="POST"
+                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}">
+                                        @csrf
+                                        <input value="{{ $episode->id }}" type="hidden" name="episode_id" />
+                                        <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                                        <textarea class="w-full h-[300px] rounded-[3px]"
+                                            placeholder="コメントを書いて作品を応援しよう！暴言・誹謗中傷は禁止です。違反した場合はアカウント凍結になりますのでご注意ください。" autocomplete="off" autofocus="on"
+                                            type="text" name="comment"></textarea>
+                                        <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
+                                    </form>
+                                </comment-post-modal>
+                            </div>
+
+                            @foreach ($episode->comments as $comment)
+                                <div id="comment-episode-{{ $episode->id }}"
+                                    class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <a href="{{ route('users.show', ['username' => $comment->user->username]) }}"
+                                                class="flex items-center">
+                                                @empty($comment->user->avatar)
+                                                    <img src="{{ asset('/img/bg.svg') }}" alt=""
+                                                        class="h-8 w-8 rounded-full">
+                                                @else
+                                                    <img src="{{ asset('/img/users/avatar/' . $comment->user->avatar) }}"
+                                                        alt="" class="h-8 w-8 rounded-full">
+                                                @endempty
+                                                <div class="flex flex-col ml-2">
+                                                    <span>{{ $comment->user->name }}</span>
+                                                    <span
+                                                        class="text-xs text-666 dark:text-ddd">{{ $comment->created_at->format('Y/m/d H:i') }}</span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="">
+                                            @if ($comment->user->id == Auth::id())
+                                                <form method="POST"
+                                                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
+                                                    class="text-xs text-666">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-xs text-666">削除する</button>
+                                                </form>
+                                            @endif
                                         </div>
                                     </div>
-                                    <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                        >
-                                        <path
-                                            d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
-                                            fill="#FFA126" />
-                                    </svg>
+                                    <div class="px-4 pt-4 text-666">{{ $comment->comment }}</div>
+                                </div>
+                            @endforeach
+                        </div>
 
-                                </div>
-                                <div class="px-4 pt-4 text-666">
-                                    とても良かったがエロが足りなかった。
-                                </div>
-                            </div>
-                            <div class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
-                                        <div class="flex flex-col ml-2">
-                                            <span>ミランダカー</span>
-                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
-                                        </div>
-                                    </div>
-                                    <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                        >
-                                        <path
-                                            d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
-                                            fill="#FFA126" />
-                                    </svg>
-
-                                </div>
-                                <div class="px-4 pt-4 text-666">
-                                    とても良かったがエロが足りなかった。
-                                </div>
-                            </div>
-                            <div class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <img src="/img/bg.svg" alt="" class="h-8 w-8 rounded-full">
-                                        <div class="flex flex-col ml-2">
-                                            <span>ミランダカー</span>
-                                            <span class="text-xs text-666 dark:text-ddd">2022/08/22</span>
-                                        </div>
-                                    </div>
-                                    <svg width="76" height="16" viewBox="0 0 76 16" fill="none"
-                                        >
-                                        <path
-                                            d="M7.6 0L9.30631 5.25147H14.828L10.3609 8.49706L12.0672 13.7485L7.6 10.5029L3.13283 13.7485L4.83914 8.49706L0.371971 5.25147H5.89369L7.6 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M22.8 0L24.5063 5.25147H30.028L25.5609 8.49706L27.2672 13.7485L22.8 10.5029L18.3328 13.7485L20.0391 8.49706L15.572 5.25147H21.0937L22.8 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M38 0L39.7063 5.25147H45.228L40.7609 8.49706L42.4672 13.7485L38 10.5029L33.5328 13.7485L35.2391 8.49706L30.772 5.25147H36.2937L38 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M53.2 0L54.9063 5.25147H60.428L55.9609 8.49706L57.6672 13.7485L53.2 10.5029L48.7328 13.7485L50.4391 8.49706L45.972 5.25147H51.4937L53.2 0Z"
-                                            fill="#FFA126" />
-                                        <path
-                                            d="M68.4 0L70.1063 5.25147H75.628L71.1609 8.49706L72.8672 13.7485L68.4 10.5029L63.9328 13.7485L65.6391 8.49706L61.172 5.25147H66.6937L68.4 0Z"
-                                            fill="#FFA126" />
-                                    </svg>
-
-                                </div>
-                                <div class="px-4 pt-4 text-666">
-                                    とても良かったがエロが足りなかった。
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
 

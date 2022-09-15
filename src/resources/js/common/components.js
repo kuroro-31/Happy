@@ -7,6 +7,7 @@ import BookEditModal from "../components/books/BookEditModal";
 import CreateModal from "../components/books/CreateModal";
 import DeleteModal from "../components/books/DeleteModal";
 import EditModal from "../components/books/EditModal";
+import CommentPostModal from "../components/books/episodes/comments/CommentPostModal";
 import EpisodeList from "../components/books/episodes/EpisodeList";
 import EpisodeScreen from "../components/books/episodes/EpisodeScreen";
 import UpdateEpisode from "../components/books/episodes/UpdateEpisode";
@@ -26,6 +27,7 @@ export default {
     BasicModal,
     BookTab,
     BookEditModal,
+    CommentPostModal,
     ToastModal,
     EpisodeScreen,
     UpdateEpisode,
