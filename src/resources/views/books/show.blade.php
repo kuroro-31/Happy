@@ -22,34 +22,20 @@
                 {{-- 作品タイトル --}}
                 <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
 
-                {{-- 評価 --}}
-                {{-- @empty(!$book->rate) --}}
+                {{-- お気に入り数と閲覧数 --}}
+                {{-- @empty(!$book) --}}
                 <div class="w-full flex items-center px-2 mb-4">
-                    <span class="text-3xl pr-4">4.8{{ $book->rate }}</span>
-                    <svg width="85" height="17" viewBox="0 0 85 17" fill="none">
-                        <path
-                            d="M8.5 0L10.4084 5.87336L16.584 5.87336L11.5878 9.50329L13.4962 15.3766L8.5 11.7467L3.50383 15.3766L5.41219 9.50329L0.416019 5.87336L6.59163 5.87336L8.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M25.5 0L27.4084 5.87336L33.584 5.87336L28.5878 9.50329L30.4962 15.3766L25.5 11.7467L20.5038 15.3766L22.4122 9.50329L17.416 5.87336L23.5916 5.87336L25.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M42.5 0L44.4084 5.87336L50.584 5.87336L45.5878 9.50329L47.4962 15.3766L42.5 11.7467L37.5038 15.3766L39.4122 9.50329L34.416 5.87336L40.5916 5.87336L42.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M59.5 0L61.4084 5.87336L67.584 5.87336L62.5878 9.50329L64.4962 15.3766L59.5 11.7467L54.5038 15.3766L56.4122 9.50329L51.416 5.87336L57.5916 5.87336L59.5 0Z"
-                            fill="#FFA126" />
-                        <path
-                            d="M76.5 0L78.4084 5.87336L84.584 5.87336L79.5878 9.50329L81.4962 15.3766L76.5 11.7467L71.5038 15.3766L73.4122 9.50329L68.416 5.87336L74.5916 5.87336L76.5 0Z"
-                            fill="#FFA126" />
-                    </svg>
+                    <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                        :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                        endpoint="{{ route('book.like', ['book' => $book]) }}">
+                    </book-like>
                 </div>
                 {{-- @endempty --}}
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
                     <div class="w-full flex flex-col mt-6 px-2">
-                        <button class="btn-border py-3 mb-2">本棚に追加する</button>
+                        <button class="btn-border py-3 mb-2">1話を読む</button>
                         <button class="btn-primary py-3">全話をまとめて購入</button>
                     </div>
                 @else
@@ -79,11 +65,6 @@
                 <div class="px-6 lg:w-2/3">
                     <book-tab>
                         <template #episode>
-                            <div class="w-full flex justify-end mb-2">
-                                @if (Auth::id() !== $book->user_id)
-                                    <div class="btn-border">1話を読む</div>
-                                @endif
-                            </div>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
                                     <div
