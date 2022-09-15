@@ -57,7 +57,8 @@
                 "ms-ceintl.vscode-language-pack-ja",
                 "hollowtree.vue-snippets",
                 "sdras.vue-vscode-snippets",
-                "wscats.vue"
+                "wscats.vue",
+                "nicholashsiang.vscode-vue3-snippets"
             ]
         }
     },

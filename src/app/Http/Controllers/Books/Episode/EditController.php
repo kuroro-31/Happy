@@ -13,9 +13,9 @@ class EditController extends Controller
     /**
      * $episodeにはチャプターコードが入ってきてます
      */
-    public function __invoke($book, $episode)
+    public function __invoke(Book $book, Episode $episode)
     {
-        $episode = episode::where('code', $episode)->first();
+        $episode = Episode::where('code', $episode)->first();
         return view('books.episode.edit', compact('episode'));
     }
 }

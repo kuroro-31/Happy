@@ -16,12 +16,12 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, episode $episode)
+    public function __invoke(Request $request, Episode $episode)
     {
         $episode->book_id = $request->book_id;
         do {
             $code = Str::random(30);
-        } while (episode::where('code', $code)->exists());
+        } while (Episode::where('code', $code)->exists());
         $episode->code = $code;
         $episode->save();
 

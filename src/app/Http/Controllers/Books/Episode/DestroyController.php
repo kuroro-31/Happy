@@ -11,7 +11,7 @@ class DestroyController extends Controller
      * 記事の削除
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
-    public function __invoke(episode $episode)
+    public function __invoke(Episode $episode)
     {
         // $this->authorize('delete', $episode);
         // dd($episode->id);

@@ -97,6 +97,6 @@ class User extends Authenticatable
 
     public function comments(): HasMany
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment', 'comments')->withTimestamps();
     }
 }
