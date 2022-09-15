@@ -22,10 +22,10 @@
                 @click="scroll_next"
                 @keydown="scroll_next"
             >
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M15 19.92L8.47997 13.4C7.70997 12.63 7.70997 11.37 8.47997 10.6L15 4.08002"
-                        stroke="#eee"
+                        stroke="#666"
                         stroke-width="1.5"
                         stroke-miterlimit="10"
                         stroke-linecap="round"
@@ -39,10 +39,10 @@
                 @click="scroll_prev"
                 @keydown="scroll_prev"
             >
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
-                        stroke="#eee"
+                        stroke="#666"
                         stroke-width="1.5"
                         stroke-miterlimit="10"
                         stroke-linecap="round"
@@ -75,25 +75,21 @@
                                 d="M-902.5,259.5L-902.5,259.5c1.4,0,2.5-1.1,2.5-2.5v-22h22c1.4,0,2.5-1.1,2.5-2.5l0,0c0-1.4-1.1-2.5-2.5-2.5h-24.5
 		c-1.4,0-2.5,1.1-2.5,2.5V257C-905,258.4-903.9,259.5-902.5,259.5z"
                                 fill="#ccc"
-                                stroke="#ccc"
                             />
                             <path
                                 d="M-818,317h-22c-1.4,0-2.5,1.1-2.5,2.5l0,0c0,1.4,1.1,2.5,2.5,2.5h24.5c1.4,0,2.5-1.1,2.5-2.5V295c0-1.4-1.1-2.5-2.5-2.5
 		l0,0c-1.4,0-2.5,1.1-2.5,2.5V317z"
                                 fill="#ccc"
-                                stroke="#ccc"
                             />
                             <path
                                 d="M-842.5,232.5L-842.5,232.5c0,1.4,1.1,2.5,2.5,2.5h22v22c0,1.4,1.1,2.5,2.5,2.5l0,0c1.4,0,2.5-1.1,2.5-2.5v-24.5
 		c0-1.4-1.1-2.5-2.5-2.5H-840C-841.4,230-842.5,231.1-842.5,232.5z"
                                 fill="#ccc"
-                                stroke="#ccc"
                             />
                             <path
                                 d="M-902.5,292.5L-902.5,292.5c-1.4,0-2.5,1.1-2.5,2.5v24.5c0,1.4,1.1,2.5,2.5,2.5h24.5c1.4,0,2.5-1.1,2.5-2.5l0,0
 		c0-1.4-1.1-2.5-2.5-2.5h-22v-22C-900,293.6-901.1,292.5-902.5,292.5z"
                                 fill="#ccc"
-                                stroke="#ccc"
                             />
                         </g>
                     </svg>
@@ -119,13 +115,11 @@
                                 points="1.707,36.293 0.293,37.707 26.293,63.707 27.707,62.293 15.414,50 28,37.414 28,46 30,46 30,35 29,34 18,34 18,36
 		26.586,36 14,48.586 	"
                                 fill="#ccc"
-                                stroke="#ccc"
                             />
                             <polygon
                                 points="34,18 34,29 35,30 46,30 46,28 37.414,28 50,15.414 62.293,27.707 63.707,26.293 37.707,0.293 36.293,1.707
 		48.586,14 36,26.586 36,18 	"
                                 fill="#ccc"
-                                stroke="#ccc"
                             />
                         </g>
                     </svg>
@@ -231,9 +225,23 @@ export default {
     @apply max-w-[50vw] object-contain duration-300;
 }
 .btn-next {
-    @apply absolute opacity-0 hover:opacity-100 left-0 top-0 bottom-0 outline-none flex items-center pl-12 pr-96;
+    @apply absolute z-10 left-0 top-0 bottom-0 outline-none flex items-center pl-12 pr-96;
+    &:hover {
+        svg {
+            path {
+                stroke: white !important;
+            }
+        }
+    }
 }
 .btn-prev {
-    @apply absolute opacity-0 hover:opacity-100 right-0 top-0 bottom-0 outline-none flex items-center pr-12 pl-96;
+    @apply absolute z-10 right-0 top-0 bottom-0 outline-none flex items-center pr-12 pl-96;
+    &:hover {
+        svg {
+            path {
+                stroke: white !important;
+            }
+        }
+    }
 }
 </style>
