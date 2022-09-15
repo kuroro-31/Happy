@@ -219,24 +219,6 @@ img {
     }
 }
 
-.carousel__icon {
-    fill: $color !important;
-    display: flex !important;
-    flex-shrink: 0 !important;
-}
-.carousel__next,
-.carousel__prev {
-    background: white !important;
-    border-radius: 8px !important;
-    border: 1px solid #ccc !important;
-    padding: 1.25rem !important;
-}
-
-// .carousel__prev--in-active,
-// .carousel__next--in-active {
-//     display: none !important;
-// }
-
 // $img-h: 250px;
 // $img-w: calc($img-h * 0.7);
 $img-h: 200px;
