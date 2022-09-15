@@ -22,15 +22,23 @@
                 {{-- 作品タイトル --}}
                 <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
 
-                {{-- お気に入り数と閲覧数 --}}
+                {{-- 再生数 --}}
                 {{-- @empty(!$book) --}}
+                <div class="w-full flex items-center px-2 mb-2">
+                    <div class="flex items-center">
+                        <span class="text-666 text-lg">1,322,200</span>
+                        <span class=" text-aaa pl-2">回再生</span>
+                    </div>
+                </div>
+                {{-- @endempty --}}
+
+                {{-- お気に入り --}}
                 <div class="w-full flex items-center px-2 mb-4">
                     <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
                         endpoint="{{ route('book.like', ['book' => $book]) }}">
                     </book-like>
                 </div>
-                {{-- @endempty --}}
 
                 @if (Auth::id() !== $book->user_id)
                     {{-- 読者だったら --}}
