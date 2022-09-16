@@ -56,7 +56,9 @@ cache-clear:
 	php artisan event:clear
 route:
 	php artisan route:list
-w:
-	npm run watch-poll
+dev:
+	npm run dev
 lint:
 	npm run lint
+reset:
+	rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i
