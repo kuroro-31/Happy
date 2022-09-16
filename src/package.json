@@ -14,7 +14,6 @@
         "eslint-plugin-vue": "^7.20.0",
         "laravel-echo": "^1.11.7",
         "lodash": "^4.17.19",
-        "postcss": "^8.4.13",
         "pusher-js": "^7.1.1-beta",
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.32.11",
@@ -23,6 +22,7 @@
     },
     "dependencies": {
         "vue": "^3.2.33",
+        "postcss": "^8.4.13",
         "vue-loader": "^17.0.0",
         "@vitejs/plugin-vue": "^3.1.0",
         "autoprefixer": "^10.4.11",
