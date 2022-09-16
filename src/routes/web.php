@@ -17,6 +17,23 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
+| Others
+|--------------------------------------------------------------------------
+| その他
+*/
+// 利用規約
+Route::get('/terms_of_service', 'App\Http\Controllers\Others\TermsOfServiceController')->name('others.terms');
+// プライバシーポリシー
+Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyController')->name('others.privacy');
+// 特許商取引
+Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
+// お問い合せ
+Route::get('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
+
+
+
+/*
+|--------------------------------------------------------------------------
 | Books Routes
 |--------------------------------------------------------------------------
 | 投稿
