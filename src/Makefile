@@ -58,6 +58,8 @@ route:
 	php artisan route:list
 dev:
 	npm run dev
+build:
+	npm run build
 lint:
 	npm run lint
 reset:
