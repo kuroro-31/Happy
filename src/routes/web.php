@@ -19,7 +19,7 @@ Auth::routes();
 |--------------------------------------------------------------------------
 | Others
 |--------------------------------------------------------------------------
-| その他
+|
 */
 // 利用規約
 Route::get('/terms_of_service', 'App\Http\Controllers\Others\TermsOfServiceController')->name('others.terms');
@@ -43,7 +43,6 @@ Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index'
 Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')->name('store');
-        Route::get('/create', 'App\Http\Controllers\Books\CreateController')->name('create');
         Route::delete('/{book}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
         Route::patch('/{book}', 'App\Http\Controllers\Books\UpdateController')->name('update');
         Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
