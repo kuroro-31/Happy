@@ -202,7 +202,7 @@
                             @endempty
 
                             {{-- タグ --}}
-                            @empty(!$book->tags)
+                            @if(count($book->tags) > 0)
                                 <div class="w-full flex items-start pl-2">
                                     <div class="w-1/2">タグ</div>
                                     <div class="w-1/2 flex flex-wrap items-center">
@@ -218,7 +218,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                            @endempty
+                            @endif
                         </template>
                     </book-tab>
 
