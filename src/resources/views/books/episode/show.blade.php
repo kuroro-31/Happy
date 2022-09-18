@@ -23,7 +23,8 @@
                 @endempty
 
                 {{-- 作品タイトル --}}
-                <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
+                <a href="{{ route('book.show', ['book' => $book->code]) }}"
+                    class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</a>
 
                 {{-- 再生数 --}}
                 {{-- @empty(!$book) --}}
