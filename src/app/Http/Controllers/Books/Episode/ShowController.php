@@ -20,9 +20,9 @@ class ShowController extends Controller
      */
     public function __invoke($book, $episode)
     {
-        $book = Book::where('code', $book)->first();
+        $book = Book::where('id', $book)->first();
         $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
-        $story = Episode::where('code', $episode)->first();
+        $story = Episode::where('id', $episode)->first();
         $counts = count($episodes); // 話数の番号
         $book_views = count($book->episodes()->where('is_read', true)->get());
 

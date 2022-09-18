@@ -13,7 +13,7 @@ class ShowController extends Controller
      */
     public function __invoke(string $book)
     {
-        $book = Book::where('code', $book)->first(); // 特定の本のidを取得
+        $book = Book::where('id', $book)->first(); // 特定の本のidを取得
         $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
         $counts = count($episodes); // 話数の番号
         $book_views = count($book->episodes()->where('is_read', true)->get());
