@@ -23,7 +23,7 @@
                 @endempty
 
                 {{-- 作品タイトル --}}
-                <a href="{{ route('book.show', ['book' => $book->code]) }}"
+                <a href="{{ route('book.show', ['book' => $book->id]) }}"
                     class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</a>
 
                 {{-- 再生数 --}}
@@ -89,7 +89,7 @@
                                 @foreach ($episodes as $episode)
                                     <div
                                         class=" hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                        <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                        <a href="{{ route('book.episode.show', ['book' => $book->id, 'episode' => $episode->id]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
@@ -149,7 +149,7 @@
                                                         </svg>
                                                     </div>
                                                 </template>
-                                                {{-- <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                {{-- <a href="{{ route('book.episode.edit', ['book' => $book->id, 'episode' => $episode->id]) }}"
                                                     class="">
                                                     <svg class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -169,7 +169,7 @@
                                                         </template>
                                                         <template #header>エピソードの削除</template>
                                                         <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                            action="{{ route('book.episode.destroy', ['book' => $book->id, 'episode' => $episode->id]) }}"
                                                             class="p-2 rounded">
                                                             @csrf
                                                             @method('DELETE')
