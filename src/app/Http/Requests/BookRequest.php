@@ -4,11 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-// 記事投稿画面や記事更新画面から送信された記事タイトルや記事本文のバリデーション
+// 作品投稿画面や作品更新画面から送信された作品タイトルや作品本文のバリデーション
 class BookRequest extends FormRequest
 {
     /**
-     * リクエストの対象となるリソース(ここでは記事)をユーザーが更新して良いかどうかを判定
+     * リクエストの対象となるリソース(ここでは作品)をユーザーが更新して良いかどうかを判定
      *
      * @return bool
      */
@@ -25,18 +25,8 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
-
-
-
-
-
-
-
-
-
-
             'title' => 'required|max:50',
-            'body' => 'required|max:500',
+            'story' => 'required|max:500',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
@@ -46,7 +36,7 @@ class BookRequest extends FormRequest
     {
         return [
             'title' => 'タイトル',
-            'body' => '本文',
+            'story' => '本文',
             'tags' => 'タグ',
         ];
     }

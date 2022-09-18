@@ -3,7 +3,7 @@
         <transition name="toast">
             <div
                 :class="[
-                    success || error
+                    (show && success) || (show && error)
                         ? 'block toast-enter-active'
                         : 'toast-leave-to toast-leave-active',
                 ]"
@@ -12,13 +12,12 @@
                     <div
                         class="check"
                         :class="{
-                            'check-success': success,
-                            'check-danger': error,
+                            'check-success': show && success,
+                            'check-danger': show && error,
                         }"
                     >
                         <template v-if="success">
                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
                                 class="h-4 w-4"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -34,7 +33,6 @@
                         </template>
                         <template v-else>
                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
                                 class="h-4 w-4"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -49,13 +47,11 @@
                             </svg>
                         </template>
                     </div>
-                    <div class="mr-4 font-bold text-sm">
-                        <template v-if="success">保存しました</template>
-                        <template v-else-if="error">失敗しました</template>
+                    <div class="mx-4 font-bold text-xs">
+                        {{ message }}
                     </div>
-                    <div class="cursor-pointer" @click="show = !show">
+                    <div class="cursor-pointer" @click="show = false">
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -77,7 +73,7 @@
 export default {
     data() {
         return {
-            show: false,
+            show: true,
         };
     },
     props: {
@@ -87,32 +83,31 @@ export default {
         success: {
             type: Boolean,
         },
+        message: {
+            type: String,
+        },
     },
 };
 </script>
 <style lang="scss" scoped>
 .toast {
-    @apply ml-auto  flex items-center w-full justify-between p-4;
-    max-width: 300px;
-    background: #fff;
+    @apply ml-auto flex bg-white items-center w-full justify-between p-4 shadow-lg;
     &-wrapper {
-        @apply fixed w-full;
-        bottom: 20px;
-        right: 20px;
+        @apply fixed z-50 bottom-[20px] right-[20px];
     }
 }
 
 /* enter transitions */
 .toast-enter-active {
-    animation: wobble 0.2s ease;
+    animation: wobble 0.3s ease;
 }
 /* leave transitions */
 .toast-leave-to {
-    opacity: 0;
+    @apply opacity-0;
     transform: translateY(60px) !important;
 }
 .toast-leave-active {
-    transition: all 0.3s ease !important;
+    transition: all 0.2s ease !important;
 }
 
 @keyframes wobble {
@@ -147,17 +142,15 @@ export default {
 }
 
 .check {
-    @apply rounded-full flex items-center justify-center;
-    width: 20px;
-    height: 20px;
+    @apply rounded-full w-[20px] h-[20px] flex items-center justify-center;
     &-success {
-        background: #02875a;
+        @apply bg-[#02875a];
     }
     &-danger {
-        background: #de290e;
+        @apply bg-[#de290e];
     }
     svg {
-        color: #fff;
+        @apply text-white;
     }
 }
 </style>

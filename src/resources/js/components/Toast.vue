@@ -21,7 +21,6 @@
                     >
                         <template v-if="success">
                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
                                 class="h-4 w-4"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -37,7 +36,6 @@
                         </template>
                         <template v-else>
                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
                                 class="h-4 w-4"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -57,7 +55,6 @@
                     </div>
                     <div class="cursor-pointer" @click="show = !show">
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5"
                             viewBox="0 0 24 24"
                             stroke="currentColor"

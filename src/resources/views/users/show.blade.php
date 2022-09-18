@@ -1,32 +1,33 @@
 @extends('app')
 
-@section('title', $user->name)
+@section('title', $user->name . 'さんのプロフィール')
 
 @section('content')
-  @include('_patials._nav')
-  <div class="">
-    @include('users._patials.user')
-  </div>
-  <div class="flex max-w-5xl w-full mx-auto px-8 md:px-0 justify-center">
-
-    <div class="w-full md:w-1/5 mb-4">
-      @include('users._patials.tabs', [
-          'hasBooks' => true,
-          'hasLikes' => false,
-          'about' => false,
-      ])
+    @include('_patials._nav')
+    <div class="bg-white dark:bg-dark">
+        @include('users._patials.user')
     </div>
-    <div class="w-full md:w-4/5 rounded-lg md:ml-8 flex flex-wrap justify-start">
-      @if ($books->count())
-        @foreach ($books as $book)
-          @include('books._patials.card')
-        @endforeach
-      @else
-        <div>投稿はありません</div>
-      @endif
+    <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
+        <div class="w-full mx-12">
+            <div class="w-full flex flex-wrap">
+                @if (Auth::id() === $user->id)
+                    <create-modal>
+                        <template #header>新しく作品を投稿する</template>
+                        @include('_patials._error_card_list')
+                        <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
+                            @include('books._patials.form')
+                            <div class="w-full flex justify-end"><button id="submit-btn" type="submit"
+                                    class="btn">投稿する</button></div>
+                        </form>
+                    </create-modal>
+                @endif
 
-      {{-- ページネーション --}}
-      {{ $books->links() }}
+                @if ($books->count())
+                    @foreach ($books as $book)
+                        @include('users._patials.card')
+                    @endforeach
+                @endif
+            </div>
+        </div>
     </div>
-  </div>
 @endsection

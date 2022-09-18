@@ -10,7 +10,7 @@ create-project:
 	@make up
 	@make laravel-install
 	docker compose exec app php artisan key:generate
-	docker compose exec app php artisan storage:link
+	docker compose exec app php artisan storage:link --force
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make fresh
 install-recommend-packages:
@@ -24,11 +24,15 @@ install-recommend-packages:
 	docker compose exec app php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 init:
 	docker compose up -d --build
+	docker compose exec app composer self-update
+	docker compose exec app composer update
 	docker compose exec app composer install
 	docker compose exec app cp .env.example .env
 	docker compose exec app php artisan key:generate
-	docker compose exec app php artisan storage:link
+	docker compose exec app php artisan storage:link --force
 	docker compose exec app chmod -R 777 storage bootstrap/cache
+	@make cache
+	docker compose exec app php artisan migrate --seed
 remake:
 	@make destroy
 	@make init
@@ -75,8 +79,7 @@ seed:
 	docker compose exec app php artisan db:seed
 dacapo:
 	docker compose exec app php artisan dacapo
-rollback-test:
-	docker compose exec app php artisan migrate:fresh
+refresh:
 	docker compose exec app php artisan migrate:refresh
 tinker:
 	docker compose exec app php artisan tinker
@@ -101,6 +104,12 @@ sql:
 	docker compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
 	docker compose exec redis redis-cli
+composer-clear:
+	docker compose exec app rm -Rf vendor/
+	docker compose exec app rm composer.lock
+	docker compose exec app composer self-update
+	docker compose exec app composer update
+	docker compose exec app composer install
 reset:
 	rm -rf node_modules
 	rm package-lock.json

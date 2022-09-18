@@ -1,35 +1,43 @@
-import ToastModal from "../components/atoms/ToastModal";
-import AuthModal from "../components/auth/AuthModal";
-import BookLike from "../components/BookLike";
-import BestSeller from "../components/books/BestSeller";
-import ChapterList from "../components/books/chapters/ChapterList";
-import UpdateChapter from "../components/books/chapters/UpdateChapter";
-import CreateModal from "../components/books/CreateModal";
-import DeleteModal from "../components/books/DeleteModal";
-import EditModal from "../components/books/EditModal";
-import RankingItems from "../components/books/RankingItems";
-import BookTagsInput from "../components/BookTagsInput";
-import CountAnimation from "../components/CountAnimation";
-import FollowButton from "../components/FollowButton";
-import HeaderNav from "../components/HeaderNav";
-import HeaderUserModal from "../components/HeaderUserModal";
-import Modal from "../components/Modal";
-import ThemeToggle from "../components/ThemeToggle";
-import AvatarZoom from "../components/users/AvatarZoom";
-import EditUserModal from "../components/users/EditUserModal";
-import FollowModal from "../components/users/FollowModal";
-import ThumbnailZoom from "../components/users/ThumbnailZoom";
+import BasicModal from "../components/atoms/BasicModal.vue";
+import BookTab from "../components/atoms/BookTab.vue";
+import ToastModal from "../components/atoms/ToastModal.vue";
+import AuthModal from "../components/auth/AuthModal.vue";
+import BookLike from "../components/BookLike.vue";
+import BookEditModal from "../components/books/BookEditModal.vue";
+import CreateModal from "../components/books/CreateModal.vue";
+import DeleteModal from "../components/books/DeleteModal.vue";
+import EditModal from "../components/books/EditModal.vue";
+import CommentPostModal from "../components/books/episodes/comments/CommentPostModal.vue";
+import EpisodeList from "../components/books/episodes/EpisodeList.vue";
+import EpisodeScreen from "../components/books/episodes/EpisodeScreen.vue";
+import UpdateEpisode from "../components/books/episodes/UpdateEpisode.vue";
+import BookTagsInput from "../components/BookTagsInput.vue";
+import CountAnimation from "../components/CountAnimation.vue";
+import FollowButton from "../components/FollowButton.vue";
+import HeaderUserModal from "../components/HeaderUserModal.vue";
+import HoverMenu from "../components/HoverMenu.vue";
+import Modal from "../components/Modal.vue";
+import ThemeToggle from "../components/ThemeToggle.vue";
+import AvatarZoom from "../components/users/AvatarZoom.vue";
+import EditUserModal from "../components/users/EditUserModal.vue";
+import FollowModal from "../components/users/FollowModal.vue";
+import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
+
 export default {
+    BasicModal,
+    BookTab,
+    BookEditModal,
+    CommentPostModal,
     ToastModal,
-    UpdateChapter,
-    ChapterList,
+    EpisodeScreen,
+    UpdateEpisode,
+    EpisodeList,
     ThumbnailZoom,
-    BestSeller,
-    RankingItems,
     FollowModal,
     AvatarZoom,
     AuthModal,
     DeleteModal,
+    HoverMenu,
     CreateModal,
     CountAnimation,
     HeaderUserModal,
@@ -39,6 +47,5 @@ export default {
     BookLike,
     BookTagsInput,
     FollowButton,
-    HeaderNav,
     Modal,
 };

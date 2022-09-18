@@ -11,16 +11,20 @@ class Book extends Model
 {
     protected $fillable = [
         'title',
-        'body',
+        'author',
+        'manga_artist',
+        'assistant',
+        'story',
+        'thumbnail',
     ];
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function chapters(): HasMany
+    public function episodes(): HasMany
     {
-        return $this->hasMany('App\Models\Chapter');
+        return $this->hasMany('App\Models\Episode');
     }
 
     public function likes(): BelongsToMany

@@ -5,7 +5,6 @@
                 <header class="modal-header">
                     <button class="close" @click="$emit('close')">
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -73,19 +72,6 @@
     &-footer {
         @apply rounded-b-lg py-4 px-6;
         background-color: var(--bg);
-    }
-}
-
-.close {
-    @apply absolute p-2 duration-300 cursor-pointer;
-    color: var(--color);
-    background-color: var(--bg);
-    top: -10px;
-    right: -10px;
-    border-radius: 0.358rem;
-    &:hover {
-        top: -7px;
-        right: -7px;
     }
 }
 

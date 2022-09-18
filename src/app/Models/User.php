@@ -27,11 +27,11 @@ class User extends Authenticatable
         'name',
         'username',
         'email',
-        'body',
-        'password',
         'avatar',
         'thumbnail',
-        'website'
+        'website',
+        'body',
+        'password',
     ];
 
     /**
@@ -58,26 +58,55 @@ class User extends Authenticatable
         $this->notify(new PasswordResetNotification($token, new BareMail()));
     }
 
+    /**
+     * 作品
+     *
+     */
     public function books(): HasMany
     {
         return $this->hasMany('App\Models\Book');
     }
 
+    /**
+     * フォロワー
+     *
+     */
     public function followers(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
     }
 
+    /**
+     * フォロー
+     *
+     */
     public function followings(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
+    /**
+     * コメント
+     *
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany('App\Models\Comment', 'comments')->withTimestamps();
+    }
+
+    /**
+     * お気に入り
+     *
+     */
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Book', 'likes')->withTimestamps();
     }
 
+    /**
+     * フォローされているか
+     *
+     */
     public function isFollowedBy(?User $user): bool
     {
         return $user
@@ -85,11 +114,19 @@ class User extends Authenticatable
             : false;
     }
 
+    /**
+     * フォロワーの数
+     *
+     */
     public function getCountFollowersAttribute(): int
     {
         return $this->followers->count();
     }
 
+    /**
+     * フォローの数
+     *
+     */
     public function getCountFollowingsAttribute(): int
     {
         return $this->followings->count();

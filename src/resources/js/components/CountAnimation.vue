@@ -1,5 +1,5 @@
 <template>
-    <span :class="{ liked: isLikedBy }" class="text-sm">{{
+    <span :class="{ liked: isLikedBy }" class="text-sm text-aaa">{{
         animated_number
     }}</span>
 </template>

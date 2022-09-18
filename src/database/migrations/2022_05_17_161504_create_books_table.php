@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('body', 400);
-            $table->string('thumbnail')->nullable();
-            $table->unsignedbigInteger('user_id');
-            $table->timestamps();
+            $table->string('title'); // 作品名
+            $table->string('author')->nullable(); // 原作者
+            $table->string('manga_artist')->nullable(); // 漫画家
+            $table->integer('rate')->nullable(); // 評価
+            $table->json('assistant')->nullable(); // 漫画家
+            $table->text('story', 400)->nullable(); // あらすじ
+            $table->string('thumbnail')->nullable(); // 作品サムネイル
 
+            $table->timestamps();
+            $table->unsignedbigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

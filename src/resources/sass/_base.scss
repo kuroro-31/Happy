@@ -2,9 +2,11 @@
     box-sizing: border-box !important;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap");
+
 body {
     @apply bg-white-1 dark:bg-dark text-t-color dark:text-t-d-color;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Noto Sans JP";
     font-size: 14px;
 }
 
@@ -18,47 +20,65 @@ h1 {
     // font-family: "Lobster", cursive;
 }
 
+// ダウンロードブロック
+img {
+    pointer-events: none !important;
+}
+
 .st {
     font-family: "Reggae One", cursive;
 }
 
 .sr-only {
-    position: absolute;
+    @apply absolute p-0 overflow-hidden whitespace-nowrap;
     width: 1px;
     height: 1px;
-    padding: 0;
     margin: -1px;
-    overflow: hidden;
     clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
     border-width: 0;
 }
 
+.scroll-none {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    list-style: none !important;
+    &::-webkit-scrollbar {
+        display: none !important;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #a8bbbf;
+    }
+}
+
 .profile-img {
-    @apply object-cover max-w-full min-w-full rounded;
+    @apply object-cover max-w-full min-w-full rounded-sm;
     @screen md {
         min-height: 250px;
         max-height: 250px;
     }
 }
 
+.btn {
+    @apply cursor-pointer font-semibold whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 bg-transparent border border-primary dark:bg-primary dark:hover:bg-opacity-90 dark:text-white py-2 px-6;
+    border-radius: 3px;
+}
 .btn-primary {
     @apply cursor-pointer whitespace-nowrap text-sm bg-primary hover:bg-opacity-90 text-white py-2 px-6;
     border-radius: 3px;
 }
 .btn-border {
-    @apply cursor-pointer whitespace-nowrap text-sm dark:bg-dark-2 dark:hover:text-white py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 bg-transparent border border-primary dark:bg-primary dark:hover:bg-opacity-90 dark:text-white py-2 px-6;
     border-radius: 3px;
 }
 .btn-sub {
-    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-gray-2 hover:bg-gray-3 rounded py-2 px-6;
+    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-white hover:bg-eee rounded-sm py-2 px-4;
     // background: ;
     // &:hover {
     //     background: #e4e6eb;
     // }
 }
 .btn-danger {
-    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded py-2 px-6;
+    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded-sm py-2 px-6;
 }
 
 .top-hero {
@@ -121,16 +141,16 @@ h1 {
 }
 
 .tag-hero {
-    @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
+    @apply relative flex w-full mx-auto justify-center items-center overflow-hidden;
     &-img {
-        @apply max-w-4xl w-full relative rounded;
-        img {
-            @apply w-full mx-auto object-cover rounded;
-            max-height: 200px;
-        }
+        @apply w-full relative lg:h-[350px];
         &-bg {
-            @apply absolute top-0 right-0 left-0 bottom-0 w-full h-full rounded;
-            background: rgba(#5367ed, 0.5);
+            @apply absolute top-0 right-0 left-0 bottom-0 mx-[-200px] px-[200px] overflow-hidden;
+            border-bottom-left-radius: 2000px 350px;
+            border-bottom-right-radius: 2000px 350px;
+            img {
+                @apply min-w-[2000px] min-h-[1000px] absolute top-0 right-0 left-0 bottom-0 w-full h-full object-cover;
+            }
         }
     }
 }
@@ -141,12 +161,12 @@ h1 {
 }
 
 .overlay {
-    @apply fixed top-0 left-0 flex items-center justify-center bg-dark-blue bg-opacity-30 dark:bg-dark dark:bg-opacity-70 w-full h-full;
+    @apply fixed top-0 left-0 flex bg-[#0A2140] bg-opacity-50 items-center justify-center w-full h-full;
     z-index: 9999 !important;
 }
 
 .window {
-    @apply absolute rounded p-4 bg-white dark:bg-dark-1;
+    @apply absolute rounded-sm bg-white dark:bg-dark-1;
     max-width: 600px;
     @screen lg {
         width: 600px;
@@ -161,9 +181,6 @@ h1 {
         img {
             @apply rounded;
         }
-        @screen lg {
-            width: 600px;
-        }
         @media screen and (max-width: 767px) {
             max-width: 90%;
         }
@@ -171,31 +188,25 @@ h1 {
 }
 
 .close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer;
-    color: var(--color);
-    background-color: var(--bg);
+    @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-1 p-2 rounded duration-300 cursor-pointer shadow;
     top: -10px;
     right: -10px;
     &:hover {
+        @apply shadow-lg;
         top: -7px;
         right: -7px;
+    }
+    svg {
+        @apply dark:fill-ddd;
     }
 }
 
 .avatar {
-    @apply rounded-full object-cover flex flex-shrink-0;
-    min-width: 160px;
-    min-height: 160px;
-    max-width: 160px;
-    max-height: 160px;
-}
-
-.edit-user-modal {
-    @apply absolute bottom-4 right-4;
-    form {
-        @apply overflow-y-auto p-4;
-        max-height: 80vh;
-    }
+    @apply rounded-full object-cover flex flex-shrink-0 border-4 border-white dark:border-dark;
+    min-width: 170px;
+    min-height: 170px;
+    max-width: 170px;
+    max-height: 170px;
 }
 
 .card-body {
@@ -205,26 +216,10 @@ h1 {
     }
 }
 
-.carousel__icon {
-    fill: $color !important;
-    display: flex !important;
-    flex-shrink: 0 !important;
-}
-.carousel__next,
-.carousel__prev {
-    background: white !important;
-    border-radius: 8px !important;
-    border: 1px solid #ccc !important;
-    padding: 1.25rem !important;
-}
-
-// .carousel__prev--in-active,
-// .carousel__next--in-active {
-//     display: none !important;
-// }
-
-$img-h: 250px;
-$img-w: calc($img-h * 0.7);
+// $img-h: 250px;
+// $img-w: calc($img-h * 0.7);
+$img-h: 200px;
+$img-w: 200px;
 .thumbnail {
     @apply object-cover cursor-pointer;
     height: $img-h;
@@ -240,16 +235,7 @@ $img-w: calc($img-h * 0.7);
 }
 
 .book-show {
-    @apply w-full relative overflow-hidden flex items-center justify-center;
-    height: 500px;
-    &-bg {
-        @apply absolute w-full h-full;
-        background: rgba(0, 0, 0, 0.7);
-        &-img {
-            @apply w-full h-full object-cover;
-            filter: blur(10px);
-        }
-    }
+    @apply w-full h-full bg-white relative overflow-hidden flex items-center justify-center;
     &-contents {
         @apply z-10 absolute flex items-center justify-center mx-auto;
         img {
@@ -283,7 +269,51 @@ $img-w: calc($img-h * 0.7);
 
 button:disabled,
 button[disabled] {
-    @apply cursor-not-allowed duration-200 shadow-none;
+    @apply cursor-not-allowed duration-200 shadow-none border-none;
     background-color: #eee !important;
     color: white !important;
+}
+
+.header-search-input {
+    input {
+        width: 500px;
+        border-radius: 3px;
+    }
+}
+
+.list-item {
+    @apply relative mb-4 list-none;
+    width: calc(20% - 10px);
+    margin-right: 5px;
+    margin-left: 5px;
+    &-img {
+        @apply w-[200px] h-[200px] object-cover flex-shrink-0;
+        @media screen and (min-width: 1600px) {
+            @apply w-[230px] h-[230px];
+        }
+        @media screen and (min-width: 1700px) {
+            @apply w-[240px] h-[240px];
+        }
+        @media screen and (min-width: 1800px) {
+            @apply w-[250px] h-[250px];
+        }
+        @media screen and (min-width: 1900px) {
+            @apply w-[260px] h-[260px];
+        }
+        @media screen and (min-width: 2000px) {
+            @apply w-[270px] h-[270px];
+        }
+    }
+}
+
+.ti-input {
+    @apply dark:bg-dark;
+    border: none !important;
+}
+.ti-valid,
+.ti-new-tag-input {
+    @apply dark:bg-dark;
+}
+.ti-selected-item {
+    background: var(--primary) !important;
 }

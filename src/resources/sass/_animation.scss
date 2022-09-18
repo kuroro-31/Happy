@@ -81,48 +81,9 @@
         background-color: #e5305c;
     }
 }
-
-// オーバーレイのトランジション
-.modal-enter-active,
-.modal-leave-active {
-    transition: opacity 0.2s;
-
-    // オーバーレイに包含されているモーダルウィンドウのトランジション
-    .window {
-        // transition: opacity 0.3s, transform 0.3s;
-        transition: opacity 0.2s, transform 0.2s;
-    }
-}
-.modal-enter-active {
-    .window {
-        // animation: bounce-in 0.3s;
-        animation: bounce-in 0.2s;
-    }
-}
-// ディレイを付けるとモーダルウィンドウが消えた後にオーバーレイが消える
-.modal-leave-active {
-    // transition: opacity 0.3s ease 0.2s;
-    // .modal-window {
-    //   animation: bounce-in 0.3s reverse;
-    // }
-    transition: ease 0.2s;
-    .window {
-        animation: bounce-in 0.2s reverse;
-    }
-}
-
-.modal-enter,
-.modal-leave-to {
-    opacity: 0;
-
-    .window {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
 @keyframes slide {
     0% {
-        transform: translateY(15px);
+        transform: translateY(30px);
         opacity: 0;
     }
     100% {
@@ -130,10 +91,16 @@
         opacity: 1;
     }
 }
-.slide-animation {
-    animation: slide 0.2s ease;
+@keyframes slide-out {
+    0% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(30px);
+        opacity: 1;
+    }
 }
-
 @keyframes slide-in {
     0% {
         transform: translateX(-30px);
@@ -142,5 +109,30 @@
     100% {
         transform: translateX(0px);
         opacity: 1;
+    }
+}
+
+.slide-animation {
+    animation: slide 0.2s ease;
+}
+
+/* enter transitions */
+.modal-enter-active {
+    transition: opacity 0.1s ease 0.2s;
+    .window {
+        animation: slide 0.2s;
+    }
+}
+.modal-leave-active {
+    transition: all ease 0.2s;
+    .window {
+        transform: translateY(30px) !important;
+    }
+}
+/* leave transitions */
+.modal-leave-to {
+    opacity: 0;
+    .window {
+        opacity: 0;
     }
 }

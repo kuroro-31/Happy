@@ -16,14 +16,9 @@ install-recommend-packages:
 	composer require --dev roave/security-advisories:dev-master
 	php artisan vendor:publish --provider="BeyondCode\DumpServer\DumpServerServiceProvider"
 	php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
-init:
-	docker compose up -d --build
-	composer install
-	cp .env.example .env
-	php artisan key:generate
-	php artisan storage:link
-	chmod -R 777 storage bootstrap/cache
-	@make fresh
+run:
+	npm i
+	npm run dev && npm run watch-poll
 migrate:
 	php artisan migrate
 fresh:
@@ -31,7 +26,9 @@ fresh:
 refresh:
 	php artisan migrate:refresh --seed
 seed:
-	php artisan db:seed
+	php artisan migrate:fresh
+	php artisan db:seed --class UserSeeder
+	php artisan db:seed --class BookSeeder
 dacapo:
 	php artisan dacapo
 tinker:
@@ -48,7 +45,10 @@ cache:
 	@make optimize
 	@make optimize-clear
 	php artisan event:cache
+	php artisan cache:clear
+	php artisan config:clear
 	php artisan view:cache
+	php artisan route:cache
 	@make cache-clear
 cache-clear:
 	composer clear-cache
@@ -56,7 +56,11 @@ cache-clear:
 	php artisan event:clear
 route:
 	php artisan route:list
-w:
-	npm run watch-poll
+dev:
+	npm run dev
+build:
+	npm run build
 lint:
 	npm run lint
+reset:
+	rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i

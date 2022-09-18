@@ -1,6 +1,6 @@
 <template>
     <div @click.self="open = false">
-        <div @click="open = true" class="btn-primary">投稿する</div>
+        <div @click="open = true" class="btn">投稿する</div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div class="window absolute rounded p-4 bg-white dark:bg-dark">
@@ -37,17 +37,6 @@ export default {
     max-width: 600px;
     @media screen and (max-width: 767px) {
         max-width: 90%;
-    }
-}
-.close {
-    @apply absolute p-2 rounded duration-300 cursor-pointer;
-    color: var(--color);
-    background-color: var(--bg);
-    top: -10px;
-    right: -10px;
-    &:hover {
-        top: -7px;
-        right: -7px;
     }
 }
 // オーバーレイのトランジション
