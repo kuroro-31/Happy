@@ -9,7 +9,7 @@ use App\Models\Tag;
 class ShowController extends Controller
 {
     /**
-     * 記事の詳細
+     * 作品の詳細
      */
     public function __invoke(string $book)
     {
