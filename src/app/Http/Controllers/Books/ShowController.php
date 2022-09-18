@@ -16,6 +16,7 @@ class ShowController extends Controller
         $book = Book::where('code', $book)->first(); // 特定の本のidを取得
         $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
         $counts = count($episodes); // 話数の番号
+        $book_views = count($book->episodes()->where('is_read', true)->get());
 
         $tagNames = $book->tags->map(function ($tag) {
             return ['text' => $tag->name];
@@ -30,6 +31,7 @@ class ShowController extends Controller
             'counts' => $counts,
             'tagNames' => $tagNames,
             'allTagNames' => $allTagNames,
+            'book_views' => $book_views
         ]);
     }
 }
